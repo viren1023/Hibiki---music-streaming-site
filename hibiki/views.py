@@ -24,7 +24,7 @@ def login_view(request):
         except User.DoesNotExist:
             messages.error(request, "Invalid username or password")
             return redirect("login")
-        return redirect("/")  # Homepage after successful login
+        return redirect("home")  # Homepage after successful login
         
     return render(request, "login.html")
 
@@ -50,6 +50,28 @@ def register_view(request):
         user = User.objects.create(username=username, password=password, email=email)
         user.save()
         # login(request, user)  # Auto-login after registration
-        return redirect("/")  # Homepage
+        return redirect("home")  # Homepage
 
     return render(request, "register.html")
+
+def home(request):
+    context = {
+        "username": "username",
+        "playlists": [
+            {"title": "Study Beats", "tag": "Chill"},
+            {"title": "Rainy Morning", "tag": "Jazzy"},
+            {"title": "Skate Punk", "tag": "Weekend"},
+            {"title": "Folk Music", "tag": "Traditional"},
+        ],
+        "recommendations": [
+            {"title": "Artists", "tag": "Your Top"},
+            {"title": "Pop Music", "tag": "Best Of"},
+            {"title": "2022", "tag": "Your Year"},
+        ],
+        "popular_songs": [
+            {"title": "Call Living", "artist": "Tom", "image": "tom.jpg"},
+            {"title": "On The Top", "artist": "Alma", "image": "alma.jpg"},
+            {"title": "Together", "artist": "Jonas&Jonas", "image": "jonas.jpg"},
+        ],
+    }
+    return render(request, "home.html", context)

@@ -1,164 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Login</title>
-    <style>
-        body {
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: Arial, sans-serif;
-        background-color: #000;
-        overflow: hidden;
-        position: relative;
-      }
 
-      /* background layer with blur */
-      body::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4") no-repeat center center/cover;
-        filter: blur(12px); /* this blurs the whole background */
-        transform: scale(1.1); /* avoids cutoff edges after blur */
-        z-index: -1;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      overflow: hidden;
+      position: relative;
+    }
 
-      /* login box stays sharp */
-      .login-box {
-        position: relative;
-        z-index: 1;
-        width: 400px;
-        padding: 40px;
-        border-radius: 15px;
-        background: rgba(0, 0, 0, 0.6); /* optional darker overlay */
-        color: white;
-        text-align: center;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-      }
+    /* blurred background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4") no-repeat center center/cover;
+      filter: blur(6px);
+      transform: scale(1.1);
+      z-index: -1;
+    }
 
-            {% comment %} body {
+    /* login box */
+    .login-box {
+      position: relative;
+      z-index: 1;
+      width: 400px;
+      padding: 40px;
+      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
 
-              background-color: #000;
-              color: white;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              height: 100vh;
-              font-family: Arial, sans-serif;
-              background: url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4")
-                no-repeat center center/cover;
-            }
-            .login-box {
-              text-align: center;
-              width: 400px;
+    .login-box h2 {
+      font-size: 28px;
+      font-weight: bold;
+    }
 
-              background: rgba(255, 255, 255, 0.1); /* transparent white */
-              border-radius: 15px;
-              padding: 40px;
-              backdrop-filter: blur(12px); /* the blur magic */
-              -webkit-backdrop-filter: blur(12px); /* Safari support */
-              border: 1px solid rgba(255, 255, 255, 0.2);
-              box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            } {% endcomment %}
-            .login-box h2 {
-              font-size: 28px;
-              font-weight: bold;
-            }
-            .login-box p {
-              color: #bbb;
-              font-size: 14px;
-            }
-            .login-box input {
-              width: 100%;
-              padding: 12px;
-              margin: 10px 0;
-              border-radius: 8px;
-              border: none;
-              outline: none;
-            }
-            .login-btn {
-              background: #6c47ff;
-              color: white;
-              padding: 14px;
-              width: 100%;
-              border-radius: 8px;
-              border: none;
-              font-weight: bold;
-              cursor: pointer;
-            }
-            .login-btn:hover {
-              background: #5938d6;
-            }
-            .divider {
-              margin: 20px 0;
-              color: #777;
-            }
-            .social-btns {
-              display: flex;
-              justify-content: space-between;
-              gap: 10px;
-            }
-            .social-btns button {
-              flex: 1;
-              padding: 12px;
-              border: none;
-              border-radius: 8px;
-              cursor: pointer;
-              font-weight: bold;
-            }
-            .google {
-              background: white;
-              color: black;
-            }
-            .facebook {
-              background: white;
-              color: black;
-            }
-            .register {
-              margin-top: 15px;
-            }
-            .register a {
-              color: #6c47ff;
-              font-weight: bold;
-              text-decoration: none;
-            }
-    </style>
-  </head>
-  <body>
-    <div class="login-box">
-      <h2>Welcome back!</h2>
-      <p>Sign in to discover, stream, and enjoy millions of songs.</p>
+    .login-box p {
+      color: #bbb;
+      font-size: 14px;
+    }
 
-      <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="Username" required />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
-        <button class="login-btn" type="submit">Sign in</button>
-      </form>
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
 
-      {% comment %}
-      <p><a href="#">Forgot your password?</a></p>
-      <div class="divider">or continue with</div>
+    .login-btn {
+      background: #6c47ff;
+      color: white;
+      padding: 14px;
+      width: 100%;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-      <div class="social-btns">
-        <button class="google">Google</button>
-        <button class="facebook">Facebook</button>
+    .login-btn:hover {
+      background: #5938d6;
+    }
+
+    .Register {
+      margin-top: 15px;
+    }
+
+    .Register a {
+      color: #6c47ff;
+      font-weight: bold;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .error {
+      color: #ff6b6b;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-box">
+    <h2>Welcome back!</h2>
+    <p>Sign in to discover, stream, and enjoy millions of songs.</p>
+
+    <form method="POST" id="loginForm" onsubmit="return validateLogin()">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Username" required minlength="3" />
+      <small id="usernameError" class="error"></small>
+
+      <input type="password" name="password" placeholder="Password" required minlength="6" />
+      <small id="passwordError" class="error"></small>
+
+      <button class="login-btn" type="submit">Sign in</button>
+    </form>
+
+    {% if form.errors %}
+      <div class="error">
+        {% for field, errors in form.errors.items %}
+          {% for error in errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        {% endfor %}
       </div>
-      {% endcomment %}
+    {% endif %}
 
-      <div class="register">
-        <p>Need an account? <a href=" {% url 'register' %} ">Register</a></p>
-      </div>
+    <div class="Register">
+      <p>Don’t have an account? <a href="{% url 'register' %}">Register</a></p>
     </div>
-  </body>
+  </div>
+
+  <script>
+    function validateLogin() {
+      let username = document.querySelector("[name='username']").value.trim();
+      let password = document.querySelector("[name='password']").value;
+
+      let valid = true;
+
+      document.getElementById("usernameError").innerText = "";
+      document.getElementById("passwordError").innerText = "";
+
+      if (username.length < 3) {
+        document.getElementById("usernameError").innerText = "Username must be at least 3 characters.";
+        valid = false;
+      }
+      if (password.length < 6) {
+        document.getElementById("passwordError").innerText = "Password must be at least 6 characters.";
+        valid = false;
+      }
+
+      return valid;
+    }
+  </script>
+</body>
 </html>

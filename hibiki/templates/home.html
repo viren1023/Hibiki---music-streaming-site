@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hibiki</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white flex">
+
+  <!-- Sidebar -->
+  <aside class="w-60 bg-gray-900 h-screen p-5 flex flex-col justify-between">
+    <div>
+      <h1 class="text-2xl font-bold mb-8">Audio X</h1>
+      <nav class="space-y-4">
+        <a href="#" class="block hover:text-purple-400">🏠 Home</a>
+        <a href="#" class="block hover:text-purple-400">🔍 Search</a>
+        <a href="#" class="block hover:text-purple-400">➕ New Playlist</a>
+        <a href="#" class="block hover:text-purple-400">❤️ Liked Songs</a>
+      </nav>
+    </div>
+    <div>
+      <a href="#" class="block hover:text-purple-400">⚙ Settings</a>
+      <a href="#" class="block hover:text-purple-400">🚪 Log out</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6">
+    <h2 class="text-xl mb-4">Good afternoon, {{ username }}!</h2>
+
+    <!-- Pick up where you left off -->
+    <h3 class="text-lg mb-2">Pick up where you left off</h3>
+    <div class="grid grid-cols-4 gap-4 mb-6">
+      {% for item in playlists %}
+      <div class="relative rounded-lg overflow-hidden shadow-lg">
+        <img src="https://picsum.photos/400/250?random={{ forloop.counter }}" 
+             alt="{{ item.title }}" class="w-full h-32 object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center p-3">
+          <p class="text-sm">{{ item.tag }}</p>
+          <h4 class="text-lg font-bold">{{ item.title }}</h4>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- For You -->
+    <h3 class="text-lg mb-2">For you</h3>
+    <div class="grid grid-cols-3 gap-4 mb-6">
+      {% for rec in recommendations %}
+      <div class="relative rounded-lg overflow-hidden shadow-lg">
+        <img src="https://picsum.photos/400/250?random={{ forloop.counter0|add:10 }}" 
+             alt="{{ rec.title }}" class="w-full h-32 object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center p-3">
+          <p class="text-sm">{{ rec.tag }}</p>
+          <h4 class="text-lg font-bold">{{ rec.title }}</h4>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Popular Songs -->
+    <h3 class="text-lg mb-2">Popular songs</h3>
+    <ul>
+      {% for song in popular_songs %}
+      <li class="flex items-center space-x-3 mb-3">
+        <img src="https://picsum.photos/100/100?random={{ forloop.counter0|add:20 }}" 
+             alt="{{ song.artist }}" class="w-12 h-12 rounded-full object-cover">
+        <div>
+          <p class="font-bold">{{ song.title }}</p>
+          <p class="text-sm text-gray-400">{{ song.artist }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>
