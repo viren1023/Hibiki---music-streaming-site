@@ -10,12 +10,22 @@ def login_view(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect("/")  # redirect to homepage
-        else:
+        print(username, password)
+        
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
             messages.error(request, "Invalid username or password")
+            return redirect("login")
+
+        # Compare raw password with hashed one
+        try:
+            password = User.objects.get(password=password)
+        except User.DoesNotExist:
+            messages.error(request, "Invalid username or password")
+            return redirect("login")
+        return redirect("/")  # Homepage after successful login
+        
     return render(request, "login.html")
 
 def register_view(request):
@@ -37,9 +47,9 @@ def register_view(request):
             messages.error(request, "Email already registered")
             return redirect("register")
 
-        user = User.objects.create_user(username=username, password=password, email=email)
+        user = User.objects.create(username=username, password=password, email=email)
         user.save()
-        login(request, user)  # Auto-login after registration
+        # login(request, user)  # Auto-login after registration
         return redirect("/")  # Homepage
 
     return render(request, "register.html")
