@@ -1,77 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Hibiki</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-black text-white flex">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hibiki</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #000;
+        color: white;
+        display: flex;
+        font-family: "Baloo 2", cursive, sans-serif;
+      }
 
-  <!-- Sidebar -->
-  <aside class="w-60 bg-gray-900 h-screen p-5 flex flex-col justify-between">
-    <div>
-      <h1 class="text-2xl font-bold mb-8">Audio X</h1>
-      <nav class="space-y-4">
-        <a href="#" class="block hover:text-purple-400">🏠 Home</a>
-        <a href="#" class="block hover:text-purple-400">🔍 Search</a>
-        <a href="#" class="block hover:text-purple-400">➕ New Playlist</a>
-        <a href="#" class="block hover:text-purple-400">❤️ Liked Songs</a>
-      </nav>
-    </div>
-    <div>
-      <a href="#" class="block hover:text-purple-400">⚙ Settings</a>
-      <a href="#" class="block hover:text-purple-400">🚪 Log out</a>
-    </div>
-  </aside>
+      /* Sidebar */
+      aside {
+        width: 240px;
+        background-color: #111;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+      }
 
-  <!-- Main Content -->
-  <main class="flex-1 p-6">
-    <h2 class="text-xl mb-4">Good afternoon, {{ username }}!</h2>
+      aside h1 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
 
-    <!-- Pick up where you left off -->
-    <h3 class="text-lg mb-2">Pick up where you left off</h3>
-    <div class="grid grid-cols-4 gap-4 mb-6">
-      {% for item in playlists %}
-      <div class="relative rounded-lg overflow-hidden shadow-lg">
-        <img src="https://picsum.photos/400/250?random={{ forloop.counter }}" 
-             alt="{{ item.title }}" class="w-full h-32 object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center p-3">
-          <p class="text-sm">{{ item.tag }}</p>
-          <h4 class="text-lg font-bold">{{ item.title }}</h4>
-        </div>
+      nav a,
+      aside .bottom a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        text-decoration: none;
+        color: white;
+        transition: color 0.2s ease;
+        font-size: 1rem;
+      }
+
+      nav a:hover,
+      aside .bottom a:hover {
+        color: #a855f7; /* purple highlight */
+      }
+
+      nav img,
+      aside .bottom img {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Main content */
+      main {
+        flex: 1;
+        padding: 24px;
+        margin-left: 280px;
+      }
+
+      main h2 {
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        margin: 12px 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-gap: 16px;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      }
+
+      .card img {
+        width: 100%;
+        height: 130px;
+        object-fit: cover;
+      }
+
+      .card .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px;
+      }
+
+      .card p {
+        font-size: 0.85rem;
+      }
+
+      .card h4 {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      ul li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      ul img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      ul p {
+        margin: 0;
+      }
+
+      ul p:first-child {
+        font-weight: bold;
+      }
+
+      ul p:last-child {
+        font-size: 0.85rem;
+        color: #aaa;
+      }
+    </style>
+    <!-- Baloo 2 Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    {% comment %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% endcomment %}
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside>
+      <div>
+        <h1>Hibiki</h1>
+        <nav>
+          <a href="#"
+            ><img
+              src="https://img.icons8.com/ios-filled/50/ffffff/home--v1.png"
+              alt="Home"
+              loading="lazy"
+            />
+            Home</a
+          >
+          <a href="#"
+            ><img
+              src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png"
+              alt="Search"
+              loading="lazy"
+            />
+            Search</a
+          >
+          <a href="#"
+            ><img
+              src="https://img.icons8.com/ios-filled/50/ffffff/plus-math--v1.png"
+              alt="New Playlist"
+              loading="lazy"
+            />
+            New Playlist</a
+          >
+          <a href="#"
+            ><img
+              src="https://img.icons8.com/ios-filled/50/ffffff/like--v1.png"
+              alt="Liked Songs"
+              loading="lazy"
+            />
+            Liked Songs</a
+          >
+        </nav>
       </div>
-      {% endfor %}
-    </div>
-
-    <!-- For You -->
-    <h3 class="text-lg mb-2">For you</h3>
-    <div class="grid grid-cols-3 gap-4 mb-6">
-      {% for rec in recommendations %}
-      <div class="relative rounded-lg overflow-hidden shadow-lg">
-        <img src="https://picsum.photos/400/250?random={{ forloop.counter0|add:10 }}" 
-             alt="{{ rec.title }}" class="w-full h-32 object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center p-3">
-          <p class="text-sm">{{ rec.tag }}</p>
-          <h4 class="text-lg font-bold">{{ rec.title }}</h4>
-        </div>
+      <div class="bottom">
+        <a href="#"
+          ><img
+            src="https://img.icons8.com/ios-filled/50/ffffff/settings.png"
+            alt="Settings"
+            loading="lazy"
+          />
+          Settings</a
+        >
+        <a href="{% url 'logout' %}"
+          ><img
+            src="https://img.icons8.com/?size=200&id=vGj0AluRnTSa&format=png&color=ffffff"
+            alt="Logout"
+            loading="lazy"
+          />
+          Log out</a
+        >
       </div>
-      {% endfor %}
-    </div>
+    </aside>
 
-    <!-- Popular Songs -->
-    <h3 class="text-lg mb-2">Popular songs</h3>
-    <ul>
-      {% for song in popular_songs %}
-      <li class="flex items-center space-x-3 mb-3">
-        <img src="https://picsum.photos/100/100?random={{ forloop.counter0|add:20 }}" 
-             alt="{{ song.artist }}" class="w-12 h-12 rounded-full object-cover">
-        <div>
-          <p class="font-bold">{{ song.title }}</p>
-          <p class="text-sm text-gray-400">{{ song.artist }}</p>
+    <!-- Main Content -->
+    <main>
+      <h2>Good afternoon, {{ username }} 👋</h2>
+
+      <!-- Pick up where you left off -->
+      <h3>Pick up where you left off</h3>
+
+      <div class="grid grid-4">
+        {% for item in playlists %}
+        <div class="card">
+          <img
+            src="https://picsum.photos/400/250?random={{ forloop.counter }}"
+            alt="{{ item.title }}"
+            loading="lazy"
+          />
+          <div class="overlay">
+            <p>{{ item.tag }}</p>
+            <h4>{{ item.title }}</h4>
+          </div>
         </div>
-      </li>
-      {% endfor %}
-    </ul>
-  </main>
-</body>
+        {% endfor %}
+      </div>
+
+      <!-- For You -->
+      <h3>For you</h3>
+      <div class="grid grid-3">
+        {% for rec in recommendations %}
+        <div class="card">
+          <img
+            src="https://picsum.photos/400/250?random={{ forloop.counter0|add:10 }}"
+            alt="{{ rec.title }}"
+            loading="lazy"
+          />
+          <div class="overlay">
+            <p>{{ rec.tag }}</p>
+            <h4>{{ rec.title }}</h4>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Popular Songs -->
+      <h3>Popular songs</h3>
+      <ul>
+        {% for song in popular_songs %}
+        <li>
+          <img
+            src="https://picsum.photos/100/100?random={{ forloop.counter0|add:20 }}"
+            alt="{{ song.artist }}"
+            loading="lazy"
+          />
+          <div>
+            <p>{{ song.title }}</p>
+            <p>{{ song.artist }}</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </main>
+  </body>
 </html>

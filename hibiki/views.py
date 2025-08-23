@@ -2,9 +2,21 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import User
+from django.http import HttpResponse
+
+def set_cookie(key, value, max_age=None):
+    response = HttpResponse()
+    response.set_cookie(key, value, max_age=max_age, secure=True)
+    return response
 
 def landing_view(request):
-    return render(request, "landing.html")
+    # Check if cookie exists
+    if request.COOKIES.get("HIBIKI_USERNAME"):
+        # If logged in, redirect to home
+        return redirect("home")
+    else:
+        # Otherwise, show landing page
+        return render(request, "landing.html")
 
 def login_view(request):
     if request.method == "POST":
@@ -24,7 +36,17 @@ def login_view(request):
         except User.DoesNotExist:
             messages.error(request, "Invalid username or password")
             return redirect("login")
-        return redirect("home")  # Homepage after successful login
+        # response.set_cookie('HIBIKI_USERNAME', username, max_age=3600, secure=True)
+        response = redirect("home")
+        response.set_cookie(
+            key="HIBIKI_USERNAME",
+            value=username,
+            max_age=3600,   # seconds (1 hour)
+            httponly=True,  # optional: JS can't read
+            secure=False    # True only if using HTTPS
+        )
+        return response
+        # return redirect("home")  # Homepage after successful login
         
     return render(request, "login.html")
 
@@ -50,13 +72,24 @@ def register_view(request):
         user = User.objects.create(username=username, password=password, email=email)
         user.save()
         # login(request, user)  # Auto-login after registration
-        return redirect("home")  # Homepage
+        # response.set_cookie('HIBIKI_USERNAME', username, max_age=3600, secure=True)
+        
+        response = redirect("home")
+        response.set_cookie(
+            key="HIBIKI_USERNAME",
+            value=username,
+            max_age=3600,   # seconds (1 hour)
+            httponly=True,  # optional: JS can't read
+            secure=False    # True only if using HTTPS
+        )
+        return response
 
     return render(request, "register.html")
 
 def home(request):
+    username = request.COOKIES.get('HIBIKI_USERNAME', 'default username')
     context = {
-        "username": "username",
+        "username": username,
         "playlists": [
             {"title": "Study Beats", "tag": "Chill"},
             {"title": "Rainy Morning", "tag": "Jazzy"},
@@ -75,3 +108,8 @@ def home(request):
         ],
     }
     return render(request, "home.html", context)
+
+def logout_view(request):
+    response = redirect("landing")
+    response.delete_cookie("HIBIKI_USERNAME")
+    return response
