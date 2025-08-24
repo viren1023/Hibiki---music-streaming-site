@@ -46,12 +46,16 @@ body::before {
     font-size: 14px;
 }
 
+.field-cluster {
+    margin: 10px 0;
+}
+
+
 .login-box input {
     box-sizing: border-box;
     background: #303030;
     color: white;
     padding: 12px;
-    margin: 10px 0;
     width: 100%;
     border-radius: 8px;
     border: none;
@@ -92,14 +96,6 @@ body::before {
     text-decoration: underline;
 }
 
-
-.error {
-    color: #ff6b6b;
-    font-size: small;
-    margin-top: 5px;
-    letter-spacing: .5px;
-}
-
 .messages {
     margin-bottom: 1rem;
 }
@@ -112,7 +108,20 @@ body::before {
 }
 
 .alert.error {
+    text-align: center;
     background: rgba(255, 77, 77, 0.2);
     color: #ff4d4d;
     border: 1px solid #ff4d4d;
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: medium;
+    margin-top: 3px;
+    text-align: left;
+    letter-spacing: .25px;
+}
+
+.input-error {
+    border: 1px solid #ff6b6b !important;
 }

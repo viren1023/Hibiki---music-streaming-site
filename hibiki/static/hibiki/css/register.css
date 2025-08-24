@@ -92,6 +92,24 @@ body::before {
     text-decoration: underline;
 }
 
+.messages {
+    margin-bottom: 1rem;
+}
+
+.alert {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.alert.error {
+    text-align: center;
+    background: rgba(255, 77, 77, 0.2);
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+}
+
 .error {
     color: #ff6b6b;
     font-size: medium;
