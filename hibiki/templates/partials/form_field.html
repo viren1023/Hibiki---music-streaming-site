@@ -1,0 +1,35 @@
+{% comment %}
+<div class="field-cluster">
+  <input
+    type="email"
+    name="email"
+    placeholder="Email"
+    id="id_email"
+    value="{{ form.email.value|default:'' }}"
+    class="{% if form.email.errors %}input-error{% endif %}"
+  />
+  {% if form.email.errors %}
+  <div class="error">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    {{ form.email.errors.0 }}
+  </div>
+  {% endif %}
+</div>
+{% endcomment %}
+
+<div class="field-cluster">
+  <input
+    type="{{ field.field.widget.input_type }}"
+    name="{{ field.name }}"
+    placeholder="{{ field.label }}"
+    id="id_{{ field.name }}"
+    value="{{ field.value|default:'' }}"
+    class="{% if field.errors %}input-error{% endif %}"
+  />
+  {% if field.errors %}
+  <div class="error">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    {{ field.errors.0 }}
+  </div>
+  {% endif %}
+</div>

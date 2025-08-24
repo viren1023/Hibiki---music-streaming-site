@@ -1,244 +1,30 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Register</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      {% comment %} * {
-          font-family: 'Baloo 2', sans-serif;
-      } {% endcomment %}
-      body {
-          margin: 0;
-          height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-family: Arial, sans-serif;
-          background-color: #000;
-          overflow: hidden;
-          position: relative;
-      }
+    <script src="{% static 'hibiki/js/animate_route.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'hibiki/css/animate_route.css' %}" />
+    <link rel="stylesheet" href="{% static 'hibiki/css/register.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-      /* background layer with blur */
-      body::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4") no-repeat center center/cover;
-          filter: blur(6px);
-          /* this blurs the whole background */
-          transform: scale(1.1);
-          /* avoids cutoff edges after blur */
-          z-index: -1;
-      }
-
-      .register-box {
-          text-align: center;
-          background: rgba(0, 0, 0, 0.6);
-          padding: 40px;
-          border-radius: 12px;
-          {% comment %} box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1); {% endcomment %}
-          width: 400px;
-      }
-
-      .register-box h2 {
-          font-size: 28px;
-          font-weight: bold;
-          color: white;
-      }
-
-      .register-box p {
-          color: #bbb;
-          font-size: 14px;
-      }
-
-      .register-box input {
-          box-sizing: border-box;
-          background: #303030;
-          font-size: medium;
-          color: white;
-          width: 100%;
-          padding: 12px;
-          margin: 10px 0;
-          border-radius: 8px;
-          border: none;
-          outline: none;
-      }
-
-      .register-btn {
-          background: #6c47ff;
-          color: white;
-          padding: 14px;
-          width: 100%;
-          border-radius: 8px;
-          border: none;
-          font-weight: bold;
-          cursor: pointer;
-      }
-
-      .register-btn:hover {
-          background: #5938d6;
-      }
-
-      .login {
-          margin-top: 15px;
-      }
-
-      .login a {
-          {% comment %} color: #6c47ff; {% endcomment %}
-          color: #8F7AE1;
-          font-weight: bold;
-          text-decoration: none;
-      }
-
-      .error {
-          color: #ff6b6b;
-          font-size: small;
-          margin-top: 5px;
-          letter-spacing: .5px;
-      }
-    </style>
   </head>
-
-  <body>
+  <body class="fade-out">
     <div class="register-box">
       <h2>Hi!</h2>
       <p>Sign up to start listening to all your favorite artists.</p>
 
-      <!-- <form method="POST">
-            {% csrf_token %}
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <button class="register-btn" type="submit">Register</button>
-        </form> -->
-
-      <form method="POST" id="registerForm" onsubmit="return validateForm()">
-        {% csrf_token %}
-
-        <div>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            required
-            title="Only letters, numbers, and underscores allowed"
-          />
-          <small id="usernameError" class="error"></small>
-        </div>
-
-        <div>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-          />
-          <small id="passwordError" class="error"></small>
-        </div>
-
-        <div>
-          <input
-            type="password"
-            name="confirm_password"
-            placeholder="Confirm Password"
-            required
-          />
-          <small id="confirmPasswordError" class="error"></small>
-        </div>
-
-        <div>
-          <input type="email" name="email" placeholder="Email" required />
-          <small id="emailError" class="error"></small>
-        </div>
+      <form method="POST" id="registerForm">
+        {% csrf_token %} 
+        {% include "partials/form_field.html" with field=form.username %} 
+        {% include "partials/form_field.html" with field=form.email %} 
+        {% include "partials/form_field.html" with field=form.password %} 
+        {% include "partials/form_field.html" with field=form.confirm_password %}
 
         <button class="register-btn" type="submit">Register</button>
       </form>
-
-      {% if form.errors %}
-      <div class="error">
-        error
-        {% for field, errors in form.errors.items %}
-          {% for error in errors %}
-            <p>{{ error }}</p>
-          {% endfor %}
-        {% endfor %}
-      </div>
-    {% endif %} 
-
-    {% if messages %}
-    <div class="messages">
-        {% for message in messages %}
-        <p class="alert {{ message.tags }}">{{ message }}</p>
-        {% endfor %}
-    </div>
-    {% endif %}
-
-      <script>
-        function validateForm() {
-          let form = document.forms["registerForm"]
-          let username = form["username"].value.trim()
-          let password = form["password"].value
-          let confirmPassword = form["confirm_password"].value
-          let email = form["email"].value
-
-          let valid = true
-
-          // Clear errors first
-          document
-            .querySelectorAll(".error")
-            .forEach((el) => (el.innerText = ""))
-
-          // Username validation
-          if (username.length < 3 || username.length > 20) {
-            document.getElementById("usernameError").innerText =
-              "Username must be 3-20 characters."
-            valid = false
-          }
-
-          if (!/^[A-Za-z0-9_]+$/.test(username)) {
-            document.getElementById("usernameError").innerText =
-              "Only letters, numbers, and underscores allowed."
-            valid = false
-          }
-
-          // Password validation
-          let strongPassword = /^(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$/
-          if (!strongPassword.test(password)) {
-            document.getElementById("passwordError").innerText =
-              "Password must be at least 6 characters, include a number & a special char."
-            valid = false
-          }
-
-          // Confirm password validation
-          if (password !== confirmPassword) {
-            document.getElementById("confirmPasswordError").innerText =
-              "Passwords do not match."
-            valid = false
-          }
-
-          // Email basic check (HTML5 also validates)
-          if (email.trim() === "") {
-            document.getElementById("emailError").innerText =
-              "Email is required."
-            valid = false
-          }
-
-          return valid // If false, form won't submit
-        }
-      </script>
-
-      {% comment %}
-      <div class="divider"></div>
-      {% endcomment %}
 
       <div class="login">
         <p>Already have an account? <a href="{% url 'login' %}">Sign in</a></p>

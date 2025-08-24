@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="{% static 'css/hibiki/main.css' %}">
+</head>
+<body class="fade-out">
+  {% block content %}{% endblock %}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.body.classList.remove("fade-out");
+    });
+
+    window.addEventListener("beforeunload", function () {
+      document.body.classList.add("fade-out");
+    });
+  </script>
+</body>
+</html>
