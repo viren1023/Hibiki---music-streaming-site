@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hibiki</title>
+    <link rel="stylesheet" href="{% static 'hibiki/css/home.css' %}">
+</head>
+
+<body>
+    <!-- Sidebar (always visible) -->
+    <aside>
+        <div>
+            <h1>Hibiki</h1>
+            <nav>
+                <a href="{% url 'home' %}"><img src="https://img.icons8.com/ios-filled/50/ffffff/home--v1.png"
+                        alt="Home" loading="lazy" /> Home</a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png" alt="Search"
+                        loading="lazy" /> Search</a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/plus-math--v1.png" alt="New Playlist"
+                        loading="lazy" /> New Playlist</a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/like--v1.png" alt="Liked Songs"
+                        loading="lazy" /> Liked Songs</a>
+            </nav>
+        </div>
+        <div class="bottom">
+            <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png" alt="Settings"
+                    loading="lazy" /> Settings</a>
+            <a href="{% url 'logout' %}"><img
+                    src="https://img.icons8.com/?size=200&id=vGj0AluRnTSa&format=png&color=ffffff" alt="Logout"
+                    loading="lazy" /> Log out</a>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+
+</html>

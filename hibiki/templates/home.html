@@ -1,129 +1,46 @@
-{% load static %}
+{% extends "Sidebar.html" %}
+{% block content %}
+  <h2>Ready to play some song, {{ username }} 👋</h2>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hibiki</title>
-    <link rel="stylesheet" href="{% static 'hibiki/css/home.css' %}" />
-  <body class="fade-out">
-    <!-- Sidebar -->
-    <aside>
-      <div>
-        <h1>Hibiki</h1>
-        <nav>
-          <a href="#"
-            ><img
-              src="https://img.icons8.com/ios-filled/50/ffffff/home--v1.png"
-              alt="Home"
-              loading="lazy"
-            />
-            Home</a
-          >
-          <a href="#"
-            ><img
-              src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png"
-              alt="Search"
-              loading="lazy"
-            />
-            Search</a
-          >
-          <a href="#"
-            ><img
-              src="https://img.icons8.com/ios-filled/50/ffffff/plus-math--v1.png"
-              alt="New Playlist"
-              loading="lazy"
-            />
-            New Playlist</a
-          >
-          <a href="#"
-            ><img
-              src="https://img.icons8.com/ios-filled/50/ffffff/like--v1.png"
-              alt="Liked Songs"
-              loading="lazy"
-            />
-            Liked Songs</a
-          >
-        </nav>
-      </div>
-      <div class="bottom">
-        <a href="#"
-          ><img
-            src="https://img.icons8.com/ios-filled/50/ffffff/settings.png"
-            alt="Settings"
-            loading="lazy"
-          />
-          Settings</a
-        >
-        <a href="{% url 'logout' %}"
-          ><img
-            src="https://img.icons8.com/?size=200&id=vGj0AluRnTSa&format=png&color=ffffff"
-            alt="Logout"
-            loading="lazy"
-          />
-          Log out</a
-        >
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main>
-      <h2>Good afternoon, {{ username }} 👋</h2>
-
-      <!-- Pick up where you left off -->
-      <h3>Pick up where you left off</h3>
-
-      <div class="grid grid-4">
-        {% for item in playlists %}
-        <div class="card">
-          <img
-            src="https://picsum.photos/400/250?random={{ forloop.counter }}"
-            alt="{{ item.title }}"
-            loading="lazy"
-          />
-          <div class="overlay">
-            <p>{{ item.tag }}</p>
-            <h4>{{ item.title }}</h4>
-          </div>
+  <!-- Playlists -->
+  <h3>Pick up where you left off</h3>
+  <div class="grid grid-4">
+    {% for item in playlists %}
+      <div class="card">
+        <img src="{{  item.img  }}" alt="{{ item.title }}">
+        <div class="overlay">
+          <p>{{ item.tag }}</p>
+          <h4>{{ item.title }}</h4>
         </div>
-        {% endfor %}
       </div>
+    {% endfor %}
+  </div>
 
-      <!-- For You -->
-      <h3>For you</h3>
-      <div class="grid grid-3">
-        {% for rec in recommendations %}
-        <div class="card">
-          <img
-            src="https://picsum.photos/400/250?random={{ forloop.counter0|add:10 }}"
-            alt="{{ rec.title }}"
-            loading="lazy"
-          />
-          <div class="overlay">
-            <p>{{ rec.tag }}</p>
-            <h4>{{ rec.title }}</h4>
-          </div>
+  <!-- Recommendations -->
+  <h3>For you</h3>
+  <div class="grid grid-3">
+    {% for rec in recommendations %}
+      <div class="card">
+        <img src="{{  rec.img  }}" alt="{{ rec.title }}">
+        <div class="overlay">
+          <p>{{ rec.tag }}</p>
+          <h4>{{ rec.title }}</h4>
         </div>
-        {% endfor %}
       </div>
+    {% endfor %}
+  </div>
 
-      <!-- Popular Songs -->
-      <h3>Popular songs</h3>
-      <ul>
-        {% for song in popular_songs %}
-        <li>
-          <img
-            src="https://picsum.photos/100/100?random={{ forloop.counter0|add:20 }}"
-            alt="{{ song.artist }}"
-            loading="lazy"
-          />
-          <div>
-            <p>{{ song.title }}</p>
-            <p>{{ song.artist }}</p>
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
-    </main>
-  </body>
-</html>
+  <!-- Popular Songs -->
+  <h3>Popular songs</h3>
+  <ul class="song-list">
+    {% for song in popular_songs %}
+      <li>
+        <img src="{{  song.img  }}" alt="{{ song.artist }}">
+        <div>
+          <p>{{ song.title }}</p>
+          <p>{{ song.artist }}</p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

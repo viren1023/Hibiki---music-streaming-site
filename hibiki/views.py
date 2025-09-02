@@ -1,9 +1,12 @@
+import random
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import User
 from django.http import HttpResponse
 from .forms import RegisterForm, LoginForm
+from datetime import date
+
 
 def set_cookie(key, value, max_age=None):
     response = HttpResponse()
@@ -72,20 +75,20 @@ def home(request):
     context = {
         "username": username,
         "playlists": [
-            {"title": "Study Beats", "tag": "Chill"},
-            {"title": "Rainy Morning", "tag": "Jazzy"},
-            {"title": "Skate Punk", "tag": "Weekend"},
-            {"title": "Folk Music", "tag": "Traditional"},
+            {"title": "Study Beats", "tag": "Chill","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+            {"title": "Rainy Morning", "tag": "Jazzy","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+            {"title": "Skate Punk", "tag": "Weekend","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+            {"title": "Folk Music", "tag": "Traditional","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
         ],
         "recommendations": [
-            {"title": "Artists", "tag": "Your Top"},
-            {"title": "Pop Music", "tag": "Best Of"},
-            {"title": "2022", "tag": "Your Year"},
+            {"title": "Artists", "tag": "Your Top","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+            {"title": "Pop Music", "tag": "Best Of","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+            {"title": "2022", "tag": "Your Year","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
         ],
         "popular_songs": [
-            {"title": "Call Living", "artist": "Tom"},
-            {"title": "On The Top", "artist": "Alma"},
-            {"title": "Together", "artist": "Jonas&Jonas"},
+            {"title": "Call Living", "artist": "Tom","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+            {"title": "On The Top", "artist": "Alma","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+            {"title": "Together", "artist": "Jonas&Jonas","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
         ],
     }
     return render(request, "home.html", context)
