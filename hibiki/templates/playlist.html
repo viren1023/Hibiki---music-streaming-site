@@ -1,0 +1,127 @@
+{% extends "Sidebar.html" %}
+{% load static %}
+
+{% block content %}
+  <meta charset="UTF-8">
+  <title>{{ playlist.title }}</title>
+  <style>
+    body {
+      background: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .playlist-header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+    }
+    .playlist-header img {
+      width: 200px;
+      height: 200px;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+    .playlist-info h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+    .playlist-info p {
+      color: #b3b3b3;
+    }
+    .tracks {
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #b3b3b3;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #282828;
+      text-align: left;
+    }
+    th {
+      color: #fff;
+    }
+    .track-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+    }
+    .play-btn {
+      background: #1db954;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      margin: 20px;
+    }
+  </style>
+
+  <div class="playlist-header">
+{% with playlist.thumbnails|last as last_thumb %}
+  <img src="{{ last_thumb.url }}" alt="Playlist cover">
+{% endwith %}
+    <div class="playlist-info">
+      <p>PLAYLIST</p>
+      <h1>{{ playlist.title }}</h1>
+
+      {% if playlist.description %}
+        <p>{{ playlist.description }}</p>
+      {% endif %}
+      <p>
+        <p>
+  {% if playlist.author.name %}
+    {{ playlist.author.name }}
+  {% endif %}
+
+  {% if playlist.author.name and playlist.trackCount %}
+    •
+  {% endif %}
+
+  {% if playlist.trackCount %}
+    {{ playlist.trackCount }} songs
+  {% endif %}
+
+  {% if playlist.duration %}
+    • {{ playlist.duration }}
+  {% endif %}
+</p>
+    </div>
+  </div>
+
+  <button class="play-btn">▶</button>
+
+  <div class="tracks">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for track in tracks %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>
+            <img class="track-img" src="{{ track.thumbnails.0.url }}" alt="">
+            {{ track.title }}
+          </td>
+          <td>
+            {% for artist in track.artists %}
+              {{ artist.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </td>
+          <td>{{ track.duration }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

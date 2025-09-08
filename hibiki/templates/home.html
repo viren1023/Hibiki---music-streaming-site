@@ -3,13 +3,12 @@
   <h2>Ready to play some song, {{ username }} 👋</h2>
 
   <!-- Playlists -->
-  <h3>Pick up where you left off</h3>
+  <h3>{{ title.1 }}</h3>
   <div class="grid grid-4">
-    {% for item in playlists %}
-      <div class="card">
+    {% for item in section1 %}
+      <div class="card" onclick="fetch_data('{{ item.id }}')">
         <img src="{{  item.img  }}" alt="{{ item.title }}">
         <div class="overlay">
-          <p>{{ item.tag }}</p>
           <h4>{{ item.title }}</h4>
         </div>
       </div>
@@ -17,30 +16,37 @@
   </div>
 
   <!-- Recommendations -->
-  <h3>For you</h3>
+  <h3>{{ title.2 }}</h3>
   <div class="grid grid-3">
-    {% for rec in recommendations %}
-      <div class="card">
-        <img src="{{  rec.img  }}" alt="{{ rec.title }}">
+    {% for item in section2 %}
+      <div class="card" onclick="fetch_data('{{ item.id }}')">
+        <img src="{{  item.img  }}" alt="{{ item.title }}">
         <div class="overlay">
-          <p>{{ rec.tag }}</p>
-          <h4>{{ rec.title }}</h4>
+          <h4>{{ item.title }}</h4>
         </div>
       </div>
     {% endfor %}
   </div>
 
   <!-- Popular Songs -->
-  <h3>Popular songs</h3>
+  <h3>{{ title.0 }}</h3>
   <ul class="song-list">
-    {% for song in popular_songs %}
+    {% for item in section3 %}
       <li>
-        <img src="{{  song.img  }}" alt="{{ song.artist }}">
+        <img src="{{  item.img  }}" alt="{{ item.artist }}">
         <div>
-          <p>{{ song.title }}</p>
-          <p>{{ song.artist }}</p>
+          <p>{{ item.title }}</p>
+          <p>{{ item.artist }}</p>
         </div>
       </li>
     {% endfor %}
   </ul>
+
+<script>
+    function fetch_data(id) {
+    // Redirect to /playlist with the given id as a query parameter
+    window.location.href = `/playlist?id=${id}`;
+    }
+</script>
+
 {% endblock %}

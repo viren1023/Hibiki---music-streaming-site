@@ -3,11 +3,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import User
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .forms import RegisterForm, LoginForm
 from datetime import date
-
-
+from .core_logic.fetchmetadata import home_metadata, similar_search_metadata, similar_songs_name, playlist_metadata, album_metadata
 def set_cookie(key, value, max_age=None):
     response = HttpResponse()
     response.set_cookie(key, value, max_age=max_age, secure=True)
@@ -70,28 +69,121 @@ def register_view(request):
 
     return render(request, "register.html", {"form": form})
 
+# def home(request):
+#     similar_search_metadata()
+#     result = home_metadata()
+#     username = request.COOKIES.get('HIBIKI_USERNAME', 'default username')
+#     context = {
+#         "username": username,
+#         "playlists": [
+#             {"title": "Study Beats", "tag": "Chill","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+#             {"title": "Rainy Morning", "tag": "Jazzy","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+#             {"title": "Skate Punk", "tag": "Weekend","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+#             {"title": "Folk Music", "tag": "Traditional","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+#         ],
+#         "recommendations": [
+#             {"title": "Artists", "tag": "Your Top","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+#             {"title": "Pop Music", "tag": "Best Of","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+#             {"title": "2022", "tag": "Your Year","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+#         ],
+#         "popular_songs": [
+#             {"title": "Call Living", "artist": "Tom","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+#             {"title": "On The Top", "artist": "Alma","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+#             {"title": "Together", "artist": "Jonas&Jonas","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
+#         ],
+#     }
+#     return render(request, "home.html", context)
+
 def home(request):
+    # fetch data from YTMusic
+    result = home_metadata()
+    result_key=list(result.keys())
     username = request.COOKIES.get('HIBIKI_USERNAME', 'default username')
+
+    # playlists -> from "Trending community playlists"
+    section1 = []
+    for item in result.get(f"{result_key[1]}", [])[:4]:
+        section1.append({
+            "title": item.get("title"),
+            "tag": item.get("description", ""),
+            "id": item.get("videoId") or item.get("playlistId") or f"{item.get('audioPlaylistId')+'+'+item.get('browseId')}",
+            "img": item["thumbnails"][0]["url"] if item.get("thumbnails") else "https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"
+        })
+
+    # recommendations -> from "Albums for you"
+    section2 = []
+    for item in result.get(f"{result_key[2]}", [])[:3]:
+        section2.append({
+            "title": item.get("title"),
+            "tag": item.get("type", "Album"),
+            "id": item.get("videoId") or item.get("playlistId") or f"{item.get('audioPlaylistId')+'+'+item.get('browseId')}",
+            "img": item["thumbnails"][0]["url"] if item.get("thumbnails") else "https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"
+        })
+
+    # popular songs -> from "Quick picks"
+    section3 = []
+    for item in result.get(f"{result_key[0]}", [])[:4]:
+        section3.append({
+            "title": item.get("title"),
+            "artist": ", ".join([artist["name"] for artist in item.get("artists", [])]),
+            "id": item.get("videoId") or item.get("playlistId") or item.get("audioPlaylistId"),
+            "img": item["thumbnails"][0]["url"] if item.get("thumbnails") else "https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"
+        })
+
     context = {
         "username": username,
-        "playlists": [
-            {"title": "Study Beats", "tag": "Chill","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
-            {"title": "Rainy Morning", "tag": "Jazzy","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
-            {"title": "Skate Punk", "tag": "Weekend","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
-            {"title": "Folk Music", "tag": "Traditional","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
-        ],
-        "recommendations": [
-            {"title": "Artists", "tag": "Your Top","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
-            {"title": "Pop Music", "tag": "Best Of","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
-            {"title": "2022", "tag": "Your Year","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
-        ],
-        "popular_songs": [
-            {"title": "Call Living", "artist": "Tom","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
-            {"title": "On The Top", "artist": "Alma","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
-            {"title": "Together", "artist": "Jonas&Jonas","img":"https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"},
-        ],
+        "title":result_key,
+        "section1": section1,
+        "section2": section2,
+        "section3": section3,
     }
     return render(request, "home.html", context)
+
+
+
+
+
+
+def search_page(request):
+    query = ""
+    if request.method == "POST":
+        query = request.POST.get("search_text", "")
+        # similar_songs = similar_songs_name(query)
+        # print(similar_songs)        
+        # print(query)
+    # similar_search_metadata(query)
+    return render(request, "search.html", {"query": query})
+
+def similar_name(request):
+    print("hi")
+    query = request.GET.get('q', '')
+    matching_songs = similar_songs_name(query)
+    print(matching_songs)
+    return JsonResponse(matching_songs, safe=False)
+
+def fetch_audio(request):
+    name = request.GET.get("name")
+    if not name:
+        return JsonResponse({"error": "No song name provided"}, status=400)
+    
+    pass
+
+
+def playlist_view(request):
+    playlistId = request.GET.get("id", "")
+    try:
+        playlist = playlist_metadata(playlistId)
+    except Exception as e:
+        playlist = album_metadata(playlistId)
+        print()
+        
+    context = {
+        "playlist": playlist,
+        "tracks": playlist["tracks"],
+    }
+    return render(request, "playlist.html", context)
+
+
 
 def logout_view(request):
     response = redirect("landing")

@@ -1,0 +1,751 @@
+{
+  "More from YouTube": [
+    {
+      "category": "More from YouTube",
+      "resultType": "video",
+      "title": "Alan Walker Mashup | Naresh Parmar | On My Way | Faded | Best of Alan Walker Songs",
+      "videoId": "1B6DI_o-9G8",
+      "videoType": "MUSIC_VIDEO_TYPE_OMV",
+      "duration": "4:35",
+      "year": null,
+      "artists": [
+        {
+          "name": "Naresh Parmar",
+          "id": "UCCnVXVBUnILj2lsJfzcT8Kg"
+        }
+      ],
+      "views": "81M",
+      "duration_seconds": 275,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/1B6DI_o-9G8/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kbPlS7qi5GWbrxH1G0pM3ezsqGmw",
+          "width": 400,
+          "height": 225
+        }
+      ]
+    },
+    {
+      "category": "More from YouTube",
+      "resultType": "video",
+      "title": "On my way [Slowed+Reverb] with Lyrics - Alan Walker || LoFi LINES",
+      "videoId": "ETqXUBFZpkE",
+      "videoType": "MUSIC_VIDEO_TYPE_UGC",
+      "duration": "3:33",
+      "year": null,
+      "artists": [
+        {
+          "name": "Aurinox Official",
+          "id": "UC1H9o91R9WZN2gYQ9Rve4Cg"
+        }
+      ],
+      "views": "2.4M",
+      "duration_seconds": 213,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/ETqXUBFZpkE/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mXm2WrEIYPhaPrJGFpwG2s14HuqQ",
+          "width": 400,
+          "height": 225
+        }
+      ]
+    },
+    {
+      "category": "More from YouTube",
+      "resultType": "song",
+      "title": "Yeasin",
+      "album": null,
+      "inLibrary": false,
+      "feedbackTokens": {
+        "add": null,
+        "remove": null
+      },
+      "videoId": "54OjlFf-SMw",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "duration": "3:48",
+      "year": null,
+      "artists": [
+        {
+          "name": "Yeasin Arman ovi",
+          "id": "UC9Jjz_42xf14548zWP-LCDA"
+        }
+      ],
+      "duration_seconds": 228,
+      "views": "64K",
+      "isExplicit": false,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/-TqmHduaxIzXUl1Cs252X4--UUumQtBylF4fWRnWPLZDuTYmzVVtuh_-Ao01i5SbOFK38BwGNPQNYzs3Bg=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/-TqmHduaxIzXUl1Cs252X4--UUumQtBylF4fWRnWPLZDuTYmzVVtuh_-Ao01i5SbOFK38BwGNPQNYzs3Bg=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ]
+    }
+  ],
+  "Songs": [
+    {
+      "category": "Songs",
+      "resultType": "song",
+      "title": "On My Way",
+      "album": {
+        "name": "World Of Walker",
+        "id": "MPREb_F8maWfCMZOm"
+      },
+      "inLibrary": false,
+      "feedbackTokens": {
+        "add": null,
+        "remove": null
+      },
+      "videoId": "ZM8rAsTT7yE",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "duration": "3:14",
+      "year": null,
+      "artists": [
+        {
+          "name": "Sabrina Carpenter",
+          "id": "UCz51ZodJbYUNfkdPHOjJKKw"
+        },
+        {
+          "name": "Farruko",
+          "id": "UC6QXZsAOOweLfhVPbqMyG4g"
+        },
+        {
+          "name": "Alan Walker",
+          "id": "UCaXJEi-wOOVe2eZZHzyz4mQ"
+        }
+      ],
+      "duration_seconds": 194,
+      "views": "1.5B",
+      "isExplicit": true,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/Y6GUwMdUtGZ9HpEbOBaR4OvHWpcLCj6Y1xbzSFG2dgQD7DlXS70fp-5zy-VczYGZ9wWT5z_kV3EtTdw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/Y6GUwMdUtGZ9HpEbOBaR4OvHWpcLCj6Y1xbzSFG2dgQD7DlXS70fp-5zy-VczYGZ9wWT5z_kV3EtTdw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ]
+    },
+    {
+      "category": "Songs",
+      "resultType": "song",
+      "title": "On My Way (Da Tweekaz Remix)",
+      "album": {
+        "name": "On My Way (Da Tweekaz Remix)",
+        "id": "MPREb_XwHbiUCcqOU"
+      },
+      "inLibrary": false,
+      "feedbackTokens": {
+        "add": null,
+        "remove": null
+      },
+      "videoId": "NKMfIXG9X6E",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "duration": "3:25",
+      "year": null,
+      "artists": [
+        {
+          "name": "Alan Walker",
+          "id": "UCaXJEi-wOOVe2eZZHzyz4mQ"
+        },
+        {
+          "name": "Sabrina Carpenter",
+          "id": "UCz51ZodJbYUNfkdPHOjJKKw"
+        },
+        {
+          "name": "Farruko",
+          "id": "UC6QXZsAOOweLfhVPbqMyG4g"
+        }
+      ],
+      "duration_seconds": 205,
+      "views": "22M",
+      "isExplicit": false,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/zKTWJl-JmcPzoA_MYPm8dU6nIa45yaKS7XeJ8wfOuZcLxCFfs3aF68ffqMsbbmlzgxrc1YDCszR69hKpAA=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/zKTWJl-JmcPzoA_MYPm8dU6nIa45yaKS7XeJ8wfOuZcLxCFfs3aF68ffqMsbbmlzgxrc1YDCszR69hKpAA=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ]
+    },
+    {
+      "category": "Songs",
+      "resultType": "song",
+      "title": "On My Way (Slowed Remix)",
+      "album": {
+        "name": "Slowed",
+        "id": "MPREb_3xbvyZJ6kG8"
+      },
+      "inLibrary": false,
+      "feedbackTokens": {
+        "add": null,
+        "remove": null
+      },
+      "videoId": "VDEirgfToZ0",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "duration": "3:39",
+      "year": null,
+      "artists": [
+        {
+          "name": "Alan Walker",
+          "id": "UCaXJEi-wOOVe2eZZHzyz4mQ"
+        },
+        {
+          "name": "Sabrina Carpenter",
+          "id": "UCz51ZodJbYUNfkdPHOjJKKw"
+        },
+        {
+          "name": "Farruko",
+          "id": "UC6QXZsAOOweLfhVPbqMyG4g"
+        }
+      ],
+      "duration_seconds": 219,
+      "views": "1.8M",
+      "isExplicit": false,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/Ex8ks83_mhAfxd7qrVqjZWwmMrYyawVW_6H1FQ145-RDdsNoSV48Se1G7BpgOdgx58FA8SK5c3rxgYSV=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/Ex8ks83_mhAfxd7qrVqjZWwmMrYyawVW_6H1FQ145-RDdsNoSV48Se1G7BpgOdgx58FA8SK5c3rxgYSV=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ]
+    }
+  ],
+  "Videos": [
+    {
+      "category": "Videos",
+      "resultType": "video",
+      "title": "On My Way (Slowed Remix)",
+      "videoId": "fm-nXA-K0Dg",
+      "videoType": "MUSIC_VIDEO_TYPE_OMV",
+      "duration": "3:14",
+      "year": null,
+      "artists": [
+        {
+          "name": "Alan Walker",
+          "id": "UCaXJEi-wOOVe2eZZHzyz4mQ"
+        },
+        {
+          "name": "Farruko",
+          "id": "UC6QXZsAOOweLfhVPbqMyG4g"
+        },
+        {
+          "name": "Sabrina Carpenter",
+          "id": "UCz51ZodJbYUNfkdPHOjJKKw"
+        }
+      ],
+      "views": "128M",
+      "duration_seconds": 194,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/fm-nXA-K0Dg/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kcAaZP5o4jQLQnwGo0DPsBtlnhAw",
+          "width": 400,
+          "height": 225
+        }
+      ]
+    },
+    {
+      "category": "Videos",
+      "resultType": "video",
+      "title": "Alan Walker - On My Way (Lyrics) ft. Sabrina Carpenter & Farruko",
+      "videoId": "fwXdfb2lZnY",
+      "videoType": "MUSIC_VIDEO_TYPE_UGC",
+      "duration": "3:14",
+      "year": null,
+      "artists": [
+        {
+          "name": "7clouds",
+          "id": "UCNqFDjYTexJDET3rPDrmJKg"
+        }
+      ],
+      "views": "7.1M",
+      "duration_seconds": 194,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/fwXdfb2lZnY/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kS6wINFcwETSipZb1Gy4s2ES-zwQ",
+          "width": 400,
+          "height": 225
+        }
+      ]
+    },
+    {
+      "category": "Videos",
+      "resultType": "video",
+      "title": "Alan Walker & Sabrina Carpenter, Gimb - On My Way (Official Music Video)",
+      "videoId": "3lXaY7gGK3M",
+      "videoType": "MUSIC_VIDEO_TYPE_OFFICIAL_SOURCE_MUSIC",
+      "duration": "3:21",
+      "year": null,
+      "artists": [
+        {
+          "name": "Gimb",
+          "id": "UCiN00a--fcZ8efu32nI4WoQ"
+        }
+      ],
+      "views": "286K",
+      "duration_seconds": 201,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/3lXaY7gGK3M/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kodgb6TxoUz4PseDBjgjbhvkA9wg",
+          "width": 400,
+          "height": 225
+        }
+      ]
+    }
+  ],
+  "Albums": [
+    {
+      "category": "Albums",
+      "resultType": "album",
+      "title": "On My Way",
+      "type": "Single",
+      "playlistId": "OLAK5uy_kBSLys3hQ-dXTLIA57P6frCspFnCR6lEY",
+      "duration": null,
+      "year": "2019",
+      "artists": [
+        {
+          "name": "Alan Walker",
+          "id": "UCaXJEi-wOOVe2eZZHzyz4mQ"
+        },
+        {
+          "name": "Sabrina Carpenter",
+          "id": "UCz51ZodJbYUNfkdPHOjJKKw"
+        },
+        {
+          "name": "Farruko",
+          "id": "UC6QXZsAOOweLfhVPbqMyG4g"
+        }
+      ],
+      "browseId": "MPREb_bX1Cb4uu3Xl",
+      "isExplicit": true,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/FjBbw7AgcolDeEEpBH5hbI-kT7sb0gNDEmn_ys69LasAg8WS7bK1IuhaDm2N2b7-m89c4ucKGYPtQRRy=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/FjBbw7AgcolDeEEpBH5hbI-kT7sb0gNDEmn_ys69LasAg8WS7bK1IuhaDm2N2b7-m89c4ucKGYPtQRRy=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/FjBbw7AgcolDeEEpBH5hbI-kT7sb0gNDEmn_ys69LasAg8WS7bK1IuhaDm2N2b7-m89c4ucKGYPtQRRy=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/FjBbw7AgcolDeEEpBH5hbI-kT7sb0gNDEmn_ys69LasAg8WS7bK1IuhaDm2N2b7-m89c4ucKGYPtQRRy=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ]
+    },
+    {
+      "category": "Albums",
+      "resultType": "album",
+      "title": "On My Way (Da Tweekaz Remix)",
+      "type": "Single",
+      "playlistId": "OLAK5uy_kuMswHUSNR3agBKPJCwfGfSWfcDWbNA6Q",
+      "duration": null,
+      "year": "2019",
+      "artists": [
+        {
+          "name": "Alan Walker",
+          "id": "UCaXJEi-wOOVe2eZZHzyz4mQ"
+        },
+        {
+          "name": "Sabrina Carpenter",
+          "id": "UCz51ZodJbYUNfkdPHOjJKKw"
+        },
+        {
+          "name": "Farruko",
+          "id": "UC6QXZsAOOweLfhVPbqMyG4g"
+        }
+      ],
+      "browseId": "MPREb_XwHbiUCcqOU",
+      "isExplicit": false,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/zKTWJl-JmcPzoA_MYPm8dU6nIa45yaKS7XeJ8wfOuZcLxCFfs3aF68ffqMsbbmlzgxrc1YDCszR69hKpAA=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/zKTWJl-JmcPzoA_MYPm8dU6nIa45yaKS7XeJ8wfOuZcLxCFfs3aF68ffqMsbbmlzgxrc1YDCszR69hKpAA=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/zKTWJl-JmcPzoA_MYPm8dU6nIa45yaKS7XeJ8wfOuZcLxCFfs3aF68ffqMsbbmlzgxrc1YDCszR69hKpAA=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/zKTWJl-JmcPzoA_MYPm8dU6nIa45yaKS7XeJ8wfOuZcLxCFfs3aF68ffqMsbbmlzgxrc1YDCszR69hKpAA=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ]
+    },
+    {
+      "category": "Albums",
+      "resultType": "album",
+      "title": "On My Way",
+      "type": "Single",
+      "playlistId": "OLAK5uy_ny3CZL_o9K2SYg8Mo5gqDG8gChzd1vVXE",
+      "duration": null,
+      "year": "2019",
+      "artists": [
+        {
+          "name": "Maxence Luchi",
+          "id": "UCaBSHD5Qn0v2UNrUpnJAJPw"
+        }
+      ],
+      "browseId": "MPREb_0n3WgauYTGa",
+      "isExplicit": false,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/tdrYtZkNhOUIRjHlskJdQja__verirUBev5qVnZVDPLa9Nssy5wTOQkPZGdYVyIO16nRc0DUVBu5ZwMy=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/tdrYtZkNhOUIRjHlskJdQja__verirUBev5qVnZVDPLa9Nssy5wTOQkPZGdYVyIO16nRc0DUVBu5ZwMy=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/tdrYtZkNhOUIRjHlskJdQja__verirUBev5qVnZVDPLa9Nssy5wTOQkPZGdYVyIO16nRc0DUVBu5ZwMy=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/tdrYtZkNhOUIRjHlskJdQja__verirUBev5qVnZVDPLa9Nssy5wTOQkPZGdYVyIO16nRc0DUVBu5ZwMy=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ]
+    }
+  ],
+  "Artists": [
+    {
+      "category": "Artists",
+      "resultType": "artist",
+      "artist": "Alan Walker",
+      "shuffleId": "RDAOnXfFddSZnJmxtloeP0BENw",
+      "radioId": "RDEMnXfFddSZnJmxtloeP0BENw",
+      "browseId": "UCaXJEi-wOOVe2eZZHzyz4mQ",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/1-Ipiq-y8WyAcWn88nuxwTHaaBWMg8VkCBuP3puDCec-neD3v-7SqoBRzmmBKmA-lir_Ie70yw9EKHk=w60-h60-p-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/1-Ipiq-y8WyAcWn88nuxwTHaaBWMg8VkCBuP3puDCec-neD3v-7SqoBRzmmBKmA-lir_Ie70yw9EKHk=w120-h120-p-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ]
+    },
+    {
+      "category": "Artists",
+      "resultType": "artist",
+      "artist": "Sabrina Carpenter",
+      "shuffleId": "RDAO-vPeq_YvV4om2VwqZu4mDw",
+      "radioId": "RDEM-vPeq_YvV4om2VwqZu4mDw",
+      "browseId": "UCz51ZodJbYUNfkdPHOjJKKw",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/FMh1mOI0ufvUCAkbUM6aUmU5WK7O5PnndyyXKP1-DCEip20SQz5eeYn3lZ29p-ASb-19ZfBVc_NKe5Ko=w60-h60-p-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/FMh1mOI0ufvUCAkbUM6aUmU5WK7O5PnndyyXKP1-DCEip20SQz5eeYn3lZ29p-ASb-19ZfBVc_NKe5Ko=w120-h120-p-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ]
+    },
+    {
+      "category": "Artists",
+      "resultType": "artist",
+      "artist": "Farruko",
+      "shuffleId": "RDAOc9JvIgw1CuWGnWDhtt-1Gg",
+      "radioId": "RDEMc9JvIgw1CuWGnWDhtt-1Gg",
+      "browseId": "UC6QXZsAOOweLfhVPbqMyG4g",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/7LcUfJ1CzFPLi1BxeTqlEp29UFP3B6KZUxAFcnzGpxDQkF8Pn7Ivl7v_dzgsJvbrOFGZIQnXsZPIJJo=w60-h60-p-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/7LcUfJ1CzFPLi1BxeTqlEp29UFP3B6KZUxAFcnzGpxDQkF8Pn7Ivl7v_dzgsJvbrOFGZIQnXsZPIJJo=w120-h120-p-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ]
+    }
+  ],
+  "Community playlists": [
+    {
+      "category": "Community playlists",
+      "resultType": "playlist",
+      "title": "on my way",
+      "itemCount": 33,
+      "author": "Hermann Mugerwa",
+      "browseId": "VLPLkockhT9d6XnSBJSrmx4WNrQFAKvIGukD",
+      "thumbnails": [
+        {
+          "url": "https://yt3.googleusercontent.com/WdqjAs0aMt2SrGfZ7RrhdgP2Sxj6y4icKtW4YLTMOsz8X3mDlcKaBE1S_zjHyHvm-KYA7cysbw=s192",
+          "width": 192,
+          "height": 192
+        },
+        {
+          "url": "https://yt3.googleusercontent.com/WdqjAs0aMt2SrGfZ7RrhdgP2Sxj6y4icKtW4YLTMOsz8X3mDlcKaBE1S_zjHyHvm-KYA7cysbw=s576",
+          "width": 576,
+          "height": 576
+        },
+        {
+          "url": "https://yt3.googleusercontent.com/WdqjAs0aMt2SrGfZ7RrhdgP2Sxj6y4icKtW4YLTMOsz8X3mDlcKaBE1S_zjHyHvm-KYA7cysbw=s1200",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    {
+      "category": "Community playlists",
+      "resultType": "playlist",
+      "title": "Alan Walker ON MY WAY",
+      "itemCount": 27,
+      "author": "Wan noor",
+      "browseId": "VLPLLeUO0EkQn-M1yrxo6o5I-bHXyIg8mAiS",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/llGQMlkgkpk/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lwibsHvlnBqYb67tZ9fTHf4B2NYw",
+          "width": 400,
+          "height": 225
+        },
+        {
+          "url": "https://i.ytimg.com/vi/llGQMlkgkpk/hq720.jpg?sqp=-oaymwEXCKAGEMIDIAQqCwjVARCqCBh4INgESFo&rs=AMzJL3l3TZEod4jvjsrMPHurbYBIlErw0Q",
+          "width": 800,
+          "height": 450
+        },
+        {
+          "url": "https://i.ytimg.com/vi/llGQMlkgkpk/hq720.jpg?sqp=-oaymwEXCNUGEOADIAQqCwjVARCqCBh4INgESFo&rs=AMzJL3nsOdXLzhV2ZeYaPSoDl2loQYES9Q",
+          "width": 853,
+          "height": 480
+        }
+      ]
+    },
+    {
+      "category": "Community playlists",
+      "resultType": "playlist",
+      "title": "This is Alan Walker | Official Playlist | Sony Music",
+      "itemCount": "79K",
+      "author": "Sony Music India",
+      "browseId": "VLPLHuHXHyLu7BGUyvaCfG9eO7L5nYtv8mh8",
+      "thumbnails": [
+        {
+          "url": "https://yt3.ggpht.com/jyjsgdYILzDuig81e3aZ7eIt_qwhJoPthrQQVvA0QVq7nZ-rqv0S-XkaqbKXVQMY6-hye6qr4Psi=s192",
+          "width": 192,
+          "height": 192
+        },
+        {
+          "url": "https://yt3.ggpht.com/jyjsgdYILzDuig81e3aZ7eIt_qwhJoPthrQQVvA0QVq7nZ-rqv0S-XkaqbKXVQMY6-hye6qr4Psi=s576",
+          "width": 576,
+          "height": 576
+        },
+        {
+          "url": "https://yt3.ggpht.com/jyjsgdYILzDuig81e3aZ7eIt_qwhJoPthrQQVvA0QVq7nZ-rqv0S-XkaqbKXVQMY6-hye6qr4Psi=s1200",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    }
+  ],
+  "Podcasts": [
+    {
+      "category": "Podcasts",
+      "resultType": "podcast",
+      "title": "Lighting The Way Today",
+      "browseId": "MPSPPLp3A63pN5wmwRONmm8aRNQxiy2qDxyegn",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/podcasts_artwork/PLp3A63pN5wmwRONmm8aRNQxiy2qDxyegn/rss_feed_ingested.jpg?sqp=CLPC-sUG-oaymwEICDwQPCAASFo&rs=AMzJL3ke32dUylPb7ZjmS6bWaCxcaaynOg",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://i.ytimg.com/podcasts_artwork/PLp3A63pN5wmwRONmm8aRNQxiy2qDxyegn/rss_feed_ingested.jpg?sqp=CLPC-sUG-oaymwEICHgQeCAASFo&rs=AMzJL3koheDYDy6Ku70d4MKnnpIQovH6EQ",
+          "width": 120,
+          "height": 120
+        },
+        {
+          "url": "https://i.ytimg.com/podcasts_artwork/PLp3A63pN5wmwRONmm8aRNQxiy2qDxyegn/rss_feed_ingested.jpg?sqp=CLPC-sUG-oaymwEKCOIBEOIBIABIWg&rs=AMzJL3m96d5wpeRVgFvEaRpQq-3k4Fn38A",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://i.ytimg.com/podcasts_artwork/PLp3A63pN5wmwRONmm8aRNQxiy2qDxyegn/rss_feed_ingested.jpg?sqp=CLPC-sUG-oaymwEKCKAEEKAEIABIWg&rs=AMzJL3lWAaADDevL_FhRB6tvwMoB8fpFQw",
+          "width": 544,
+          "height": 544
+        }
+      ]
+    },
+    {
+      "category": "Podcasts",
+      "resultType": "podcast",
+      "title": "On My Way From Work | Software Engineering Thoughts",
+      "browseId": "MPSPPLE4fGQXgx2n2_9nmlZYGrHDWukffQmsVJ",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/pl_c/PLE4fGQXgx2n2_9nmlZYGrHDWukffQmsVJ/studio_square_thumbnail.jpg?sqp=CLPC-sUG-oaymwEICDwQPCAASFqi85f_AwYInJn5uwY&rs=AMzJL3lpbJ1lliEUYx2xEjxP63huBTWIuw",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://i.ytimg.com/pl_c/PLE4fGQXgx2n2_9nmlZYGrHDWukffQmsVJ/studio_square_thumbnail.jpg?sqp=CLPC-sUG-oaymwEICHgQeCAASFqi85f_AwYInJn5uwY&rs=AMzJL3mmMEITtheS1IY-txuyNHwIKqtNsg",
+          "width": 120,
+          "height": 120
+        },
+        {
+          "url": "https://i.ytimg.com/pl_c/PLE4fGQXgx2n2_9nmlZYGrHDWukffQmsVJ/studio_square_thumbnail.jpg?sqp=CLPC-sUG-oaymwEKCOIBEOIBIABIWqLzl_8DBgicmfm7Bg&rs=AMzJL3nvq9pv_15plch9RNgtf_MRCBGBkA",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://i.ytimg.com/pl_c/PLE4fGQXgx2n2_9nmlZYGrHDWukffQmsVJ/studio_square_thumbnail.jpg?sqp=CLPC-sUG-oaymwEKCKAEEKAEIABIWqLzl_8DBgicmfm7Bg&rs=AMzJL3nnjHwQoB8PTSdDzLmIj4cnx7_bKA",
+          "width": 544,
+          "height": 544
+        }
+      ]
+    },
+    {
+      "category": "Podcasts",
+      "resultType": "podcast",
+      "title": "On My Way To Work",
+      "browseId": "MPSPPLE9amzVf5qN4Eu-PwqLk6KCm7Be9IK-SP",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/pl_c/PLE9amzVf5qN4Eu-PwqLk6KCm7Be9IK-SP/studio_square_thumbnail.jpg?sqp=CLPC-sUG-oaymwEICDwQPCAASFqi85f_AwYI1ZCTvwY&rs=AMzJL3kOg1qcVckhvB_2SrdZMR4f-VqnYg",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://i.ytimg.com/pl_c/PLE9amzVf5qN4Eu-PwqLk6KCm7Be9IK-SP/studio_square_thumbnail.jpg?sqp=CLPC-sUG-oaymwEICHgQeCAASFqi85f_AwYI1ZCTvwY&rs=AMzJL3kV4usEtHY4_dmpW9dYMz3WHdmgDQ",
+          "width": 120,
+          "height": 120
+        },
+        {
+          "url": "https://i.ytimg.com/pl_c/PLE9amzVf5qN4Eu-PwqLk6KCm7Be9IK-SP/studio_square_thumbnail.jpg?sqp=CLPC-sUG-oaymwEKCOIBEOIBIABIWqLzl_8DBgjVkJO_Bg&rs=AMzJL3mW0hAB1SIOjyeGfn9dSbWfC_OvIA",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://i.ytimg.com/pl_c/PLE9amzVf5qN4Eu-PwqLk6KCm7Be9IK-SP/studio_square_thumbnail.jpg?sqp=CLPC-sUG-oaymwEKCKAEEKAEIABIWqLzl_8DBgjVkJO_Bg&rs=AMzJL3nGit0He37RgnXxz_UU6L1fxs-6Ag",
+          "width": 544,
+          "height": 544
+        }
+      ]
+    }
+  ],
+  "Episodes": [
+    {
+      "category": "Episodes",
+      "resultType": "episode",
+      "title": "Flat Galaxies, Future of The Space Race, Mining Mars | Q&A 350",
+      "videoId": "8B5f-LhVWDg",
+      "videoType": "MUSIC_VIDEO_TYPE_PODCAST_EPISODE",
+      "live": false,
+      "date": "4d ago",
+      "podcast": {
+        "id": "MPSPPLbJ42wpShvmm0qu2plA5h38kXFKItwpqw",
+        "name": "Fraser Cain / Universe Today Podcast"
+      },
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/8B5f-LhVWDg/hqdefault.jpg?sqp=-oaymwEWCOADEI4CIAQqCggAEOADGC0guwJIWg&rs=AMzJL3npgkgx84OBetvXop79Thl-a2EW8Q",
+          "width": 480,
+          "height": 270
+        }
+      ]
+    }
+  ],
+  "Profiles": [
+    {
+      "category": "Profiles",
+      "resultType": "artist",
+      "artist": "BASS BOOST WORLD",
+      "browseId": "UC5NJF5sz4rtoj7yB5KeIXCA",
+      "thumbnails": [
+        {
+          "url": "https://yt3.googleusercontent.com/ytc/AIdro_lcBIe_4Q3VVhhrF-PkQQRr4_t-QLUFzu1zpqkZC3y9Ew=w60-c-h60-k-c0x00ffffff-no-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://yt3.googleusercontent.com/ytc/AIdro_lcBIe_4Q3VVhhrF-PkQQRr4_t-QLUFzu1zpqkZC3y9Ew=w120-c-h120-k-c0x00ffffff-no-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ]
+    },
+    {
+      "category": "Profiles",
+      "resultType": "artist",
+      "artist": "Yohanes Pandiangan",
+      "browseId": "UCfsX7rY92i88Gzc_dux2bDA",
+      "thumbnails": [
+        {
+          "url": "https://yt3.googleusercontent.com/ytc/AIdro_mjV99d6AkhZ6Et-CJC61QXJyDyMPRTYPbMt54Ep1b-rw=w60-c-h60-k-c0x00ffffff-no-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://yt3.googleusercontent.com/ytc/AIdro_mjV99d6AkhZ6Et-CJC61QXJyDyMPRTYPbMt54Ep1b-rw=w120-c-h120-k-c0x00ffffff-no-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ]
+    },
+    {
+      "category": "Profiles",
+      "resultType": "artist",
+      "artist": "Wathsilu Binuwara",
+      "browseId": "UCaP9UGmoWfVkV7QWXsNczgA",
+      "thumbnails": [
+        {
+          "url": "https://yt3.googleusercontent.com/ytc/AIdro_lxqRj5mufTwqxw0sIxSpGS1CQrF3cr92lWyYKOHKDMv4o=w60-c-h60-k-c0x00ffffff-no-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://yt3.googleusercontent.com/ytc/AIdro_lxqRj5mufTwqxw0sIxSpGS1CQrF3cr92lWyYKOHKDMv4o=w120-c-h120-k-c0x00ffffff-no-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ]
+    }
+  ]
+}

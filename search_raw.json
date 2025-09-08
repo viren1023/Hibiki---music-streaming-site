@@ -1,0 +1,833 @@
+{
+  "Albums for you": [
+    {
+      "title": "Murder 2",
+      "type": "Album",
+      "artists": [
+        {
+          "id": "UCHxwQajTiv8div1Fe-yvWpA",
+          "name": "Mithoon"
+        },
+        {
+          "id": "UCY3USFfqfbMMV1Rwwopj4Jw",
+          "name": "Sangeet & Siddharth Haldipur"
+        },
+        {
+          "id": "UCw2F75fW5qMJTapieEiryFg",
+          "name": "Harshit Saxena"
+        }
+      ],
+      "browseId": "MPREb_ng83b9GyHjA",
+      "audioPlaylistId": "OLAK5uy_n4a8CvxuwoI_R26GU55wXiaN6dmgexkH4",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/xKvpjbsvbNd7tpPahfA43zFFA3tGDgkfYQMpHzDH2hXw3n5YgOp9jzntK3sQgUDxs_m6tu_I98yuDHrgTQ=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/xKvpjbsvbNd7tpPahfA43zFFA3tGDgkfYQMpHzDH2hXw3n5YgOp9jzntK3sQgUDxs_m6tu_I98yuDHrgTQ=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "isExplicit": false
+    },
+    {
+      "title": "Table No. 21 (Original Motion Picture Soundtrack)",
+      "type": "EP",
+      "artists": [
+        {
+          "id": "UCRUq1Vg289WgemqAEP-slBg",
+          "name": "Gajendra Verma"
+        },
+        {
+          "id": "UCSXkFfQZF9mQQjddxxAVJwA",
+          "name": "Sachin Gupta"
+        }
+      ],
+      "browseId": "MPREb_OSWZXpNsKDy",
+      "audioPlaylistId": "OLAK5uy_laqCMCMK0eK91kX6AvD52411tfCpjaX5M",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/AtVqNl1rjdqt4scSZjuODGNHC19j-pvM_OpGK9Oclo0awmEmrhQMwvM_3or0uFgTTmb3hsESR9kbyKY=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/AtVqNl1rjdqt4scSZjuODGNHC19j-pvM_OpGK9Oclo0awmEmrhQMwvM_3or0uFgTTmb3hsESR9kbyKY=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "isExplicit": false
+    },
+    {
+      "title": "Aashiqui 2",
+      "type": "Album",
+      "artists": [
+        {
+          "id": "UC00SotJE71x-1F3ia2T3cvA",
+          "name": "Jeet Gannguli"
+        },
+        {
+          "id": "UC3xhOiFwndOYc57JV1iHCuw",
+          "name": "Ankit Tiwari"
+        },
+        {
+          "id": "UCHxwQajTiv8div1Fe-yvWpA",
+          "name": "Mithoon"
+        }
+      ],
+      "browseId": "MPREb_E4GfUXfDfhy",
+      "audioPlaylistId": "OLAK5uy_kDxY4xsmWdGvYXIzj1bhPEDBkd7cqOTCY",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/3q33amH9hzn1dO8IeAX7TMb1QtEVfvVbqd2eSCaelOXNVmfMjbpDYdqD2HSiXtNP6i5Es7oynkWU2NfOXA=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/3q33amH9hzn1dO8IeAX7TMb1QtEVfvVbqd2eSCaelOXNVmfMjbpDYdqD2HSiXtNP6i5Es7oynkWU2NfOXA=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "isExplicit": false
+    },
+    {
+      "title": "Awarapan (Original Motion Picture Soundtrack)",
+      "type": "Album",
+      "artists": [],
+      "browseId": "MPREb_mz3GHKjUv6q",
+      "audioPlaylistId": "OLAK5uy_ndBJET-jWLa2rua1pjk5KRifFlkD6TCdw",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/T7lhPxZdsmFLWaviuHJmw4VLY_r9crXSYiSs3hLg2w2nnKUdtUPoZ0OG40sRD4fdX4Uu1m8tNnsWANM=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/T7lhPxZdsmFLWaviuHJmw4VLY_r9crXSYiSs3hLg2w2nnKUdtUPoZ0OG40sRD4fdX4Uu1m8tNnsWANM=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "isExplicit": false
+    },
+    {
+      "title": "Rockstar",
+      "type": "Album",
+      "artists": [
+        {
+          "id": "UCtJe0RYzgPddQXKtWduxz_w",
+          "name": "A.R. Rahman"
+        }
+      ],
+      "browseId": "MPREb_E9Diy6kXmlV",
+      "audioPlaylistId": "OLAK5uy_k_TUYoqICxpbv0uEnxJ9u0thWxWg_t8pg",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/KYw74XSQwtKPbZTrHMNEBAnEMg1P1gNGwymnZwBSjstbqSE-MpigGlTIy6IZvC-ERlRkeP0c7VTiZObS=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/KYw74XSQwtKPbZTrHMNEBAnEMg1P1gNGwymnZwBSjstbqSE-MpigGlTIy6IZvC-ERlRkeP0c7VTiZObS=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "isExplicit": false
+    },
+    {
+      "title": "Murder",
+      "type": "Album",
+      "artists": [
+        {
+          "id": "UCPgPdd27BUuBdXf3-86qhEw",
+          "name": "Anu Malik"
+        },
+        {
+          "id": "UCL-6KRZty4zGleXk4bh12zw",
+          "name": "Najam Sheraz"
+        }
+      ],
+      "browseId": "MPREb_j1vgrs1Pb4q",
+      "audioPlaylistId": "OLAK5uy_kE16toGiatFXPuqZNSFNl-VcC8QfEIgqc",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/ucVNB9NjUrJYPWQ2_5Hf4U4E4vWh2kCvXsPqwI-NMsbPGBJY4KwyzZZwqKEXngK1MN1i-3aA8IAkjX3p=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/ucVNB9NjUrJYPWQ2_5Hf4U4E4vWh2kCvXsPqwI-NMsbPGBJY4KwyzZZwqKEXngK1MN1i-3aA8IAkjX3p=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "isExplicit": false
+    },
+    {
+      "title": "Ra-One",
+      "type": "EP",
+      "artists": [
+        {
+          "id": "UCWXJyrk1diAufFuTHCTfQ2A",
+          "name": "Vishal-Shekhar"
+        }
+      ],
+      "browseId": "MPREb_KYv1K84jQag",
+      "audioPlaylistId": "OLAK5uy_kKOqi0a-yS_ECNT9h7daA_0tP_mUrFYjI",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/cTDVuRaCyH7t86ORJgMYKmhSjDcBLTSBevDFSLRsZ3t0GLjev4xz5emfuDr3yzqx6f9wt-IzFCeSdw0Y=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/cTDVuRaCyH7t86ORJgMYKmhSjDcBLTSBevDFSLRsZ3t0GLjev4xz5emfuDr3yzqx6f9wt-IzFCeSdw0Y=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "isExplicit": false
+    },
+    {
+      "title": "Ek Villain",
+      "type": "Album",
+      "artists": [
+        {
+          "id": "UC3xhOiFwndOYc57JV1iHCuw",
+          "name": "Ankit Tiwari"
+        },
+        {
+          "id": "UCHxwQajTiv8div1Fe-yvWpA",
+          "name": "Mithoon"
+        },
+        {
+          "id": "UC47a4QqJaEb4B01PIi8UtlA",
+          "name": "SOCH"
+        }
+      ],
+      "browseId": "MPREb_BQolR0DzVzC",
+      "audioPlaylistId": "OLAK5uy_mf_3lI3Wxb6autBLRAcIeV91vUBV4XtFU",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/dxV5Giyiw0e-0ct5Hsq_8RvxypA19fFo51GjPi1gRqhfAF9LmlfU7QKQPhB09iSXAr-DXx4BGcJLUqmT=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/dxV5Giyiw0e-0ct5Hsq_8RvxypA19fFo51GjPi1gRqhfAF9LmlfU7QKQPhB09iSXAr-DXx4BGcJLUqmT=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "isExplicit": false
+    },
+    {
+      "title": "Kedarnath (Original Motion Picture Soundtrack)",
+      "type": "EP",
+      "artists": [
+        {
+          "id": "UC19pnd-F7tw6vDhkmEiAkgA",
+          "name": "Amit Trivedi"
+        }
+      ],
+      "browseId": "MPREb_MftU5XaVmDX",
+      "audioPlaylistId": "OLAK5uy_nD5rnMCe737iHv_O9ah9MwVx6slNCBJAc",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/1CFGx2RBIDDhqxli7xazjUkr0B1IxH58cEYWE6VeVxeq7cIQ-HXZpYABghCsXa8sk_KysYYo7mJAOKt-=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/1CFGx2RBIDDhqxli7xazjUkr0B1IxH58cEYWE6VeVxeq7cIQ-HXZpYABghCsXa8sk_KysYYo7mJAOKt-=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "isExplicit": false
+    },
+    {
+      "title": "NirvairNess",
+      "type": "Album",
+      "artists": [
+        {
+          "id": "UCL66OoufGmnbJAjhCAuYvSQ",
+          "name": "nirvair pannu"
+        }
+      ],
+      "browseId": "MPREb_69v4Ek7XHmh",
+      "audioPlaylistId": "OLAK5uy_mG2EWhxZigd4H6rGv9Ss5ZpPot1_Jb2aY",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/pw0pIKFgtJ1CYioDxp7vwVKKpnvsWeUUbhO5i6_JsjlSyMlLSiAN3TKKEPvQd00maKfh54C0hHmhcuQ1=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/pw0pIKFgtJ1CYioDxp7vwVKKpnvsWeUUbhO5i6_JsjlSyMlLSiAN3TKKEPvQd00maKfh54C0hHmhcuQ1=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "isExplicit": false
+    }
+  ],
+  "Brb, Being Nostalgic!": [
+    {
+      "title": "'10s Bollywood Dance Hits",
+      "playlistId": "RDCLAK5uy_kkmYQJUx6MqEE1Uj3Y0UhBxzwOfAWpHm0",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/tH0npWvgMiIhJ0SERVirJgaazH8vBKV_7aq-vxct73t3z1ZI6uQBxddGlwriXjPgaAUWjvGMXF_ZUAc=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/tH0npWvgMiIhJ0SERVirJgaazH8vBKV_7aq-vxct73t3z1ZI6uQBxddGlwriXjPgaAUWjvGMXF_ZUAc=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Badshah, Neha Kakkar, Vishal Dadlani, Arijit Singh"
+    },
+    {
+      "title": "00s Bollywood Romance",
+      "playlistId": "RDCLAK5uy_kWKAcJROkxDk9mOVmfDSv9cycK_-Ci2yA",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/nMAW4OkV_cPtnnfXNjs0ORDsODpA3UFgecGs0VhLqj7oiPHyNf7jZxKX4yFwsGajm9vS8UWmy0yZSys6=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/nMAW4OkV_cPtnnfXNjs0ORDsODpA3UFgecGs0VhLqj7oiPHyNf7jZxKX4yFwsGajm9vS8UWmy0yZSys6=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Pritam, Alka Yagnik, Udit Narayan, Shreya Ghoshal"
+    },
+    {
+      "title": "90s Bollywood Sangeet",
+      "playlistId": "RDCLAK5uy_l6TnLH20Ir4P2cfx1DNSxaZiea49NmIKY",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/W6EHcUHIQ3SEoh6Z2Zi0Mn7mjz3ci7EuOtexIcktgwMRTbNRDl_VV6N8ftA88VkXp7sCJN3YfQ80APo=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/W6EHcUHIQ3SEoh6Z2Zi0Mn7mjz3ci7EuOtexIcktgwMRTbNRDl_VV6N8ftA88VkXp7sCJN3YfQ80APo=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Alka Yagnik, Udit Narayan, Lata Mangeshkar, Kumar Sanu"
+    },
+    {
+      "title": "90s Bollywood Romance",
+      "playlistId": "RDCLAK5uy_lnm4v4arFrmL63NUzIdoXJe-E7G4_sriU",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/-c8oNNa6UCD1DZuwiIqqIaYVwrHZbw98y02sxSaAaJwE-ICbvInn5tRpuK6Ri0mEhoHM8LbYDIvWGzpG=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/-c8oNNa6UCD1DZuwiIqqIaYVwrHZbw98y02sxSaAaJwE-ICbvInn5tRpuK6Ri0mEhoHM8LbYDIvWGzpG=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Alka Yagnik, Kumar Sanu, Udit Narayan, Jatin-Lalit"
+    },
+    {
+      "title": "90s Tollywood Romance",
+      "playlistId": "RDCLAK5uy_nOk4cfi6qEweyqTpziNz5hUzjCRnLzOqw",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/OQEdCAgFyyZcoQaAJBa_42F5TEoyYJrNRPXXoreSbrqEZQcT0e3FAHZMa-7VB26rx5i3iU7PNWc9GKJl=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/OQEdCAgFyyZcoQaAJBa_42F5TEoyYJrNRPXXoreSbrqEZQcT0e3FAHZMa-7VB26rx5i3iU7PNWc9GKJl=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "K.S. Chithra, SP Balasubrahmanyam, Hariharan"
+    },
+    {
+      "title": "00s Bollywood Dance",
+      "playlistId": "RDCLAK5uy_nWw3L1vcgAaz_YeU70VZkhHeomK4IBUBo",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/zglRk7Z3xTULtd_QOtydFVpDd3esZmZpjLJr2jD1AaTXweQMq-bIYl0hNsPs5bl6zbyssT-3kO-9IPlC=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/zglRk7Z3xTULtd_QOtydFVpDd3esZmZpjLJr2jD1AaTXweQMq-bIYl0hNsPs5bl6zbyssT-3kO-9IPlC=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Sunidhi Chauhan, Sonu Nigam, KK, Shankar Mahadevan"
+    },
+    {
+      "title": "Chai, Baarish aur 90s",
+      "playlistId": "RDCLAK5uy_lycab9oGCf-Wrf032tl6Lxn2W68QjdXls",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/oMgTqRJDhK_gSTTGpWp4EUGxAO2DK43crZTLLHJSWk6g9K9yDFj__cB6ByWuBJWyuVEd2f-SvM8LP60=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/oMgTqRJDhK_gSTTGpWp4EUGxAO2DK43crZTLLHJSWk6g9K9yDFj__cB6ByWuBJWyuVEd2f-SvM8LP60=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Kumar Sanu, Lata Mangeshkar, Alka Yagnik, Hariharan"
+    },
+    {
+      "title": "90s Bollywood Sad Songs",
+      "playlistId": "RDCLAK5uy_kCFyity-5xsBCaEQbpfJz8Gxp0zz6eRQ8",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/SXlGnwLYO5qmOQXOvvdtgEJYMQNEZL6xfXYCfO3U0oEH-QW_NgMgrZNZCZPqwLH743mABiUkdNtH5vQ=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/SXlGnwLYO5qmOQXOvvdtgEJYMQNEZL6xfXYCfO3U0oEH-QW_NgMgrZNZCZPqwLH743mABiUkdNtH5vQ=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Kumar Sanu, Udit Narayan, Alka Yagnik, Jatin-Lalit"
+    },
+    {
+      "title": "10s Punjabi Dance Hits",
+      "playlistId": "RDCLAK5uy_l1tvprsrxf2EDE9pHKetlLGn8yq7XSECo",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/Td73xxvuIuPQWmCO6s5drVex9gSC-fhS_9ULeW3X85VUzpz9NogJW3cyCqjbvXhAjtT2eIsslbUdnjQ=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/Td73xxvuIuPQWmCO6s5drVex9gSC-fhS_9ULeW3X85VUzpz9NogJW3cyCqjbvXhAjtT2eIsslbUdnjQ=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Guru Randhawa, Diljit Dosanjh, Jassie Gill, Sukh-E Muzical Doctorz"
+    },
+    {
+      "title": "90s Bollywood Dance",
+      "playlistId": "RDCLAK5uy_kiDNaS5nAXxdzsqFElFKKKs0GUEFJE26w",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/CDKuNbvqo59iKyF7s0hrY7ZXuqR788rPSfAg_dN8zTXM1kknNLOAmMAMNwpuK16D8ms5JsDo9eT6fZA=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/CDKuNbvqo59iKyF7s0hrY7ZXuqR788rPSfAg_dN8zTXM1kknNLOAmMAMNwpuK16D8ms5JsDo9eT6fZA=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Alka Yagnik, Udit Narayan, Abhijeet Bhattacharya, Kavita Krishnamurthy"
+    }
+  ],
+  "Romance Right Now": [
+    {
+      "title": "Midnight Romance: Hindi",
+      "playlistId": "RDCLAK5uy_mcMBXir4RT5m0mkGIRtbwFOtD4nbiVSvg",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/TB9V8jYL6-p5hILLzHY57SKvg_HR7qo3OuSjoFXzdPHnHJy1Bm0kUdNdt_IAo3uuGIlgFdhpK1qNR6U=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/TB9V8jYL6-p5hILLzHY57SKvg_HR7qo3OuSjoFXzdPHnHJy1Bm0kUdNdt_IAo3uuGIlgFdhpK1qNR6U=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Arijit Singh, Vishal Mishra, Sachin-Jigar, Amitabh Bhattacharya"
+    },
+    {
+      "title": "Make Out Jams: Bollywood",
+      "playlistId": "RDCLAK5uy_lbfDqlFOiRJekoTwNgiES65gcham4ZelA",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/_z2pe5PlkSXwi2Bn1OLjeu3wpqptoAXh6qeeraDEI5gGYzCe1Rz6yTCO0-zW2gwR7vvJXJHlJCa9c_U=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/_z2pe5PlkSXwi2Bn1OLjeu3wpqptoAXh6qeeraDEI5gGYzCe1Rz6yTCO0-zW2gwR7vvJXJHlJCa9c_U=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Arijit Singh, Shreya Ghoshal, Tanishk Bagchi, Jubin Nautiyal"
+    },
+    {
+      "title": "Slow Romantic Punjabi Songs",
+      "playlistId": "RDCLAK5uy_mrtv7Q8jbt2mDcDC6z7wcWfk26dtOIBmc",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/TaBLjEEHinYjMmOMiOia3AwnrcIbEA-ZhIfLbhwDw-k1Z9z68QBjKpRTvaNFU9xaDXFIqYuqvKtEz2s=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/TaBLjEEHinYjMmOMiOia3AwnrcIbEA-ZhIfLbhwDw-k1Z9z68QBjKpRTvaNFU9xaDXFIqYuqvKtEz2s=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Gurnam Bhullar, Akhil, Neha Kakkar, StarBoy X"
+    },
+    {
+      "title": "Bollywood Romantic Moments",
+      "playlistId": "RDCLAK5uy_miAacfMxVybbt7ketqqnPPbH9LDn1TavU",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/WkeXdD0jZw2a-YPlzBvp_QA64jZtY36nDnUGRNb3J9F3_RQ97AB9VycP8x7wdfYZUu-mVnNSnAuwGp4=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/WkeXdD0jZw2a-YPlzBvp_QA64jZtY36nDnUGRNb3J9F3_RQ97AB9VycP8x7wdfYZUu-mVnNSnAuwGp4=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Arijit Singh, Pritam, Vishal Mishra, Jubin Nautiyal"
+    },
+    {
+      "title": "Bollywood Romance Hitlist",
+      "playlistId": "RDCLAK5uy_mypHeJ-B5f7-OgrxJcXeiHSotjIJ_UDhQ",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/bdl4tYmUVv1Oeg_Nk7YPfODGcsd8YdDWpGQEWk-lJC0e31jzeBMcYW5mqhxs-7xuu6jfsbA86tGUGg=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/bdl4tYmUVv1Oeg_Nk7YPfODGcsd8YdDWpGQEWk-lJC0e31jzeBMcYW5mqhxs-7xuu6jfsbA86tGUGg=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Arijit Singh, Vishal Mishra, Amitabh Bhattacharya, Sachin-Jigar"
+    },
+    {
+      "title": "Bollywood Love Aaj Kal",
+      "playlistId": "RDCLAK5uy_kvB-Tek1AZcCVmlbyA8iDfBgD4hPxgec8",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/HPeabMnK4Twwbl0yaVlg1biM9J8iCbEHkg8aUMyNl67or0x7K69MCoXgjTHvaVF3UG1Qxe2ZUPkrg3M=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/HPeabMnK4Twwbl0yaVlg1biM9J8iCbEHkg8aUMyNl67or0x7K69MCoXgjTHvaVF3UG1Qxe2ZUPkrg3M=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Arijit Singh, Amitabh Bhattacharya, Vishal Mishra, Pritam"
+    },
+    {
+      "title": "90s Kollywood Romance",
+      "playlistId": "RDCLAK5uy_lG9Y0ygyS7rido4vIJF0reMGFWunV1d2Y",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/AAHLIBsUoFON9oymnMAAA7km1ERIdO6cGewWGLwVRWjgZOSbRGDe89rr-KowS-g76D4GPo-KzHC9hwUZ=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/AAHLIBsUoFON9oymnMAAA7km1ERIdO6cGewWGLwVRWjgZOSbRGDe89rr-KowS-g76D4GPo-KzHC9hwUZ=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "SP Balasubrahmanyam, Hariharan, Unni Menon, K.S. Chithra"
+    }
+  ],
+  "Old School Romance": [
+    {
+      "title": "Old Hindi Romantic Songs",
+      "playlistId": "RDCLAK5uy_nLOvZAnN86K4f-fJ6tUi0xHUPBHLBBkVE",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/QNfDVFDlNtOpaLaJ4JPTMqy5QjBqfEnFsUGLLyBaSPwyyfR30CBL3sFIo0xP60I_YjlZOrrdrpmPot8=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/QNfDVFDlNtOpaLaJ4JPTMqy5QjBqfEnFsUGLLyBaSPwyyfR30CBL3sFIo0xP60I_YjlZOrrdrpmPot8=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Lata Mangeshkar, Kishore Kumar, Mohammed Rafi, Asha Bhosle"
+    },
+    {
+      "title": "Ishq Sufiyana\t\t\t\t",
+      "playlistId": "RDCLAK5uy_kt3gC0XuT4rhFT3nXCLAhprwdQ0xieyYA",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/tpqWpwWb2JoXKjJiMTQefR49ZDn6IZ0wPiSItwJyIyh09dAl0BQfE7Xay4p5zIENq52uSbdmd_Nbjda0=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/tpqWpwWb2JoXKjJiMTQefR49ZDn6IZ0wPiSItwJyIyh09dAl0BQfE7Xay4p5zIENq52uSbdmd_Nbjda0=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Arijit Singh, Shreya Ghoshal, Rahat Fateh Ali Khan, Pritam"
+    },
+    {
+      "title": "70s Bollywood Romance",
+      "playlistId": "RDCLAK5uy_nuzXeIyp6SaQDL_0PRF0T-dh6g6SjMw6Y",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/kIOowNy9fiUhkgh0N5Uc2PqGqaskwU0wiOkRI14H0-fOjx3NkMGCnUBb2gptmGe4hOwk5vMzsIQ5XQ=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/kIOowNy9fiUhkgh0N5Uc2PqGqaskwU0wiOkRI14H0-fOjx3NkMGCnUBb2gptmGe4hOwk5vMzsIQ5XQ=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Lata Mangeshkar, Kishore Kumar, Asha Bhosle, Mohammed Rafi"
+    },
+    {
+      "title": "80s Bollywood Romance",
+      "playlistId": "RDCLAK5uy_mP4pii3gdJ6A8EhnMZ8mCUlay7NyZnh6I",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/n3KI23C9jloUKKVNg0t9m_8xnADAFcE-MyvdXNDXfRvgtEg4USJbq4OKrLNF6oKJ0tJbhUFERELi1Xg=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/n3KI23C9jloUKKVNg0t9m_8xnADAFcE-MyvdXNDXfRvgtEg4USJbq4OKrLNF6oKJ0tJbhUFERELi1Xg=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Kishore Kumar, Lata Mangeshkar, Asha Bhosle, R. D. Burman"
+    },
+    {
+      "title": "90s Mollywood Romance",
+      "playlistId": "RDCLAK5uy_ksMsvpdkEqlySkN98W9K2DabLTvbTxbu8",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/pG4WKdN56Bz0K_bAdpNw0AZW2dSkc4CCTlClIy-oRvKvAkz-dT6X5jbyDx2AxthmUOC8He2e3yYLmw=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/pG4WKdN56Bz0K_bAdpNw0AZW2dSkc4CCTlClIy-oRvKvAkz-dT6X5jbyDx2AxthmUOC8He2e3yYLmw=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "K. J. Yesudas, K.S. Chithra, Mohanlal, Shobana"
+    },
+    {
+      "title": "Bollywood Retro Romance",
+      "playlistId": "RDCLAK5uy_mLINy9qpTonGQC-ruYaB7k1QSb89CsyUU",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/-5w91ZpgEv1C8S-GPTzXKNBunIMuX0MvFjj_kUMlGLELQlE4H3P9crKtbCFKepL-zGfip1FphIu-KoUm=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/-5w91ZpgEv1C8S-GPTzXKNBunIMuX0MvFjj_kUMlGLELQlE4H3P9crKtbCFKepL-zGfip1FphIu-KoUm=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Lata Mangeshkar, Kishore Kumar, Mohammed Rafi, Asha Bhosle"
+    }
+  ],
+  "Dancing on your own": [
+    {
+      "title": "Bollywood Party",
+      "playlistId": "RDCLAK5uy_l_Bj8rMsjkhFMMs-eLrA17_zjr9r6g_Eg",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/ZVxlwY6YnYIOhQY-vn07LwgH70A3V02nRuJiRvPrijYU5EDpv11HeOQKm-LxTXY5CCnYW7FGvRpb4CI=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/ZVxlwY6YnYIOhQY-vn07LwgH70A3V02nRuJiRvPrijYU5EDpv11HeOQKm-LxTXY5CCnYW7FGvRpb4CI=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Badshah, Tanishk Bagchi, Arijit Singh, Vishal - Shekhar"
+    },
+    {
+      "title": "Tollywood Party",
+      "playlistId": "RDCLAK5uy_nGC5IUV3lYF-P_wGb-LzMPFydA-RkPblc",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/0PHsBbBnp13jmTEG4tzB68lZ_Lx9pmdqD8qAxcWJDdmvvNpmiLwygaqsQhG1NlAgnh8cP2eHXP5-mHU-=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/0PHsBbBnp13jmTEG4tzB68lZ_Lx9pmdqD8qAxcWJDdmvvNpmiLwygaqsQhG1NlAgnh8cP2eHXP5-mHU-=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Nakash Aziz, Thaman S, Bheems Ceciroleo, Devi Sri Prasad"
+    },
+    {
+      "title": "Bollywood Fire",
+      "playlistId": "RDCLAK5uy_nbTnrBv4CxZys35IAzhO0-fFCiKD58qzo",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/h1LMB4t0dFgZXZrECr1yF59r_k51Vrihwc1QwinVl3ARrElIkepW34u1Ipp-fIFCgi1Y7lOeQGXTSwU=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/h1LMB4t0dFgZXZrECr1yF59r_k51Vrihwc1QwinVl3ARrElIkepW34u1Ipp-fIFCgi1Y7lOeQGXTSwU=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Neha Kakkar, Shreya Ghoshal, Tanishk Bagchi, Sachin-Jigar"
+    },
+    {
+      "title": "Mollywood Party",
+      "playlistId": "RDCLAK5uy_lXm4Xn4GwyFVjP0xgJvoZ6cdeBJZUmgSw",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/WhSJJzOuwnBFs_Smnib2wckWsP6uC8bqfQIpgPJe98Z58hXx-CvKG25DeMYwNN0KbX6w94S2l9UpiHs=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/WhSJJzOuwnBFs_Smnib2wckWsP6uC8bqfQIpgPJe98Z58hXx-CvKG25DeMYwNN0KbX6w94S2l9UpiHs=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Sushin Shyam, Vinayak Sasikumar, Dabzee, Jakes Bejoy"
+    },
+    {
+      "title": "Retro Grooves: Bollywood",
+      "playlistId": "RDCLAK5uy_kjcqi4IupK6Pl1cz_sHCfMGnXaRPyscoc",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/iKJnQIgafmm8gmitA8ngXEHGDyftjx2FPKjrqXRKYKhLTaZNHuUF9q4quxnNQ9b25FcDNpNRSmUoDyU=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/iKJnQIgafmm8gmitA8ngXEHGDyftjx2FPKjrqXRKYKhLTaZNHuUF9q4quxnNQ9b25FcDNpNRSmUoDyU=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Kishore Kumar, R. D. Burman, Asha Bhosle, Lata Mangeshkar"
+    },
+    {
+      "title": "Pop Tadka",
+      "playlistId": "RDCLAK5uy_lZQJ2uAh2UWSQ16Z8ry8g3ttQDLNiXiWs",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/ofPW0Ak5fRpWJpDFaZ3jfn1Q7ahcmABqXS4i_lGgFcpVZPlXKmn-OMHWBiW5DZjmxEZbaA6RqsXQ4Q=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/ofPW0Ak5fRpWJpDFaZ3jfn1Q7ahcmABqXS4i_lGgFcpVZPlXKmn-OMHWBiW5DZjmxEZbaA6RqsXQ4Q=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Diljit Dosanjh, AP Dhillon, King, KSHMR"
+    },
+    {
+      "title": "Bhangra Bangers",
+      "playlistId": "RDCLAK5uy_kPXMN4aEfutjBW-XB5MKv6KNe0AtTcBtc",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/Bib25tuU9yiBP2CpyEDXu6BsXDUx_wcNkJd54VADyCDmaiudlg5BJ_r3Rw8RvO0etQY3CKakfhX_6g=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/Bib25tuU9yiBP2CpyEDXu6BsXDUx_wcNkJd54VADyCDmaiudlg5BJ_r3Rw8RvO0etQY3CKakfhX_6g=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Diljit Dosanjh, Desi Crew, Gurlez Akhtar, Sidhu Moose Wala"
+    },
+    {
+      "title": "Haryanvi Party",
+      "playlistId": "RDCLAK5uy_mN9vO_dypsJubNdWlO5JSTtCA0SI3o-88",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/HtL5yPt0nAj3D_TIHLS7Ny_tSJw7BYOOUA_QhV7xYSOxkvXt-G1pMdzUd2adPQy-4FVDo_xPQ7AH7EE=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/HtL5yPt0nAj3D_TIHLS7Ny_tSJw7BYOOUA_QhV7xYSOxkvXt-G1pMdzUd2adPQy-4FVDo_xPQ7AH7EE=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Masoom Sharma, Ashu Twinkle, Renuka Panwar, Raj Mawar"
+    },
+    {
+      "title": "Haryanvi Dance Hitlist",
+      "playlistId": "RDCLAK5uy_n2SLzBm42Uy5qV7Ad02Ba1dg7v4a_WOOI",
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/13yWKwa4hV5SKixRHXTEgG2-tH03gsUU_2-wg1vWtHRYEdDkQ1NHaJrBhrwbnQjQ8HUb-2LXUMQHJYc=w226-h226-l90-rj",
+          "width": 226,
+          "height": 226
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/13yWKwa4hV5SKixRHXTEgG2-tH03gsUU_2-wg1vWtHRYEdDkQ1NHaJrBhrwbnQjQ8HUb-2LXUMQHJYc=w544-h544-l90-rj",
+          "width": 544,
+          "height": 544
+        }
+      ],
+      "description": "Raj Mawar, Masoom Sharma, Ashu Twinkle, Sapna Choudhary"
+    }
+  ]
+}
