@@ -183,6 +183,8 @@ def playlist_view(request):
     }
     return render(request, "playlist.html", context)
 
+def player_view(request):
+    return render(request, "player.html")
 
 
 def logout_view(request):
