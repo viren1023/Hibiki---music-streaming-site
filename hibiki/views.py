@@ -1,4 +1,5 @@
 import random
+from ytmusicapi import YTMusic
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
@@ -144,22 +145,67 @@ def home(request):
 
 
 
-def search_page(request):
-    query = ""
-    if request.method == "POST":
-        query = request.POST.get("search_text", "")
-        # similar_songs = similar_songs_name(query)
-        # print(similar_songs)        
-        # print(query)
-    # similar_search_metadata(query)
-    return render(request, "search.html", {"query": query})
+# def search_page(request):
+#     query = ""
+#     if request.method == "POST":
+#         query = request.POST.get("search_text", "")
+#         # similar_songs = similar_songs_name(query)
+#         # print(similar_songs)        
+#         # print(query)
+#     # similar_search_metadata(query)
+#     return render(request, "search.html", {"query": query})
+
+# def similar_name(request):
+#     print("hi")
+#     query = request.GET.get('q', '')
+#     matching_songs = similar_songs_name(query)
+#     print(matching_songs)
+#     return JsonResponse(matching_songs, safe=False)
+
+ytmusic = YTMusic()
+
+# Suggestions (autocomplete)
+def similar_songs_name(query):
+    if len(query) >= 3:
+        return ytmusic.get_search_suggestions(query)
+    return []
 
 def similar_name(request):
-    print("hi")
     query = request.GET.get('q', '')
     matching_songs = similar_songs_name(query)
-    print(matching_songs)
     return JsonResponse(matching_songs, safe=False)
+
+# Search results page
+def search_page(request):
+    query = ""
+    search_results = []
+    mood_categories = []
+    charts = {}
+
+    if request.method == "POST":
+        query = request.POST.get("search_text", "").strip()
+        if query:
+            results = ytmusic.search(query)
+            search_results = results[:10]
+            return render(request, "search.html", {
+                "query": query,
+                "results": search_results,
+                "mood_categories": mood_categories,
+                "charts": charts
+            })
+    else:
+        # No query yet → show moods + charts
+        mood_categories = ytmusic.get_mood_categories()
+        charts = ytmusic.get_charts(country="IN")  # You can change country
+        return render(request, "search.html", {
+            "query": query,
+            "results": search_results,
+            "mood_categories": mood_categories["Moods & moments"] ,
+            "charts": charts["weekly"] 
+        })
+    
+
+
 
 def fetch_audio(request):
     name = request.GET.get("name")

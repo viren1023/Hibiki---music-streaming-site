@@ -1,14 +1,23 @@
 {% extends "Sidebar.html" %}
 {% block content %}
 <style>
+  /* Remove body scroll and margins */
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: black; /* prevent outline around image */
+  }
+
   .player-container {
     position: relative;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     color: white;
     overflow: hidden;
-    border-radius: 12px;
-
+    /* border-radius: 12px; */ /* optional: remove for full edge-to-edge */
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -17,15 +26,15 @@
   .background {
     position: absolute;
     inset: 0;
-    background: url("https://picsum.photos/1920/1080?random=3") center/cover no-repeat;
+    background: 
+        linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(185,185,185,0.3), rgba(119,119,119,0.3), rgba(59,59,59,0.3), rgba(0,0,0,0.3)),
+        url("https://picsum.photos/1920/1080?random=3") center/cover no-repeat;
     z-index: 0;
+    
   }
 
   .overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5), transparent);
-    z-index: 1;
+    display: none; /* remove black overlay */
   }
 
   .header {
@@ -108,11 +117,11 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background: #7c3aed;
+    /* background: black; */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    /* box-shadow: 0 4px 12px rgba(0,0,0,0.4); */
   }
 
   .play-btn svg {
@@ -203,15 +212,15 @@
     return `${minutes}:${seconds}`;
   }
 
-  playBtn.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play();
-      playIcon.outerHTML = '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
-    } else {
-      audio.pause();
-      playIcon.outerHTML = '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
-    }
-  });
+playBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    playBtn.innerHTML = '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+  } else {
+    audio.pause();
+    playBtn.innerHTML = '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
+  }
+});
 
   audio.addEventListener("timeupdate", () => {
     progress.value = (audio.currentTime / audio.duration) * 100;

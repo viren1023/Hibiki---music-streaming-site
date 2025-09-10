@@ -19,7 +19,7 @@ def home_metadata():
 def similar_search_metadata(query):
     similar_songs = defaultdict(list)
     results = ytmusic.search(query)
-    
+
     for res in results[1:]:
         category_key = res["category"]
 
