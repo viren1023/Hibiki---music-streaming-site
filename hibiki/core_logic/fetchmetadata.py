@@ -18,7 +18,7 @@ def home_metadata():
 
 def similar_search_metadata(query):
     similar_songs = defaultdict(list)
-    results = ytmusic.search(query)
+    results = ytmusic.search(query,filter=["songs", "video"])
 
     for res in results[1:]:
         category_key = res["category"]
@@ -43,9 +43,7 @@ def similar_songs_name(query):
         return suggestions
     
 def playlist_metadata(playlistId):
-    print("hi3")
     results = ytmusic.get_playlist(playlistId)
-    print("hi4")
     with open("pl_search.json", "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     return results
@@ -102,4 +100,64 @@ def fetch_audio_metadata(videoId):
     
     return audio_data
 
+def generate_radio_playlist(video_id, max_tracks=20):
+    """
+    Generate a radio-style playlist using YouTube Music metadata.
     
+    Args:
+        video_id (str): YouTube Music video ID
+        max_tracks (int): Maximum number of tracks in the playlist
+    
+    Returns:
+        dict: {'tracks': [ {videoId, title, thumbnails, artists}, ... ]}
+    """
+    try:
+        song_info = ytmusic.get_song(video_id)
+    except Exception as e:
+        print(f"Could not fetch song info: {e}")
+        return {"tracks": []}
+
+    video_details = song_info.get("videoDetails", {})
+    title = video_details.get("title", "")
+    artist_name = video_details.get("author", "")
+    genre = video_details.get("genre", "")
+    album = song_info.get("albums", [{}])[0].get("name", "")
+
+    # Prepare search queries: artist -> genre -> album
+    search_queries = [q for q in [artist_name, genre, album] if q]
+
+    playlist = {"tracks": []}
+    seen_video_ids = set()
+
+    # Add the original song as the first track
+    original_track = {
+        "videoId": video_id,
+        "title": title,
+        "thumbnails": video_details.get("thumbnail", {}).get("thumbnails", []),
+        "artists": [{"name": artist_name}] if artist_name else []
+    }
+    playlist["tracks"].append(original_track)
+    seen_video_ids.add(video_id)
+
+    # Build rest of playlist
+    for query in search_queries:
+        if len(playlist["tracks"]) >= max_tracks:
+            break
+        results = ytmusic.search(query, filter="songs", limit=max_tracks)
+        for track in results:
+            vid = track['videoId']
+            if vid in seen_video_ids:
+                continue
+            seen_video_ids.add(vid)
+            playlist["tracks"].append({
+                "videoId": vid,
+                "title": track["title"],
+                "thumbnails": track.get("thumbnails", []),
+                "artists": [{"name": artist["name"]} for artist in track.get("artists", [{"name": "Unknown"}])]
+            })
+            if len(playlist["tracks"]) >= max_tracks:
+                break
+
+    return playlist
+
+

@@ -1,0 +1,119 @@
+/* Remove body scroll and margins */
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: black; /* prevent outline around image */
+  }
+
+  .player-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    color: white;
+    overflow: hidden;
+    /* border-radius: 12px; */ /* optional: remove for full edge-to-edge */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+
+
+  .overlay {
+    display: none; /* remove black overlay */
+  }
+
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    z-index: 2;
+    position: relative;
+  }
+
+  .header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: 1rem;
+  }
+
+  .song-info {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+  }
+
+  .song-info h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .song-info p {
+    color: #ccc;
+    margin-top: 0.5rem;
+  }
+
+  /* Footer section with progress + controls */
+  .player-footer {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+  }
+
+  .progress-container input[type="range"] {
+    width: 100%;
+  }
+
+  .time-stamps {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-top: 0.5rem;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+
+  .controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .controls svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .play-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    /* background: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* box-shadow: 0 4px 12px rgba(0,0,0,0.4); */
+  }
+
+  .play-btn svg {
+    width: 36px;
+    height: 36px;
+  }

@@ -8,7 +8,7 @@ import yt_dlp
 from django.http import HttpResponse, JsonResponse
 from .forms import RegisterForm, LoginForm
 from datetime import date
-from .core_logic.fetchmetadata import home_metadata, similar_search_metadata, similar_songs_name, playlist_metadata, fetch_audio_metadata
+from .core_logic.fetchmetadata import home_metadata, similar_search_metadata, similar_songs_name, playlist_metadata, fetch_audio_metadata,generate_radio_playlist
 def set_cookie(key, value, max_age=None):
     response = HttpResponse()
     response.set_cookie(key, value, max_age=max_age, secure=True)
@@ -199,6 +199,7 @@ def search_page(request):
         if query:
             results = ytmusic.search(query)
             search_results = results[:10]
+            print(search_results)
             # print(results[0])
             return render(request, "search.html", {
                 "query": query,
@@ -235,59 +236,35 @@ def playlist_view(request):
     }
     return render(request, "playlist.html", context)
 
-# def get_playlist_audio_urls():
-# def get_playlist_audio_urls(request):
-#     # Example: List of tracks
-#     playlist = [
-#         {"video_id": "cvQWzlNIjt8", "title": "Song 1", "artists": ["Artist A"], "thumbnail": "https://example.com/thumb1.jpg"},
-#         {"video_id": "kUYzsGZ6yQ8", "title": "Song 2", "artists": ["Artist B"], "thumbnail": "https://example.com/thumb2.jpg"},
-#         # Add more tracks...
-#     ]
-
-#     current_index = int(request.GET.get("index", 0))  # Start from index 0 by default
-#     current_track = playlist[current_index]
-
-#     return render(request, "player.html", {
-#         "playlist": playlist,
-#         "current_index": current_index,
-#         "current_track": current_track,
-#     })
-
 def player_view(request):
-    print("hi1")
-    video_id = request.GET.get("songId")
-    playlist_id = request.GET.get("playlistId")
-    if (video_id):
-        audio_data = fetch_audio_metadata(video_id)
-        return render(request, "player.html", {
-            "type": "song",
-            "video_id": video_id,
-            "audio_data": audio_data
-        })
-    
-    elif(playlist_id):
-        print("hi2")
-        playlist_id = request.GET.get("playlistId")
-        print(playlist_id)
-        playlist = playlist_metadata(playlist_id)
-        print("hi5")
+    from random import sample
+
+    songId = request.GET.get("songId")
+    playlistId = request.GET.get("playlistId")
+
+    tracks = []
+
+    if playlistId:
+        # Normal playlist
+        playlist = playlist_metadata(playlistId)
         tracks = playlist.get("tracks", [])
-        print("hi6")
-        # filtered_tracks = [
-        # {
-        #     "videoId": track.get("videoId"),
-        #     "title": track.get("title"),
-        #     "artists": track.get("artists"),
-        #     "thumbnails": track.get("thumbnails"),
-        #     "duration": track.get("duration"),
-        # } for track in tracks
-        # ]
-        # Pass playlist and current index to player
-        return render(request, "player.html", {
-            "type": "playlist",
-            "playlist": tracks,
-            "current_index": 0,
-        })
+    elif songId:
+        print("hello")
+        playlist=generate_radio_playlist(songId)
+        tracks = playlist.get("tracks", [])
+    else:
+        playlist = {"title": "No songs found"}
+
+    first_track = tracks[0] if tracks else None
+    print(first_track)
+
+    context = {
+        "playlist": playlist,
+        "tracks": tracks,
+        "firstTrack": first_track,
+    }
+    return render(request, "player.html", context)
+
 
 def get_audio_url(request):
     video_id = request.GET.get("video_id")
@@ -309,7 +286,6 @@ def get_audio_url(request):
                 return JsonResponse({"audio_url": audio_url})
             else:
                 return JsonResponse({"error": "Failed to extract audio URL"}, status=500)
-
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
 

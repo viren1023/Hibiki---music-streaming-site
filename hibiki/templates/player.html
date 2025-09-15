@@ -1,157 +1,163 @@
 {% extends "Sidebar.html" %}
 {% block content %}
-{{ playlist|json_script:"playlist-data" }}
+{{ tracks|json_script:"tracks-data" }}
 
 <style>
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: black;
-    color: white;
-    overflow: hidden;
-    font-family: sans-serif;
-  }
 
-  .player-container {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
 
-  .background {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.3),
-        rgba(185, 185, 185, 0.3),
-        rgba(119, 119, 119, 0.3),
-        rgba(59, 59, 59, 0.3),
-        rgba(0, 0, 0, 0.3)
-      ),
-      url("{{ playlist.0.thumbnails.0 }}") center/cover no-repeat;
-    z-index: 0;
-  }
+.player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
 
-  .overlay {
-    display: none;
-  }
+/* Song card */
+.song-card {
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  max-width: 350px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  margin-bottom: 30px;
+}
+.song-card img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+.song-card h2 {
+  font-size: 20px;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+.song-card p {
+  font-size: 14px;
+  color: #bbb;
+  margin: 0;
+}
 
-  .song-info {
-    padding: 2rem;
-    position: relative;
-    z-index: 2;
-  }
+/* Player footer */
+.player-footer {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  background: #444;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 6px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #1db954;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.time-stamps {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #aaa;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+.controls button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s;
+}
+.controls button:hover {
+  transform: scale(1.2);
+  color: #1db954;
+}
 
-  .song-info h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0;
-  }
-
-  .song-info p {
-    color: #ccc;
-    margin-top: 0.5rem;
-  }
-
-  .playlist {
-    max-height: 200px;
-    overflow-y: auto;
-    background: rgba(30, 30, 30, 0.8);
-    padding: 1rem;
-    border-top: 1px solid #444;
-  }
-
-  .playlist-item {
-    padding: 0.5rem;
-    cursor: pointer;
-  }
-
-  .playlist-item.active {
-    background: #444;
-  }
-
-  .player-footer {
-    padding: 2rem;
-    position: relative;
-    z-index: 2;
-  }
-
-  .progress-container input[type="range"] {
-    width: 100%;
-  }
-
-  .time-stamps {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: #bbb;
-    margin-top: 0.5rem;
-  }
-
-  .controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    gap: 2rem;
-  }
-
-  .controls button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-  }
-
-  .controls svg {
-    width: 28px;
-    height: 28px;
-  }
-
-  .play-btn {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .play-btn svg {
-    width: 36px;
-    height: 36px;
-  }
+/* Playlist section */
+.playlist-section {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+}
+.playlist-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.playlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.playlist li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.playlist li:hover {
+  background: rgba(255,255,255,0.1);
+}
+.playlist img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  margin-right: 12px;
+}
+.playlist .track-info {
+  flex: 1;
+}
+.playlist .track-info h4 {
+  margin: 0;
+  font-size: 14px;
+}
+.playlist .track-info p {
+  margin: 0;
+  font-size: 12px;
+  color: #aaa;
+}
 </style>
 
 <div class="player-container">
-  <div class="background"></div>
-  <div class="overlay"></div>
-
-  <!-- Current Song Info -->
-  <div class="song-info">
-    <h1 id="song-title">{{ playlist.0.title }}</h1>
-    <p id="song-artists">{{ playlist.0.artists.name }}</p>
+  <!-- Song Info Card -->
+  <div class="song-card">
+    <img id="track-thumb" src="{{ firstTrack.thumbnails.1.url }}" alt="">
+    <h2 id="track-title">{{ firstTrack.title }}</h2>
+    <p id="track-artists">
+      {% for artist in firstTrack.artists %}
+        {{ artist.name }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+    </p>
   </div>
 
-  <!-- Playlist -->
-  {% comment %} <div class="playlist" id="playlist">
-    {% for track in playlist %}
-      <div class="playlist-item {% if forloop.counter0 == current_index %}active{% endif %}" data-index="{{ forloop.counter0 }}">
-        {{ track.title }} - {{ track.artists|join:", " }}
-      </div>
-    {% endfor %}
-  </div> {% endcomment %}
-
-  <!-- Footer: Progress + Controls -->
+  <!-- Footer Controls -->
   <div class="player-footer">
     <div class="progress-container">
-      <input type="range" id="progress" value="0" min="0" max="100" />
+      <input type="range" id="progress" value="0" min="0" max="100">
       <div class="time-stamps">
         <span id="current-time">0:00</span>
         <span id="duration">0:00</span>
@@ -159,434 +165,131 @@
     </div>
 
     <div class="controls">
-      <button id="repeat">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M17 1l4 4-4 4M3 11v-1a4 4 0 0 1 4-4h14M7 23l-4-4 4-4m14-2v1a4 4 0 0 1-4 4H3"/>
-        </svg>
-      </button>
-
-      <button id="prev">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-          <polygon points="19 20 9 12 19 4 19 20"/>
-          <line x1="5" y1="19" x2="5" y2="5"/>
-        </svg>
-      </button>
-
-      <button class="play-btn" id="play">
-        <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24">
-          <polygon points="5,3 19,12 5,21"/>
-        </svg>
-      </button>
-
-      <button id="next">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-          <polygon points="5 4 15 12 5 20 5 4"/>
-          <line x1="19" y1="5" x2="19" y2="19"/>
-        </svg>
-      </button>
-
-      <button id="shuffle">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-          <polyline points="16 3 21 3 21 8"/>
-          <line x1="4" y1="20" x2="21" y2="3"/>
-          <polyline points="21 16 21 21 16 21"/>
-          <line x1="15" y1="15" x2="21" y2="21"/>
-          <line x1="4" y1="4" x2="9" y2="9"/>
-        </svg>
-      </button>
+      <button id="prev">⏮</button>
+      <button id="play">▶</button>
+      <button id="next">⏭</button>
     </div>
+  </div>
+
+  <!-- Playlist Section -->
+  <div class="playlist-section">
+    <h3>Playlist</h3>
+    <ul class="playlist" id="playlist">
+      {% for track in tracks %}
+      <li data-index="{{ forloop.counter0 }}">
+        <img src="{{ track.thumbnails.1.url }}" alt="">
+        <div class="track-info">
+          <h4>{{ track.title }}</h4>
+          <p>
+            {% for artist in track.artists %}
+              {{ artist.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 
   <audio id="audio"></audio>
 </div>
 
 <script>
+const tracks = JSON.parse(document.getElementById("tracks-data").textContent);
+let currentIndex = 0;
 
-  {% comment %} console.log({{playlist}}) {% endcomment %}
-  console.log("hello")
+const audio = document.getElementById("audio");
+const playBtn = document.getElementById("play");
+const progress = document.getElementById("progress");
+const currentTimeEl = document.getElementById("current-time");
+const durationEl = document.getElementById("duration");
 
-  const audio = document.getElementById('audio');
-  const playBtn = document.getElementById('play');
-  const playIcon = document.getElementById('play-icon');
-  const progress = document.getElementById('progress');
-  const currentTimeEl = document.getElementById('current-time');
-  const durationEl = document.getElementById('duration');
-  const playlistEl = document.getElementById('playlist');
-  const songTitleEl = document.getElementById('song-title');
-  const songArtistsEl = document.getElementById('song-artists');
+const titleEl = document.getElementById("track-title");
+const artistEl = document.getElementById("track-artists");
+const thumbEl = document.getElementById("track-thumb");
 
-  let currentIndex = {{ current_index }};
-  {% comment %} const playlist = {{ playlist|safe }}; {% endcomment %}
-  const playlist = JSON.parse(document.getElementById('playlist-data').textContent);
+function formatTime(time) {
+  let minutes = Math.floor(time / 60);
+  let seconds = Math.floor(time % 60).toString().padStart(2, "0");
+  return `${minutes}:${seconds}`;
+}
 
-  console.log(currentIndex)
-  console.log(playlist)
-  console.log("hi")
+function loadTrack(index) {
+  const track = tracks[index];
+  if (!track) return;
 
-  function formatTime(time) {
-    let minutes = Math.floor(time / 60);
-    let seconds = Math.floor(time % 60).toString().padStart(2, '0');
-    return `${minutes}:${seconds}`;
-  }
+  // Stop and reset any current playback
+  audio.pause();
+  audio.currentTime = 0;
+  playBtn.textContent = "▶";
 
-  function loadTrack(index) {
-    const track = playlist[index];
-    if (!track) return;
+  currentIndex = index;
+  titleEl.textContent = track.title;
+  artistEl.textContent = track.artists.map(a => a.name).join(", ");
+  thumbEl.src = track.thumbnails[0].url;
 
-    songTitleEl.textContent = track.title;
-    songArtistsEl.textContent = track.artists.join(', ');
-
-    fetch(`/get_audio_url?video_id=${track.videoId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.audio_url) {
-          audio.src = data.audio_url;
-          audio.play();
-          updateActiveTrack();
-        } else {
-          alert('Failed to load audio');
-        }
-      });
-  }
-
-  function updateActiveTrack() {
-    document.querySelectorAll('.playlist-item').forEach((el) => {
-      el.classList.remove('active');
+  fetch(`/get_audio_url?video_id=${track.videoId}`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.audio_url) {
+        audio.src = data.audio_url;
+        audio.play();
+        playBtn.textContent = "⏸";
+      }
     });
-    const activeItem = document.querySelector(`.playlist-item[data-index="${currentIndex}"]`);
-    if (activeItem) activeItem.classList.add('active');
+}
+
+
+playBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    playBtn.textContent = "⏸";
+  } else {
+    audio.pause();
+    playBtn.textContent = "▶";
   }
+});
 
-  playBtn.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play();
-      playBtn.innerHTML = '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
-    } else {
-      audio.pause();
-      playBtn.innerHTML = '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
-    }
-  });
-
-  audio.addEventListener('timeupdate', () => {
-    progress.value = (audio.currentTime / audio.duration) * 100;
-    currentTimeEl.textContent = formatTime(audio.currentTime);
-  });
-
-  audio.addEventListener('loadedmetadata', () => {
-    durationEl.textContent = formatTime(audio.duration);
-  });
-
-  progress.addEventListener('input', (e) => {
-    audio.currentTime = (e.target.value / 100) * audio.duration;
-  });
-
-  document.getElementById('next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % playlist.length;
-    loadTrack(currentIndex);
-  });
-
-  document.getElementById('prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
-    loadTrack(currentIndex);
-  });
-
-  playlistEl.querySelectorAll('.playlist-item').forEach((item) => {
-    item.addEventListener('click', () => {
-      currentIndex = parseInt(item.getAttribute('data-index'));
-      loadTrack(currentIndex);
-    });
-  });
-
-  // Initialize player
+document.getElementById("next").addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % tracks.length;
   loadTrack(currentIndex);
+});
+document.getElementById("prev").addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + tracks.length) % tracks.length;
+  loadTrack(currentIndex);
+});
+
+audio.addEventListener("timeupdate", () => {
+  if (!isNaN(audio.duration)) {
+    progress.value = (audio.currentTime / audio.duration) * 100;
+  }
+  currentTimeEl.textContent = formatTime(audio.currentTime);
+});
+
+audio.addEventListener("ended", () => {
+  currentIndex = (currentIndex + 1) % tracks.length; // loop back if at end
+  loadTrack(currentIndex);
+  audio.play(); // start playing automatically
+});
+
+audio.addEventListener("loadedmetadata", () => {
+  durationEl.textContent = formatTime(audio.duration);
+});
+
+progress.addEventListener("input", e => {
+  audio.currentTime = (e.target.value / 100) * audio.duration;
+});
+
+// Playlist click event
+document.getElementById("playlist").addEventListener("click", (e) => {
+  const li = e.target.closest("li");
+  if (li) {
+    const index = parseInt(li.dataset.index);
+    loadTrack(index);
+  }
+});
+
+// Load first track
+loadTrack(currentIndex);
 </script>
 {% endblock %}
-
-
-{% comment %} {% extends "Sidebar.html" %} {% block content %}
-<style>
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-    background: black;
-  }
-
-  .player-container {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    color: white;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .background {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.3),
-        rgba(185, 185, 185, 0.3),
-        rgba(119, 119, 119, 0.3),
-        rgba(59, 59, 59, 0.3),
-        rgba(0, 0, 0, 0.3)
-      ),
-      url("{{ audio_data.thumbnail }}") center/cover no-repeat;
-    z-index: 0;
-  }
-
-  .overlay {
-    display: none;
-  }
-
-  .header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 1rem;
-    z-index: 2;
-    position: relative;
-  }
-
-  .song-info {
-    position: relative;
-    z-index: 2;
-    padding: 2rem;
-  }
-
-  .song-info h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0;
-  }
-
-  .song-info p {
-    color: #ccc;
-    margin-top: 0.5rem;
-  }
-
-  .player-footer {
-    position: relative;
-    z-index: 2;
-    padding: 2rem;
-  }
-
-  .progress-container input[type="range"] {
-    width: 100%;
-  }
-
-  .time-stamps {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: #bbb;
-    margin-top: 0.5rem;
-  }
-
-  .controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    gap: 2rem;
-  }
-
-  .controls button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .controls svg {
-    width: 28px;
-    height: 28px;
-  }
-
-  .play-btn {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .play-btn svg {
-    width: 36px;
-    height: 36px;
-  }
-</style>
-
-<div class="player-container">
-  <div class="background"></div>
-  <div class="overlay"></div>
-
-  <!-- Song Info -->
-  <div class="song-info">
-    <h1>{{ audio_data.title }}</h1>
-    <p>{{ audio_data.artists|join:", " }}</p>
-  </div>
-
-  <!-- Footer: Progress + Controls -->
-  <div class="player-footer">
-    <div class="progress-container">
-      <input type="range" id="progress" value="0" min="0" max="100" />
-      <div class="time-stamps">
-        <span id="current-time">0:00</span>
-        <span id="duration">0:00</span>
-      </div>
-    </div>
-
-    <div class="controls">
-      <button id="repeat">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          stroke="white"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M17 1l4 4-4 4M3 11v-1a4 4 0 0 1 4-4h14M7 23l-4-4 4-4m14-2v1a4 4 0 0 1-4 4H3"
-          />
-        </svg>
-      </button>
-
-      <button id="prev">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          stroke="white"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <polygon points="19 20 9 12 19 4 19 20" />
-          <line x1="5" y1="19" x2="5" y2="5" />
-        </svg>
-      </button>
-
-      <button class="play-btn" id="play">
-        <svg
-          id="play-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="white"
-          viewBox="0 0 24 24"
-        >
-          <polygon points="5,3 19,12 5,21" />
-        </svg>
-      </button>
-
-      <button id="next">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          stroke="white"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <polygon points="5 4 15 12 5 20 5 4" />
-          <line x1="19" y1="5" x2="19" y2="19" />
-        </svg>
-      </button>
-
-      <button id="shuffle">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          stroke="white"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <polyline points="16 3 21 3 21 8" />
-          <line x1="4" y1="20" x2="21" y2="3" />
-          <polyline points="21 16 21 21 16 21" />
-          <line x1="15" y1="15" x2="21" y2="21" />
-          <line x1="4" y1="4" x2="9" y2="9" />
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Audio Element (source will be set dynamically) -->
-  <audio id="audio"></audio>
-</div>
-
-<script>
-  const audio = document.getElementById("audio")
-  const playBtn = document.getElementById("play")
-  const playIcon = document.getElementById("play-icon")
-  const progress = document.getElementById("progress")
-  const currentTimeEl = document.getElementById("current-time")
-  const durationEl = document.getElementById("duration")
-
-  const videoId = "{{ video_id }}"
-
-  function formatTime(time) {
-    let minutes = Math.floor(time / 60)
-    let seconds = Math.floor(time % 60)
-      .toString()
-      .padStart(2, "0")
-    return `${minutes}:${seconds}`
-  }
-
-  if (videoId) {
-    fetch(`/get_audio_url?video_id=${videoId}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.audio_url) {
-          audio.src = data.audio_url
-
-          // Attempt to autoplay when metadata is loaded
-          audio.addEventListener("loadedmetadata", () => {
-            audio.play().catch((err) => {
-              console.warn("Autoplay prevented:", err)
-            })
-            playBtn.innerHTML =
-              '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'
-          })
-        } else {
-          alert("Failed to get audio URL: " + (data.error || "Unknown error"))
-        }
-      })
-      .catch((err) => {
-        console.error("Fetch error:", err)
-        alert("Error fetching audio URL.")
-      })
-  }
-
-  playBtn.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play()
-      playBtn.innerHTML =
-        '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'
-    } else {
-      audio.pause()
-      playBtn.innerHTML =
-        '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>'
-    }
-  })
-
-  audio.addEventListener("timeupdate", () => {
-    progress.value = (audio.currentTime / audio.duration) * 100
-    currentTimeEl.textContent = formatTime(audio.currentTime)
-  })
-
-  audio.addEventListener("loadedmetadata", () => {
-    durationEl.textContent = formatTime(audio.duration)
-  })
-
-  progress.addEventListener("input", (e) => {
-    audio.currentTime = (e.target.value / 100) * audio.duration
-  })
-</script>
-
-{% endblock %} {% endcomment %}
