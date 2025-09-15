@@ -1,23 +1,23 @@
 {% extends "Sidebar.html" %}
 {% block content %}
+{{ playlist|json_script:"playlist-data" }}
+
 <style>
-  /* Remove body scroll and margins */
-  html, body {
+  html,
+  body {
     margin: 0;
     padding: 0;
     height: 100%;
+    background: black;
+    color: white;
     overflow: hidden;
-    background: black; /* prevent outline around image */
+    font-family: sans-serif;
   }
 
   .player-container {
     position: relative;
     height: 100%;
     width: 100%;
-    color: white;
-    overflow: hidden;
-    /* border-radius: 12px; */ /* optional: remove for full edge-to-edge */
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,15 +26,322 @@
   .background {
     position: absolute;
     inset: 0;
-    background: 
-        linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(185,185,185,0.3), rgba(119,119,119,0.3), rgba(59,59,59,0.3), rgba(0,0,0,0.3)),
-        url("https://picsum.photos/1920/1080?random=3") center/cover no-repeat;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.3),
+        rgba(185, 185, 185, 0.3),
+        rgba(119, 119, 119, 0.3),
+        rgba(59, 59, 59, 0.3),
+        rgba(0, 0, 0, 0.3)
+      ),
+      url("{{ playlist.0.thumbnails.0 }}") center/cover no-repeat;
     z-index: 0;
-    
   }
 
   .overlay {
-    display: none; /* remove black overlay */
+    display: none;
+  }
+
+  .song-info {
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .song-info h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .song-info p {
+    color: #ccc;
+    margin-top: 0.5rem;
+  }
+
+  .playlist {
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(30, 30, 30, 0.8);
+    padding: 1rem;
+    border-top: 1px solid #444;
+  }
+
+  .playlist-item {
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .playlist-item.active {
+    background: #444;
+  }
+
+  .player-footer {
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .progress-container input[type="range"] {
+    width: 100%;
+  }
+
+  .time-stamps {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-top: 0.5rem;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+
+  .controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+
+  .controls svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .play-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .play-btn svg {
+    width: 36px;
+    height: 36px;
+  }
+</style>
+
+<div class="player-container">
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <!-- Current Song Info -->
+  <div class="song-info">
+    <h1 id="song-title">{{ playlist.0.title }}</h1>
+    <p id="song-artists">{{ playlist.0.artists.name }}</p>
+  </div>
+
+  <!-- Playlist -->
+  {% comment %} <div class="playlist" id="playlist">
+    {% for track in playlist %}
+      <div class="playlist-item {% if forloop.counter0 == current_index %}active{% endif %}" data-index="{{ forloop.counter0 }}">
+        {{ track.title }} - {{ track.artists|join:", " }}
+      </div>
+    {% endfor %}
+  </div> {% endcomment %}
+
+  <!-- Footer: Progress + Controls -->
+  <div class="player-footer">
+    <div class="progress-container">
+      <input type="range" id="progress" value="0" min="0" max="100" />
+      <div class="time-stamps">
+        <span id="current-time">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="repeat">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M17 1l4 4-4 4M3 11v-1a4 4 0 0 1 4-4h14M7 23l-4-4 4-4m14-2v1a4 4 0 0 1-4 4H3"/>
+        </svg>
+      </button>
+
+      <button id="prev">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+          <polygon points="19 20 9 12 19 4 19 20"/>
+          <line x1="5" y1="19" x2="5" y2="5"/>
+        </svg>
+      </button>
+
+      <button class="play-btn" id="play">
+        <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24">
+          <polygon points="5,3 19,12 5,21"/>
+        </svg>
+      </button>
+
+      <button id="next">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+          <polygon points="5 4 15 12 5 20 5 4"/>
+          <line x1="19" y1="5" x2="19" y2="19"/>
+        </svg>
+      </button>
+
+      <button id="shuffle">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+          <polyline points="16 3 21 3 21 8"/>
+          <line x1="4" y1="20" x2="21" y2="3"/>
+          <polyline points="21 16 21 21 16 21"/>
+          <line x1="15" y1="15" x2="21" y2="21"/>
+          <line x1="4" y1="4" x2="9" y2="9"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <audio id="audio"></audio>
+</div>
+
+<script>
+
+  {% comment %} console.log({{playlist}}) {% endcomment %}
+  console.log("hello")
+
+  const audio = document.getElementById('audio');
+  const playBtn = document.getElementById('play');
+  const playIcon = document.getElementById('play-icon');
+  const progress = document.getElementById('progress');
+  const currentTimeEl = document.getElementById('current-time');
+  const durationEl = document.getElementById('duration');
+  const playlistEl = document.getElementById('playlist');
+  const songTitleEl = document.getElementById('song-title');
+  const songArtistsEl = document.getElementById('song-artists');
+
+  let currentIndex = {{ current_index }};
+  {% comment %} const playlist = {{ playlist|safe }}; {% endcomment %}
+  const playlist = JSON.parse(document.getElementById('playlist-data').textContent);
+
+  console.log(currentIndex)
+  console.log(playlist)
+  console.log("hi")
+
+  function formatTime(time) {
+    let minutes = Math.floor(time / 60);
+    let seconds = Math.floor(time % 60).toString().padStart(2, '0');
+    return `${minutes}:${seconds}`;
+  }
+
+  function loadTrack(index) {
+    const track = playlist[index];
+    if (!track) return;
+
+    songTitleEl.textContent = track.title;
+    songArtistsEl.textContent = track.artists.join(', ');
+
+    fetch(`/get_audio_url?video_id=${track.videoId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.audio_url) {
+          audio.src = data.audio_url;
+          audio.play();
+          updateActiveTrack();
+        } else {
+          alert('Failed to load audio');
+        }
+      });
+  }
+
+  function updateActiveTrack() {
+    document.querySelectorAll('.playlist-item').forEach((el) => {
+      el.classList.remove('active');
+    });
+    const activeItem = document.querySelector(`.playlist-item[data-index="${currentIndex}"]`);
+    if (activeItem) activeItem.classList.add('active');
+  }
+
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playBtn.innerHTML = '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+    } else {
+      audio.pause();
+      playBtn.innerHTML = '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
+    }
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    progress.value = (audio.currentTime / audio.duration) * 100;
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+  });
+
+  audio.addEventListener('loadedmetadata', () => {
+    durationEl.textContent = formatTime(audio.duration);
+  });
+
+  progress.addEventListener('input', (e) => {
+    audio.currentTime = (e.target.value / 100) * audio.duration;
+  });
+
+  document.getElementById('next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % playlist.length;
+    loadTrack(currentIndex);
+  });
+
+  document.getElementById('prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+    loadTrack(currentIndex);
+  });
+
+  playlistEl.querySelectorAll('.playlist-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      currentIndex = parseInt(item.getAttribute('data-index'));
+      loadTrack(currentIndex);
+    });
+  });
+
+  // Initialize player
+  loadTrack(currentIndex);
+</script>
+{% endblock %}
+
+
+{% comment %} {% extends "Sidebar.html" %} {% block content %}
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: black;
+  }
+
+  .player-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .background {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.3),
+        rgba(185, 185, 185, 0.3),
+        rgba(119, 119, 119, 0.3),
+        rgba(59, 59, 59, 0.3),
+        rgba(0, 0, 0, 0.3)
+      ),
+      url("{{ audio_data.thumbnail }}") center/cover no-repeat;
+    z-index: 0;
+  }
+
+  .overlay {
+    display: none;
   }
 
   .header {
@@ -44,14 +351,6 @@
     padding: 1rem;
     z-index: 2;
     position: relative;
-  }
-
-  .header img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid white;
-    margin-left: 1rem;
   }
 
   .song-info {
@@ -71,7 +370,6 @@
     margin-top: 0.5rem;
   }
 
-  /* Footer section with progress + controls */
   .player-footer {
     position: relative;
     z-index: 2;
@@ -117,11 +415,9 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    /* background: black; */
     display: flex;
     justify-content: center;
     align-items: center;
-    /* box-shadow: 0 4px 12px rgba(0,0,0,0.4); */
   }
 
   .play-btn svg {
@@ -136,14 +432,14 @@
 
   <!-- Song Info -->
   <div class="song-info">
-    <h1>Melbourne Sunset</h1>
-    <p>3000 Days</p>
+    <h1>{{ audio_data.title }}</h1>
+    <p>{{ audio_data.artists|join:", " }}</p>
   </div>
 
   <!-- Footer: Progress + Controls -->
   <div class="player-footer">
     <div class="progress-container">
-      <input type="range" id="progress" value="0" min="0" max="100">
+      <input type="range" id="progress" value="0" min="0" max="100" />
       <div class="time-stamps">
         <span id="current-time">0:00</span>
         <span id="duration">0:00</span>
@@ -151,88 +447,146 @@
     </div>
 
     <div class="controls">
-      <!-- Repeat -->
       <button id="repeat">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M17 1l4 4-4 4M3 11v-1a4 4 0 0 1 4-4h14M7 23l-4-4 4-4m14-2v1a4 4 0 0 1-4 4H3"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          stroke="white"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M17 1l4 4-4 4M3 11v-1a4 4 0 0 1 4-4h14M7 23l-4-4 4-4m14-2v1a4 4 0 0 1-4 4H3"
+          />
         </svg>
       </button>
 
-      <!-- Previous -->
       <button id="prev">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-          <polygon points="19 20 9 12 19 4 19 20"/>
-          <line x1="5" y1="19" x2="5" y2="5"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          stroke="white"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <polygon points="19 20 9 12 19 4 19 20" />
+          <line x1="5" y1="19" x2="5" y2="5" />
         </svg>
       </button>
 
-      <!-- Play/Pause -->
       <button class="play-btn" id="play">
-        <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24">
-          <polygon points="5,3 19,12 5,21"/>
+        <svg
+          id="play-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="white"
+          viewBox="0 0 24 24"
+        >
+          <polygon points="5,3 19,12 5,21" />
         </svg>
       </button>
 
-      <!-- Next -->
       <button id="next">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-          <polygon points="5 4 15 12 5 20 5 4"/>
-          <line x1="19" y1="5" x2="19" y2="19"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          stroke="white"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <polygon points="5 4 15 12 5 20 5 4" />
+          <line x1="19" y1="5" x2="19" y2="19" />
         </svg>
       </button>
 
-      <!-- Shuffle -->
       <button id="shuffle">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-          <polyline points="16 3 21 3 21 8"/>
-          <line x1="4" y1="20" x2="21" y2="3"/>
-          <polyline points="21 16 21 21 16 21"/>
-          <line x1="15" y1="15" x2="21" y2="21"/>
-          <line x1="4" y1="4" x2="9" y2="9"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          stroke="white"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <polyline points="16 3 21 3 21 8" />
+          <line x1="4" y1="20" x2="21" y2="3" />
+          <polyline points="21 16 21 21 16 21" />
+          <line x1="15" y1="15" x2="21" y2="21" />
+          <line x1="4" y1="4" x2="9" y2="9" />
         </svg>
       </button>
     </div>
   </div>
 
-  <!-- Audio -->
-  <audio id="audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+  <!-- Audio Element (source will be set dynamically) -->
+  <audio id="audio"></audio>
 </div>
 
 <script>
-  const audio = document.getElementById("audio");
-  const playBtn = document.getElementById("play");
-  const playIcon = document.getElementById("play-icon");
-  const progress = document.getElementById("progress");
-  const currentTimeEl = document.getElementById("current-time");
-  const durationEl = document.getElementById("duration");
+  const audio = document.getElementById("audio")
+  const playBtn = document.getElementById("play")
+  const playIcon = document.getElementById("play-icon")
+  const progress = document.getElementById("progress")
+  const currentTimeEl = document.getElementById("current-time")
+  const durationEl = document.getElementById("duration")
+
+  const videoId = "{{ video_id }}"
 
   function formatTime(time) {
-    let minutes = Math.floor(time / 60);
-    let seconds = Math.floor(time % 60).toString().padStart(2, "0");
-    return `${minutes}:${seconds}`;
+    let minutes = Math.floor(time / 60)
+    let seconds = Math.floor(time % 60)
+      .toString()
+      .padStart(2, "0")
+    return `${minutes}:${seconds}`
   }
 
-playBtn.addEventListener("click", () => {
-  if (audio.paused) {
-    audio.play();
-    playBtn.innerHTML = '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
-  } else {
-    audio.pause();
-    playBtn.innerHTML = '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
+  if (videoId) {
+    fetch(`/get_audio_url?video_id=${videoId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.audio_url) {
+          audio.src = data.audio_url
+
+          // Attempt to autoplay when metadata is loaded
+          audio.addEventListener("loadedmetadata", () => {
+            audio.play().catch((err) => {
+              console.warn("Autoplay prevented:", err)
+            })
+            playBtn.innerHTML =
+              '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'
+          })
+        } else {
+          alert("Failed to get audio URL: " + (data.error || "Unknown error"))
+        }
+      })
+      .catch((err) => {
+        console.error("Fetch error:", err)
+        alert("Error fetching audio URL.")
+      })
   }
-});
+
+  playBtn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play()
+      playBtn.innerHTML =
+        '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'
+    } else {
+      audio.pause()
+      playBtn.innerHTML =
+        '<svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>'
+    }
+  })
 
   audio.addEventListener("timeupdate", () => {
-    progress.value = (audio.currentTime / audio.duration) * 100;
-    currentTimeEl.textContent = formatTime(audio.currentTime);
-  });
+    progress.value = (audio.currentTime / audio.duration) * 100
+    currentTimeEl.textContent = formatTime(audio.currentTime)
+  })
 
   audio.addEventListener("loadedmetadata", () => {
-    durationEl.textContent = formatTime(audio.duration);
-  });
+    durationEl.textContent = formatTime(audio.duration)
+  })
 
   progress.addEventListener("input", (e) => {
-    audio.currentTime = (e.target.value / 100) * audio.duration;
-  });
+    audio.currentTime = (e.target.value / 100) * audio.duration
+  })
 </script>
-{% endblock %}
+
+{% endblock %} {% endcomment %}

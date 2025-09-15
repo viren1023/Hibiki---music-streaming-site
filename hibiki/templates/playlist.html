@@ -63,8 +63,17 @@
 
   <div class="playlist-header">
 {% with playlist.thumbnails|last as last_thumb %}
-  <img src="{{ last_thumb.url }}" alt="Playlist cover">
+  {% if last_thumb %}
+    <img src="{{ last_thumb.url }}" alt="Playlist cover">
+  {% else %}
+    {% if tracks.0.thumbnails %}
+      <img src="{{ tracks.0.thumbnails.1.url }}" alt="Track cover">
+    {% else %}
+      <img src="{% static 'default_cover.jpg' %}" alt="Default cover">
+    {% endif %}
+  {% endif %}
 {% endwith %}
+
     <div class="playlist-info">
       <p>PLAYLIST</p>
       <h1>{{ playlist.title }}</h1>
@@ -93,7 +102,7 @@
     </div>
   </div>
 
-  <button class="play-btn">▶</button>
+  <button class="play-btn" style="cursor: pointer;" onclick=play_playlist()>▶</button>
 
   <div class="tracks">
     <table>
@@ -124,4 +133,14 @@
       </tbody>
     </table>
   </div>
+
+  <script>
+    function play_playlist(){
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const currentId = urlParams.get('id');
+      window.location.href='/player?playlistId='+currentId
+    }
+  </script>
+
 {% endblock %}

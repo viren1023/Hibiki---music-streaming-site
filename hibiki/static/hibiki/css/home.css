@@ -22,6 +22,7 @@ aside {
     top: 0;
     left: 0;
     bottom: 0;
+    z-index: 999;
 }
 
 aside h1 {
@@ -43,7 +44,7 @@ aside .bottom a {
 }
 
 nav a:hover,
-aside .bottom a:hover {
+aside .bottom a:hover { 
     color: #a855f7;
     /* purple highlight */
 }
@@ -146,3 +147,6 @@ ul p:last-child {
     font-size: 0.85rem;
     color: #aaa;
 }
+
+
+
