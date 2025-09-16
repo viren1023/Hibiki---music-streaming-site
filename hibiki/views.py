@@ -197,7 +197,7 @@ def search_page(request):
     if request.method == "POST":
         query = request.POST.get("search_text", "").strip()
         if query:
-            results = ytmusic.search(query)
+            results = ytmusic.search(query,filter="songs" )
             search_results = results[:10]
             print(search_results)
             # print(results[0])
@@ -210,12 +210,12 @@ def search_page(request):
     else:
         # No query yet → show moods + charts
         mood_categories = ytmusic.get_mood_categories()
-        charts = ytmusic.get_charts(country="IN")  # You can change country
+        charts = ytmusic.get_charts()  # You can change country
         return render(request, "search.html", {
             "query": query,
             "results": search_results,
             "mood_categories": mood_categories["Moods & moments"] ,
-            "charts": charts["weekly"] 
+            "charts": charts["artists"] 
         })
     
 

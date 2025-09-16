@@ -59,7 +59,7 @@ aside .bottom img {
 main {
     flex: 1;
     padding: 24px;
-    margin-left: 190px;
+    margin-left: 130px;
 }
 
 main h2 {
@@ -147,6 +147,5 @@ ul p:last-child {
     font-size: 0.85rem;
     color: #aaa;
 }
-
 
 

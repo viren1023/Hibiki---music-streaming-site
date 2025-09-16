@@ -3,48 +3,53 @@
 {{ tracks|json_script:"tracks-data" }}
 
 <style>
-
-
+  body{
+    overflow: hidden;
+  }
+/* Container with background */
 .player-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  padding: 30px 20px;
-  box-sizing: border-box;
+  color: white;
 }
 
-/* Song card */
-.song-card {
-  background: linear-gradient(145deg, #1a1a1a, #222);
-  border-radius: 20px;
-  padding: 25px;
+/* Dynamic background image */
+.player-background {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.6) blur(8px);
+  z-index: -1;
+}
+
+/* Foreground info */
+.song-info {
   text-align: center;
-  max-width: 350px;
-  width: 100%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
-.song-card img {
-  width: 100%;
-  border-radius: 15px;
-  margin-bottom: 15px;
-}
-.song-card h2 {
-  font-size: 20px;
-  margin: 10px 0 5px;
+.song-info h2 {
+  font-size: 28px;
   font-weight: bold;
+  margin: 0 0 8px;
 }
-.song-card p {
-  font-size: 14px;
-  color: #bbb;
+.song-info p {
+  font-size: 16px;
+  color: #ccc;
   margin: 0;
 }
 
 /* Player footer */
 .player-footer {
-  width: 100%;
-  max-width: 400px;
-  margin-bottom: 30px;
+    width: 100%;
+    max-width: 600px;
+    padding: 50px;
 }
 .progress-container {
   display: flex;
@@ -56,7 +61,7 @@ input[type="range"] {
   -webkit-appearance: none;
   width: 100%;
   height: 5px;
-  background: #444;
+  background: rgba(255,255,255,0.4);
   border-radius: 5px;
   outline: none;
   margin-bottom: 6px;
@@ -74,42 +79,63 @@ input[type="range"]::-webkit-slider-thumb {
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  color: #aaa;
+  color: #eee;
 }
 .controls {
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 35px;
+  margin-top: 10px;
 }
 .controls button {
   background: none;
   border: none;
-  font-size: 28px;
+  font-size: 32px;
   cursor: pointer;
   color: white;
-  transition: transform 0.2s;
+  transition: transform 0.2s, color 0.2s;
 }
 .controls button:hover {
   transform: scale(1.2);
   color: #1db954;
 }
 
-/* Playlist section */
-.playlist-section {
-  width: 100%;
-  max-width: 500px;
-  margin-top: 20px;
+/* Drawer Playlist */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100%;
+  background: #111;
+  color: white;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.5);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
-.playlist-section h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
+.drawer.open { right: 0; }
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.drawer h3 { font-size: 18px; margin: 0; }
+.drawer-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
 }
 .playlist {
   list-style: none;
   padding: 0;
-  margin: 0;
-  max-height: 300px;
+  margin-top: 20px;
   overflow-y: auto;
+  flex: 1;
 }
 .playlist li {
   display: flex;
@@ -119,33 +145,43 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
   transition: background 0.2s;
 }
-.playlist li:hover {
-  background: rgba(255,255,255,0.1);
-}
+.playlist li:hover { background: rgba(255,255,255,0.1); }
 .playlist img {
   width: 50px;
   height: 50px;
   border-radius: 8px;
   margin-right: 12px;
 }
-.playlist .track-info {
-  flex: 1;
-}
-.playlist .track-info h4 {
-  margin: 0;
-  font-size: 14px;
-}
-.playlist .track-info p {
-  margin: 0;
-  font-size: 12px;
-  color: #aaa;
+.playlist .track-info { flex: 1; }
+.playlist .track-info h4 { margin: 0; font-size: 14px; }
+.playlist .track-info p { margin: 0; font-size: 12px; color: #aaa; }
+
+/* Playlist toggle button */
+#playlist-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #1db954;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 </style>
 
 <div class="player-container">
-  <!-- Song Info Card -->
-  <div class="song-card">
-    <img id="track-thumb" src="{{ firstTrack.thumbnails.1.url }}" alt="">
+  <!-- Background -->
+  <div class="player-background" id="player-bg"></div>
+
+  <!-- Toggle Playlist Drawer -->
+  <button id="playlist-toggle">≡</button>
+
+  <!-- Song Info -->
+  <div class="song-info">
     <h2 id="track-title">{{ firstTrack.title }}</h2>
     <p id="track-artists">
       {% for artist in firstTrack.artists %}
@@ -171,13 +207,16 @@ input[type="range"]::-webkit-slider-thumb {
     </div>
   </div>
 
-  <!-- Playlist Section -->
-  <div class="playlist-section">
-    <h3>Playlist</h3>
+  <!-- Playlist Drawer -->
+  <div class="drawer" id="drawer">
+    <div class="drawer-header">
+      <h3>Playlist</h3>
+      <button class="drawer-close" id="drawer-close">&times;</button>
+    </div>
     <ul class="playlist" id="playlist">
       {% for track in tracks %}
       <li data-index="{{ forloop.counter0 }}">
-        <img src="{{ track.thumbnails.1.url }}" alt="">
+        <img src="{{ track.thumbnails.0.url }}" alt="">
         <div class="track-info">
           <h4>{{ track.title }}</h4>
           <p>
@@ -206,19 +245,26 @@ const durationEl = document.getElementById("duration");
 
 const titleEl = document.getElementById("track-title");
 const artistEl = document.getElementById("track-artists");
-const thumbEl = document.getElementById("track-thumb");
+const bgEl = document.getElementById("player-bg");
+
+// Drawer elements
+const drawer = document.getElementById("drawer");
+document.getElementById("playlist-toggle").addEventListener("click", () => {
+  drawer.classList.add("open");
+});
+document.getElementById("drawer-close").addEventListener("click", () => {
+  drawer.classList.remove("open");
+});
 
 function formatTime(time) {
   let minutes = Math.floor(time / 60);
   let seconds = Math.floor(time % 60).toString().padStart(2, "0");
   return `${minutes}:${seconds}`;
 }
-
-function loadTrack(index) {
+function loadTrack(index, autoplay = false) {
   const track = tracks[index];
   if (!track) return;
 
-  // Stop and reset any current playback
   audio.pause();
   audio.currentTime = 0;
   playBtn.textContent = "▶";
@@ -226,15 +272,21 @@ function loadTrack(index) {
   currentIndex = index;
   titleEl.textContent = track.title;
   artistEl.textContent = track.artists.map(a => a.name).join(", ");
-  thumbEl.src = track.thumbnails[0].url;
+  bgEl.style.backgroundImage = `url(${track.thumbnails[0].url})`;
 
   fetch(`/get_audio_url?video_id=${track.videoId}`)
     .then(res => res.json())
     .then(data => {
       if (data.audio_url) {
         audio.src = data.audio_url;
-        audio.play();
-        playBtn.textContent = "⏸";
+        if (autoplay) {
+          audio.play().then(() => {
+            playBtn.textContent = "⏸";
+          }).catch(() => {
+            // Autoplay blocked
+            playBtn.textContent = "▶";
+          });
+        }
       }
     });
 }
@@ -267,9 +319,8 @@ audio.addEventListener("timeupdate", () => {
 });
 
 audio.addEventListener("ended", () => {
-  currentIndex = (currentIndex + 1) % tracks.length; // loop back if at end
+  currentIndex = (currentIndex + 1) % tracks.length;
   loadTrack(currentIndex);
-  audio.play(); // start playing automatically
 });
 
 audio.addEventListener("loadedmetadata", () => {
@@ -280,16 +331,16 @@ progress.addEventListener("input", e => {
   audio.currentTime = (e.target.value / 100) * audio.duration;
 });
 
-// Playlist click event
 document.getElementById("playlist").addEventListener("click", (e) => {
   const li = e.target.closest("li");
   if (li) {
     const index = parseInt(li.dataset.index);
     loadTrack(index);
+    drawer.classList.remove("open");
   }
 });
 
-// Load first track
-loadTrack(currentIndex);
+loadTrack(currentIndex, true);
+
 </script>
 {% endblock %}
