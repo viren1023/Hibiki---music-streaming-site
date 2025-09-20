@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <h5>Explore Moods</h5>
   <div class="mix-grid">
     {% for mood in mood_categories %}
-      <div class="mix-card" style="--mood-color: {{ mood.color|default:'#555' }}">
+      <div class="mix-card" style="--mood-color: {{ mood.color|default:'#555' }}"   onclick="window.location.href = '/moods?id={{ mood.params }}'">
         {{ mood.title }}
       </div>
     {% endfor %}
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <h5 style="margin-top:30px;">Top artists</h5>
     <div class="results">
       {% for track in charts|slice:":10" %}
-      <div class="result-item">
+      <div class="result-item"  onclick="window.location.href = '/playlist?id={{ track.playlistId }}'">
         {% if track.thumbnails %}
           <img src="{{ track.thumbnails.0.url }}" alt="">
         {% endif %}

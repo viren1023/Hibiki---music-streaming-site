@@ -109,37 +109,43 @@ def home(request):
         else None
     )
 
-
+    print(get_item_type)
     # playlists -> from "Trending community playlists"
     section1 = []
     for item in result.get(f"{result_key[1]}", [])[:4]:
+        item_type = get_item_type(item)
+        print("Section1 item type:", item_type) 
         section1.append({
             "title": item.get("title"),
             "tag": item.get("description", ""),
             "id": item.get("videoId") or item.get("playlistId") or item.get("audioPlaylistId"),
-            "type" : get_item_type,
+            "type" : get_item_type(item),
             "img": item["thumbnails"][0]["url"] if item.get("thumbnails") else "https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"
         })
 
     # recommendations -> from "Albums for you"
     section2 = []
     for item in result.get(f"{result_key[2]}", [])[:3]:
+        item_type = get_item_type(item)
+        print("Section2 item type:", item_type) 
         section2.append({
             "title": item.get("title"),
             "tag": item.get("type", "Album"),
             "id": item.get("videoId") or item.get("playlistId") or item.get("audioPlaylistId"),
-            "type" : get_item_type,
+            "type" : get_item_type(item),
             "img": item["thumbnails"][0]["url"] if item.get("thumbnails") else "https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"
         })
 
     # popular songs -> from "Quick picks"
     section3 = []
     for item in result.get(f"{result_key[0]}", [])[:12]:
+        item_type = get_item_type(item)
+        print("Section3 item type:", item_type) 
         section3.append({
             "title": item.get("title"),
             "artist": ", ".join([artist["name"] for artist in item.get("artists", [])]),
             "id": item.get("videoId") or item.get("playlistId") or item.get("audioPlaylistId"),
-            "type" : get_item_type,
+            "type" : get_item_type(item),
             "img": item["thumbnails"][0]["url"] if item.get("thumbnails") else "https://picsum.photos/400/250?random="+f"{random.randint(1,1000)}"
         })
 
@@ -215,7 +221,7 @@ def search_page(request):
             "query": query,
             "results": search_results,
             "mood_categories": mood_categories["Moods & moments"] ,
-            "charts": charts["artists"] 
+            "charts": charts["videos"] 
         })
     
 
@@ -288,6 +294,21 @@ def get_audio_url(request):
                 return JsonResponse({"error": "Failed to extract audio URL"}, status=500)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+
+def moods_view(request):
+    mood_id = request.GET.get("id")
+    playlists = ytmusic.get_mood_playlists(mood_id)
+    # playlists = [
+    #     {"title": "Coffee Shop Blend", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/r3vscbH.jpg"},
+    #     {"title": "Cafecito & Chill", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/kMYdp8o.jpg"},
+    #     {"title": "Uncut Bollywood", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/o6N9Wux.jpg"},
+    #     {"title": "Retro Lounge: Tamil", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/RgrShqU.jpg"},
+    #     {"title": "90s Chill: Bollywood", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/ooXChhY.jpg"},
+    #     {"title": "Incense & Tea", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/jytHgGR.jpg"},
+    # ]
+    return render(request, "moods.html", {"playlists": playlists})
+    
+
 
 def logout_view(request):
     response = redirect("landing")

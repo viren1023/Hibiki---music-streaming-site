@@ -13,5 +13,6 @@ urlpatterns = [
     # path('player/song/', views.player_view, name='player_song'),
     path("logout/", views.logout_view, name="logout"),
     path('get_audio_url', views.get_audio_url, name='get_audio_url'),
+    path("moods/", views.moods_view, name="moods"),
     
 ]

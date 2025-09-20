@@ -66,7 +66,7 @@
 <h3>{{ title.1 }}</h3>
 <div class="grid grid-4">
   {% for item in section1 %}
-    <div class="card" onclick="fetch_data('{{ item.id }}')">
+    <div class="card" onclick="fetch_data('{{ item.type }}','{{ item.id }}')">
       <img src="{{ item.img }}" alt="{{ item.title }}">
       <div class="overlay">
         <h4>{{ item.title }}</h4>
@@ -79,7 +79,7 @@
 <h3>{{ title.2 }}</h3>
 <div class="grid grid-3">
   {% for item in section2 %}
-    <div class="card" onclick="fetch_data('{{ item.id }}')">
+    <div class="card" onclick="fetch_data('{{ item.type }}','{{ item.id }}')">
       <img src="{{ item.img }}" alt="{{ item.title }}">
       <div class="overlay">
         <h4>{{ item.title }}</h4>
@@ -92,7 +92,7 @@
 <h3>{{ title.0 }}</h3>
 <div class="quick-picks">
   {% for item in section3 %}
-    <div class="song-card">
+    <div class="song-card" onclick="fetch_data('{{ item.type }}','{{ item.id }}')">
       <img src="{{ item.img }}" alt="{{ item.artist }}">
       <div class="song-info">
         <p class="song-title">{{ item.title }}</p>
@@ -103,8 +103,11 @@
 </div>
 
 <script>
-function fetch_data(id) {
-  window.location.href = `/playlist?id=${id}`;
+function fetch_data(type1,id) {
+  if(type1=="song"){
+    window.location.href=`/player?songId=${id}`;
+  }else
+  {window.location.href = `/playlist?id=${id}`;}
 }
 </script>
 {% endblock %}

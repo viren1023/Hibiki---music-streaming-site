@@ -104,8 +104,8 @@ input[type="range"]::-webkit-slider-thumb {
 .drawer {
   position: fixed;
   top: 0;
-  right: -400px;
-  width: 350px;
+  right: -450px;
+  width: 400px;
   height: 100%;
   background: #111;
   color: white;
@@ -262,10 +262,12 @@ function formatTime(time) {
   return `${minutes}:${seconds}`;
 }
 function loadTrack(index, autoplay = false) {
-  const track = tracks[index];
-  if (!track) return;
+  currentIndex = index;
+  const track = tracks[currentIndex];
 
+  // Immediately clear audio to prevent playing old song
   audio.pause();
+  audio.src = ""; 
   audio.currentTime = 0;
   playBtn.textContent = "▶";
 
@@ -274,27 +276,38 @@ function loadTrack(index, autoplay = false) {
   artistEl.textContent = track.artists.map(a => a.name).join(", ");
   bgEl.style.backgroundImage = `url(${track.thumbnails[0].url})`;
 
+  // Fetch the real audio URL
   fetch(`/get_audio_url?video_id=${track.videoId}`)
     .then(res => res.json())
     .then(data => {
       if (data.audio_url) {
         audio.src = data.audio_url;
+
         if (autoplay) {
+          // Try to play immediately
           audio.play().then(() => {
             playBtn.textContent = "⏸";
           }).catch(() => {
-            // Autoplay blocked
+            // Autoplay blocked, stay paused
             playBtn.textContent = "▶";
           });
         }
       }
     });
-}
 
+    updateUrl(track.videoId);
+
+}
+let pendingPlay = false;
 
 playBtn.addEventListener("click", () => {
   if (audio.paused) {
-    audio.play();
+    if (!audio.src) {
+      // No song loaded yet, mark as pending
+      pendingPlay = true;
+    } else {
+      audio.play();
+    }
     playBtn.textContent = "⏸";
   } else {
     audio.pause();
@@ -302,13 +315,22 @@ playBtn.addEventListener("click", () => {
   }
 });
 
+audio.addEventListener("loadedmetadata", () => {
+  durationEl.textContent = formatTime(audio.duration);
+  if (pendingPlay) {
+    audio.play();
+    playBtn.textContent = "⏸";
+    pendingPlay = false;
+  }
+});
+
 document.getElementById("next").addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % tracks.length;
-  loadTrack(currentIndex);
+  loadTrack(currentIndex,true);
 });
 document.getElementById("prev").addEventListener("click", () => {
   currentIndex = (currentIndex - 1 + tracks.length) % tracks.length;
-  loadTrack(currentIndex);
+  loadTrack(currentIndex,true);
 });
 
 audio.addEventListener("timeupdate", () => {
@@ -320,7 +342,7 @@ audio.addEventListener("timeupdate", () => {
 
 audio.addEventListener("ended", () => {
   currentIndex = (currentIndex + 1) % tracks.length;
-  loadTrack(currentIndex);
+  loadTrack(currentIndex,true);
 });
 
 audio.addEventListener("loadedmetadata", () => {
@@ -335,10 +357,25 @@ document.getElementById("playlist").addEventListener("click", (e) => {
   const li = e.target.closest("li");
   if (li) {
     const index = parseInt(li.dataset.index);
-    loadTrack(index);
+    loadTrack(index,true);
     drawer.classList.remove("open");
   }
 });
+
+const urlParams = new URLSearchParams(window.location.search);
+const playlistId = urlParams.get("playlistId");
+const songId = urlParams.get("songId");
+
+function updateUrl(videoId) {
+  // ✅ Only update URL if we're in "song" mode
+  if (songId && !playlistId) {
+    const url = new URL(window.location);
+    url.searchParams.set("songId", videoId);
+    window.history.pushState({ videoId }, "", url);
+  }
+}
+
+
 
 loadTrack(currentIndex, true);
 
