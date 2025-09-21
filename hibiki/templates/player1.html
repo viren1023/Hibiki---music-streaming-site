@@ -1,0 +1,283 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'hibiki/css/player1.css' %}" />
+
+<!-- Player Overlay -->
+<div class="player-overlay mini">
+  <!-- Player View Toggle Btn -->
+  <div class="view-toggle-div div1">
+    <button id="view-toggle" class="view-toggle">⛶</button>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="player-bar div2">
+    <input type="range" id="progress" min="0" max="100" value="0" />
+    <div class="time-stamps">
+      <span id="current-time">0:00</span> <span id="duration">0:00</span>
+    </div>
+  </div>
+
+  <!-- Audio Controls -->
+  <div class="audio-control-btn div3">
+    <button id="prev">⏮</button> <button id="play">▶</button>
+    <button id="next">⏭</button>
+  </div>
+
+  <!-- Track Info -->
+  <div class="track-info-row div4">
+    <img id="track-thumb" src="" alt="Thumbnail" />
+    <div class="track-text">
+      <h4 id="track-title">No song playing</h4>
+      <p id="track-artists"></p>
+    </div>
+  </div>
+
+  <div class="playlist-toggle-div div5">
+    <button id="playlist-toggle">≡</button>
+  </div>
+
+  <!-- Playlist Drawer -->
+  <div class="drawer div6" id="drawer">
+    <div class="drawer-header">
+      <h4>Playlist</h4>
+      <button id="drawer-close">&times;</button>
+    </div>
+    <ul id="playlist" class="playlist"></ul>
+  </div>
+
+  <!-- Audio Tag  -->
+  <audio id="audio"></audio>
+</div>
+
+<!-- ======================= JavaScript ======================= -->
+<script>
+  window.tracks = []
+  window.currentIndex = 0
+
+  const playerOverlay = document.querySelector(".player-overlay")
+  const audio = document.getElementById("audio")
+  const playBtn = document.getElementById("play")
+  const progress = document.getElementById("progress")
+  const currentTimeEl = document.getElementById("current-time")
+  const durationEl = document.getElementById("duration")
+  const titleEl = document.getElementById("track-title")
+  const artistEl = document.getElementById("track-artists")
+  const thumbnail = document.getElementById("track-thumb")
+  const drawer = document.getElementById("drawer")
+  const viewToggleBtn = document.getElementById("view-toggle")
+
+  viewToggleBtn.addEventListener("click", () => {
+    playerOverlay.classList.toggle("fullscreen")
+    playerOverlay.classList.toggle("mini")
+    viewToggleBtn.textContent = playerOverlay.classList.contains("fullscreen")
+      ? "🗕"
+      : "⛶"
+  })
+
+
+  /* Drawer Toggle */
+  document
+    .getElementById("playlist-toggle")
+    .addEventListener("click", () => drawer.classList.add("open"))
+  document
+    .getElementById("drawer-close")
+    .addEventListener("click", () => drawer.classList.remove("open"))
+
+  /* Helpers */
+  function formatTime(time) {
+    let min = Math.floor(time / 60)
+    let sec = Math.floor(time % 60)
+      .toString()
+      .padStart(2, "0")
+    return `${min}:${sec}`
+  }
+
+  function updatePlayerVisibility() {
+    playerOverlay.style.display =
+      !window.tracks || window.tracks.length === 0 ? "none" : "grid"
+  }
+
+  // Player Logic
+  function savePlaylist() {
+    if (window.tracks.length) {
+      localStorage.setItem("playlistTracks", JSON.stringify(window.tracks))
+      localStorage.setItem("playlistIndex", window.currentIndex)
+      localStorage.setItem("playerTime", audio.currentTime)
+      localStorage.setItem("playerPaused", audio.paused.toString())
+    } else {
+      localStorage.removeItem("playlistTracks")
+      localStorage.removeItem("playlistIndex")
+      localStorage.removeItem("playerTime")
+      localStorage.removeItem("playerPaused")
+    }
+    updatePlayerVisibility()
+  }
+
+  function loadPlaylistFromStorage() {
+    const storedTracks = localStorage.getItem("playlistTracks")
+    const storedIndex = localStorage.getItem("playlistIndex")
+    const storedTime = localStorage.getItem("playerTime")
+    const storedPaused = localStorage.getItem("playerPaused")
+
+    if (storedTracks) {
+      window.tracks = JSON.parse(storedTracks)
+      window.currentIndex = storedIndex ? parseInt(storedIndex) : 0
+
+      if (window.tracks.length > 0) {
+        loadTrackByData(window.tracks[window.currentIndex], false)
+        populatePlaylist()
+
+        // Restore playback time
+        if (storedTime) {
+          audio.currentTime = parseFloat(storedTime)
+        }
+
+        // Restore play/pause state after metadata is loaded
+        audio.addEventListener("loadedmetadata", function restoreState() {
+          if (storedPaused === "false") {
+            audio.play().then(() => (playBtn.textContent = "⏸"))
+          } else {
+            playBtn.textContent = "▶"
+          }
+          // Remove this listener after it's used
+          audio.removeEventListener("loadedmetadata", restoreState)
+        })
+      }
+    } else {
+      window.tracks = []
+    }
+    updatePlayerVisibility()
+  }
+
+  function loadTrackByData(track, autoplay = false) {
+    if (!track) return
+
+    audio.pause()
+    audio.src = ""
+    audio.currentTime = 0
+    playBtn.textContent = "▶"
+
+    titleEl.textContent = track.title
+    artistEl.textContent = track.artists.map((a) => a.name).join(", ")
+    thumbnail.src = track.thumbnails[0].url
+    thumbnail.alt = track.title
+
+    fetch(`/get_audio_url?video_id=${track.videoId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.audio_url) {
+          audio.src = data.audio_url
+          if (autoplay) {
+            audio.play().then(() => (playBtn.textContent = "⏸"))
+          }
+        }
+      })
+
+    document
+      .querySelectorAll("#playlist li")
+      .forEach((li) => li.classList.remove("active"))
+    const currentLi = document.querySelector(
+      `#playlist li[data-index='${window.currentIndex}']`
+    )
+    if (currentLi) currentLi.classList.add("active")
+
+    savePlaylist()
+  }
+
+  function populatePlaylist() {
+    const ul = document.getElementById("playlist")
+    ul.innerHTML = ""
+
+    window.tracks.forEach((track, i) => {
+      const li = document.createElement("li")
+      li.dataset.index = i
+      li.innerHTML = `
+        <img src="${track.thumbnails[0].url}" alt="${track.title}" />
+        <div class="track-info">
+            <h4>${track.title}</h4>
+            <p>${track.artists.map((a) => a.name).join(", ")}</p>
+        </div>`
+
+      // 🔹 Highlight the current track
+      if (i === window.currentIndex) {
+        li.classList.add("active")
+      }
+
+      ul.appendChild(li)
+    })
+  }
+
+  /* Global play function */
+  window.playSongId = function (videoId) {
+    fetch(`/api/player/?songId=${videoId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.tracks && data.tracks.length) {
+          window.tracks = data.tracks
+          window.currentIndex = 0
+          loadTrackByData(window.tracks[0], true)
+          populatePlaylist()
+        }
+      })
+  }
+
+  /* Controls */
+  playBtn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play().then(() => (playBtn.textContent = "⏸"))
+    } else {
+      audio.pause()
+      playBtn.textContent = "▶"
+    }
+  })
+
+  document.getElementById("next").addEventListener("click", () => {
+    if (!window.tracks.length) return
+    window.currentIndex = (window.currentIndex + 1) % window.tracks.length
+    loadTrackByData(window.tracks[window.currentIndex], true)
+  })
+
+  document.getElementById("prev").addEventListener("click", () => {
+    if (!window.tracks.length) return
+    window.currentIndex =
+      (window.currentIndex - 1 + window.tracks.length) % window.tracks.length
+    loadTrackByData(window.tracks[window.currentIndex], true)
+  })
+
+  /* Audio Events */
+  audio.addEventListener("timeupdate", () => {
+    if (!isNaN(audio.duration)) {
+      progress.value = (audio.currentTime / audio.duration) * 100
+      currentTimeEl.textContent = formatTime(audio.currentTime)
+    }
+  })
+  audio.addEventListener("loadedmetadata", () => {
+    durationEl.textContent = formatTime(audio.duration)
+  })
+  audio.addEventListener("ended", () => {
+    if (!window.tracks.length) return
+    window.currentIndex = (window.currentIndex + 1) % window.tracks.length
+    loadTrackByData(window.tracks[window.currentIndex], true)
+  })
+
+  audio.addEventListener("timeupdate", savePlaylist)
+  audio.addEventListener("play", savePlaylist)
+  audio.addEventListener("pause", savePlaylist)
+
+  /* Seek */
+  progress.addEventListener("input", (e) => {
+    audio.currentTime = (e.target.value / 100) * audio.duration
+  })
+
+  /* Playlist click */
+  document.getElementById("playlist").addEventListener("click", (e) => {
+    const li = e.target.closest("li")
+    if (li && window.tracks.length > 0) {
+      window.currentIndex = parseInt(li.dataset.index)
+      loadTrackByData(window.tracks[window.currentIndex], true)
+      drawer.classList.remove("open")
+    }
+  })
+
+  /* Load on page start */
+  document.addEventListener("DOMContentLoaded", loadPlaylistFromStorage)
+</script>

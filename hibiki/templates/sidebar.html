@@ -18,10 +18,10 @@
                         alt="Home" loading="lazy" /> Home</a>
                 <a href="{% url 'search' %}"><img src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png" alt="Search"
                         loading="lazy" /> Search</a>
-                <a href="{% url 'player' %}"><img src="https://img.icons8.com/?size=100&id=JYi8olc3mrka&format=png&color=ffffff" alt="Liked Songs"
-                        loading="lazy" /> player</a>
-                <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/plus-math--v1.png" alt="New Playlist"
-                        loading="lazy" /> New Playlist</a>
+                {% comment %} <a href="{% url 'player' %}"><img src="https://img.icons8.com/?size=100&id=JYi8olc3mrka&format=png&color=ffffff" alt="Liked Songs"
+                        loading="lazy" /> player</a> {% endcomment %}
+                <a href="{% url 'myPlaylist' %}"><img src="https://img.icons8.com/ios-filled/50/ffffff/plus-math--v1.png" alt="New Playlist"
+                        loading="lazy" /> My Playlist</a>
                 <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/like--v1.png" alt="Liked Songs"
                         loading="lazy" /> Liked Songs</a>
             </nav>
@@ -39,6 +39,9 @@
     <main>
         {% block content %}{% endblock %}
     </main>
+
+    {% comment %} <div id="music-player"></div> {% endcomment %}
+    {% include 'player1.html' %}
 </body>
 
 </html>

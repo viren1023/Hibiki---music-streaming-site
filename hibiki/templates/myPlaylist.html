@@ -1,0 +1,124 @@
+{% extends "Sidebar.html" %} 
+{% load static %}
+
+
+{% block title %}My Playlist{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'hibiki/css/library.css' %}" />
+    <body>
+  <header class="page-header" role="banner">
+    <div>
+      <div class="page-title">
+        <!-- optional icon -->
+        {% comment %} <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M12 2v20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+        </svg> {% endcomment %}
+        <div>
+          <div>My Playlist</div>
+          <div class="page-subtitle">Collections you created or saved</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button id="createPlaylistBtn" class="btn btn--primary" aria-haspopup="dialog" aria-controls="createPlaylistModal">
+        <!-- plus icon -->
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Create new playlist
+      </button>
+    </div>
+  </header>
+
+  <div class="page-container" role="main">
+    <!-- list of playlists (example placeholders) -->
+    <div id="playlists" class="playlist-list">
+      <!-- JS will populate -->
+    </div>
+</div>
+
+  <!-- Modal (Create Playlist) -->
+  <div id="createPlaylistModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document">
+      <h3>Create playlist</h3>
+      <div class="form-row">
+        <label for="playlistName" class="sr-only">Playlist name</label>
+        <input id="playlistName" type="text" placeholder="Playlist name (e.g. Chill vibes)" />
+      </div>
+      <div class="actions">
+        <button id="cancelCreate" class="btn btn--ghost">Cancel</button>
+        <button id="confirmCreate" class="btn btn--primary">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+const STORAGE_KEY = 'my_playlists_v1';
+function loadPlaylists(){
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+  catch(e){ return []; }
+}
+function savePlaylists(arr){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+}
+
+const listEl = document.getElementById('playlists');
+
+function renderPlaylists(){
+  const items = loadPlaylists();
+  listEl.innerHTML = items.length
+    ? items.map((p, i) => `
+      <div class="playlist-card" data-index="${i}">
+        <h4>${escapeHtml(p.name)}</h4>
+        <p>${p.count || 0} tracks</p>
+        <button class="menu-btn" title="Options">⋮</button>
+        <div class="menu">
+          <button class="delete-btn">Delete</button>
+        </div>
+      </div>`
+    ).join('')
+    : `<div style="color:#bdbdbd">No playlists yet — create one!</div>`;
+}
+
+// Simple escape helper
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c])); }
+
+renderPlaylists();
+
+// Toggle the menu
+listEl.addEventListener('click', (e) => {
+  const menuBtn = e.target.closest('.menu-btn');
+  if (menuBtn) {
+    const card = menuBtn.closest('.playlist-card');
+    const menu = card.querySelector('.menu');
+    document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open'));
+    menu.classList.toggle('open');
+    return;
+  }
+
+  const deleteBtn = e.target.closest('.delete-btn');
+  if (deleteBtn) {
+    const card = deleteBtn.closest('.playlist-card');
+    const index = parseInt(card.dataset.index, 10);
+    const items = loadPlaylists();
+    if (confirm(`Delete playlist "${items[index].name}"?`)) {
+      items.splice(index, 1);
+      savePlaylists(items);
+      renderPlaylists();
+    }
+  }
+});
+
+// Close menu if clicked outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.playlist-card')) {
+    document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open'));
+  }
+});
+
+  </script>
+</body>
+</html>
+
+{% endblock %}

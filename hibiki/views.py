@@ -3,12 +3,14 @@ from ytmusicapi import YTMusic
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from django.core.cache import cache
 from .models import User
 import yt_dlp
 from django.http import HttpResponse, JsonResponse
 from .forms import RegisterForm, LoginForm
 from datetime import date
 from .core_logic.fetchmetadata import home_metadata, similar_search_metadata, similar_songs_name, playlist_metadata, fetch_audio_metadata,generate_radio_playlist
+
 def set_cookie(key, value, max_age=None):
     response = HttpResponse()
     response.set_cookie(key, value, max_age=max_age, secure=True)
@@ -242,40 +244,47 @@ def playlist_view(request):
     }
     return render(request, "playlist.html", context)
 
-def player_view(request):
-    from random import sample
-
-    songId = request.GET.get("songId")
-    playlistId = request.GET.get("playlistId")
-
-    tracks = []
-
-    if playlistId:
-        # Normal playlist
-        playlist = playlist_metadata(playlistId)
-        tracks = playlist.get("tracks", [])
-    elif songId:
-        print("hello")
-        playlist=generate_radio_playlist(songId)
-        tracks = playlist.get("tracks", [])
-    else:
-        playlist = {"title": "No songs found"}
-
-    first_track = tracks[0] if tracks else None
-    print(first_track)
-
+def playlist_view(request):
+    playlistId = request.GET.get("id", "")
+    playlist = playlist_metadata(playlistId)
+        
     context = {
         "playlist": playlist,
-        "tracks": tracks,
-        "firstTrack": first_track,
+        "tracks": playlist["tracks"],
     }
-    return render(request, "player.html", context)
+    return render(request, "playlist.html", context)
 
+
+def player_api(request):
+    song_id = request.GET.get("songId")
+    playlist_id = request.GET.get("playlistId")
+
+    if playlist_id:
+        playlist = playlist_metadata(playlist_id)
+        tracks = playlist.get("tracks", [])
+    elif song_id:
+        playlist = generate_radio_playlist(song_id)
+        tracks = playlist.get("tracks", [])
+    else:
+        return JsonResponse({"error": "No song or playlist provided"}, status=400)
+    
+    # print(f"Tracks: {tracks}")
+    # print(f"Playlist: {playlist}")
+
+    return JsonResponse({
+        "playlist": playlist,
+        "tracks": tracks
+    })
 
 def get_audio_url(request):
     video_id = request.GET.get("video_id")
     if not video_id:
         return JsonResponse({"error": "No video_id provided"}, status=400)
+
+    # Check cache first
+    cached_url = cache.get(video_id)
+    if cached_url:
+        return JsonResponse({"audio_url": cached_url})
 
     video_url = f"https://music.youtube.com/watch?v={video_id}"
     ydl_opts = {
@@ -289,6 +298,8 @@ def get_audio_url(request):
             info = ydl.extract_info(video_url, download=False)
             audio_url = info.get("url")
             if audio_url:
+                # store in cache for 1 day (86400 seconds)
+                cache.set(video_id, audio_url, timeout=86400)
                 return JsonResponse({"audio_url": audio_url})
             else:
                 return JsonResponse({"error": "Failed to extract audio URL"}, status=500)
@@ -298,15 +309,11 @@ def get_audio_url(request):
 def moods_view(request):
     mood_id = request.GET.get("id")
     playlists = ytmusic.get_mood_playlists(mood_id)
-    # playlists = [
-    #     {"title": "Coffee Shop Blend", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/r3vscbH.jpg"},
-    #     {"title": "Cafecito & Chill", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/kMYdp8o.jpg"},
-    #     {"title": "Uncut Bollywood", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/o6N9Wux.jpg"},
-    #     {"title": "Retro Lounge: Tamil", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/RgrShqU.jpg"},
-    #     {"title": "90s Chill: Bollywood", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/ooXChhY.jpg"},
-    #     {"title": "Incense & Tea", "subtitle": "Playlist • YouTube Music", "image": "https://i.imgur.com/jytHgGR.jpg"},
-    # ]
+    
     return render(request, "moods.html", {"playlists": playlists})
+
+def user_playlist(request):    
+    return render(request, "myPlaylist.html")
     
 
 

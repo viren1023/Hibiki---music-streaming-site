@@ -103,11 +103,21 @@
 </div>
 
 <script>
-function fetch_data(type1,id) {
+  function fetch_data(type1, id) {
+    if (type1 == "song") {
+        window.playSongId(id);
+    } else {
+        window.location.href = `/playlist?id=${id}`;
+        // console.log("Hello")
+    }
+}
+{% comment %} function fetch_data(type1,id) {
   if(type1=="song"){
     window.location.href=`/player?songId=${id}`;
   }else
   {window.location.href = `/playlist?id=${id}`;}
-}
+} {% endcomment %}
+
+
 </script>
 {% endblock %}

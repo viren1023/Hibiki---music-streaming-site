@@ -124,7 +124,7 @@
   <h5>Search Results</h5>
   {% for res in results %}
   <div class="result-item" style="cursor: pointer;"
-     onclick="window.location.href='/player?songId={{ res.videoId }}'">
+     onclick="window.playSongId('{{ res.videoId }}')">
 
     {% if res.thumbnails %}
       <img src="{{ res.thumbnails.0.url }}" alt="">

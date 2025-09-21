@@ -1,0 +1,210 @@
+/* Header */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(180deg, #151515, #101010);
+    color: #fff;
+}
+
+.page-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-subtitle {
+    font-size: 13px;
+    color: #bdbdbd;
+    font-weight: 500;
+}
+
+/* Create button */
+.btn {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn--primary {
+    background: linear-gradient(90deg, #a855f7, #7c3aed);
+    color: white;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.12);
+}
+
+.btn--primary:active {
+    transform: translateY(1px);
+}
+
+/* Page container */
+.page-container {
+    padding: 20px;
+    color: #eaeaea;
+    background: #0f0f10;
+    min-height: calc(100vh - 180px);
+}
+
+/* Simple playlist list */
+.playlist-list {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    margin-top: 14px;
+}
+
+.playlist-card {
+    position: relative;
+    background: #141417;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.playlist-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.playlist-card h4 {
+    margin: 0;
+    font-size: 16px
+}
+
+.playlist-card p {
+    margin: 0;
+    font-size: 13px;
+    color: #b9b9b9
+}
+
+/* Position the 3-dot menu button in the top-right corner */
+.playlist-card {}
+
+.menu-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    line-height: 1;
+}
+
+.menu-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Dropdown menu */
+.menu {
+    display: none;
+    position: absolute;
+    top: 32px;
+    right: 8px;
+    background: #1b1b1d;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    min-width: 120px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    z-index: 20;
+}
+
+.menu.open {
+    display: block;
+}
+
+.menu button {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 10px 14px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* Modal */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 11000;
+}
+
+.modal-backdrop.open {
+    display: flex;
+}
+
+.modal {
+    width: 420px;
+    max-width: calc(100% - 48px);
+    background: #0b0b0c;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+
+.modal h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px
+}
+
+.modal .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.modal input[type="text"] {
+    background: #151516;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.modal .actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.btn--ghost {
+    background: transparent;
+    color: #d0d0d0;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+}
