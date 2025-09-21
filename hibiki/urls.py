@@ -14,6 +14,9 @@ urlpatterns = [
     path("logout/", views.logout_view, name="logout"),
     path('get_audio_url', views.get_audio_url, name='get_audio_url'),
     path("moods/", views.moods_view, name="moods"),
-    path("my-playlist/", views.user_playlist, name="myPlaylist"),
     path("api/player/", views.player_api, name="player_api"),
+    path("my-playlist/", views.user_playlist, name="myPlaylist"),
+    path("my-playlists/create/", views.create_playlist, name="create_playlist"),
+    path("my-playlists/<int:pk>/delete/", views.delete_playlist, name="delete_playlist"),
+    path("precache_audio_urls/", views.precache_audio_urls, name="cache-next-songs"),
 ]

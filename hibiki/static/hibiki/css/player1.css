@@ -148,7 +148,10 @@
 }
 
 .player-overlay.fullscreen .div4 img{
-    width: 100%;
+    /* max-width: 100%;
+    min-width: 400px; */
+    /* min-height: 255px; */
+    /* width: 100%; */
     height: fit-content;
     border-radius: 6px;
     object-fit: contain;
@@ -221,8 +224,8 @@
 }
 
 .track-info-row img {
-    width: 50px;
-    height: 50px;
+    /* width: 50px;
+    height: 50px; */
     border-radius: 6px;
     object-fit: cover;
 }

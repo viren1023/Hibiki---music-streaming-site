@@ -1,15 +1,13 @@
-{% extends "Sidebar.html" %}
-{% block content %}
+{% extends "Sidebar.html" %} {% block content %}
 <style>
-
-/* Quick Picks Section */
-.quick-picks {
+  /* Quick Picks Section */
+  .quick-picks {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px 24px;
-}
+  }
 
-.song-card {
+  .song-card {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -17,47 +15,47 @@
     border-radius: 8px;
     padding: 6px 10px;
     transition: background 0.2s ease;
-}
+  }
 
-.song-card:hover {
+  .song-card:hover {
     background: #1e1e1e;
-}
+  }
 
-.song-card img {
+  .song-card img {
     width: 56px;
     height: 56px;
     border-radius: 6px;
     object-fit: cover;
     flex-shrink: 0;
-}
+  }
 
-.song-info {
+  .song-info {
     display: flex;
     flex-direction: column;
     min-width: 0;
-}
+  }
 
-.song-info p {
+  .song-info p {
     margin: 0;
     padding: 0;
-}
+  }
 
-.song-title {
+  .song-title {
     font-weight: 600;
     font-size: 15px;
     color: #fff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+  }
 
-.song-artist {
+  .song-artist {
     font-size: 13px;
     color: #aaa;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+  }
 </style>
 
 <h2>Ready to play some song, {{ username }} 👋</h2>
@@ -66,12 +64,12 @@
 <h3>{{ title.1 }}</h3>
 <div class="grid grid-4">
   {% for item in section1 %}
-    <div class="card" onclick="fetch_data('{{ item.type }}','{{ item.id }}')">
-      <img src="{{ item.img }}" alt="{{ item.title }}">
-      <div class="overlay">
-        <h4>{{ item.title }}</h4>
-      </div>
+  <div class="card" onclick="fetch_data('{{ item.type }}','{{ item.id }}')">
+    <img src="{{ item.img }}" alt="{{ item.title }}" />
+    <div class="overlay">
+      <h4>{{ item.title }}</h4>
     </div>
+  </div>
   {% endfor %}
 </div>
 
@@ -79,12 +77,12 @@
 <h3>{{ title.2 }}</h3>
 <div class="grid grid-3">
   {% for item in section2 %}
-    <div class="card" onclick="fetch_data('{{ item.type }}','{{ item.id }}')">
-      <img src="{{ item.img }}" alt="{{ item.title }}">
-      <div class="overlay">
-        <h4>{{ item.title }}</h4>
-      </div>
+  <div class="card" onclick="fetch_data('{{ item.type }}','{{ item.id }}')">
+    <img src="{{ item.img }}" alt="{{ item.title }}" />
+    <div class="overlay">
+      <h4>{{ item.title }}</h4>
     </div>
+  </div>
   {% endfor %}
 </div>
 
@@ -92,32 +90,33 @@
 <h3>{{ title.0 }}</h3>
 <div class="quick-picks">
   {% for item in section3 %}
-    <div class="song-card" onclick="fetch_data('{{ item.type }}','{{ item.id }}')">
-      <img src="{{ item.img }}" alt="{{ item.artist }}">
-      <div class="song-info">
-        <p class="song-title">{{ item.title }}</p>
-        <p class="song-artist">{{ item.artist }}</p>
-      </div>
+  <div
+    class="song-card"
+    onclick="fetch_data('{{ item.type }}','{{ item.id }}')"
+  >
+    <img src="{{ item.img }}" alt="{{ item.artist }}" />
+    <div class="song-info">
+      <p class="song-title">{{ item.title }}</p>
+      <p class="song-artist">{{ item.artist }}</p>
     </div>
+  </div>
   {% endfor %}
 </div>
 
 <script>
-  function fetch_data(type1, id) {
-    if (type1 == "song") {
-        window.playSongId(id);
-    } else {
-        window.location.href = `/playlist?id=${id}`;
-        // console.log("Hello")
-    }
-}
-{% comment %} function fetch_data(type1,id) {
-  if(type1=="song"){
-    window.location.href=`/player?songId=${id}`;
-  }else
-  {window.location.href = `/playlist?id=${id}`;}
-} {% endcomment %}
-
-
+    function fetch_data(type1, id) {
+      if (type1 == "song") {
+          window.playSongId(id);
+      } else {
+          window.location.href = `/playlist?id=${id}`;
+          // console.log("Hello")
+      }
+  }
+  {% comment %} function fetch_data(type1,id) {
+    if(type1=="song"){
+      window.location.href=`/player?songId=${id}`;
+    }else
+    {window.location.href = `/playlist?id=${id}`;}
+  } {% endcomment %}
 </script>
 {% endblock %}

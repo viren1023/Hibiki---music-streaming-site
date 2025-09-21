@@ -71,8 +71,12 @@
     viewToggleBtn.textContent = playerOverlay.classList.contains("fullscreen")
       ? "🗕"
       : "⛶"
-  })
 
+    // Re-apply thumbnail size for current track
+    if (window.tracks.length) {
+      updateThumbnail(window.tracks[window.currentIndex])
+    }
+  })
 
   /* Drawer Toggle */
   document
@@ -94,6 +98,30 @@
   function updatePlayerVisibility() {
     playerOverlay.style.display =
       !window.tracks || window.tracks.length === 0 ? "none" : "grid"
+  }
+
+  function updateThumbnail(track) {
+    const lastThumb = track.thumbnails.at(-1)
+    if (!lastThumb) return
+
+    thumbnail.src = lastThumb.url
+
+    if (playerOverlay.classList.contains("mini")) {
+      // Mini view
+      thumbnail.style.width = "50px"
+      thumbnail.style.height = "50px"
+    } else if (
+      playerOverlay.classList.contains("fullscreen") &&
+      lastThumb.width === lastThumb.height
+    ) {
+      // Fullscreen square thumbnail
+      thumbnail.style.width = "255px"
+      thumbnail.style.height = "255px"
+    } else {
+      // Fullscreen non-square thumbnail
+      thumbnail.style.width = "100%"
+      thumbnail.style.height = "auto"
+    }
   }
 
   // Player Logic
@@ -148,6 +176,47 @@
     updatePlayerVisibility()
   }
 
+  function getCookie(name) {
+    let cookieValue = null
+    if (document.cookie && document.cookie !== "") {
+      const cookies = document.cookie.split(";")
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim()
+        // Check if this cookie starts with the name we want
+        if (cookie.substring(0, name.length + 1) === name + "=") {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1))
+          break
+        }
+      }
+    }
+    return cookieValue
+  }
+
+  function cacheNextTracks() {
+    if (!window.tracks.length) return
+
+    const nextTracks = window.tracks.slice(
+      window.currentIndex + 1,
+      window.currentIndex + 6
+    )
+    if (!nextTracks.length) return
+
+    const ids = nextTracks.map((t) => t.videoId)
+
+    console.log(ids)
+
+    fetch("/precache_audio_urls/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCookie("csrftoken"), // If CSRF protection is on
+      },
+      body: JSON.stringify({video_ids: ids}),
+    }).catch((err) => console.error("Cache request failed:", err))
+
+    console.log("Cacheing request send")
+  }
+
   function loadTrackByData(track, autoplay = false) {
     if (!track) return
 
@@ -158,7 +227,7 @@
 
     titleEl.textContent = track.title
     artistEl.textContent = track.artists.map((a) => a.name).join(", ")
-    thumbnail.src = track.thumbnails[0].url
+    thumbnail.src = track.thumbnails.at(-1).url
     thumbnail.alt = track.title
 
     fetch(`/get_audio_url?video_id=${track.videoId}`)
@@ -180,7 +249,10 @@
     )
     if (currentLi) currentLi.classList.add("active")
 
+    updateThumbnail(track)
     savePlaylist()
+
+    cacheNextTracks()
   }
 
   function populatePlaylist() {
@@ -217,6 +289,7 @@
           loadTrackByData(window.tracks[0], true)
           populatePlaylist()
         }
+        console.log(data)
       })
   }
 

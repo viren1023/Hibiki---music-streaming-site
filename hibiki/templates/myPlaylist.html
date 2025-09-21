@@ -1,124 +1,96 @@
-{% extends "Sidebar.html" %} 
+{% extends "Sidebar.html" %}
 {% load static %}
 
-
 {% block title %}My Playlist{% endblock %}
+
 {% block content %}
 <link rel="stylesheet" href="{% static 'hibiki/css/library.css' %}" />
-    <body>
-  <header class="page-header" role="banner">
+
+<header class="page-header" role="banner">
+  <div class="page-title">
     <div>
-      <div class="page-title">
-        <!-- optional icon -->
-        {% comment %} <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path d="M12 2v20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
-        </svg> {% endcomment %}
-        <div>
-          <div>My Playlist</div>
-          <div class="page-subtitle">Collections you created or saved</div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <button id="createPlaylistBtn" class="btn btn--primary" aria-haspopup="dialog" aria-controls="createPlaylistModal">
-        <!-- plus icon -->
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Create new playlist
-      </button>
-    </div>
-  </header>
-
-  <div class="page-container" role="main">
-    <!-- list of playlists (example placeholders) -->
-    <div id="playlists" class="playlist-list">
-      <!-- JS will populate -->
-    </div>
-</div>
-
-  <!-- Modal (Create Playlist) -->
-  <div id="createPlaylistModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal" role="document">
-      <h3>Create playlist</h3>
-      <div class="form-row">
-        <label for="playlistName" class="sr-only">Playlist name</label>
-        <input id="playlistName" type="text" placeholder="Playlist name (e.g. Chill vibes)" />
-      </div>
-      <div class="actions">
-        <button id="cancelCreate" class="btn btn--ghost">Cancel</button>
-        <button id="confirmCreate" class="btn btn--primary">Create</button>
-      </div>
+      <div>My Playlist</div>
+      <div class="page-subtitle">Collections you created or saved</div>
     </div>
   </div>
 
-  <script>
-const STORAGE_KEY = 'my_playlists_v1';
-function loadPlaylists(){
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
-  catch(e){ return []; }
-}
-function savePlaylists(arr){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
-}
+  <div>
+    <button id="createPlaylistBtn" class="btn btn--primary"
+            aria-haspopup="dialog" aria-controls="createPlaylistModal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Create new playlist
+    </button>
+  </div>
+</header>
 
-const listEl = document.getElementById('playlists');
+<div class="page-container" role="main">
+  <div id="playlists" class="playlist-list">
+    {% if playlists %}
+      {% for p in playlists %}
+        <div class="playlist-card" data-id="{{ p.id }}">
+          <h4>{{ p.name|escape }}</h4>
+          <p>{{ p.total_songs }} tracks</p>
 
-function renderPlaylists(){
-  const items = loadPlaylists();
-  listEl.innerHTML = items.length
-    ? items.map((p, i) => `
-      <div class="playlist-card" data-index="${i}">
-        <h4>${escapeHtml(p.name)}</h4>
-        <p>${p.count || 0} tracks</p>
-        <button class="menu-btn" title="Options">⋮</button>
-        <div class="menu">
-          <button class="delete-btn">Delete</button>
+          <!-- Three-dot menu -->
+          <button class="menu-btn" title="Options">⋮</button>
+          <div class="menu">
+            <form method="post" action="{% url 'delete_playlist' p.id %}">
+              {% csrf_token %}
+              <button type="submit" class="delete-btn"
+                      onclick="return confirm('Delete playlist &quot;{{ p.name }}&quot;?')">
+                Delete
+              </button>
+            </form>
+          </div>
         </div>
-      </div>`
-    ).join('')
-    : `<div style="color:#bdbdbd">No playlists yet — create one!</div>`;
-}
+      {% endfor %}
+    {% else %}
+      <div style="color:#bdbdbd">No playlists yet — create one!</div>
+    {% endif %}
+  </div>
+</div>
 
-// Simple escape helper
-function escapeHtml(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c])); }
+<!-- Modal (Create Playlist) -->
+<div id="createPlaylistModal" class="modal-backdrop" role="dialog"
+     aria-modal="true" aria-hidden="true">
+  <div class="modal" role="document">
+    <h3>Create playlist</h3>
+    <form method="post" action="{% url 'create_playlist' %}">
+      {% csrf_token %}
+      <div class="form-row">
+        <label for="playlistName" class="sr-only">Playlist name</label>
+        <input name="name" id="playlistName" type="text"
+               placeholder="Playlist name (e.g. Chill vibes)" required />
+      </div>
+      <div class="actions">
+        <button type="button" id="cancelCreate" class="btn btn--ghost">Cancel</button>
+        <button type="submit" id="confirmCreate" class="btn btn--primary">Create</button>
+      </div>
+    </form>
+  </div>
+</div>
 
-renderPlaylists();
-
-// Toggle the menu
-listEl.addEventListener('click', (e) => {
-  const menuBtn = e.target.closest('.menu-btn');
-  if (menuBtn) {
-    const card = menuBtn.closest('.playlist-card');
-    const menu = card.querySelector('.menu');
+<script>
+/* Toggle the 3-dot menu dropdowns */
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.menu-btn');
+  if (btn) {
+    const menu = btn.nextElementSibling;
     document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open'));
     menu.classList.toggle('open');
     return;
   }
-
-  const deleteBtn = e.target.closest('.delete-btn');
-  if (deleteBtn) {
-    const card = deleteBtn.closest('.playlist-card');
-    const index = parseInt(card.dataset.index, 10);
-    const items = loadPlaylists();
-    if (confirm(`Delete playlist "${items[index].name}"?`)) {
-      items.splice(index, 1);
-      savePlaylists(items);
-      renderPlaylists();
-    }
-  }
-});
-
-// Close menu if clicked outside
-document.addEventListener('click', (e) => {
   if (!e.target.closest('.playlist-card')) {
     document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open'));
   }
 });
 
-  </script>
-</body>
-</html>
-
+/* Show/Hide the Create Playlist modal */
+const modal = document.getElementById('createPlaylistModal');
+document.getElementById('createPlaylistBtn').onclick = () => modal.classList.add('open');
+document.getElementById('cancelCreate').onclick = () => modal.classList.remove('open');
+</script>
 {% endblock %}
