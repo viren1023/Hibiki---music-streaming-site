@@ -1,6 +1,8 @@
 import json
 import random
 import threading
+import ast
+from django.views.decorators.csrf import csrf_exempt
 from ytmusicapi import YTMusic
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
@@ -215,13 +217,21 @@ def search_page(request):
 
 def playlist_view(request):
     playlistId = request.GET.get("id", "")
-    playlist = playlist_metadata(playlistId)
-        
-    context = {
-        "playlist": playlist,
-        "tracks": playlist["tracks"],
-    }
-    return render(request, "playlist.html", context)
+    user_playlist_id=request.GET.get("upid", "")
+    
+    if(playlistId):
+        playlist = playlist_metadata(playlistId)
+        context = {
+            "playlist": playlist,
+            "tracks": playlist["tracks"],
+        }
+    if(user_playlist_id):
+        playlist = Playlist.objects.filter(id=user_playlist_id).first()
+        context = {
+            "playlist": playlist,
+            "tracks": playlist.tracks,
+        }
+    return render(request, "playlist.html",context)
 
 # def playlist_view(request):
 #     playlistId = request.GET.get("id", "")
@@ -237,6 +247,7 @@ def playlist_view(request):
 def player_api(request):
     song_id = request.GET.get("songId")
     playlist_id = request.GET.get("playlistId")
+    upid=request.GET.get("upid")
 
     if playlist_id:
         playlist = playlist_metadata(playlist_id)
@@ -244,6 +255,16 @@ def player_api(request):
     elif song_id:
         playlist = generate_radio_playlist(song_id)
         tracks = playlist.get("tracks", [])
+    elif upid:
+        playlist = Playlist.objects.filter(id=upid).first()
+        tracks=playlist.tracks
+        playlist = {
+            "id": playlist.id,
+            "title": playlist.title,
+            "user_id": playlist.user.id,
+            "tracks": playlist.tracks,  # already a list of dicts
+            "created_at": playlist.created_at.isoformat()  # convert datetime to string
+        }
     else:
         return JsonResponse({"error": "No song or playlist provided"}, status=400)
     
@@ -323,8 +344,9 @@ def create_playlist(request):
         # If user not found, prevent creating playlist
         return redirect("login")
     
+
     if name:
-        Playlist.objects.create(name=name, user=user)  # set user_id appropriately
+        Playlist.objects.create(title=name, user=user)  # set user_id appropriately
     return redirect("myPlaylist")
 
 @require_POST
@@ -385,8 +407,49 @@ def precache_audio_urls(request):
     print("Cacheing done.")
     return JsonResponse({"status": "Caching started", "count": len(ids)})
 
+
+def show_playlist(request):
+    username = request.COOKIES.get("HIBIKI_USERNAME")
+    playlists_data = []
+
+    if username:
+        try:
+            user = User.objects.get(username=username)
+            playlists = Playlist.objects.filter(user=user).order_by('-created_at')
+            playlists_data = [{"id": p.id, "name": p.title} for p in playlists]
+        except User.DoesNotExist:
+            pass
+    return JsonResponse({"playlists": playlists_data})
+
+@csrf_exempt
+def add_to_playlist(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            playlist_id = data.get("playlist_id")
+            track_str = str(data.get("track"))
+            print(track_str)
+            my_dict = ast.literal_eval(track_str)
+            track = my_dict  # expect a dict with track info
+            print(track)
+        except Exception as e:
+            print(e)
+            print("hello")
+            return JsonResponse({"status": "error", "message": "Invalid data"}, status=400)
+
+        try:
+            playlist = Playlist.objects.get(id=playlist_id)
+        except (User.DoesNotExist, Playlist.DoesNotExist):
+            return JsonResponse({"status": "error", "message": "Playlist not found"}, status=404)
+
+        playlist.tracks.append(track)
+        playlist.save()
+
+        return JsonResponse({"status": "success", "playlist_name": playlist.title})
+    print("hello1")
+    return JsonResponse({"status": "error", "message": "Invalid request"}, status=400)
+
 def logout_view(request):
     response = redirect("landing")
     response.delete_cookie("HIBIKI_USERNAME")
     return response
-

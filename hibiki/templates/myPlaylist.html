@@ -31,8 +31,8 @@
     {% if playlists %}
       {% for p in playlists %}
         <div class="playlist-card" data-id="{{ p.id }}">
-          <h4>{{ p.name|escape }}</h4>
-          <p>{{ p.total_songs }} tracks</p>
+          <h4>{{ p.title|escape }}</h4>
+          <p><p>{{ p.tracks|length }} tracks</p>
 
           <!-- Three-dot menu -->
           <button class="menu-btn" title="Options">⋮</button>
@@ -40,7 +40,7 @@
             <form method="post" action="{% url 'delete_playlist' p.id %}">
               {% csrf_token %}
               <button type="submit" class="delete-btn"
-                      onclick="return confirm('Delete playlist &quot;{{ p.name }}&quot;?')">
+                      onclick="return confirm('Delete playlist &quot;{{ p.title }}&quot;?')">
                 Delete
               </button>
             </form>
@@ -86,6 +86,18 @@ document.addEventListener('click', e => {
   if (!e.target.closest('.playlist-card')) {
     document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open'));
   }
+});
+
+document.querySelectorAll('.playlist-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    // Ignore clicks on menu button or menu itself
+    if (e.target.closest('.menu-btn') || e.target.closest('.menu')) return;
+
+    const upid = card.dataset.id;
+    console.log(upid)
+    // Redirect or call function
+    window.location.href = `/playlist?upid=${upid}`;
+  });
 });
 
 /* Show/Hide the Create Playlist modal */

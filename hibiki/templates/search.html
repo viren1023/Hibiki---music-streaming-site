@@ -4,6 +4,9 @@
 {% block title %}Music Search{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'hibiki/css/3DotMenu.css' %}" />
+<script src="{% static 'hibiki/js/data.js' %}"></script>
+
 <style>
   /* body {
     background-color: #000;
@@ -139,11 +142,31 @@
           • Album: {{ res.album.name }}
         {% endif %}
       </div>
+          <div class="dotmenu-container">
+            <button class="dotmenu-btn" onclick="toggleMenu(event, {{ forloop.counter0 }})">⋮</button>
+            <div class="dotmenu" id="dotmenu-{{ forloop.counter0 }}">
+              <ul>
+                <li onclick="addToQueue('{{ track.videoId }}')">Add to Queue</li>
+                <li onclick="addToPlaylistfromplaylist(`{{ res|escapejs }}`)">Add to Playlist</li>
+                <li onclick="shareTrack('{{ track.videoId }}')">Share</li>
+              </ul>
+            </div>
+          </div>
+      
     </div>
   </div>
   {% endfor %}
 </div>
 {% endif %}
+
+<div id="playlistBackdrop" class="modal-backdrop">
+  <div class="playlistmodal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>Your Playlists</h3>
+    <ul id="playlistList"></ul>
+    <p id="noPlaylists" style="display:none;">No playlists found.</p>
+  </div>
+</div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
