@@ -1,0 +1,37 @@
+ {% load static %}
+
+<link rel="stylesheet" href="{% static 'hibiki/css/3DotMenu.css' %}" />
+<script src="{% static 'hibiki/js/data.js' %}"></script>
+
+<div class="dotmenu-container">
+  <button
+    class="dotmenu-btn"
+    onclick="toggleMenu(event, {{ forloop.counter0 }})"
+  >
+    ⋮
+  </button>
+  <div class="dotmenu" id="dotmenu-{{ forloop.counter0 }}">
+    <ul>
+      <li onclick="addToQueue('{{ track.videoId }}')">Add to Queue</li>
+      <li onclick="addToPlaylistfromplaylist(`{{ res|escapejs }}`)">
+        Add to Playlist
+      </li>
+      <li onclick="shareTrack('{{ track.videoId }}')">Share</li>
+    </ul>
+  </div>
+</div>
+
+{% comment %} <div class="dotmenu-container" data-index="{{ index }}" data-video-id="{{ track.videoId }}" data-res="{{ res|escapejs }}">
+  <button class="dotmenu-btn">⋮</button>
+  <div class="dotmenu">
+    <ul>
+      <li class="queue-btn">Add to Queue</li>
+      <li class="playlist-btn">Add to Playlist</li>
+      <li class="share-btn">Share</li>
+    </ul>
+  </div>
+</div>
+
+${% include 'partials/3-dot.html' with track=track res=res index=forloop.counter0 %}
+
+{% endcomment %}

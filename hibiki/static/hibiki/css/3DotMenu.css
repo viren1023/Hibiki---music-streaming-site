@@ -1,6 +1,8 @@
 .dotmenu-container {
-    position: relative; /* important for dotmenu positioning */
-    display: inline-block; /* optional: keeps it compact */
+    position: relative;
+    /* important for dotmenu positioning */
+    display: inline-block;
+    /* optional: keeps it compact */
 }
 
 .dotmenu-btn {
@@ -46,7 +48,8 @@
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* Modal */.modal-backdrop {
+/* Modal */
+.modal-backdrop {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.6);

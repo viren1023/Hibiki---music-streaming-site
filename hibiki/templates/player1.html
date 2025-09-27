@@ -46,6 +46,18 @@
 
   <!-- Audio Tag  -->
   <audio id="audio"></audio>
+
+  <!-- Playlist Modal -->
+  <div id="playlistBackdropForPlayer" class="modal-backdrop-player">
+    <div class="playlistmodalforplayer">
+      <span class="close" onclick="closeModalForPlayer()">&times;</span>
+      <h3>Your Playlists</h3>
+      <ul id="playlistList_forPlayer"></ul>
+      <p id="noPlaylists_forPlayer" style="display: none">
+        No playlists found.
+      </p>
+    </div>
+  </div>
 </div>
 
 <!-- ======================= JavaScript ======================= -->
@@ -98,6 +110,12 @@
   function updatePlayerVisibility() {
     playerOverlay.style.display =
       !window.tracks || window.tracks.length === 0 ? "none" : "grid"
+  }
+
+  function closeModalForPlayer() {
+    if (!backdropForPlayer) return
+    backdropForPlayer.classList.remove("open")
+    document.getElementById("playlistmodalforplayer").style.display = "none"
   }
 
   function updateThumbnail(track) {
@@ -255,6 +273,86 @@
     cacheNextTracks()
   }
 
+  function player_playlist_menu_toggleFun(e, i) {
+    e.stopPropagation()
+    const player_playlist_menu = document.getElementById(
+      `player-playlist-menu-listId-${i}`
+    )
+    const player_playlist_allMenus = document.querySelectorAll(
+      ".player-playlist-menu-list"
+    )
+    player_playlist_allMenus.forEach((m) => {
+      if (m !== player_playlist_menu) m.style.display = "none"
+    })
+    player_playlist_menu.style.display =
+      player_playlist_menu.style.display === "block" ? "none" : "block"
+  }
+
+  let add_track_fromPlayer
+  const backdropForPlayer = document.getElementById("playlistBackdropForPlayer")
+
+  function addToPlaylistfromPlayer(inx) {
+    if (!backdropForPlayer) return console.error("playlistBackdrop not found")
+    backdropForPlayer.classList.add("open")
+    res = window.tracks[inx]
+
+    // console.log(track)
+    add_track_fromPlayer = res
+    document.getElementById("playlistBackdropForPlayer").style.display = "flex"
+    loadPlaylistsforPlayer()
+  }
+
+  function loadPlaylistsforPlayer() {
+    fetch("/show-playlist/")
+      .then((response) => response.json())
+      .then((data) => {
+        playlistList_forPlayer.innerHTML = ""
+
+        if (!data.playlists || data.playlists.length === 0) {
+          noPlaylists_forPlayer.style.display = "block"
+          return
+        }
+
+        noPlaylists_forPlayer.style.display = "none"
+
+        data.playlists.forEach((p) => {
+          const li = document.createElement("li")
+          li.textContent = `${p.name} (${p.total_songs} songs)`
+
+          li.addEventListener("click", () => {
+            playlistClickedfromPlayer(p.id, p.name)
+          })
+
+          playlistList_forPlayer.appendChild(li)
+        })
+      })
+      .catch((err) => console.error("Error loading playlists:", err))
+  }
+
+  function playlistClickedfromPlayer(id, name) {
+    fetch("/add_to_playlist/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        playlist_id: id,
+        track: add_track_fromPlayer,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success") {
+          alert(`Track added to ${name}`)
+          closeModalForPlayer() // optionally close modal after adding
+        } else {
+          alert(data.message || "Error adding track")
+        }
+      })
+      .catch((err) => console.error(err))
+    closeModalForPlayer() // optionally close modal after selection
+  }
+
   function populatePlaylist() {
     const ul = document.getElementById("playlist")
     ul.innerHTML = ""
@@ -267,6 +365,20 @@
         <div class="track-info">
             <h4>${track.title}</h4>
             <p>${track.artists.map((a) => a.name).join(", ")}</p>
+
+            <div class="player-playlist-menu">
+              <button class=player-playlist-menu-btn" onclick="player_playlist_menu_toggleFun(event,${i})">⋮</button>
+              <div 
+                class="player-playlist-menu-list" id="player-playlist-menu-listId-${i}"
+                style="display:none;"
+              >
+              <ul>
+                <li>Add to Queue</li>
+                <li onclick="addToPlaylistfromPlayer(${i})">Add to Playlist</li>
+                <li>Share</li>
+              </ul>
+            </div>
+            </div>
         </div>`
 
       // 🔹 Highlight the current track
@@ -347,7 +459,7 @@
     if (li && window.tracks.length > 0) {
       window.currentIndex = parseInt(li.dataset.index)
       loadTrackByData(window.tracks[window.currentIndex], true)
-      drawer.classList.remove("open")
+      // drawer.classList.remove("open")
     }
   })
 

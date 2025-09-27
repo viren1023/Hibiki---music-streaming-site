@@ -329,3 +329,44 @@
     font-size: 12px;
     color: #aaa;
 }
+
+
+/* Modal */
+.modal-backdrop-player {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 11000;
+}
+
+.modal-backdrop-player.open {
+    display: flex;
+}
+
+.playlistmodalforplayer {
+    width: 420px;
+    max-width: calc(100% - 48px);
+    background: #0b0b0c;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+
+.playlistmodalforplayer h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.playlistmodalforplayer ul li {
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+.playlistmodalforplayer ul li:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
