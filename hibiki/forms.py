@@ -79,3 +79,14 @@ class LoginForm(forms.Form):
                 raise ValidationError("Invalid username or password.")
 
         return cleaned_data
+
+
+from .models import Feedback
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['name', 'email', 'rating', 'message']
+        widgets = {
+            'message': forms.Textarea(attrs={'rows': 4}),
+        }

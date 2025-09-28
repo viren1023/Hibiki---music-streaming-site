@@ -1,6 +1,8 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'hibiki/css/player1.css' %}" />
-
+{% comment %}
+<script src="{% static 'hibiki/js/addToQueue.js' %}"></script>
+{% endcomment %}
 <!-- Player Overlay -->
 <div class="player-overlay mini">
   <!-- Player View Toggle Btn -->
@@ -49,7 +51,7 @@
 
   <!-- Playlist Modal -->
   <div id="playlistBackdropForPlayer" class="modal-backdrop-player">
-    <div class="playlistmodalforplayer">
+    <div id="playlistmodalforplayer">
       <span class="close" onclick="closeModalForPlayer()">&times;</span>
       <h3>Your Playlists</h3>
       <ul id="playlistList_forPlayer"></ul>
@@ -110,12 +112,6 @@
   function updatePlayerVisibility() {
     playerOverlay.style.display =
       !window.tracks || window.tracks.length === 0 ? "none" : "grid"
-  }
-
-  function closeModalForPlayer() {
-    if (!backdropForPlayer) return
-    backdropForPlayer.classList.remove("open")
-    document.getElementById("playlistmodalforplayer").style.display = "none"
   }
 
   function updateThumbnail(track) {
@@ -291,7 +287,24 @@
   let add_track_fromPlayer
   const backdropForPlayer = document.getElementById("playlistBackdropForPlayer")
 
-  function addToPlaylistfromPlayer(inx) {
+  //function closeModalForPlayer() {
+  //  document.getElementById("playlistmodalforplayer").style.display = "none"
+  //  if (!backdropForPlayer) return
+  //  backdropForPlayer.classList.remove("open")
+  //}
+
+  function closeModalForPlayer() {
+    const modal = document.getElementById("playlistmodalforplayer")
+    if (modal) modal.style.display = "none"
+
+    if (backdropForPlayer) {
+      backdropForPlayer.classList.remove("open")
+      backdropForPlayer.style.display = "none" // 🔑 added
+    }
+  }
+
+  function addToPlaylistfromPlayer(e, inx) {
+    e.stopPropagation()
     if (!backdropForPlayer) return console.error("playlistBackdrop not found")
     backdropForPlayer.classList.add("open")
     res = window.tracks[inx]
@@ -353,7 +366,31 @@
     closeModalForPlayer() // optionally close modal after selection
   }
 
+  function addToQueue(newTrack) {
+    console.log(newTrack)
+
+    let jsonStr = newTrack
+      .replace(/"/g, "＂") // different unicode double qoute(＂)
+      .replace(/'/g, '"')
+      .replace(/\bFalse\b/g, "false")
+      .replace(/\bTrue\b/g, "true")
+      .replace(/\bNone\b/g, "null")
+
+    console.log(jsonStr)
+    // Parse into JS object
+    let obj = JSON.parse(jsonStr)
+    window.tracks.push(obj)
+    console.log(window.tracks)
+    populatePlaylist()
+    savePlaylist()
+  }
+
+  function addToQueue1() {
+    console.log("fick u")
+  }
+
   function populatePlaylist() {
+    console.log("populate")
     const ul = document.getElementById("playlist")
     ul.innerHTML = ""
 
@@ -361,25 +398,24 @@
       const li = document.createElement("li")
       li.dataset.index = i
       li.innerHTML = `
-        <img src="${track.thumbnails[0].url}" alt="${track.title}" />
-        <div class="track-info">
-            <h4>${track.title}</h4>
-            <p>${track.artists.map((a) => a.name).join(", ")}</p>
-
-            <div class="player-playlist-menu">
-              <button class=player-playlist-menu-btn" onclick="player_playlist_menu_toggleFun(event,${i})">⋮</button>
-              <div 
-                class="player-playlist-menu-list" id="player-playlist-menu-listId-${i}"
-                style="display:none;"
-              >
-              <ul>
-                <li>Add to Queue</li>
-                <li onclick="addToPlaylistfromPlayer(${i})">Add to Playlist</li>
-                <li>Share</li>
-              </ul>
-            </div>
-            </div>
-        </div>`
+        <div class="player-playlist-item">
+    <img src="${track.thumbnails[0].url}" alt="${track.title}" />
+    <div class="track-info">
+        <h4>${track.title}</h4>
+        <p>${track.artists.map((a) => a.name).join(", ")}</p>
+    </div>
+    <div class="player-playlist-menu">
+      <button class="player-playlist-menu-btn" onclick="player_playlist_menu_toggleFun(event,${i})">⋮</button>
+      <div class="player-playlist-menu-list" id="player-playlist-menu-listId-${i}" style="display:none;">
+        <ul>
+          <li onclick="addToQueue(event,${i})" >Add to Queue</li>
+          <li onclick="addToPlaylistfromPlayer(event,${i})">Add to Playlist</li>
+          <li>Share</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  `
 
       // 🔹 Highlight the current track
       if (i === window.currentIndex) {

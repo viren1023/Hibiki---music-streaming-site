@@ -1,0 +1,45 @@
+{% extends "Sidebar.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'hibiki/css/about.css' %}">
+
+<div class="about-page">
+  <h2>About Hibiki</h2>
+
+  <section class="about-section">
+    <h3>Our Mission</h3>
+    <p>
+      Hibiki is dedicated to bringing music lovers closer to their favorite artists. 
+      We aim to provide a seamless streaming experience with high-quality sound, curated playlists, 
+      and personalized recommendations.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h3>Our Story</h3>
+    <p>
+      Founded in 2025, Hibiki started as a small project by a team of passionate music enthusiasts. 
+      Over time, we have grown into a full-fledged music platform that supports both listeners and artists alike.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h3>Our Values</h3>
+    <ul>
+      <li>High-quality music streaming experience</li>
+      <li>User-first design and interface</li>
+      <li>Supporting independent artists</li>
+      <li>Privacy and security for our users</li>
+      <li>Innovation in music discovery</li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h3>Contact Us</h3>
+    <p>
+      Have questions or feedback? Reach out to us at <a href="mailto:support@hibiki.com">support@hibiki.com</a>.
+    </p>
+  </section>
+</div>
+{% endblock %}

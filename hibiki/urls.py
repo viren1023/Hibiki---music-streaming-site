@@ -20,5 +20,8 @@ urlpatterns = [
     path("precache_audio_urls/", views.precache_audio_urls, name="cache-next-songs"),
     path('show-playlist/', views.show_playlist, name='show_playlist'),
     path('add_to_playlist/', views.add_to_playlist, name='add_to_playlist'),
+    path("setting/", views.setting_view, name="setting"),
+    path("feedback/", views.feedback_view, name="feedback"),
+    path("about/", views.about_view, name="about"),
     path("logout/", views.logout_view, name="logout"),
 ]

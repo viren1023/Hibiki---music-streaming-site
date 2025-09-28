@@ -36,7 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const noPlaylists = document.getElementById("noPlaylists")
 
   // Open modal
-  window.addToPlaylistfromplaylist = (res) => {
+  window.addToPlaylistfromplaylist = (e, res) => {
+    console.log("hello")
+    e.stopPropagation()
     console.log("playlist addToPlaylistfromplaylist")
     if (!backdrop) return console.error("playlistBackdrop not found")
     backdrop.classList.add("open")

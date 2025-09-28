@@ -143,8 +143,8 @@
             <button class="dotmenu-btn" onclick="toggleMenu(event, {{ forloop.counter0 }})">⋮</button>
             <div class="dotmenu" id="dotmenu-{{ forloop.counter0 }}">
               <ul>
-                <li onclick="addToQueue('{{ track.videoId }}')">Add to Queue</li>
-                <li onclick="addToPlaylistfromplaylist(`{{ track|escapejs }}`)">Add to Playlist</li>
+                <li onclick="event.stopPropagation(); addToQueue(`{{ track|escapejs }}`)">Add to Queue</li>
+                <li onclick="addToPlaylistfromplaylist(event,`{{ track|escapejs }}`)">Add to Playlist</li>
                 <li onclick="shareTrack('{{ track.videoId }}')">Share</li>
               </ul>
             </div>

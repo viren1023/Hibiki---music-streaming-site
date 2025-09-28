@@ -13,6 +13,7 @@ import yt_dlp
 from django.http import HttpResponse, JsonResponse
 from .forms import RegisterForm, LoginForm
 from datetime import date
+from .forms import FeedbackForm
 from .core_logic.fetchmetadata import home_metadata, similar_search_metadata, similar_songs_name, playlist_metadata, fetch_audio_metadata,generate_radio_playlist
 
 ytmusic = YTMusic()
@@ -48,7 +49,6 @@ def login_view(request):
             response.set_cookie(
                 key="HIBIKI_USERNAME",
                 value=user.username,
-                max_age=3600,  # 1 hour
                 httponly=True,
                 secure=False,  # set True if HTTPS
             )
@@ -67,7 +67,6 @@ def register_view(request):
             response.set_cookie(
                 key="HIBIKI_USERNAME",
                 value=user.username,
-                max_age=3600,
                 httponly=True,
                 secure=False,   # set True if using HTTPS
             )
@@ -199,7 +198,7 @@ def search_page(request):
     else:
         # No query yet → show moods + charts
         mood_categories = ytmusic.get_mood_categories()
-        charts = ytmusic.get_charts()  # You can change country
+        charts = ytmusic.get_charts(country="ZZ")  # You can change country
         return render(request, "search.html", {
             "query": query,
             "results": search_results,
@@ -448,6 +447,27 @@ def add_to_playlist(request):
         return JsonResponse({"status": "success", "playlist_name": playlist.title})
     print("hello1")
     return JsonResponse({"status": "error", "message": "Invalid request"}, status=400)
+
+
+def setting_view(request):
+    return render(request,"setting.html")
+
+def feedback_view(request):
+    if request.method == "POST":
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print("hello")
+            return render(request, "setting.html")  # success page
+    else:
+        form = FeedbackForm()
+
+    return render(request, "feedback_form.html", {"form": form})
+
+
+# About Us Page
+def about_view(request):
+    return render(request, "about.html")
 
 def logout_view(request):
     response = redirect("landing")

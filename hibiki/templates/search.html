@@ -60,6 +60,9 @@
   .result-item {
     display: flex;
     align-items: center;
+    justify-content: space-between; /* pushes info left, button right */
+    gap: 10px;
+    align-items: center;
     background: #111;
     margin-bottom: 15px;
     padding: 10px;
@@ -126,12 +129,12 @@
 <div class="results">
   <h5>Search Results</h5>
   {% for res in results %}
-  <div class="result-item" style="cursor: pointer;"
-     onclick="window.playSongId('{{ res.videoId }}')">
-
+  <div class="result-item" style="cursor: pointer;" onclick="window.playSongId('{{ res.videoId }}')">
+  
     {% if res.thumbnails %}
       <img src="{{ res.thumbnails.0.url }}" alt="">
     {% endif %}
+
     <div class="result-info">
       <div class="result-title">{{ res.title }}</div>
       <div class="result-sub">
@@ -142,19 +145,22 @@
           • Album: {{ res.album.name }}
         {% endif %}
       </div>
-          <div class="dotmenu-container">
-            <button class="dotmenu-btn" onclick="toggleMenu(event, {{ forloop.counter0 }})">⋮</button>
-            <div class="dotmenu" id="dotmenu-{{ forloop.counter0 }}">
-              <ul>
-                <li onclick="addToQueue('{{ track.videoId }}')">Add to Queue</li>
-                <li onclick="addToPlaylistfromplaylist(`{{ res|escapejs }}`)">Add to Playlist</li>
-                <li onclick="shareTrack('{{ track.videoId }}')">Share</li>
-              </ul>
-            </div>
-          </div>
-      
     </div>
-  </div>
+
+    <!-- 3-dot menu at the end -->
+    <div class="dotmenu-container">
+      <button class="dotmenu-btn" onclick="toggleMenu(event, {{ forloop.counter0 }})">⋮</button>
+      <div class="dotmenu" id="dotmenu-{{ forloop.counter0 }}">
+        <ul>
+          <li onclick="event.stopPropagation(); addToQueue(`{{ res|escapejs }}`)">Add to Queue</li>
+          <li onclick="addToPlaylistfromplaylist(event, `{{ res|escapejs }}`)">Add to Playlist</li>
+          <li onclick="shareTrack('{{ res.videoId }}')">Share</li>
+        </ul>
+      </div>
+    </div>
+
+</div>
+
   {% endfor %}
 </div>
 {% endif %}
