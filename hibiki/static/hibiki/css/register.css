@@ -1,31 +1,3 @@
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    overflow: hidden;
-    position: relative;
-}
-
-/* background layer with blur */
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4") no-repeat center center/cover;
-    filter: blur(6px);
-    /* this blurs the whole background */
-    transform: scale(1.1);
-    /* avoids cutoff edges after blur */
-    z-index: -1;
-}
-
 .register-box {
     text-align: center;
     background: rgba(0, 0, 0, 0.6);

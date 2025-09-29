@@ -1,66 +1,7 @@
 {% extends "Sidebar.html" %} {% block content %}
-<style>
-  /* Quick Picks Section */
-  .quick-picks {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px 24px;
-  }
-
-  .song-card {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #111;
-    border-radius: 8px;
-    padding: 6px 10px;
-    transition: background 0.2s ease;
-  }
-
-  .song-card:hover {
-    background: #1e1e1e;
-  }
-
-  .song-card img {
-    width: 56px;
-    height: 56px;
-    border-radius: 6px;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
-
-  .song-info {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-  }
-
-  .song-info p {
-    margin: 0;
-    padding: 0;
-  }
-
-  .song-title {
-    font-weight: 600;
-    font-size: 15px;
-    color: #fff;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .song-artist {
-    font-size: 13px;
-    color: #aaa;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-</style>
 
 <h2>Ready to play some song, {{ username }} 👋</h2>
 
-<!-- Playlists -->
 <h3>{{ title.1 }}</h3>
 <div class="grid grid-4">
   {% for item in section1 %}
@@ -104,19 +45,22 @@
 </div>
 
 <script>
-    function fetch_data(type1, id) {
-      if (type1 == "song") {
-          window.playSongId(id);
-      } else {
-          window.location.href = `/playlist?id=${id}`;
-          // console.log("Hello")
-      }
+  function fetch_data(type1, id) {
+    if (type1 == "song") {
+      window.playSongId(id)
+    } else {
+      window.location.href = `/playlist?id=${id}`
+    }
   }
-  {% comment %} function fetch_data(type1,id) {
-    if(type1=="song"){
-      window.location.href=`/player?songId=${id}`;
-    }else
-    {window.location.href = `/playlist?id=${id}`;}
-  } {% endcomment %}
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search)
+    const songId = params.get("songId")
+
+    if (!songId) return
+
+    if(songId) window.playSongId(songId)
+    
+  })
 </script>
 {% endblock %}

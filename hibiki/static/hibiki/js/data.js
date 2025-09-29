@@ -1,16 +1,51 @@
 let addTrack = null
 
+// function toggleMenu(e, index) {
+//   console.log("playlist toggleMenu")
+//   e.stopPropagation() // prevent row click
+//   const menu = document.getElementById(`dotmenu-${index}`)
+//   const allMenus = document.querySelectorAll(".dotmenu")
+//   allMenus.forEach((m) => {
+//     if (m !== menu) m.style.display = "none"
+//   })
+//   menu.style.display = menu.style.display === "block" ? "none" : "block"
+//   // console.log(e)
+//   // console.log(index)
+// }
+
 function toggleMenu(e, index) {
   console.log("playlist toggleMenu")
-  e.stopPropagation() // prevent row click
+  e.stopPropagation() // stop button click bubbling
+
   const menu = document.getElementById(`dotmenu-${index}`)
   const allMenus = document.querySelectorAll(".dotmenu")
+
+  // Close all other menus
   allMenus.forEach((m) => {
     if (m !== menu) m.style.display = "none"
   })
-  menu.style.display = menu.style.display === "block" ? "none" : "block"
-  // console.log(e)
-  // console.log(index)
+
+  // Toggle current menu
+  const isOpen = menu.style.display === "block"
+  menu.style.display = isOpen ? "none" : "block"
+
+  if (!isOpen) {
+    // Add a one-time document click listener to close menu
+    const closeOnOutsideClick = (event) => {
+      if (!menu.contains(event.target)) {
+        menu.style.display = "none"
+        document.removeEventListener("click", closeOnOutsideClick)
+      }
+    }
+    document.addEventListener("click", closeOnOutsideClick)
+  }
+
+  // Close if menu itself is clicked
+  menu.onclick = (ev) => {
+    ev.stopPropagation()
+    menu.style.display = "none"
+    document.removeEventListener("click", closeOnOutsideClick)
+  }
 }
 
 // function addToPlaylistfromplaylist(res) {

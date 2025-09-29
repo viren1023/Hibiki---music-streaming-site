@@ -78,6 +78,7 @@
   const thumbnail = document.getElementById("track-thumb")
   const drawer = document.getElementById("drawer")
   const viewToggleBtn = document.getElementById("view-toggle")
+  const mainContent = document.querySelector("main.main-section")
 
   viewToggleBtn.addEventListener("click", () => {
     playerOverlay.classList.toggle("fullscreen")
@@ -110,8 +111,15 @@
   }
 
   function updatePlayerVisibility() {
-    playerOverlay.style.display =
-      !window.tracks || window.tracks.length === 0 ? "none" : "grid"
+    const hasTracks = window.tracks && window.tracks.length > 0
+
+    // Show/hide player
+    playerOverlay.style.display = hasTracks ? "grid" : "none"
+
+    // ✅ Add extra bottom padding only if player is visible
+    mainContent.style.paddingBottom = hasTracks
+      ? (playerOverlay.offsetHeight || 100) + "px"
+      : "0px"
   }
 
   function updateThumbnail(track) {
@@ -141,24 +149,24 @@
   // Player Logic
   function savePlaylist() {
     if (window.tracks.length) {
-      localStorage.setItem("playlistTracks", JSON.stringify(window.tracks))
-      localStorage.setItem("playlistIndex", window.currentIndex)
-      localStorage.setItem("playerTime", audio.currentTime)
-      localStorage.setItem("playerPaused", audio.paused.toString())
+      sessionStorage.setItem("playlistTracks", JSON.stringify(window.tracks))
+      sessionStorage.setItem("playlistIndex", window.currentIndex)
+      sessionStorage.setItem("playerTime", audio.currentTime)
+      sessionStorage.setItem("playerPaused", audio.paused.toString())
     } else {
-      localStorage.removeItem("playlistTracks")
-      localStorage.removeItem("playlistIndex")
-      localStorage.removeItem("playerTime")
-      localStorage.removeItem("playerPaused")
+      sessionStorage.removeItem("playlistTracks")
+      sessionStorage.removeItem("playlistIndex")
+      sessionStorage.removeItem("playerTime")
+      sessionStorage.removeItem("playerPaused")
     }
     updatePlayerVisibility()
   }
 
   function loadPlaylistFromStorage() {
-    const storedTracks = localStorage.getItem("playlistTracks")
-    const storedIndex = localStorage.getItem("playlistIndex")
-    const storedTime = localStorage.getItem("playerTime")
-    const storedPaused = localStorage.getItem("playerPaused")
+    const storedTracks = sessionStorage.getItem("playlistTracks")
+    const storedIndex = sessionStorage.getItem("playlistIndex")
+    const storedTime = sessionStorage.getItem("playerTime")
+    const storedPaused = sessionStorage.getItem("playerPaused")
 
     if (storedTracks) {
       window.tracks = JSON.parse(storedTracks)
@@ -231,12 +239,23 @@
     console.log("Cacheing request send")
   }
 
+  function updateTimerUI(seconds) {
+    currentTimeEl.textContent = formatTime(seconds)
+  }
+  function updateProgressBar(percentOrSeconds) {
+    progress.value = percentOrSeconds // depending on your slider logic
+  }
+
   function loadTrackByData(track, autoplay = false) {
     if (!track) return
 
     audio.pause()
     audio.src = ""
     audio.currentTime = 0
+
+    updateTimerUI(0) // <-- custom function to set time display to 0:00
+    updateProgressBar(0) // <-- set slider to 0%
+
     playBtn.textContent = "▶"
 
     titleEl.textContent = track.title
@@ -270,18 +289,36 @@
   }
 
   function player_playlist_menu_toggleFun(e, i) {
-    e.stopPropagation()
-    const player_playlist_menu = document.getElementById(
-      `player-playlist-menu-listId-${i}`
-    )
-    const player_playlist_allMenus = document.querySelectorAll(
-      ".player-playlist-menu-list"
-    )
-    player_playlist_allMenus.forEach((m) => {
-      if (m !== player_playlist_menu) m.style.display = "none"
+    e.stopPropagation() // Prevent click bubbling
+
+    const menu = document.getElementById(`player-playlist-menu-listId-${i}`)
+    const allMenus = document.querySelectorAll(".player-playlist-menu-list")
+
+    // Close all other open menus
+    allMenus.forEach((m) => {
+      if (m !== menu) m.style.display = "none"
     })
-    player_playlist_menu.style.display =
-      player_playlist_menu.style.display === "block" ? "none" : "block"
+
+    const isOpen = menu.style.display === "block"
+    menu.style.display = isOpen ? "none" : "block"
+
+    if (!isOpen) {
+      // One-time outside click listener
+      const closeOnOutsideClick = (event) => {
+        if (!menu.contains(event.target)) {
+          menu.style.display = "none"
+          document.removeEventListener("click", closeOnOutsideClick)
+        }
+      }
+      document.addEventListener("click", closeOnOutsideClick)
+
+      // Close if the menu itself is clicked
+      menu.onclick = (ev) => {
+        ev.stopPropagation()
+        menu.style.display = "none"
+        document.removeEventListener("click", closeOnOutsideClick)
+      }
+    }
   }
 
   let add_track_fromPlayer
@@ -379,14 +416,41 @@
     console.log(jsonStr)
     // Parse into JS object
     let obj = JSON.parse(jsonStr)
-    window.tracks.push(obj)
-    console.log(window.tracks)
+
+    // IF THERE IS NO TRACKS ARRAY
+    if (!window.tracks || window.tracks.length === 0) {
+      window.tracks.push(obj)
+      loadTrackByData(obj, true)
+    } else {
+      window.tracks.push(obj)
+    }
+
+    //console.log(window.tracks)
     populatePlaylist()
     savePlaylist()
   }
 
-  function addToQueue1() {
-    console.log("fick u")
+  function copyShareableLink(songId) {
+    //e.stopPropagation()
+
+    console.log("copyShareableLink: ", songId)
+
+    if (!songId) {
+      alert("No song ID provided!")
+      return
+    }
+    const baseUrl = window.location.origin + "/home/"
+    const shareUrl = `${baseUrl}?songId=${encodeURIComponent(songId)}`
+    // Copy to clipboard
+    navigator.clipboard
+      .writeText(shareUrl)
+      .then(() => {
+        alert("Link copied to clipboard!")
+      })
+      .catch((err) => {
+        console.error("Failed to copy link:", err)
+        alert("Failed to copy link")
+      })
   }
 
   function populatePlaylist() {
@@ -410,7 +474,9 @@
         <ul>
           <li onclick="addToQueue(event,${i})" >Add to Queue</li>
           <li onclick="addToPlaylistfromPlayer(event,${i})">Add to Playlist</li>
-          <li>Share</li>
+          <li onclick="event.stopPropagation(); copyShareableLink('${
+            track.videoId
+          }')">Share</li>
         </ul>
       </div>
     </div>

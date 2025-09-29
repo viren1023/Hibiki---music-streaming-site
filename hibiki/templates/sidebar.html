@@ -5,15 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Hibiki</title>
+    <link rel="stylesheet" href="{% static 'hibiki/css/global.css' %}">
     <link rel="stylesheet" href="{% static 'hibiki/css/home.css' %}">
 </head>
 
-<body>
+<body class="home-page">
     <!-- Sidebar (always visible) -->
     <aside style="z-index: 999;">
         <div>
             <h1>Hibiki</h1>
-            <nav>
+            <nav class="side-navbar">
                 <a href="{% url 'home' %}"><img src="https://img.icons8.com/ios-filled/50/ffffff/home--v1.png"
                         alt="Home" loading="lazy" /> Home</a>
                 <a href="{% url 'search' %}"><img src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png" alt="Search"
@@ -36,7 +37,7 @@
     </aside>
 
     <!-- Main content -->
-    <main>
+    <main class="main-section">
         {% block content %}{% endblock %}
     </main>
 

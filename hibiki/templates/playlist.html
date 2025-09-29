@@ -1,74 +1,9 @@
 {% extends "Sidebar.html" %} {% load static %} {% block content %}
-<link rel="stylesheet" href="{% static 'hibiki/css/3DotMenu.css' %}" />
-<script src="{% static 'hibiki/js/data.js' %}"></script>
-<meta charset="UTF-8" />
 <title>{{ playlist.title }}</title>
-<style>
-  /* body {
-      background: #121212;
-      color: #fff;
-      font-family: Arial, sans-serif;
-    } */
-  .playlist-header {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-  }
 
-  .playlist-header img {
-    width: 200px;
-    height: 200px;
-    border-radius: 8px;
-    margin-right: 20px;
-  }
-
-  .playlist-info h1 {
-    font-size: 48px;
-    margin: 0;
-  }
-
-  .playlist-info p {
-    color: #b3b3b3;
-  }
-
-  .tracks {
-    margin: 20px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    color: #b3b3b3;
-  }
-
-  th,
-  td {
-    padding: 12px;
-    border-bottom: 1px solid #282828;
-    text-align: left;
-  }
-
-  th {
-    color: #fff;
-  }
-
-  .track-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 4px;
-  }
-
-  .play-btn {
-    background: #1db954;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    margin: 20px;
-  }
-</style>
+<script src="{% static 'hibiki/js/data.js' %}"></script>
+<link rel="stylesheet" href="{% static 'hibiki/css/playlist.css' %}" />
+<link rel="stylesheet" href="{% static 'hibiki/css/3DotMenu.css' %}" />
 
 <div class="playlist-header">
   {% with playlist.thumbnails|last as last_thumb %} {% if last_thumb %}
@@ -88,9 +23,9 @@
     {% endif %}
     <p></p>
     <p>
-      {% if playlist.author.name %} {{ playlist.author.name }} {% endif %}
-      {% if playlist.author.name and playlist.trackCount %} • {% endif %}
-      {% if playlist.trackCount %} {{ playlist.trackCount }} songs {% endif %}
+      {% if playlist.author.name %} {{ playlist.author.name }} {% endif %} 
+      {% if playlist.author.name and playlist.trackCount %} • {% endif %} 
+      {% if playlist.trackCount %} {{ playlist.trackCount }} songs {% endif %} 
       {% if playlist.duration %} • {{ playlist.duration }} {% endif %}
     </p>
   </div>
@@ -111,45 +46,59 @@
       </tr>
     </thead>
     <tbody>
-      {% comment %} <tr onclick="playTrackById('{{ track.videoId }}')" style="cursor: pointer">
+      {% comment %}
+      <tr
+        onclick="playTrackById('{{ track.videoId }}')"
+        style="cursor: pointer"
+      >
         <td>{{ forloop.counter }}</td>
         <td>
           <img class="track-img" src="{{ track.thumbnails.0.url }}" alt="" />
           {{ track.title }}
         </td>
         <td>
-          {% for artist in track.artists %} {{ artist.name }}
-          {% if not forloop.last %},
-          {% endif %}
-          {% endfor %}
+          {% for artist in track.artists %} {{ artist.name }} {% if not
+          forloop.last %}, {% endif %} {% endfor %}
         </td>
         <td>{{ track.duration }}</td>
-      </tr> {% endcomment %}
-      {% for track in tracks %}
+      </tr>
+      {% endcomment %} {% for track in tracks %}
       <tr onclick="play_playlist({{ forloop.counter0 }})">
         <td>{{ forloop.counter }}</td>
-        <td>
+        <td class="track-img-title-info">
           <img class="track-img" src="{{ track.thumbnails.0.url }}" alt="" />
-          {{ track.title }}
+          <div class="track-title">{{ track.title }}</div>
         </td>
         <td>
-          {% for artist in track.artists %} {{ artist.name }}
-          {% if not forloop.last %}, {% endif %}
+          {% for artist in track.artists %} {{ artist.name }} 
+          {% if not forloop.last %}, {% endif %} 
           {% endfor %}
         </td>
         <td>{{ track.duration }}</td>
         <td>
           <div class="dotmenu-container">
-            <button class="dotmenu-btn" onclick="toggleMenu(event, {{ forloop.counter0 }})">⋮</button>
+            <button
+              class="dotmenu-btn"
+              onclick="toggleMenu(event, {{ forloop.counter0 }})"
+            >
+              ⋮
+            </button>
             <div class="dotmenu" id="dotmenu-{{ forloop.counter0 }}">
               <ul>
-                <li onclick="event.stopPropagation(); addToQueue(`{{ track|escapejs }}`)">Add to Queue</li>
-                <li onclick="addToPlaylistfromplaylist(event,`{{ track|escapejs }}`)">Add to Playlist</li>
-                <li onclick="shareTrack('{{ track.videoId }}')">Share</li>
+                <li
+                  onclick="event.stopPropagation(); addToQueue(`{{ track|escapejs }}`)"
+                >
+                  Add to Queue
+                </li>
+                <li
+                  onclick="addToPlaylistfromplaylist(event,`{{ track|escapejs }}`)"
+                >
+                  Add to Playlist
+                </li>
+                <li onclick="event.stopPropagation(); copyShareableLink('{{ track.videoId }}')">Share</li>
               </ul>
             </div>
           </div>
-
         </td>
       </tr>
       {% endfor %}
@@ -163,10 +112,9 @@
     <span class="close" onclick="closeModal()">&times;</span>
     <h3>Your Playlists</h3>
     <ul id="playlistList"></ul>
-    <p id="noPlaylists" style="display:none;">No playlists found.</p>
+    <p id="noPlaylists" style="display: none">No playlists found.</p>
   </div>
 </div>
-
 
 <script>
   function play_playlist(currentIndex) {
@@ -190,9 +138,9 @@
         })
     }
 
-    if(upid){
+    if (upid) {
       console.log(upid)
-            fetch(`/api/player/?upid=${upid}`)
+      fetch(`/api/player/?upid=${upid}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.tracks && data.tracks.length) {
@@ -206,6 +154,5 @@
     }
   }
 </script>
-
 
 {% endblock %}
