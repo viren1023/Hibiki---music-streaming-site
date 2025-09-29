@@ -23,5 +23,6 @@ urlpatterns = [
     path("setting/", views.setting_view, name="setting"),
     path("feedback/", views.feedback_view, name="feedback"),
     path("about/", views.about_view, name="about"),
+    path("user_profile/", views.user_profile, name="user_profile"),
     path("logout/", views.logout_view, name="logout"),
 ]

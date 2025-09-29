@@ -1,0 +1,19 @@
+{% extends "Sidebar.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'hibiki/css/user.css' %}">
+
+<div class="user-page">
+  <h2>User Profile</h2>
+
+  <div class="user-card">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+  </div>
+
+  <div class="actions">
+    <a href="{% url 'feedback' %}" class="btn">Give Feedback</a>
+  </div>
+</div>
+{% endblock %}

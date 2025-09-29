@@ -449,8 +449,20 @@ def add_to_playlist(request):
     return JsonResponse({"status": "error", "message": "Invalid request"}, status=400)
 
 
+from django.shortcuts import render, get_object_or_404
+from .models import User
+
 def setting_view(request):
-    return render(request,"setting.html")
+    user_id = request.COOKIES.get("HIBIKI_USERNAME")
+    user = None
+    if user_id:
+        user = get_object_or_404(User, username=user_id)
+    
+    context = {
+        "user": user,  # pass the user object
+    }
+    return render(request, "setting.html", context)
+
 
 def feedback_view(request):
     if request.method == "POST":
@@ -463,6 +475,14 @@ def feedback_view(request):
         form = FeedbackForm()
 
     return render(request, "feedback_form.html", {"form": form})
+
+def user_profile(request):
+    user_id = request.COOKIES.get("HIBIKI_USERNAME")  # read cookie
+    if not user_id:
+        return render(request, "error.html", {"msg": "User not logged in"})
+
+    user = get_object_or_404(User, username=user_id)
+    return render(request, "user.html", {"user": user})
 
 
 # About Us Page

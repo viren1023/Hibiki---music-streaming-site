@@ -1,658 +1,237 @@
 {
   "owned": false,
-  "id": "RDCLAK5uy_lbfDqlFOiRJekoTwNgiES65gcham4ZelA",
   "privacy": "PUBLIC",
-  "description": "Sensual and intense, this is a playlist with one thing on its mind. Don't fight it, feel it. #hindi #lovesongs #sexy",
+  "description": null,
   "views": null,
-  "duration": "4 hours, 50 minutes",
-  "trackCount": 80,
-  "title": "Make Out Jams: Bollywood",
-  "thumbnails": [
-    {
-      "url": "https://lh3.googleusercontent.com/_z2pe5PlkSXwi2Bn1OLjeu3wpqptoAXh6qeeraDEI5gGYzCe1Rz6yTCO0-zW2gwR7vvJXJHlJCa9c_U=w60-h60-l90-rj",
-      "width": 60,
-      "height": 60
-    },
-    {
-      "url": "https://lh3.googleusercontent.com/_z2pe5PlkSXwi2Bn1OLjeu3wpqptoAXh6qeeraDEI5gGYzCe1Rz6yTCO0-zW2gwR7vvJXJHlJCa9c_U=w120-h120-l90-rj",
-      "width": 120,
-      "height": 120
-    },
-    {
-      "url": "https://lh3.googleusercontent.com/_z2pe5PlkSXwi2Bn1OLjeu3wpqptoAXh6qeeraDEI5gGYzCe1Rz6yTCO0-zW2gwR7vvJXJHlJCa9c_U=w226-h226-l90-rj",
-      "width": 226,
-      "height": 226
-    },
-    {
-      "url": "https://lh3.googleusercontent.com/_z2pe5PlkSXwi2Bn1OLjeu3wpqptoAXh6qeeraDEI5gGYzCe1Rz6yTCO0-zW2gwR7vvJXJHlJCa9c_U=w544-h544-l90-rj",
-      "width": 544,
-      "height": 544
-    }
-  ],
-  "author": {
-    "name": "YouTube Music",
-    "id": null
-  },
-  "year": "2025",
-  "related": [],
+  "duration": null,
   "tracks": [
     {
-      "videoId": "iAIBF2ngbWY",
-      "title": "Pehle Bhi Main",
+      "videoId": "Bqv8K3-NQ90",
+      "title": "Ochhav Theme",
       "artists": [
         {
-          "name": "Vishal Mishra",
-          "id": "UC25UGbOHCuT5Jht2ItRXTqQ"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
-      "album": null,
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://i.ytimg.com/vi/iAIBF2ngbWY/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mcsYV_aMvF-VedUHCBTwXQTM9-gg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "4:09",
-      "duration_seconds": 249
-    },
-    {
-      "videoId": "BSJa1UytM8w",
-      "title": "Saiyaara Title Song",
-      "artists": [
-        {
-          "name": "Faheem Abdullah",
-          "id": "UCal4gffnHGaQzcjNeN8pEhg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/BSJa1UytM8w/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lKMJMKEbhsO96rxI_E14odF-IlcQ",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "4:08",
-      "duration_seconds": 248
-    },
-    {
-      "videoId": "Aa2ZpTBmzlw",
-      "title": "Bheegi Saree",
-      "artists": [
-        {
-          "name": "Shreya Ghoshal",
-          "id": "UCrC-7fsdTCYeaRBpwA6j-Eg"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Adnan Sami",
-          "id": "UCxenoqmzzzVeZrHA8ME2DlA"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ],
+      "isAvailable": true,
+      "isExplicit": false,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "views": null,
+      "duration": "1:20",
+      "duration_seconds": 80
+    },
+    {
+      "videoId": "o6DblYx0s4w",
+      "title": "Ganesh Deva",
+      "artists": [
+        {
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Sachin-Jigar",
-          "id": "UCcuXjaACiyViK8QTuztjR6A"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/Aa2ZpTBmzlw/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lRLdtunw4ORDGw2_JygsTsIvAedg",
-          "width": 400,
-          "height": 225
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
         }
       ],
       "isAvailable": true,
       "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "2:57",
-      "duration_seconds": 177
+      "duration": "2:29",
+      "duration_seconds": 149
     },
     {
-      "videoId": "Ujb2c508yw0",
-      "title": "Jaanam",
+      "videoId": "18KxPOZmUBQ",
+      "title": "Partham Samru",
       "artists": [
         {
-          "name": "Vishal Mishra",
-          "id": "UC25UGbOHCuT5Jht2ItRXTqQ"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
-      "album": null,
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://i.ytimg.com/vi/Ujb2c508yw0/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mszFjn1nnBFgGxY7_QlE_sQZE9mA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "3:17",
-      "duration_seconds": 197
-    },
-    {
-      "videoId": "9R3qF-j5gZ4",
-      "title": "Kasturi | Amar Prem Ki Prem Kahani | Arijit Singh | Prasad S | Kunaal V | Jio Cinema",
-      "artists": [
-        {
-          "name": "Sep 17, 2024",
-          "id": null
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/9R3qF-j5gZ4/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3m5qMEFXXzFlmF9TCHAgxNrxmcoEg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "4:01",
-      "duration_seconds": 241
-    },
-    {
-      "videoId": "0v5eHPfy5Lk",
-      "title": "Barbaad",
-      "artists": [
-        {
-          "name": "Jubin Nautiyal",
-          "id": "UCdWuR07og626xwU93eSCh9A"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/0v5eHPfy5Lk/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nVb5CldBktd4jqoRQ8cE04ZJin7w",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "3:45",
-      "duration_seconds": 225
-    },
-    {
-      "videoId": "rOUuGvJkBrQ",
-      "title": "Tum Ho Toh (Movie: Saiyaara)",
-      "artists": [
-        {
-          "name": "Vishal Mishra",
-          "id": "UC25UGbOHCuT5Jht2ItRXTqQ"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Hansika Pareek",
-          "id": "UCDV_CkYnYPgBKA6_QfQpqRQ"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ],
+      "isAvailable": true,
+      "isExplicit": false,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "views": null,
+      "duration": "3:20",
+      "duration_seconds": 200
+    },
+    {
+      "videoId": "NIbrqbxyg2k",
+      "title": "Birdaali Bahuchar Baali",
+      "artists": [
+        {
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Raj Shekhar",
-          "id": "UCkK7sxhwlegiCq5BYWQ0PGA"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/rOUuGvJkBrQ/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3n4Fz4X8-2uprj7y2z4QwdPnXzNrA",
-          "width": 400,
-          "height": 225
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
         }
       ],
       "isAvailable": true,
       "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "3:18",
-      "duration_seconds": 198
+      "duration": "2:12",
+      "duration_seconds": 132
     },
     {
-      "videoId": "Gp1RNYBckBs",
-      "title": "Guli Mata",
+      "videoId": "_efaWA9a8E8",
+      "title": "Aavjo Maavadiyu",
       "artists": [
         {
-          "name": "Saad Lamjarred",
-          "id": "UCq3Rh1L8aSl8C7hlMzRXCKQ"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Shreya Ghoshal",
-          "id": "UCrC-7fsdTCYeaRBpwA6j-Eg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/Gp1RNYBckBs/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mZ_dJbTmCyThhI3GyAH_7La6SKDQ",
-          "width": 400,
-          "height": 225
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
         }
       ],
       "isAvailable": true,
       "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "4:51",
-      "duration_seconds": 291
+      "duration": "2:38",
+      "duration_seconds": 158
     },
     {
-      "videoId": "RLzC55ai0eo",
-      "title": "Heeriye (feat. Arijit Singh)",
+      "videoId": "QkhvD6BiZGE",
+      "title": "Mogal Madi",
       "artists": [
         {
-          "name": "Jasleen Royal",
-          "id": "UCrGjomj3RMnN6eymDGhmsFw"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
-      "album": null,
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://i.ytimg.com/vi/RLzC55ai0eo/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nsP3U5J0edQYkYe2pTvNavBOmENA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "3:19",
-      "duration_seconds": 199
-    },
-    {
-      "videoId": "_XBVWlI8TsQ",
-      "title": "Kahani Suno",
-      "artists": [
-        {
-          "name": "Kaifi Khalil",
-          "id": "UCFJDYnG6BY6NFcb-QnHjBcw"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/_XBVWlI8TsQ/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lYLKqKdt74rSlH-ZNEI_Al_NgEuQ",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "2:54",
-      "duration_seconds": 174
-    },
-    {
-      "videoId": "gdOvWaJn_RU",
-      "title": "AANKH",
-      "artists": [
-        {
-          "name": "Sunidhi Chauhan",
-          "id": "UC41L0sFqy6_Q43RGgUnJ75Q"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Rusha & Blizza",
-          "id": "UC2DGXZsFaJCTb3f9X9AtzjA"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/gdOvWaJn_RU/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lZf2_ZNF1yfCC8yexdDqTjPrbz1A",
-          "width": 400,
-          "height": 225
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
         }
       ],
       "isAvailable": true,
       "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "3:08",
-      "duration_seconds": 188
-    },
-    {
-      "videoId": "gPpQNzQP6gE",
-      "title": "nadaaniyan (with Jonita Gandhi)",
-      "artists": [
-        {
-          "name": "Jonita Gandhi",
-          "id": "UC3eFGgfV2cvYB_0cQnh_omg"
-        },
-        {
-          "name": "Akshath Acharya",
-          "id": "UCWTc48VDX9hWJA3CFp0Xm_w"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/gPpQNzQP6gE/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lHm5HrTciENq5SUOqHNzd-TWOSmQ",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "2:50",
-      "duration_seconds": 170
-    },
-    {
-      "videoId": "LOmC1dlZ2BE",
-      "title": "Tera Chehra",
-      "artists": [
-        {
-          "name": "Shabbir Ahmed",
-          "id": "UCxU23FoGpEPFgjd9DjNxGyQ"
-        },
-        {
-          "name": "Himesh Reshammiya",
-          "id": "UCFDWzvAKhh_lQ9ckpeOdfGA"
-        },
-        {
-          "name": "Arijit Singh",
-          "id": "UCDxKh1gFWeYsqePvgVzmPoQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/LOmC1dlZ2BE/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nW0cTX3YE45TXk5sXnYWW2RBrJLg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "4:38",
-      "duration_seconds": 278
-    },
-    {
-      "videoId": "voqgf54vZ7Y",
-      "title": "Yeh Mera Husn",
-      "artists": [
-        {
-          "name": "Shilpa Rao",
-          "id": "UCPDJURzMo2MneDJFIvq6a_g"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/voqgf54vZ7Y/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kpaczW2UaOMiX-EdLIFW_bdKEvbg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
       "duration": "2:55",
       "duration_seconds": 175
     },
     {
-      "videoId": "3u6lLWGjFLY",
-      "title": "Naina (feat. Badshah)",
+      "videoId": "fJleyjVkFCI",
+      "title": "Kutch Ma Anjaar Mota Sher",
       "artists": [
         {
-          "name": "Diljit Dosanjh",
-          "id": "UCJ2m-WpROlZCiZZID9r7NSQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/3u6lLWGjFLY/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kXgBaKu8j4WSHhfojQ_fNKYE2jZA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "2:53",
-      "duration_seconds": 173
-    },
-    {
-      "videoId": "axepn8QqxRk",
-      "title": "Soni Soni (From \"Ishq Vishk Rebound\")",
-      "artists": [
-        {
-          "name": "Darshan Raval",
-          "id": "UCNMewQFJlBeyXpWwo2dezSw"
-        },
-        {
-          "name": "Jonita Gandhi",
-          "id": "UC3eFGgfV2cvYB_0cQnh_omg"
-        },
-        {
-          "name": "Rochak Kohli",
-          "id": "UCtNzg1qT4Q_TWVhZenAMw9w"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/axepn8QqxRk/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mVmzZWGwDg_kapIAPWmdlqekyaQA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "3:14",
-      "duration_seconds": 194
-    },
-    {
-      "videoId": "kXprtJltwvk",
-      "title": "Nazara",
-      "artists": [
-        {
-          "name": "Vishal Mishra",
-          "id": "UC25UGbOHCuT5Jht2ItRXTqQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/kXprtJltwvk/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lbwiaybA9i-Wi5kEQWg54uLsgYBg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:58",
-      "duration_seconds": 178
-    },
-    {
-      "videoId": "iUqPfGlg9GQ",
-      "title": "Bas Ek Dhadak",
-      "artists": [
-        {
-          "name": "Shreya Ghoshal",
-          "id": "UCrC-7fsdTCYeaRBpwA6j-Eg"
-        },
-        {
-          "name": "Jubin Nautiyal",
-          "id": "UCdWuR07og626xwU93eSCh9A"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/iUqPfGlg9GQ/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lS-IQqFDHMqanpT0tjNpZXaPvWTQ",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "4:02",
-      "duration_seconds": 242
-    },
-    {
-      "videoId": "CKJA9blyMUg",
-      "title": "Tu Hain Toh Main Hoon",
-      "artists": [
-        {
-          "name": "Arijit Singh",
-          "id": "UCDxKh1gFWeYsqePvgVzmPoQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/CKJA9blyMUg/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3l5tfySa_sD6xj54RI6p0BKhMK_8Q",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:46",
-      "duration_seconds": 166
-    },
-    {
-      "videoId": "DS-raAyMxl4",
-      "title": "Sanam Re - Instrumental",
-      "artists": [
-        {
-          "name": "Sandeep Thakur",
-          "id": "UCmr255HeseAaSCbEcXx9wxA"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/DS-raAyMxl4/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nJqyo37hObH9TeMwj8VQtmdNsR-A",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "4:30",
-      "duration_seconds": 270
-    },
-    {
-      "videoId": "g4HDfqEWf6Y",
-      "title": "Oh Humsafar (From \"Oh Humsafar\")",
-      "artists": [
-        {
-          "name": "Tony Kakkar",
-          "id": "UC-9oTefT2swsrlwN9AcTyJw"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/g4HDfqEWf6Y/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3knXBRJKjV60hKLlurkccca4EXGog",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "3:27",
-      "duration_seconds": 207
-    },
-    {
-      "videoId": "lLM6pPrrAvQ",
-      "title": "Akhiyaan Gulaab",
-      "artists": [
-        {
-          "name": "Mitraz",
-          "id": "UCroOD1yPBDSEqFLejRB-Gbw"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
       "album": {
-        "name": "Teri Baaton Mein Aisa Uljha Jiya",
-        "id": "MPREb_k2N4cVKXrXM"
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
       },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://lh3.googleusercontent.com/FMv7FYqkppHAM9Sn43aneV3eql6nCHldW0OO4ZvoimckHHKwM4Io8NWCdLjarWnh-ecC_LrdpYs3PJ_v=w60-h60-l90-rj",
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
           "width": 60,
           "height": 60
         },
         {
-          "url": "https://lh3.googleusercontent.com/FMv7FYqkppHAM9Sn43aneV3eql6nCHldW0OO4ZvoimckHHKwM4Io8NWCdLjarWnh-ecC_LrdpYs3PJ_v=w120-h120-l90-rj",
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
           "width": 120,
           "height": 120
         }
@@ -661,1216 +240,338 @@
       "isExplicit": false,
       "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "2:52",
-      "duration_seconds": 172
+      "duration": "2:06",
+      "duration_seconds": 126
     },
     {
-      "videoId": "__ZvXBf1rmw",
-      "title": "Wajah Tum Ho",
+      "videoId": "qoMVHo3psgM",
+      "title": "Mara Kanuda Na Baag Ma",
       "artists": [
         {
-          "name": "Aaman Trikha",
-          "id": "UC3C7E3XE1Vbe2VcbpDGhECA"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
-      "album": null,
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://i.ytimg.com/vi/__ZvXBf1rmw/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mO8V_K4XiDIomQSYiYZDiERisQRA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "4:37",
-      "duration_seconds": 277
-    },
-    {
-      "videoId": "OzI9M74IfR0",
-      "title": "Yimmy Yimmy",
-      "artists": [
-        {
-          "name": "Tayc",
-          "id": "UCjItmeylMPcafIMD7DEhwoQ"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Shreya Ghoshal",
-          "id": "UCrC-7fsdTCYeaRBpwA6j-Eg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/OzI9M74IfR0/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lcpyE8IS_h8iAJ-CrmFtzUrh7iZg",
-          "width": 400,
-          "height": 225
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
         }
       ],
       "isAvailable": true,
       "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "3:36",
-      "duration_seconds": 216
+      "duration": "2:51",
+      "duration_seconds": 171
     },
     {
-      "videoId": "_B6T8O15Ohk",
-      "title": "Manike",
+      "videoId": "laky_pal_D4",
+      "title": "Aavad Ne Bheliyo",
       "artists": [
         {
-          "name": "Yohani",
-          "id": "UCRlmbWMGC00YbIk0fH5idSw"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Surya Ragunaathan",
-          "id": "UCKT3ln1w4ROMRY0RiW7Oa9A"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ],
+      "isAvailable": true,
+      "isExplicit": false,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "views": null,
+      "duration": "2:32",
+      "duration_seconds": 152
+    },
+    {
+      "videoId": "mNVuBoitMYE",
+      "title": "Sona Indhoni",
+      "artists": [
+        {
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Jubin Nautiyal",
-          "id": "UCdWuR07og626xwU93eSCh9A"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/_B6T8O15Ohk/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3n98L5MUnN1sHSBg8ggcS727WyzyA",
-          "width": 400,
-          "height": 225
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
         }
       ],
       "isAvailable": true,
       "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "3:01",
-      "duration_seconds": 181
-    },
-    {
-      "videoId": "Etkd-07gnxM",
-      "title": "O Maahi",
-      "artists": [
-        {
-          "name": "Arijit Singh",
-          "id": "UCDxKh1gFWeYsqePvgVzmPoQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/Etkd-07gnxM/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nUbObrJ1DKTeoL3FcD2iM5OePlog",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "4:06",
-      "duration_seconds": 246
-    },
-    {
-      "videoId": "I-_LHvTeVy4",
-      "title": "Chandni",
-      "artists": [
-        {
-          "name": "Sachet Tandon",
-          "id": "UCwVaZvqWinr1NWZopxGjRQQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/I-_LHvTeVy4/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nJQTEi4nN_NZ3cwEvTAT3l2kGxuA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "4:09",
-      "duration_seconds": 249
-    },
-    {
-      "videoId": "Y8RDVRKMf_Y",
-      "title": "Ishq Jaisa Kuch",
-      "artists": [
-        {
-          "name": "Vishal - Shekhar",
-          "id": "UCWXJyrk1diAufFuTHCTfQ2A"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/Y8RDVRKMf_Y/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lY5w9rv1k1OXdrMKAeCn4vzs7cgQ",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:20",
-      "duration_seconds": 140
-    },
-    {
-      "videoId": "we3ups002uc",
-      "title": "Ting Ling Sajna",
-      "artists": [
-        {
-          "name": "Madhubanti Bagchi",
-          "id": "UCibTWzFmf9SSzThvtr3vmiw"
-        },
-        {
-          "name": "Tanishk Bagchi",
-          "id": "UCqzQ51ZqgxPvIGGAVUdcuVA"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/we3ups002uc/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3n094RmE6LGXlssTs8ft4z87466ng",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
       "duration": "2:36",
       "duration_seconds": 156
     },
     {
-      "videoId": "SO65SR0vD8s",
-      "title": "Ishq Mera",
+      "videoId": "xRwSz81hIvM",
+      "title": "Aabh Ma Jhini Zabuke",
       "artists": [
-        {
-          "name": "Jubin Nautiyal",
-          "id": "UCdWuR07og626xwU93eSCh9A"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/SO65SR0vD8s/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3l00e4EZAFmkPUUEzEFjWEueCachQ",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "4:17",
-      "duration_seconds": 257
-    },
-    {
-      "videoId": "aDFEb_W2t1Y",
-      "title": "Pal - Full Video | Jalebi | Arijit Singh | Shreya Ghoshal | Rhea & Varun | Javed - Mohsin",
-      "artists": [
-        {
-          "name": "Shreya Ghoshal",
-          "id": "UCrC-7fsdTCYeaRBpwA6j-Eg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/aDFEb_W2t1Y/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kSTWHGF7zN5covkBEb718uKzbOiA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "4:55",
-      "duration_seconds": 295
-    },
-    {
-      "videoId": "r8g7RAt8qjI",
-      "title": "Kamle",
-      "artists": [
-        {
-          "name": "Parampara Tandon",
-          "id": "UCYS9WZ6fuULhuXwT-3IFBLw"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/r8g7RAt8qjI/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3n4AalTj1uOsKsnZbta0b2osrSlGw",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:13",
-      "duration_seconds": 133
-    },
-    {
-      "videoId": "YkjOuYP8wjc",
-      "title": "Sajna",
-      "artists": [
-        {
-          "name": "Darshan Raval",
-          "id": "UCNMewQFJlBeyXpWwo2dezSw"
-        },
         {
           "name": "Aditya Gadhvi",
           "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Hansika Pareek",
-          "id": "UCDV_CkYnYPgBKA6_QfQpqRQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/YkjOuYP8wjc/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lOI9e0Wft5IjJMQhiHyG5rvM0eyQ",
-          "width": 400,
-          "height": 225
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
         }
       ],
       "isAvailable": true,
       "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "4:08",
-      "duration_seconds": 248
+      "duration": "2:06",
+      "duration_seconds": 126
     },
     {
-      "videoId": "7CNeqA9PBYE",
-      "title": "Kyaa Baat Haii 2.0",
+      "videoId": "1-Vp__r-is0",
+      "title": "Jobaniyu",
       "artists": [
         {
-          "name": "B Praak",
-          "id": "UC3RXV3x1J7HdgHskfDyVeEw"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Jaani",
-          "id": "UCjjUhXXWXX7x5fAasF0FMDg"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ],
+      "isAvailable": true,
+      "isExplicit": false,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "views": null,
+      "duration": "2:12",
+      "duration_seconds": 132
+    },
+    {
+      "videoId": "K3YX9cStD64",
+      "title": "Amba Abhay Padadayini",
+      "artists": [
+        {
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Harrdy Sandhu",
-          "id": "UC9KJWLlcGJeGlRAWbGvnRgw"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ],
+      "isAvailable": true,
+      "isExplicit": false,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "views": null,
+      "duration": "1:42",
+      "duration_seconds": 102
+    },
+    {
+      "videoId": "J4Bn6piSNCA",
+      "title": "Koi Kejo Kanuda Ne Jai",
+      "artists": [
+        {
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Nikhita Gandhi",
-          "id": "UCZ3bAw2GF0A_VVI6uHqMC5g"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/7CNeqA9PBYE/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nwXU2ESqA2DJcBRqDGfwCCBR22qw",
-          "width": 400,
-          "height": 225
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
         }
       ],
       "isAvailable": true,
       "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "3:12",
-      "duration_seconds": 192
+      "duration": "1:58",
+      "duration_seconds": 118
     },
     {
-      "videoId": "NxfzbXTBE2Y",
-      "title": "Jeena Haraam",
+      "videoId": "T-VHUN6JuhE",
+      "title": "Ek Patan Sher Ni",
       "artists": [
         {
-          "name": "Vishal Mishra",
-          "id": "UC25UGbOHCuT5Jht2ItRXTqQ"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
-      "album": null,
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://i.ytimg.com/vi/NxfzbXTBE2Y/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3m6gAsdVMaX7sgCjr85ZdgDRytgDQ",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:26",
-      "duration_seconds": 146
-    },
-    {
-      "videoId": "H7aOCLPhuZo",
-      "title": "Tu Tu Hai Wahi (From (“The Royals”))",
-      "artists": [
-        {
-          "name": "RUUH",
-          "id": "UCAL2N0OOYAChYDV5GZHoqBg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/H7aOCLPhuZo/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3k1wBeqlt11Jfprzh6ENewJM-NCTQ",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:01",
-      "duration_seconds": 121
-    },
-    {
-      "videoId": "d6KJkavA8zk",
-      "title": "Jaane Tu",
-      "artists": [
-        {
-          "name": "A. R. Rahman",
-          "id": "UCtJe0RYzgPddQXKtWduxz_w"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Arijit Singh",
-          "id": "UCDxKh1gFWeYsqePvgVzmPoQ"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ],
+      "isAvailable": true,
+      "isExplicit": false,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "views": null,
+      "duration": "1:50",
+      "duration_seconds": 110
+    },
+    {
+      "videoId": "rPQ3TdzSt-Q",
+      "title": "Navlaakhaai Lobadiyaliyu",
+      "artists": [
+        {
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Irshad Kamil",
-          "id": "UCb1SUoajGn8MrwgQDXZIt5A"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/d6KJkavA8zk/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3ntDJkoZH5LqhkTKgnitJntQxegEg",
-          "width": 400,
-          "height": 225
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
         }
       ],
       "isAvailable": true,
       "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "3:21",
-      "duration_seconds": 201
-    },
-    {
-      "videoId": "RPFkaHG2ONA",
-      "title": "Meri Jaan",
-      "artists": [
-        {
-          "name": "Madhuleena Das",
-          "id": null
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/RPFkaHG2ONA/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kJPrs24ZBbH2GFl_DHSsoHiypPXw",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:45",
-      "duration_seconds": 165
-    },
-    {
-      "videoId": "0Iu5kQi8lns",
-      "title": "Mahiye Jinna Sohna",
-      "artists": [
-        {
-          "name": "Darshan Raval",
-          "id": "UCNMewQFJlBeyXpWwo2dezSw"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/0Iu5kQi8lns/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mdasMaEPKHT7Lil6sFZK8tcDQ8Ew",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "3:05",
-      "duration_seconds": 185
-    },
-    {
-      "videoId": "6eGCi4SVy94",
-      "title": "Doobey",
-      "artists": [
-        {
-          "name": "OAFF",
-          "id": "UCSVbVFy5yqkfwbqs_aWmx8w"
-        },
-        {
-          "name": "Lothika",
-          "id": "UCk3S5y5m2gRHUnMFu3kR3KA"
-        },
-        {
-          "name": "Kausar Munir",
-          "id": "UCYGBhNn1IGxTwVmGe06FywA"
-        },
-        {
-          "name": "Savera",
-          "id": "UCX7nLgfvjxfhMQk1bc_QO6A"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/6eGCi4SVy94/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kvyDskUd1VCItUNWNltKeYxheS6w",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "2:18",
-      "duration_seconds": 138
-    },
-    {
-      "videoId": "2TYIa09PXyo",
-      "title": "BAARISH KE AANE SE",
-      "artists": [
-        {
-          "name": "Shreya Ghoshal",
-          "id": "UCrC-7fsdTCYeaRBpwA6j-Eg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/2TYIa09PXyo/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lQs5iJK1V7G2sNLxtNd41o2-oArw",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "4:04",
-      "duration_seconds": 244
-    },
-    {
-      "videoId": "e_vl5aFXB4Q",
-      "title": "Akh Lad Jaave (From \"Loveyatri\")",
-      "artists": [
-        {
-          "name": "Badshah",
-          "id": "UCVfSAUepe_FzP6ge6WexO5Q"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/e_vl5aFXB4Q/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mhWtdqBnfJ0Ohf3h3MV41S8vR0Mw",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "3:01",
-      "duration_seconds": 181
-    },
-    {
-      "videoId": "WCTro3qabjE",
-      "title": "Pee Loon",
-      "artists": [
-        {
-          "name": "Mohit Chauhan",
-          "id": "UCPexK6Vq8vDGf_ldYFFbnIg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/WCTro3qabjE/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nry0IzLAKxko3GjznGsyyeKD0Veg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "5:06",
-      "duration_seconds": 306
-    },
-    {
-      "videoId": "xE9FBL7jUGA",
-      "title": "Nainowale Ne",
-      "artists": [
-        {
-          "name": "Neeti Mohan",
-          "id": "UCk4vGGryYSsbzlZ_WKJWH4A"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/xE9FBL7jUGA/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kCm_fXcGydq1Y4CKf7ZX-V10egcw",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "2:33",
-      "duration_seconds": 153
-    },
-    {
-      "videoId": "u3-BnfL419U",
-      "title": "Jewel Thief: Ilzaam",
-      "artists": [
-        {
-          "name": "Vishal Mishra",
-          "id": "UC25UGbOHCuT5Jht2ItRXTqQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/u3-BnfL419U/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nIwogp9WwCkubZJH5VrsSrsCz1RA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:02",
-      "duration_seconds": 122
-    },
-    {
-      "videoId": "LWna8JKjfiQ",
-      "title": "Aaj Phir (From \"Hate Story 2\")",
-      "artists": [
-        {
-          "name": "Samira Koppikar",
-          "id": "UCXI4owzoZ1OtI7gZ4zDy3Wg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/LWna8JKjfiQ/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nO3R_sNeiZdZbuwRFKaogDmA_6WA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "4:17",
-      "duration_seconds": 257
-    },
-    {
-      "videoId": "L0zKs8i7Nc8",
-      "title": "K3G|Shah Rukh Khan, Kajol |Sonu Nigam, Alka Yagnik",
-      "artists": [
-        {
-          "name": "Alka Yagnik",
-          "id": "UCptBkLZ6XRxoyn8SkUMc_Iw"
-        },
-        {
-          "name": "Sonu Nigam",
-          "id": "UCsC4u-BJAd4OX1hJXtwXSOQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/L0zKs8i7Nc8/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nrsicPaXxTqFjvdzgylt3Sc6f94g",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "7:58",
-      "duration_seconds": 478
-    },
-    {
-      "videoId": "1tVL11ULjYY",
-      "title": "The Humma Song (From \"OK Jaanu\")",
-      "artists": [
-        {
-          "name": "Badshah",
-          "id": "UCVfSAUepe_FzP6ge6WexO5Q"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/1tVL11ULjYY/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lNnWXM_7B-wTyb4sqveLtHNlJFzg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "3:16",
-      "duration_seconds": 196
-    },
-    {
-      "videoId": "5V04DETPF0o",
-      "title": "Hua Main",
-      "artists": [
-        {
-          "name": "Raghav Chaitanya",
-          "id": "UCj85MTMOE9hnpeaH4CTNiig"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/5V04DETPF0o/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3l6-rslVbZEVMHvZk86ZnwQB_di7Q",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:46",
-      "duration_seconds": 166
-    },
-    {
-      "videoId": "snpV6awcBPo",
-      "title": "Manohari",
-      "artists": [
-        {
-          "name": "Divya Kumar",
-          "id": "UCnTm07nH9rD4ouRUYt-AwHw"
-        },
-        {
-          "name": "Neeti Mohan",
-          "id": "UCk4vGGryYSsbzlZ_WKJWH4A"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/snpV6awcBPo/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kCTGcuzYYu94lV-tYJ0zUNpswpaQ",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "4:18",
-      "duration_seconds": 258
-    },
-    {
-      "videoId": "Q2RnEErUmGs",
-      "title": "Beiraada",
-      "artists": [
-        {
-          "name": "Sachet Tandon",
-          "id": "UCwVaZvqWinr1NWZopxGjRQQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/Q2RnEErUmGs/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mo3IQSkJO9DnecJyRqpXsVS4F56w",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "3:10",
-      "duration_seconds": 190
-    },
-    {
-      "videoId": "Ob4wvIHUmnA",
-      "title": "Ijazat (From \"One Night Stand\") (feat. Arijit Singh)",
-      "artists": [
-        {
-          "name": "Meet Bros.",
-          "id": "UCcMEdmRFvLne8i-Tft1R68g"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/Ob4wvIHUmnA/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3ksJ-a32T2tbkiX1jBa1fX07g3SHw",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:19",
-      "duration_seconds": 139
-    },
-    {
-      "videoId": "PHskP9wglJ8",
-      "title": "Do You Love Me",
-      "artists": [
-        {
-          "name": "Nikhita Gandhi",
-          "id": "UCZ3bAw2GF0A_VVI6uHqMC5g"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/PHskP9wglJ8/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nFrYlyhemq4PCPJSJb8gYbc5qbsA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "2:17",
-      "duration_seconds": 137
-    },
-    {
-      "videoId": "jdqUfW21vAY",
-      "title": "Koi Naa",
-      "artists": [
-        {
-          "name": "Harnoor",
-          "id": "UCuM1UZGACG0A8yGFUIV2CeA"
-        },
-        {
-          "name": "Shreya Ghoshal",
-          "id": "UCrC-7fsdTCYeaRBpwA6j-Eg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/jdqUfW21vAY/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3ldBgWVj-_9Jy0RkkS08aUOcBQcQQ",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "2:52",
-      "duration_seconds": 172
-    },
-    {
-      "videoId": "gkCKTuR-ECI",
-      "title": "Tum Ho",
-      "artists": [
-        {
-          "name": "Mohit Chauhan",
-          "id": "UCPexK6Vq8vDGf_ldYFFbnIg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/gkCKTuR-ECI/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nq8yeszzhweTl7J-0Q7nie537G1A",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "5:22",
-      "duration_seconds": 322
-    },
-    {
-      "videoId": "2CXSw1oPj3I",
-      "title": "Tere Hawale (Tushar - Shilpa Duet)",
-      "artists": [
-        {
-          "name": "Shilpa Rao",
-          "id": "UCPDJURzMo2MneDJFIvq6a_g"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/2CXSw1oPj3I/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mQNXQPHNNi2dYJ2IjQb7J93WXFXg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "5:50",
-      "duration_seconds": 350
-    },
-    {
-      "videoId": "acdKE2hja7w",
-      "title": "Hale Dil",
-      "artists": [
-        {
-          "name": "Harshit Saxena",
-          "id": "UCw2F75fW5qMJTapieEiryFg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/acdKE2hja7w/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mLN1pFRdWauMVcPjfGPvjRFoavAA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "6:04",
-      "duration_seconds": 364
-    },
-    {
-      "videoId": "RazuWp5kSHk",
-      "title": "Kabhi Jo Baadal Barse (From “Jackpot”)",
-      "artists": [
-        {
-          "name": "Arijit Singh",
-          "id": "UCDxKh1gFWeYsqePvgVzmPoQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/RazuWp5kSHk/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nr0N5YIOMd6g3T9UnqIAOWyzEBbw",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:23",
-      "duration_seconds": 143
-    },
-    {
-      "videoId": "8PmgDiGuTZ0",
-      "title": "Katra Katra",
-      "artists": [
-        {
-          "name": "Ankit Tiwari",
-          "id": "UC3xhOiFwndOYc57JV1iHCuw"
-        },
-        {
-          "name": "Prakriti Kakar",
-          "id": "UCfP9lILgirLIQAqI6ZxlmrQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/8PmgDiGuTZ0/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3k70g1Cj5wQX44wHZ58rHxzzixl8w",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "3:00",
-      "duration_seconds": 180
-    },
-    {
-      "videoId": "G0ehTJhrxLQ",
-      "title": "Bana Sharabi",
-      "artists": [
-        {
-          "name": "Jubin Nautiyal",
-          "id": "UCdWuR07og626xwU93eSCh9A"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/G0ehTJhrxLQ/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kzHDe69y-RBWJuhdR6_WENEIOJ5g",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "3:05",
-      "duration_seconds": 185
-    },
-    {
-      "videoId": "YhUAM0oNWB0",
-      "title": "Mar Jaava (Remix)",
-      "artists": [
-        {
-          "name": "Salim Merchant",
-          "id": "UCIOr01Dc11ba2JgIwuYfN0A"
-        },
-        {
-          "name": "Shruti Pathak",
-          "id": "UCC4nX2ydU9mM6mFYu7_Nomg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/YhUAM0oNWB0/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3ntiFzTvlQpvxPevzGm4naLhR4r7g",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "4:16",
-      "duration_seconds": 256
-    },
-    {
-      "videoId": "Mv8yFE4-DA8",
-      "title": "Marham (Pehle Bhi Main)",
-      "artists": [
-        {
-          "name": "Vishal Mishra",
-          "id": "UC25UGbOHCuT5Jht2ItRXTqQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/Mv8yFE4-DA8/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3n7zEaRyffNn2-NsBaz8yxHFVzuXw",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
       "duration": "1:51",
       "duration_seconds": 111
     },
     {
-      "videoId": "5QpB607FdB4",
-      "title": "Ang Laga De",
+      "videoId": "osUUQAX1XPc",
+      "title": "Krushna Bhagwaan Haalya",
       "artists": [
         {
-          "name": "Sanjay Leela Bhansali",
-          "id": "UCRt1IZSea7AwnXhZGnAlr1Q"
-        },
-        {
-          "name": "Shail Hada",
-          "id": "UCIJFSIJRFN7Mz2VT3xpEq_g"
-        },
-        {
-          "name": "Aditi Paul",
-          "id": "UCm7gDh47Y_rk0KaQabQ8Qgw"
-        },
-        {
-          "name": "Siddharth-Garima",
-          "id": "UCj4BWUIHs4NZq6qiW5L91fA"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/5QpB607FdB4/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mvKTi0HE7y5ZjsF7-kjbAWfgPrHw",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "3:45",
-      "duration_seconds": 225
-    },
-    {
-      "videoId": "q5Fa_5A8bb4",
-      "title": "Hazaar Baar",
-      "artists": [
-        {
-          "name": "Arijit Singh",
-          "id": "UCDxKh1gFWeYsqePvgVzmPoQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/q5Fa_5A8bb4/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nQoH-4-YC7peXmazzkqzb8U2zEUw",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:25",
-      "duration_seconds": 145
-    },
-    {
-      "videoId": "JyYDODhGE9Y",
-      "title": "Tip Tip",
-      "artists": [
-        {
-          "name": "Udit Narayan",
-          "id": "UC13ToEQgfmTe8_GW19LYtCg"
-        },
-        {
-          "name": "Alka Yagnik",
-          "id": "UCptBkLZ6XRxoyn8SkUMc_Iw"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
       "album": {
-        "name": "Sooryavanshi",
-        "id": "MPREb_xGC47SOiBSB"
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
       },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://lh3.googleusercontent.com/wn2G_S0tOFv85QyWkYjrHjdXtkpumVpr2HAWjDzG2SwG49ehAAq_QUuuoWDfXRiJckfpGeYmgUQTAnVmMw=w60-h60-l90-rj",
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
           "width": 60,
           "height": 60
         },
         {
-          "url": "https://lh3.googleusercontent.com/wn2G_S0tOFv85QyWkYjrHjdXtkpumVpr2HAWjDzG2SwG49ehAAq_QUuuoWDfXRiJckfpGeYmgUQTAnVmMw=w120-h120-l90-rj",
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
           "width": 120,
           "height": 120
         }
@@ -1879,84 +580,32 @@
       "isExplicit": false,
       "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "4:11",
-      "duration_seconds": 251
+      "duration": "1:24",
+      "duration_seconds": 84
     },
     {
-      "videoId": "ShA1VtiEQXc",
-      "title": "Mujhko Barsaat Bana Lo",
+      "videoId": "ZfAX8m52jUc",
+      "title": "Aaj Vagdaavo Vagdaavo",
       "artists": [
         {
-          "name": "Armaan Malik",
-          "id": "UCZc_y0R_mSKeNtkcuhgLxCA"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/ShA1VtiEQXc/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lZSlqqkP-HruVp4UqJyE3pzo0Otg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "2:53",
-      "duration_seconds": 173
-    },
-    {
-      "videoId": "7o9Nc9dANzs",
-      "title": "Tu Isaq Mera",
-      "artists": [
-        {
-          "name": "Meet Bros.",
-          "id": "UCcMEdmRFvLne8i-Tft1R68g"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/7o9Nc9dANzs/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3ny1VjJLPONxxEOTJ6eByzJmUV_9g",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "4:10",
-      "duration_seconds": 250
-    },
-    {
-      "videoId": "GwE0ILPMpug",
-      "title": "Dheere Dheere",
-      "artists": [
-        {
-          "name": "Shilpa Rao",
-          "id": "UCPDJURzMo2MneDJFIvq6a_g"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
       "album": {
-        "name": "Devara Part 1 - Hindi",
-        "id": "MPREb_J5KMFHHa94U"
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
       },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://lh3.googleusercontent.com/ujZdD90tdzRyDOW39Ziia10TaeqCmQRyWwEK2Q40u2DBYdXwT8ikpF74cHly4vIVBTNgr3DiAAkfU1mo=w60-h60-l90-rj",
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
           "width": 60,
           "height": 60
         },
         {
-          "url": "https://lh3.googleusercontent.com/ujZdD90tdzRyDOW39Ziia10TaeqCmQRyWwEK2Q40u2DBYdXwT8ikpF74cHly4vIVBTNgr3DiAAkfU1mo=w120-h120-l90-rj",
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
           "width": 120,
           "height": 120
         }
@@ -1965,148 +614,32 @@
       "isExplicit": false,
       "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "3:43",
-      "duration_seconds": 223
+      "duration": "1:26",
+      "duration_seconds": 86
     },
     {
-      "videoId": "O7tvHh3MPSs",
-      "title": "Kuchh Khaas",
+      "videoId": "aZ1WM3yZLN0",
+      "title": "Dhanya Dhanya Mogal Tara Naam Ne",
       "artists": [
         {
-          "name": "Mohit Chauhan",
-          "id": "UCPexK6Vq8vDGf_ldYFFbnIg"
-        },
-        {
-          "name": "Neha Bhasin",
-          "id": "UCdyQKtIee3bENaAeKbVHVLw"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/O7tvHh3MPSs/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mkX86tNGFWhp166yZXPDPzcCjEUA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "5:15",
-      "duration_seconds": 315
-    },
-    {
-      "videoId": "hdNg1TAtAHg",
-      "title": "Fitoor",
-      "artists": [
-        {
-          "name": "Neeti Mohan",
-          "id": "UCk4vGGryYSsbzlZ_WKJWH4A"
-        },
-        {
-          "name": "Arijit Singh",
-          "id": "UCDxKh1gFWeYsqePvgVzmPoQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/hdNg1TAtAHg/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kNoD9ENE3HAIdJTm1ZB0HCZ7ICFA",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "3:25",
-      "duration_seconds": 205
-    },
-    {
-      "videoId": "HttLRTo4N6U",
-      "title": "Abhi Abhi",
-      "artists": [
-        {
-          "name": "KK",
-          "id": "UCeBxx7m7yrwSyvpVpKcMI8w"
-        },
-        {
-          "name": "Shreya Ghoshal",
-          "id": "UCrC-7fsdTCYeaRBpwA6j-Eg"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/HttLRTo4N6U/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3m6ACAxPNRO0TMvw7xkGQWQuw9HFg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "6:01",
-      "duration_seconds": 361
-    },
-    {
-      "videoId": "72kpFGVJyH8",
-      "title": "Be Intehaan",
-      "artists": [
-        {
-          "name": "Atif Aslam",
-          "id": "UCVGomUS__PL0c4jDXa0QwXA"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/72kpFGVJyH8/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3msZqv2gU0AMSx3AV_90JLmmMI23A",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "4:41",
-      "duration_seconds": 281
-    },
-    {
-      "videoId": "Gg3Xz89Q2UU",
-      "title": "Hua Hain Aaj Pehli Baar (feat. Armaan Malik & Palak Muchhal)",
-      "artists": [
-        {
-          "name": "Amaal Mallik",
-          "id": "UCnSPyVAlKXkdkXzqHf-J93g"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
       "album": {
-        "name": "Sanam Re",
-        "id": "MPREb_TvEe81t4P1i"
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
       },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://lh3.googleusercontent.com/hz22hBoDB5wn63m2l9xXSEhcrkg0axjwrNcj9pgbT_g3KYouy2YMNG-dKwvEETtTKgLIlA3FY38B4fhb=w60-h60-l90-rj",
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
           "width": 60,
           "height": 60
         },
         {
-          "url": "https://lh3.googleusercontent.com/hz22hBoDB5wn63m2l9xXSEhcrkg0axjwrNcj9pgbT_g3KYouy2YMNG-dKwvEETtTKgLIlA3FY38B4fhb=w120-h120-l90-rj",
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
           "width": 120,
           "height": 120
         }
@@ -2115,58 +648,32 @@
       "isExplicit": false,
       "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "5:10",
-      "duration_seconds": 310
+      "duration": "1:32",
+      "duration_seconds": 92
     },
     {
-      "videoId": "jabKEhOmbZ4",
-      "title": "Asoka | Shah Rukh Khan,Kareena | K.S. Chithra | Gulzar | Anu Malik",
+      "videoId": "2Q4ue0LO6Cs",
+      "title": "Chotile Dakla Vaagya",
       "artists": [
         {
-          "name": "K.S. Chithra",
-          "id": "UC9VthIFaCM85yb8BBluF1Ag"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/jabKEhOmbZ4/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lJOryjuYZ9OSkG6MerWtt6Qm3KBQ",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "4:05",
-      "duration_seconds": 245
-    },
-    {
-      "videoId": "3KnWkfPQz3Q",
-      "title": "Zara Zara",
-      "artists": [
-        {
-          "name": "Bombay Jayashree",
-          "id": "UCg1vz4A18N6KWzfuh7fNxgQ"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
       "album": {
-        "name": "Rehnaa Hai Terre Dil Mein",
-        "id": "MPREb_DI17Y7bCbQ9"
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
       },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://lh3.googleusercontent.com/QCYmuliLpvGJVxOFCrZwXRxOiyHmeXeuyogm1K_ZtPC7QEDW1ACCNeyzuLGs6UIoJGO82fZInXqR95s=w60-h60-l90-rj",
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
           "width": 60,
           "height": 60
         },
         {
-          "url": "https://lh3.googleusercontent.com/QCYmuliLpvGJVxOFCrZwXRxOiyHmeXeuyogm1K_ZtPC7QEDW1ACCNeyzuLGs6UIoJGO82fZInXqR95s=w120-h120-l90-rj",
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
           "width": 120,
           "height": 120
         }
@@ -2175,147 +682,184 @@
       "isExplicit": false,
       "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "4:59",
-      "duration_seconds": 299
+      "duration": "1:36",
+      "duration_seconds": 96
     },
     {
-      "videoId": "jyZsX8OyrmQ",
-      "title": "Tumhe Kitna Pyaar Karte",
+      "videoId": "_EvsZSPiwt8",
+      "title": "Vaa Vaaya Ne Vaadal",
       "artists": [
         {
-          "name": "Arijit Singh",
-          "id": "UCDxKh1gFWeYsqePvgVzmPoQ"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
-      "album": null,
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://i.ytimg.com/vi/jyZsX8OyrmQ/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mBdwpMvvXaPHyy8dsGjcoVRLkikg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:16",
-      "duration_seconds": 136
-    },
-    {
-      "videoId": "j2hoR9wZIPg",
-      "title": "Lag Jaa Gale | SANAM | लग जा गले | Recreation | Cover Song | Official Music Video",
-      "artists": [
-        {
-          "name": "Aesthetic Wizz & Sanam",
-          "id": null
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/j2hoR9wZIPg/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kd-QSKgMvm4EFpjbO8pABwrCmjwg",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
-      "views": null,
-      "duration": "4:22",
-      "duration_seconds": 262
-    },
-    {
-      "videoId": "NUo8CKI34o4",
-      "title": "Tum Hi Ho",
-      "artists": [
-        {
-          "name": "Arijit Singh",
-          "id": "UCDxKh1gFWeYsqePvgVzmPoQ"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/NUo8CKI34o4/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3k4F8aAS5iAYfcOkyhPuiLewbed8g",
-          "width": 400,
-          "height": 225
-        }
-      ],
-      "isAvailable": true,
-      "isExplicit": false,
-      "videoType": null,
-      "views": null,
-      "duration": "2:21",
-      "duration_seconds": 141
-    },
-    {
-      "videoId": "m1rcse8INWk",
-      "title": "Phir Mohabbat",
-      "artists": [
-        {
-          "name": "Saim Bhat",
-          "id": "UCN2nRIQ6fqfXQPVfsZTyLLQ"
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
         },
         {
-          "name": "Arijit Singh",
-          "id": "UCDxKh1gFWeYsqePvgVzmPoQ"
-        },
-        {
-          "name": "Mohammed Irfan",
-          "id": "UCzQssvzFfAcd7NsdC8no9Xw"
-        }
-      ],
-      "album": null,
-      "likeStatus": "INDIFFERENT",
-      "inLibrary": null,
-      "thumbnails": [
-        {
-          "url": "https://i.ytimg.com/vi/m1rcse8INWk/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nNYxQA2mQFL36GvI3LKwtQicgKcw",
-          "width": 400,
-          "height": 225
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
         }
       ],
       "isAvailable": true,
       "isExplicit": false,
-      "videoType": "MUSIC_VIDEO_TYPE_OMV",
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "5:49",
-      "duration_seconds": 349
+      "duration": "1:36",
+      "duration_seconds": 96
     },
     {
-      "videoId": "OXu6dgbUx1s",
-      "title": "Phir Na Aisi Raat Aayegi",
+      "videoId": "2rUurBYdCuI",
+      "title": "Ghor Andhaari Re",
       "artists": [
         {
-          "name": "Arijit Singh",
-          "id": "UCDxKh1gFWeYsqePvgVzmPoQ"
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
         }
       ],
-      "album": null,
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
       "likeStatus": "INDIFFERENT",
       "inLibrary": null,
       "thumbnails": [
         {
-          "url": "https://i.ytimg.com/vi/OXu6dgbUx1s/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3lAertJpnIQPbgM86hKFYRk_c8LCw",
-          "width": 400,
-          "height": 225
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
         }
       ],
       "isAvailable": true,
       "isExplicit": false,
-      "videoType": null,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
       "views": null,
-      "duration": "3:40",
-      "duration_seconds": 220
+      "duration": "2:04",
+      "duration_seconds": 124
+    },
+    {
+      "videoId": "GeTF8YyiaT0",
+      "title": "Kanudo Maagyo Dene",
+      "artists": [
+        {
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ],
+      "isAvailable": true,
+      "isExplicit": false,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "views": null,
+      "duration": "1:48",
+      "duration_seconds": 108
+    },
+    {
+      "videoId": "YBbGm5ko3t0",
+      "title": "Helo Maro Saambhlo",
+      "artists": [
+        {
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ],
+      "isAvailable": true,
+      "isExplicit": false,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "views": null,
+      "duration": "1:36",
+      "duration_seconds": 96
+    },
+    {
+      "videoId": "_nHS0xzTfDk",
+      "title": "Ram Stuti",
+      "artists": [
+        {
+          "name": "Aditya Gadhvi",
+          "id": "UC3y5yjSpNh7OChQ6J7CEZgQ"
+        }
+      ],
+      "album": {
+        "name": "Ochhav",
+        "id": "MPREb_VNqnnPN1pWL"
+      },
+      "likeStatus": "INDIFFERENT",
+      "inLibrary": null,
+      "thumbnails": [
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w60-h60-l90-rj",
+          "width": 60,
+          "height": 60
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/vLYJDibEjGqkGw2zCzLjTm_GTRgTkAOv9SoAnoL0_J_PynjLIHc32wqcd1k54PdFAugSCSbuD_Im0zUw=w120-h120-l90-rj",
+          "width": 120,
+          "height": 120
+        }
+      ],
+      "isAvailable": true,
+      "isExplicit": false,
+      "videoType": "MUSIC_VIDEO_TYPE_ATV",
+      "views": null,
+      "duration": "0:37",
+      "duration_seconds": 37
     }
   ],
-  "duration_seconds": 17459
+  "thumbnails": [],
+  "related": [],
+  "id": "OLAK5uy_lG50NVAqL-8JFLpWEvF6fQBkwwdhwuJSo",
+  "trackCount": 25,
+  "title": "Ochhav",
+  "duration_seconds": 3017
 }
