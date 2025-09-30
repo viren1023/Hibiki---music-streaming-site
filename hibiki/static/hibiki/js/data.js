@@ -72,13 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Open modal
   window.addToPlaylistfromplaylist = (e, res) => {
-    console.log("hello")
     e.stopPropagation()
     console.log("playlist addToPlaylistfromplaylist")
+
+    if (!isUserLoggedIn()) {
+      showLoginPrompt()
+      return
+    }
+
     if (!backdrop) return console.error("playlistBackdrop not found")
     backdrop.classList.add("open")
-    console.log("hello")
-    console.log(typeof res)
+
     addTrack = res
     _loadPlaylists() // Load playlists dynamically
   }

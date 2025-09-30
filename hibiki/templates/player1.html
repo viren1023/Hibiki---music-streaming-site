@@ -24,6 +24,21 @@
     <button id="next">⏭</button>
   </div>
 
+  <!-- Volume Control -->
+  <div class="volume-control div7">
+    <button id="mute-btn" class="volume-icon">
+      <span class="speaker"></span>
+      <span class="speaker-square"></span>
+      <span class="wave w1"></span>
+      <span class="wave w2"></span>
+      <span class="wave w3"></span>
+      <span class="wave w4"></span>
+      <span class="wave w5"></span>
+    </button>
+
+    <input type="range" id="volume" min="0" max="100" step="1" value="0" />
+  </div>
+
   <!-- Track Info -->
   <div class="track-info-row div4">
     <img id="track-thumb" src="" alt="Thumbnail" />
@@ -252,9 +267,10 @@
     audio.pause()
     audio.src = ""
     audio.currentTime = 0
+    audio.volume = 1 // default full volume
 
-    updateTimerUI(0) // <-- custom function to set time display to 0:00
-    updateProgressBar(0) // <-- set slider to 0%
+    updateTimerUI(0)
+    updateProgressBar(0)
 
     playBtn.textContent = "▶"
 
@@ -282,9 +298,56 @@
     )
     if (currentLi) currentLi.classList.add("active")
 
+    const volumeSlider = document.getElementById("volume")
+    const muteBtn = document.getElementById("mute-btn")
+    const waves = muteBtn.querySelectorAll(".wave")
+
+    // Start loud
+    audio.volume = 1
+    volumeSlider.value = 0 // left = loudest
+
+    function updateWaves(vol) {
+      // vol is 0–1 → map to 0–5 arcs
+      let level = Math.round(vol * 5)
+      waves.forEach((wave, i) => {
+        wave.classList.toggle("active", i < level)
+      })
+    }
+
+    // Update gradient fill of slider (inverse)
+    function updateSliderFill() {
+      let value = volumeSlider.value
+      let percent = 100 - value // inverse
+      volumeSlider.style.background = `linear-gradient(to right, white ${percent}%, #555 ${percent}%)`
+    }
+
+    volumeSlider.addEventListener("input", () => {
+      audio.volume = 1 - volumeSlider.value / 100 // inverse
+      audio.muted = audio.volume === 0
+      updateWaves(audio.volume)
+      updateSliderFill()
+    })
+
+    muteBtn.addEventListener("click", () => {
+      if (audio.muted || audio.volume === 0) {
+        audio.muted = false
+        audio.volume = 1
+        volumeSlider.value = 0
+      } else {
+        audio.muted = true
+        audio.volume = 0
+        volumeSlider.value = 100
+      }
+      updateWaves(audio.volume)
+      updateSliderFill()
+    })
+
+    // Init
+    updateWaves(audio.volume)
+    updateSliderFill()
+
     updateThumbnail(track)
     savePlaylist()
-
     cacheNextTracks()
   }
 
@@ -342,6 +405,12 @@
 
   function addToPlaylistfromPlayer(e, inx) {
     e.stopPropagation()
+
+    if (!isUserLoggedIn()) {
+      showLoginPrompt()
+      return
+    }
+
     if (!backdropForPlayer) return console.error("playlistBackdrop not found")
     backdropForPlayer.classList.add("open")
     res = window.tracks[inx]
@@ -472,7 +541,6 @@
       <button class="player-playlist-menu-btn" onclick="player_playlist_menu_toggleFun(event,${i})">⋮</button>
       <div class="player-playlist-menu-list" id="player-playlist-menu-listId-${i}" style="display:none;">
         <ul>
-          <li onclick="addToQueue(event,${i})" >Add to Queue</li>
           <li onclick="addToPlaylistfromPlayer(event,${i})">Add to Playlist</li>
           <li onclick="event.stopPropagation(); copyShareableLink('${
             track.videoId

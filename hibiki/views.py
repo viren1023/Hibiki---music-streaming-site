@@ -308,6 +308,10 @@ def get_audio_url(request):
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
 
+def get_all_from_cache():
+    pass
+    
+
 def moods_view(request):
     mood_id = request.GET.get("id")
     playlists = ytmusic.get_mood_playlists(mood_id)
@@ -493,3 +497,4 @@ def logout_view(request):
     response = redirect("landing")
     response.delete_cookie("HIBIKI_USERNAME")
     return response
+

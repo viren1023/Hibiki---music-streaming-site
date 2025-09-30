@@ -7,6 +7,7 @@
     <title>Hibiki</title>
     <link rel="stylesheet" href="{% static 'hibiki/css/global.css' %}">
     <link rel="stylesheet" href="{% static 'hibiki/css/home.css' %}">
+    <script src="{% static 'hibiki/js/isUser.js' %}"></script>
 </head>
 
 <body class="home-page">
@@ -43,6 +44,7 @@
 
     {% comment %} <div id="music-player"></div> {% endcomment %}
     {% include 'player1.html' %}
+    {% include "partials/loginPrompt.html" %}
 </body>
 
 </html>

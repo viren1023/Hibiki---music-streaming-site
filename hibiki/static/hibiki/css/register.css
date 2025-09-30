@@ -1,5 +1,6 @@
 .register-box {
     text-align: center;
+    z-index: 1;
     background: rgba(0, 0, 0, 0.6);
     padding: 40px;
     border-radius: 12px;
