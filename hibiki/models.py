@@ -23,3 +23,14 @@ class Feedback(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.rating}★)"
+
+
+class Report(models.Model):
+    name = models.CharField(max_length=150)
+    email = models.EmailField()
+    message = models.TextField()
+    url = models.URLField(blank=True, null=True)  # optional
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Report by {self.name} ({self.email})"

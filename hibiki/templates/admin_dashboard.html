@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +11,15 @@
   <!-- Sidebar -->
   <div class="sidebar">
     <h2>🎵 Admin</h2>
-    <a href="#" class="active">Dashboard</a>
+    <a href="{% url 'admin_dashboard' %}">Dashboard</a>
     <a href="#">📊 Analytics</a>
-    <a href="#">💬 Feedback</a>
-    <a href="#">📑 Reports</a>
+    <a href="{% url 'feedback_dashboard' %}">💬 Feedback</a>
+    <a href="{% url 'reports_dashboard' %}">📑 Reports</a>
   </div>
-
+      {% block content %}
+    {% endblock %}
   <!-- Main content -->
-  <div class="main">
+  <!-- <div class="main">
     <header>
       <h1>Welcome to Music Admin Panel</h1>
     </header>
@@ -41,7 +43,7 @@
         <a href="#" class="btn">Check Reports</a>
       </div>
     </div>
-  </div>
+  </div> -->
 
 </body>
 </html>

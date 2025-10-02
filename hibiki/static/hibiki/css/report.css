@@ -1,0 +1,82 @@
+.report-page {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: #111;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.report-page h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-labels {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group-input{
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #222;
+  color: #fff;
+}
+
+input:focus, textarea:focus {
+  outline: 2px solid #00b4d8;
+}
+
+.submit-btn {
+  background: #00b4d8;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit-btn:hover {
+  background: #0096c7;
+}
+
+/* Tooltip */
+.info-tooltip {
+  margin-left: 8px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  color: #00b4d8;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 220px;
+  background: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* place above */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 13px;
+}
+
+.info-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

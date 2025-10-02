@@ -154,7 +154,7 @@
     /* min-height: 255px; */
     /* width: 100%; */
     /* position: relative; */
-    height: fit-content;
+    height: 400px;
     border-radius: 6px;
     object-fit: contain;
 }
@@ -210,6 +210,8 @@
     cursor: pointer;
     color: white;
     height: fit-content;
+    z-index: 100;
+
 }
 
 .audio-control-btn button:hover {
@@ -487,7 +489,6 @@
     grid-row-start: 3;
     display: flex;
     justify-content: flex-end;
-    margin-top: 10px;
 }
 
 .volume-icon {
@@ -571,6 +572,7 @@
     border-radius: 3px;
     cursor: pointer;
 }
+
 
 .volume-control input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;

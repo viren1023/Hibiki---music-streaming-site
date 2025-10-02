@@ -22,7 +22,10 @@ urlpatterns = [
     path('add_to_playlist/', views.add_to_playlist, name='add_to_playlist'),
     path("setting/", views.setting_view, name="setting"),
     path("feedback/", views.feedback_view, name="feedback"),
+    path("feedback-dashboard/", views.feedback_dashboard, name="feedback_dashboard"),
+    path("report/", views.report_view, name="report"),
+    path("admin-dashboard/", views.admin_dashboard, name="admin_dashboard"),
+    path("reports-dashboard/", views.reports_dashboard, name="reports_dashboard"),
     path("about/", views.about_view, name="about"),
-    path("user_profile/", views.user_profile, name="user_profile"),
     path("logout/", views.logout_view, name="logout"),
 ]

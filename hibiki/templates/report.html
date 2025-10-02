@@ -1,0 +1,47 @@
+{% extends "Sidebar.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'hibiki/css/report.css' %}">
+
+<div class="report-page">
+  <h2>Report a Bug / Problem</h2>
+  <form method="post">
+    {% csrf_token %}
+
+    <!-- Name -->
+    <div class="form-group">
+      <label class="form-group-labels" for="name">Name <span class="required">*</span></label>
+      <input class="form-group-input" type="text" name="name" id="name" required placeholder="Enter your name">
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label class="form-group-labels" for="email">Email <span class="required">*</span></label>
+      <input class="form-group-input" type="email" name="email" id="email" required placeholder="Enter your email">
+    </div>
+
+    <!-- Message -->
+    <div class="form-group">
+      <label class="form-group-labels" for="message">Message <span class="required">*</span></label>
+      <textarea class="form-group-input" name="message" id="message" rows="5" required placeholder="Describe the bug or problem..."></textarea>
+    </div>
+
+    <!-- URL (optional) -->
+    <div class="form-group">
+      <label class="form-group-labels" for="url">Page / Song URL (optional)</label>
+      <input class="form-group-input" type="url" name="url" id="url" placeholder="Paste the link here if possible">
+
+      <!-- Info tooltip -->
+      <span class="info-tooltip">ℹ️
+        <span class="tooltip-text">
+          If the issue is with a specific song or page, paste its URL here. 
+          This helps us find and fix the problem faster.
+        </span>
+      </span>
+    </div>
+
+    <button class="submit-btn" type="submit">Submit Report</button>
+  </form>
+</div>
+{% endblock %}

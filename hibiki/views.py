@@ -15,6 +15,10 @@ from .forms import RegisterForm, LoginForm
 from datetime import date
 from .forms import FeedbackForm
 from .core_logic.fetchmetadata import home_metadata, similar_search_metadata, similar_songs_name, playlist_metadata, fetch_audio_metadata,generate_radio_playlist
+from django.contrib import messages
+from .models import Report,Feedback
+from .models import User
+
 
 ytmusic = YTMusic()
 
@@ -453,8 +457,6 @@ def add_to_playlist(request):
     return JsonResponse({"status": "error", "message": "Invalid request"}, status=400)
 
 
-from django.shortcuts import render, get_object_or_404
-from .models import User
 
 def setting_view(request):
     user_id = request.COOKIES.get("HIBIKI_USERNAME")
@@ -492,6 +494,39 @@ def user_profile(request):
 # About Us Page
 def about_view(request):
     return render(request, "about.html")
+
+
+
+def report_view(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+        url = request.POST.get("url", "")
+
+        # Save in database
+        Report.objects.create(
+            name=name,
+            email=email,
+            message=message,
+            url=url if url else None
+        )
+
+        messages.success(request, "✅ Thanks! Your report has been submitted.")
+        return redirect("report")
+
+    return render(request, "report.html")
+def admin_dashboard(request):
+    return render(request, "admin_dashboard.html")
+
+def feedback_dashboard(request):
+    feedbacks = Feedback.objects.all().order_by("-created_at")
+    return render(request, "feedback_dashboard.html", {"feedbacks": feedbacks})
+
+def reports_dashboard(request):
+    reports = Report.objects.all().order_by("-created_at")
+    return render(request, "reports_dashboard.html", {"reports": reports})
+
 
 def logout_view(request):
     response = redirect("landing")
