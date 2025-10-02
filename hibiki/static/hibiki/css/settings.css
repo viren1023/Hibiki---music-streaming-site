@@ -1,104 +1,146 @@
 .settings-page {
-  max-width: 100%;
-  margin: 40px auto;
-  padding: 20px;
+    /* Set max-width for better desktop experience but keep it full on mobile */
+    max-width: 600px; 
+    margin: 40px auto;
+    padding: 30px; /* Increased padding */
+    background: var(--background-dark);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Deep shadow */
 }
 
 .settings-page h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: 600;
-  color: #fff;
-  border-bottom: 1px solid #2a2a2a;
-  padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 28px; /* Larger heading */
+    font-weight: 700;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary-color); /* Highlighted border */
+    padding-bottom: 12px;
+    letter-spacing: 1px;
 }
 
 .settings-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .settings-list li {
-  border-bottom: 1px solid #2a2a2a;
+    /* Use a very subtle border for separation */
+    border-bottom: 1px solid var(--border-color);
 }
 
 .settings-list li:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
-.settings-list a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 20px;
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  transition: background 0.2s;
+/* --- Interactive List Item Styles --- */
+.settings-list a, .settings-list li:not(.account-item) a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 15px; /* Generous padding */
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 17px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.2s;
+    border-radius: 6px; /* Apply border radius here for hover effect */
 }
 
 .settings-list a:hover {
-  background: #1f1f1f;
-  border-radius: 6px;
+    background: var(--hover-bg);
+    /* Subtle lift on hover for a premium feel */
+    transform: translateX(5px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Account Section Styling --- */
+.account-item {
+    padding: 10px 0;
+    border-bottom: none !important; /* Remove the separator line */
 }
 
 .account-section {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #1e1e1e;
-  padding: 12px 16px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Use a secondary, distinct background for the account block */
+    background: var(--element-bg); 
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    /* Add a subtle primary color border/glow */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 8px rgba(0, 188, 212, 0.15); 
 }
 
-.account-section span {
-  display: flex;
-  flex-direction: column;
+.account-details {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
 }
 
-.account-section .icon {
-  width: 24px;
-  height: 24px;
-  background: #555;
-  border-radius: 50%;
+.username-label {
+    font-size: 14px;
+    color: var(--text-muted);
 }
 
-/* ---------- Custom CSS icons ---------- */
+.username-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color); /* Highlight username */
+    margin-top: 2px;
+}
+
+.email-value {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* --- Icon and Chevron Styling --- */
 .icon {
-  display: inline-block;
-  width: 22px;
-  text-align: center;
-  margin-right: 14px;
-  color: #aaa;
-  font-size: 18px;
+    display: inline-flex; /* Use flex for perfect centering */
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Slightly larger icons */
+    height: 30px;
+    text-align: center;
+    margin-right: 18px;
+    font-size: 20px;
+    border-radius: 50%;
+    /* Subtle background for the icon container */
+    background: rgba(255, 255, 255, 0.05); 
+    transition: color 0.2s;
 }
 
-/* User icon 👤 */
-.icon.user::before {
-  content: "👤";
+/* Icon Colors - Give them a pop! */
+.settings-list a:hover .icon {
+    color: var(--primary-color); /* Color changes on hover */
 }
 
-/* Lock icon 🔒 */
-.icon.lock::before {
-  content: "🔒";
+/* Specific icon colors */
+.icon.user {
+    color: var(--primary-color);
+    font-size: 24px;
+    background: transparent; /* No background for the large user icon */
 }
+.icon.lock { color: #f94144; } /* Red for Security */
+.icon.support { color: #f8961e; } /* Orange for Support */
+.icon.report { color: #43aa8b; } /* Teal/Green for Reporting (distinct from support) */
+.icon.about { color: #4d9de0; } /* Blue for About */
 
-/* Headphones 🎧 */
-.icon.support::before {
-  content: "🎧";
-}
 
-/* Question mark ❓ */
-.icon.about::before {
-  content: "❓";
-}
-
-/* Chevron → */
+/* Chevron (Angle Bracket) Style */
 .chevron::before {
-  content: "›";
-  font-size: 18px;
-  color: #777;
+    content: "›"; /* Keeps the chevron, but we'll style it */
+    font-size: 24px; /* Larger and more prominent */
+    font-weight: 300; /* Lighter weight */
+    color: var(--text-muted);
+    margin-left: 20px;
+    transition: color 0.2s;
+}
+
+.settings-list a:hover .chevron::before {
+    color: var(--primary-color); /* Highlight chevron on hover */
 }

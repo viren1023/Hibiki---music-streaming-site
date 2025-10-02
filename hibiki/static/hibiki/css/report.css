@@ -1,82 +1,94 @@
-.report-page {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-  background: #111;
-  border-radius: 10px;
+/* Page Centering */
+.report-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d0d0d, #1a001f);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Card */
+.report-card {
+  width: 100%;
+  max-width: 450px;
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
   color: #fff;
 }
 
-.report-page h2 {
-  margin-bottom: 20px;
+.report-card h2 {
   font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #a259ff; /* Purple heading */
 }
 
+.report-card .subtitle {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 25px;
+}
+
+/* Form */
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   display: flex;
   flex-direction: column;
 }
 
-.form-group-labels {
-  font-weight: 600;
-  margin-bottom: 5px;
+.form-group label {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #ddd;
 }
 
-.form-group-input{
-  padding: 10px;
+.form-group input,
+.form-group textarea {
+  padding: 10px 12px;
   border-radius: 6px;
-  border: none;
-  background: #222;
+  border: 1px solid #333;
+  background: #2a2a2a;
   color: #fff;
+  font-size: 14px;
+  transition: border 0.2s, box-shadow 0.2s;
 }
 
-input:focus, textarea:focus {
-  outline: 2px solid #00b4d8;
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #888;
 }
 
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #a259ff;
+  box-shadow: 0 0 0 3px rgba(162,89,255,0.25);
+  outline: none;
+}
+
+.help-text {
+  font-size: 12px;
+  color: #888;
+  margin-top: 5px;
+}
+
+/* Button */
 .submit-btn {
-  background: #00b4d8;
+  width: 100%;
+  background: #a259ff;
   border: none;
-  padding: 10px 15px;
+  padding: 12px;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.25s ease;
 }
 
 .submit-btn:hover {
-  background: #0096c7;
-}
-
-/* Tooltip */
-.info-tooltip {
-  margin-left: 8px;
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
-  color: #00b4d8;
-}
-
-.tooltip-text {
-  visibility: hidden;
-  width: 220px;
-  background: #333;
-  color: #fff;
-  text-align: left;
-  border-radius: 6px;
-  padding: 8px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%; /* place above */
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 13px;
-}
-
-.info-tooltip:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
+  background: #8e44ad;
 }

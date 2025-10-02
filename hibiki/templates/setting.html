@@ -5,45 +5,48 @@
 <link rel="stylesheet" href="{% static 'hibiki/css/settings.css' %}">
 
 <div class="settings-page">
-  <h2>Settings</h2>
-  <ul class="settings-list">
-    <li>
-      <!-- Instead of linking to another page, show account info inline -->
-      <div class="account-section">
-        <span class="icon user"></span>
-        <span>
-          <strong>Username:</strong> {{ user.username }}<br>
-          <strong>Email:</strong> {{ user.email }}
-        </span>
-      </div>
-    </li>
-    <li>
-        <span class="icon lock"></span>
-        <span>Privacy & Security</span>
-        <span class="chevron"></span>
-      </a>
-    </li>
-    <li>
-      <a href="{% url 'feedback' %}">
-        <span class="icon support"></span>
-        <span>Help and Support</span>
-        <span class="chevron"></span>
-      </a>
-    </li>
-    <li>
-      <a href="{% url 'report' %}">
-        <span class="icon support"></span>
-        <span>Report problems</span>
-        <span class="chevron"></span>
-      </a>
-    </li>
-    <li>
-      <a href="{% url 'about' %}">
-        <span class="icon about"></span>
-        <span>About</span>
-        <span class="chevron"></span>
-      </a>
-    </li>
-  </ul>
+    <h2>Your Account Settings</h2>
+    <ul class="settings-list">
+        <li class="account-item">
+            <div class="account-section">
+                <span class="icon user"></span>
+                <div class="account-details">
+                    <span class="username-label">Welcome back,</span>
+                    <strong class="username-value">{{ user.username }}</strong>
+                    <span class="email-value">{{ user.email }}</span>
+                </div>
+            </div>
+        </li>
+        <li class="section-separator"></li> 
+        
+        <li>
+            <a href="#">
+                <span class="icon lock"></span>
+                <span>Privacy & Security</span>
+                <span class="chevron"></span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'feedback' %}">
+                <span class="icon support"></span>
+                <span>Help and Support</span>
+                <span class="chevron"></span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'report' %}">
+                <span class="icon support"></span>
+                <span>Report a Problem</span>
+                <span class="chevron"></span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'about' %}">
+                <span class="icon about"></span>
+                <span>About This App</span>
+                <span class="chevron"></span>
+            </a>
+        </li>
+    </ul>
 </div>
 {% endblock %}

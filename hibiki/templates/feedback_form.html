@@ -1,21 +1,27 @@
-{% extends "Sidebar.html" %} {% load static %} {% block content %}
+{% extends "Sidebar.html" %}
+{% load static %}
+
+{% block content %}
 <link rel="stylesheet" href="{% static 'hibiki/css/feedback.css' %}">
 
-<div class="feedback-container">
+<div class="feedback-page">
   <h2>Feedback Form</h2>
-  <form method="post">
+  <form method="post" id="feedbackForm" class="feedbackForm">
     {% csrf_token %}
 
+    <!-- Name -->
     <div class="form-group">
-      {{ form.name.label_tag }}
+      <label for="name">Name <span class="required">*</span></label>
       {{ form.name }}
     </div>
 
+    <!-- Email -->
     <div class="form-group">
-      {{ form.email.label_tag }}
+      <label for="email">Email <span class="required">*</span></label>
       {{ form.email }}
     </div>
 
+    <!-- Star Rating -->
     <div class="form-group">
       <label>Rate Us</label>
       <div class="stars">
@@ -26,12 +32,13 @@
       </div>
     </div>
 
+    <!-- Message -->
     <div class="form-group">
-      {{ form.message.label_tag }}
+      <label for="message">Message <span class="required">*</span></label>
       {{ form.message }}
     </div>
 
-    <button type="submit">Submit Feedback</button>
+    <button type="submit" class="submit-btn">Submit Feedback</button>
   </form>
 </div>
 {% endblock %}

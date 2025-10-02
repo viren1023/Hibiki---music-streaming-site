@@ -25,6 +25,18 @@
     scrollbar-color: #1e1e1e transparent; /* bar color + track color */
 }
 
+/* --- Global Theme Setup (Assuming a Dark App Theme) --- */
+:root {
+    --primary-color: #00bcd4; /* Vibrant Cyan/Aqua for highlights (Music/Synth feel) */
+    --text-color: #e0e0e0; /* Light text on dark background */
+    --text-muted: #a0a0a0; /* Secondary text/labels */
+    --background-dark: #0a0a0a; /* Very dark background */
+    --element-bg: #1c1c1c; /* Slightly lighter background for containers/lists */
+    --hover-bg: #2a2a2a; /* Hover state background */
+    --border-color: #333333; /* Subtle dividing lines */
+    --focus-glow: 0 0 10px rgba(0, 188, 212, 0.6); /* Glow for interactive elements */
+}   
+
 body,
 html {
     margin: 0;

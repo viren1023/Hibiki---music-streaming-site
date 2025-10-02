@@ -1,0 +1,25 @@
+<h1>📊 Your Music Analytics</h1>
+
+<div class="analytics-cards">
+  <div class="card">
+    <h3>🎵 Songs Played</h3>
+    <p>Total: {{ total_songs_played }}</p>
+    <p>This Week: {{ songs_played_week }}</p>
+    <p>This Month: {{ songs_played_month }}</p>
+  </div>
+
+  <div class="card">
+    <h3>⏱️ Listening Time</h3>
+    <p>{{ total_listening_time|default:0 }} seconds</p>
+  </div>
+
+  <div class="card">
+    <h3>👤 Recent Active Users</h3>
+    <p>{{ recent_active_users }}</p>
+  </div>
+
+  <div class="card">
+    <h3>🌍 Total Users</h3>
+    <p>{{ total_users }}</p>
+  </div>
+</div>

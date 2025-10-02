@@ -157,7 +157,7 @@
     } else {
       // Fullscreen non-square thumbnail
       thumbnail.style.width = "100%"
-      thumbnail.style.height = "auto"
+      thumbnail.style.height = "400px"
     }
   }
 
@@ -302,9 +302,16 @@
     const muteBtn = document.getElementById("mute-btn")
     const waves = muteBtn.querySelectorAll(".wave")
 
-    // Start loud
-    audio.volume = 1
-    volumeSlider.value = 0 // left = loudest
+    const savedVolume = sessionStorage.getItem("playerVolume")
+    if (savedVolume !== null) {
+      volumeSlider.value = savedVolume
+      audio.volume = 1 - savedVolume / 100
+    } else {
+      audio.volume = 1
+      volumeSlider.value = 0
+    }
+    updateWaves(audio.volume)
+    updateSliderFill()
 
     function updateWaves(vol) {
       // vol is 0–1 → map to 0–5 arcs
@@ -326,6 +333,8 @@
       audio.muted = audio.volume === 0
       updateWaves(audio.volume)
       updateSliderFill()
+
+      sessionStorage.setItem("playerVolume", volumeSlider.value)
     })
 
     muteBtn.addEventListener("click", () => {
