@@ -1,7 +1,11 @@
 from django.urls import path
 from . import views
+from django.views.generic import RedirectView
+from django.conf import settings
+from django.urls import path
 
 urlpatterns = [
+    path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'hibiki/favicon.ico')),
     path("", views.landing_view, name="landing"),
     path("login/", views.login_view, name="login"),
     path("register/", views.register_view, name="register"),
