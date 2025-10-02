@@ -279,15 +279,42 @@
     thumbnail.src = track.thumbnails.at(-1).url
     thumbnail.alt = track.title
 
+    //fetch(`/get_audio_url?video_id=${track.videoId}`)
+    //  .then((res) => res.json())
+    //  .then((data) => {
+    //    if (data.audio_url) {
+    //      audio.src = data.audio_url
+    //      if (autoplay) {
+    //        audio.play().then(() => (playBtn.textContent = "⏸"))
+    //      }
+    //    }
+    //  })
+
     fetch(`/get_audio_url?video_id=${track.videoId}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.audio_url) {
           audio.src = data.audio_url
           if (autoplay) {
-            audio.play().then(() => (playBtn.textContent = "⏸"))
+            audio
+              .play()
+              .then(() => (playBtn.textContent = "⏸"))
+              .catch((err) => {
+                console.error("Playback failed:", err)
+                const shortTitle = track.title.length > 10 ? track.title.slice(0, 10) + "..." : track.title;
+                showToast(`⚠️ ${shortTitle.bold()} cannot be played right now due to a server issue. The same problem may occur with some other songs as well. We apologize for the inconvenience — this will be fixed shortly. You can also report this issue if it continues.`)
+                playNextTrack()
+              })
           }
+        } else {
+          showToast("⚠️ No audio URL found, skipping...")
+          playNextTrack()
         }
+      })
+      .catch((err) => {
+        console.error("Fetch error:", err)
+        showToast("⚠️ Failed to load song, skipping...")
+        playNextTrack()
       })
 
     document
@@ -358,6 +385,12 @@
     updateThumbnail(track)
     savePlaylist()
     cacheNextTracks()
+  }
+
+  function playNextTrack() {
+    if (!window.tracks.length) return
+    window.currentIndex = (window.currentIndex + 1) % window.tracks.length
+    loadTrackByData(window.tracks[window.currentIndex], true)
   }
 
   function player_playlist_menu_toggleFun(e, i) {
@@ -594,11 +627,7 @@
     }
   })
 
-  document.getElementById("next").addEventListener("click", () => {
-    if (!window.tracks.length) return
-    window.currentIndex = (window.currentIndex + 1) % window.tracks.length
-    loadTrackByData(window.tracks[window.currentIndex], true)
-  })
+  document.getElementById("next").addEventListener("click", playNextTrack)
 
   document.getElementById("prev").addEventListener("click", () => {
     if (!window.tracks.length) return
@@ -617,11 +646,7 @@
   audio.addEventListener("loadedmetadata", () => {
     durationEl.textContent = formatTime(audio.duration)
   })
-  audio.addEventListener("ended", () => {
-    if (!window.tracks.length) return
-    window.currentIndex = (window.currentIndex + 1) % window.tracks.length
-    loadTrackByData(window.tracks[window.currentIndex], true)
-  })
+  audio.addEventListener("ended", playNextTrack)
 
   audio.addEventListener("timeupdate", savePlaylist)
   audio.addEventListener("play", savePlaylist)

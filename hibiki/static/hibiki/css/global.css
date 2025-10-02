@@ -89,3 +89,25 @@ html {
     transform: scale(1.1);
     z-index: -1;
 }
+
+/* TOAST STYLE */
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: larger;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  width: 400px;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}

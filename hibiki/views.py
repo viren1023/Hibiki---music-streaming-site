@@ -2,6 +2,7 @@ import json
 import random
 import threading
 import ast
+from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from ytmusicapi import YTMusic
 from django.shortcuts import render, redirect, get_object_or_404
@@ -12,12 +13,12 @@ from .models import User, Playlist
 import yt_dlp
 from django.http import HttpResponse, JsonResponse
 from .forms import RegisterForm, LoginForm
-from datetime import date
+from datetime import date, timedelta
 from .forms import FeedbackForm
 from .core_logic.fetchmetadata import home_metadata, similar_search_metadata, similar_songs_name, playlist_metadata, fetch_audio_metadata,generate_radio_playlist
 from django.contrib import messages
-from .models import Report,Feedback
-from .models import User
+from .models import Report,Feedback,User,SongPlay
+from django.db.models import Sum
 
 
 ytmusic = YTMusic()
@@ -42,21 +43,29 @@ def login_view(request):
         if form.is_valid():
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
+            
+            if(username=="admin" and password=="admin@123"):
+                return redirect("admin_dashboard")
+            else:
+                try:
+                    user = User.objects.get(username=username, password=password)
+                except User.DoesNotExist:
+                    messages.error(request, "Invalid username or password")
+                    return redirect("login")
+                
+                # Update Last Login
+                user.last_login = timezone.now()
+                user.save()
 
-            try:
-                user = User.objects.get(username=username, password=password)
-            except User.DoesNotExist:
-                messages.error(request, "Invalid username or password")
-                return redirect("login")
-
-            response = redirect("home")
-            response.set_cookie(
-                key="HIBIKI_USERNAME",
-                value=user.username,
-                httponly=True,
-                secure=False,  # set True if HTTPS
-            )
-            return response
+                response = redirect("home")
+                response.set_cookie(
+                    key="HIBIKI_USERNAME",
+                    value=user.username,
+                    httponly=True,
+                    secure=False,  # set True if HTTPS
+                    max_age=86400
+                )
+                return response
     else:
         form = LoginForm()
 
@@ -67,12 +76,17 @@ def register_view(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()  # direct save since no hashing
+            
+            user.last_login = timezone.now()
+            user.save()
+            
             response = redirect("home")
             response.set_cookie(
                 key="HIBIKI_USERNAME",
                 value=user.username,
                 httponly=True,
                 secure=False,   # set True if using HTTPS
+                max_age=86400
             )
             return response
         else:
@@ -286,10 +300,13 @@ def get_audio_url(request):
     video_id = request.GET.get("video_id")
     if not video_id:
         return JsonResponse({"error": "No video_id provided"}, status=400)
+    
+    username = request.COOKIES.get("HIBIKI_USERNAME")
 
     # Check cache first
     cached_url = cache.get(video_id)
     if cached_url:
+        log_song_play(username, video_id)
         return JsonResponse({"audio_url": cached_url})
 
     video_url = f"https://music.youtube.com/watch?v={video_id}"
@@ -306,11 +323,27 @@ def get_audio_url(request):
             if audio_url:
                 # store in cache for 1 day (86400 seconds)
                 cache.set(video_id, audio_url, timeout=86400)
+                log_song_play(username, video_id)
                 return JsonResponse({"audio_url": audio_url})
             else:
                 return JsonResponse({"error": "Failed to extract audio URL"}, status=500)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+    
+def log_song_play(username, song_id):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        user = None 
+    
+    audio_data = fetch_audio_metadata(song_id)
+    duration = audio_data["duration"]
+    SongPlay.objects.create(
+        user=user,            # can be None for guest
+        song_id=song_id,
+        duration=duration,
+        played_at=timezone.now()
+    )
 
 def get_all_from_cache():
     pass
@@ -533,3 +566,44 @@ def logout_view(request):
     response.delete_cookie("HIBIKI_USERNAME")
     return response
 
+def format_seconds(seconds):
+    h = seconds // 3600
+    m = (seconds % 3600) // 60
+    s = seconds % 60
+    return f"{h}h {m}m {s}s"
+
+def analytics_view(request):
+    now = timezone.now()
+
+    # --- Global song stats ---
+    total_songs_played = SongPlay.objects.count()
+
+    week_start = now - timedelta(days=7)
+    songs_played_week = SongPlay.objects.filter(played_at__gte=week_start).count()
+
+    month_start = now.replace(day=1)
+    songs_played_month = SongPlay.objects.filter(played_at__gte=month_start).count()
+
+    total_listening_time = SongPlay.objects.aggregate(total_time=Sum("duration"))["total_time"] or 0
+
+    # --- Global user stats ---
+    recent_active_users = User.objects.filter(
+        last_login__gte=now - timedelta(days=1)
+    ).count()
+    total_users = User.objects.count()
+
+    # Optionally, count guest plays (user=None)
+    guest_plays = SongPlay.objects.filter(user__isnull=True).count()
+
+    context = {
+        "total_songs_played": total_songs_played,
+        "songs_played_week": songs_played_week,
+        "songs_played_month": songs_played_month,
+        "total_listening_time": total_listening_time,
+        "recent_active_users": recent_active_users,
+        "total_users": total_users,
+        "guest_plays": guest_plays,
+        "total_listening_time_str": format_seconds(total_listening_time),
+    }
+
+    return render(request, "analytics.html", context)

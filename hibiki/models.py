@@ -7,7 +7,8 @@ class User(models.Model):
     username = models.CharField(max_length=150, unique=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=128)
-    
+    last_login = models.DateTimeField(blank=True, null=True)
+
 class Playlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="playlists")
     title = models.CharField(max_length=200)
@@ -34,3 +35,12 @@ class Report(models.Model):
 
     def __str__(self):
         return f"Report by {self.name} ({self.email})"
+    
+class SongPlay(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="song_plays", null=True, blank=True)
+    song_id = models.CharField(max_length=200)
+    played_at = models.DateTimeField(auto_now_add=True)
+    duration = models.PositiveIntegerField(help_text="Listened duration in seconds")
+    
+    def __str__(self):
+        return f"{self.user.username if self.user else 'Guest'} played {self.song_id}"
