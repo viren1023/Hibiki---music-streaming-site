@@ -1,5 +1,165 @@
 {% extends "admin_dashboard.html" %}
 {% block content %}
+<style>
+/* --- Feedback Container General Styling --- */
+.feedback-container {
+    /* Layout: Center the container in the content area (main) */
+    {% comment %} max-: 1200px; {% endcomment %}
+
+    /* Margin Breakdown: top | right | bottom | left */
+    /* 30px (top) | auto (center) | 30px (bottom) | 280px (260px sidebar + 20px padding) */
+    margin: 30px 30px 30px 290px;
+    
+    /* Appearance: Matching the admin theme */
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 16px;
+    color: #f0f0f0; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 1px solid #2c2c2c;
+}
+
+.feedback-container h2 {
+    margin-bottom: 25px;
+    font-size: 26px; 
+    font-weight: 700;
+    color: #fff;
+    /* Use accent color for visual separation */
+    border-bottom: 2px solid #00bcd4; 
+    padding-bottom: 10px;
+}
+
+/* --- Table Styling --- */
+table {
+    width: 100%;
+    /* Use separate/spacing for smooth corners on the table itself */
+    border-collapse: separate; 
+    border-spacing: 0; 
+    font-size: 15px; 
+    overflow: hidden; 
+    border-radius: 12px;
+}
+
+thead {
+    background: #282828;
+}
+
+th, td {
+    padding: 15px 18px; /* Increased padding */
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Cleaner border lines */
+th {
+    border-bottom: 1px solid #3a3a3a;
+    font-weight: 600;
+    color: #aaa; 
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+td {
+    border-bottom: 1px solid #2c2c2c;
+}
+
+/* Remove bottom border from the last row */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Hover effect on rows */
+tr:hover {
+    background: #262626;
+    transition: background 0.2s ease;
+}
+
+/* --- Rating (Stars) Styling --- */
+.rating-stars {
+    /* Style for the td containing the stars */
+    font-size: 18px; /* Make stars slightly larger */
+    letter-spacing: 3px; /* Space out the stars */
+    line-height: 1; /* Ensure stars align nicely */
+}
+
+/* Target the filled star (⭐) */
+.rating-stars .filled-star {
+    color: #ffd700; /* Gold color for filled stars */
+}
+
+/* Target the empty star (☆) */
+.rating-stars .empty-star {
+    color: #555; /* Darker gray for empty stars */
+}
+
+/* Table layout adjustments for message viewing */
+table tbody tr td:nth-child(4) { /* Target the 'Message' column (4th td) */
+    max-width: 400px;
+    word-wrap: break-word; 
+}
+
+/* Empty Row Styling */
+.empty-row {
+    text-align: center;
+    padding: 30px !important;
+    color: #777;
+    font-style: italic;
+    background: #202020;
+    font-size: 16px;
+    border-bottom: none !important;
+}
+
+/* If you need to override the outer .main margin for this specific container
+   (Though setting 'margin: 30px auto' within the .main should handle centering),
+   you can use: 
+   .feedback-container { margin: 30px auto 30px 280px; } 
+   if the .main container does not have padding. I'll stick to the simpler 'auto' for centering. 
+*/
+</style>
+
+<div class="feedback-container">
+    <h2>💬 Feedback Dashboard</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 15%;">Name</th>
+                <th style="width: 20%;">Email</th>
+                <th style="width: 15%;">Rating</th>
+                <th style="width: 40%;">Message</th>
+                <th style="width: 10%;">Submitted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fb in feedbacks %}
+            <tr>
+                <td>{{ fb.name }}</td>
+                <td>{{ fb.email }}</td>
+                <td class="rating-stars">
+                    {% for i in "12345"|make_list %}
+                        {% if forloop.counter <= fb.rating %}
+                            <span class="filled-star">⭐</span>
+                        {% else %}
+                            <span class="empty-star">☆</span>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>{{ fb.message }}</td>
+                <td>{{ fb.created_at|date:"M d, Y" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="empty-row">No feedback has been submitted yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+
+
+{% comment %} {% extends "admin_dashboard.html" %}
+{% block content %}
 <div class="feedback-container">
   <h2>💬 Feedback Dashboard</h2>
   <table>
@@ -73,4 +233,4 @@
     color: #777;
   }
 </style>
-{% endblock %}
+{% endblock %} {% endcomment %}

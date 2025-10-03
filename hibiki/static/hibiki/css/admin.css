@@ -1,10 +1,18 @@
-  body {
+/* --- Global & Typography Reset --- */
+
+/* Use the modern 'Inter' font from the link added in HTML */
+body {
     background: #121212;
-    /* font-family: "Segoe UI", Arial, sans-serif; */
-  }
+    color: #f0f0f0; /* Set a default light color for text */
+    font-family: 'Inter', "Segoe UI", Arial, sans-serif;
+    margin: 0; /* Remove default body margin */
+    -webkit-font-smoothing: antialiased; /* Better font rendering */
+}
+
+/* --- Sidebar Styling --- */
 
 .sidebar {
-    width: 240px;
+    width: 260px; /* Slightly wider sidebar for better look */
     background: #1e1e1e;
     height: 100vh;
     position: fixed;
@@ -12,94 +20,164 @@
     top: 0;
     display: flex;
     flex-direction: column;
-    padding: 20px 0;
+    justify-content: space-between;
+    padding: 30px 0; /* Increased top/bottom padding */
     border-right: 1px solid #2c2c2c;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+}
+
+.sidebar-header {
+    padding: 0 15px;
 }
 
 .sidebar h2 {
-    text-align: center;
+    text-align: left; /* Aligned logo/title to the left */
     margin: 0 0 30px 0;
-    font-size: 20px;
-    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    color: #00bcd4; /* A vibrant accent color for the logo */
+    display: flex;
+    align-items: center;
 }
 
-.sidebar a {
+.sidebar h2 .logo-icon {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.side-navbar {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a.nav-link {
     display: block;
-    padding: 12px 20px;
+    padding: 12px 15px;
+    margin: 4px 0;
     color: #bbb;
     text-decoration: none;
-    font-size: 15px;
-    transition: background 0.3s, color 0.3s;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px; /* Rounded links */
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-.sidebar a:hover,
-.sidebar a.active {
+.sidebar a.nav-link:hover {
     background: #333;
+    color: #fff;
+    padding-left: 20px; /* Slight horizontal slide effect on hover */
+}
+
+.sidebar a.nav-link.active {
+    background: #00bcd4; /* Use the accent color for active link */
+    color: #121212; /* Darker text on vibrant background */
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 188, 212, 0.3);
+}
+
+.sidebar a.nav-link.active:hover {
+    background: #00a4b8; /* Slightly darker on hover */
     color: #fff;
 }
 
-/* Main content */
+
+/* Logout Link Specifics */
+.sidebar-bottom {
+    padding: 0 15px;
+    margin-bottom: 80px; /* Removed unnecessary margin */
+}
+
+.logout-link {
+    border-top: 1px solid #2c2c2c; /* Separator line */
+    margin-top: 20px;
+    padding-top: 20px !important;
+    color: #ff6b6b !important; /* A warning color for logout */
+}
+
+.logout-link:hover {
+    background: #3a1a1a !important; /* Dark red on hover */
+    color: #fff !important;
+}
+
+/* --- Main Content Styling --- */
 .main {
-    margin-left: 240px;
-    flex: 1;
-    padding: 20px;
+    margin-left: 260px; /* Adjusted margin to match new sidebar width */
+    padding: 30px; /* Increased padding */
+    min-height: 100vh; /* Ensure it covers full height */
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     background: #1f1f1f;
-    padding: 15px 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    padding: 20px 25px;
+    border-radius: 12px; /* Smoother corners */
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Clearer header shadow */
 }
 
 header h1 {
     margin: 0;
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: 600;
     color: #fff;
 }
 
-/* Dashboard cards */
+/* --- Dashboard Cards & Grid --- */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider cards */
+    gap: 30px; /* Increased gap */
 }
 
 .card {
     background: #1e1e1e;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.2s, background 0.3s;
+    border-radius: 16px; /* Very smooth corners */
+    padding: 30px; /* Increased padding inside card */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid #2c2c2c; /* Subtle border */
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    background: #2a2a2a;
+    transform: translateY(-8px); /* Deeper lift on hover */
+    background: #282828;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Stronger shadow on hover */
 }
 
 .card h2 {
     margin-top: 0;
-    font-size: 18px;
-    color: #fff;
+    font-size: 20px;
+    color: #00bcd4; /* Accent color for card titles */
+    border-bottom: 1px solid #2c2c2c;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .card p {
-    font-size: 14px;
-    color: #bbb;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #c0c0c0; /* Slightly lighter text */
 }
 
+/* --- Button Styling --- */
 .btn {
     display: inline-block;
-    margin-top: 10px;
-    padding: 8px 14px;
-    background: #007bff;
-    color: white;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background: #00bcd4; /* Accent color for primary button */
+    color: #121212;
     text-decoration: none;
-    border-radius: 6px;
-    transition: background 0.3s;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.3s ease, transform 0.1s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
-    background: #0056b3;
+    background: #00a4b8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

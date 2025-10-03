@@ -1,50 +1,35 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Music Admin Panel</title>
-  <link rel="stylesheet" href="{% static 'hibiki/css/admin.css' %}" />
-  <link rel="icon" type="image/ico" href="{% static 'favicon.ico' %}">
-</head>
-<body>
-
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>🎵 Admin</h2>
-    <a href="{% url 'admin_dashboard' %}">Dashboard</a>
-    <a href="{% url 'analytics_dashboard' %}">📊 Analytics</a>
-    <a href="{% url 'feedback_dashboard' %}">💬 Feedback</a>
-    <a href="{% url 'reports_dashboard' %}">📑 Reports</a>
-  </div>
-      {% block content %}
-    {% endblock %}
-  <!-- Main content -->
-  <!-- <div class="main">
-    <header>
-      <h1>Welcome to Music Admin Panel</h1>
-    </header>
-
-    <div class="grid">
-      <div class="card">
-        <h2>📊 Analytics</h2>
-        <p>Check top songs, artists, and user activity.</p>
-        <a href="#" class="btn">View Reports</a>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Music Admin Panel</title>
+    <link rel="stylesheet" href="{% static 'hibiki/css/admin.css' %}" />
+    <link rel="icon" type="image/ico" href="{% static 'favicon.ico' %}" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>🎵 Admin</h2>
+        <nav class="side-navbar">
+          <a href="{% url 'analytics_dashboard' %}" class="nav-link"
+            >📊 Analytics</a
+          >
+          <a href="{% url 'feedback_dashboard' %}" class="nav-link"
+            >💬 Feedback</a
+          >
+          <a href="{% url 'reports_dashboard' %}" class="nav-link"
+            >📑 Reports</a
+          >
+        </nav>
       </div>
-
-      <div class="card">
-        <h2>💬 Feedback</h2>
-        <p>See user feedback, suggestions, and ratings.</p>
-        <a href="#" class="btn">View Feedback</a>
-      </div>
-
-      <div class="card">
-        <h2>📑 Reports</h2>
-        <p>Handle flagged playlists or reported issues.</p>
-        <a href="#" class="btn">Check Reports</a>
+      <div class="sidebar-bottom">
+        <a href="{% url 'logout' %}" class="nav-link logout-link"
+          >📑 Logout</a
+        >
       </div>
     </div>
-  </div> -->
-
-</body>
+    {% block content %} {% endblock %}
+  </body>
 </html>

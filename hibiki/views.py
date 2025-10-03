@@ -45,7 +45,7 @@ def login_view(request):
             password = form.cleaned_data["password"]
             
             if(username=="admin" and password=="admin@123"):
-                return redirect("admin_dashboard")
+                return redirect("analytics_dashboard")
             else:
                 try:
                     user = User.objects.get(username=username, password=password)
@@ -216,7 +216,10 @@ def search_page(request):
     else:
         # No query yet → show moods + charts
         mood_categories = ytmusic.get_mood_categories()
-        charts = ytmusic.get_charts(country="ZZ")  # You can change country
+        charts = ytmusic.get_charts(country="ZZ")
+        if(not charts):
+            charts = ytmusic.get_charts()
+            pass  # You can change country
         return render(request, "search.html", {
             "query": query,
             "results": search_results,

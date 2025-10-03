@@ -1,1 +1,4 @@
 *.json
+
+# command
+# cd ..; .\myenv\Scripts\Activate.ps1; cd .\music_streaming_site

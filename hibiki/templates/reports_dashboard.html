@@ -1,4 +1,156 @@
+
 {% extends "admin_dashboard.html" %}
+{% block content %}
+<style>
+/* --- Reports Container General Styling --- */
+.reports-container {
+    /* Centering and maximum width for readability */
+    {% comment %} max-width: 1200px; /* Slightly wider for better table viewing */ {% endcomment %}
+    /* Updated margin for centering in the main content area */
+    margin: 30px 30px 30px 290px;
+    background: #1e1e1e; /* Match sidebar/card background */
+    padding: 30px; /* Increased padding */
+    border-radius: 16px; /* Smoother corners */
+    color: #f0f0f0; /* Light text color */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Deeper, smoother shadow */
+    border: 1px solid #2c2c2c; /* Subtle border */
+}
+
+.reports-container h2 {
+    margin-bottom: 25px;
+    font-size: 26px; /* Slightly larger title */
+    font-weight: 700;
+    color: #fff;
+    border-bottom: 2px solid #00bcd4; /* Accent color under title */
+    padding-bottom: 10px;
+}
+
+/* --- Table Styling --- */
+table {
+    width: 100%;
+    border-collapse: separate; /* Use separate for border-radius on cells (in real CSS) */
+    border-spacing: 0; /* Important for separate model */
+    color: #f0f0f0;
+    font-size: 15px; /* Slightly larger text */
+    overflow: hidden; /* Helps contain the border-radius on the table */
+    border-radius: 12px;
+}
+
+thead {
+    background: #282828;
+}
+
+th, td {
+    padding: 15px 18px; /* Increased internal padding */
+    text-align: left;
+    vertical-align: middle;
+    /* Remove individual cell borders for a cleaner look, relying on hover/zebra */
+}
+
+/* Add a clean divider line only below the header and between rows */
+th {
+    border-bottom: 1px solid #3a3a3a;
+}
+td {
+    border-bottom: 1px solid #2c2c2c;
+}
+
+/* Last row cells: remove bottom border */
+tr:last-child td {
+    border-bottom: none;
+}
+
+
+th {
+    font-weight: 600;
+    color: #aaa; /* Lighter text for headers */
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* Hover effect on rows */
+tr:hover {
+    background: #262626;
+    transition: background 0.2s ease;
+}
+
+/* URL Link Styling */
+.url {
+    color: #00bcd4; /* Use the main accent color */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.url:hover {
+    color: #4da6ff; /* A different highlight on hover */
+    text-decoration: underline;
+}
+
+/* N/A styling for empty cells */
+.reports-container span[style*="#555"] {
+    color: #777 !important;
+    font-style: italic;
+}
+
+/* Empty Row Styling */
+.empty-row {
+    text-align: center;
+    padding: 30px !important;
+    color: #777;
+    font-style: italic;
+    background: #202020;
+    font-size: 16px;
+    border-bottom: none !important; /* Ensure no line under empty row */
+}
+
+/* Table layout adjustments for better message viewing */
+table tbody tr td:nth-child(3) { /* Target the 'Message' column */
+    max-width: 350px;
+    word-wrap: break-word; /* Ensure long messages wrap */
+}
+</style>
+
+<div class="reports-container">
+    <header>
+        <h1>📋 Bug Reports Dashboard</h1>
+    </header>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 15%;">Name</th>
+                <th style="width: 20%;">Email</th>
+                <th style="width: 40%;">Message</th>
+                <th style="width: 15%;">Page/URL</th>
+                <th style="width: 10%;">Submitted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reports %}
+            <tr>
+                <td>{{ report.name }}</td>
+                <td>{{ report.email }}</td>
+                <td>{{ report.message }}</td>
+                <td>
+                    {% if report.url %}
+                        <a href="{{ report.url }}" target="_blank" class="url">{{ report.url }}</a>
+                    {% else %}
+                        <span style="color: #555;">N/A</span>
+                    {% endif %}
+                </td>
+                <td>{{ report.created_at|date:"M d, Y" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="empty-row">No reports have been submitted yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+
+{% comment %} {% extends "admin_dashboard.html" %}
 {% block content %}
 <style>
   .reports-container {
@@ -101,4 +253,6 @@
     </tbody>
   </table>
 </div>
-{% endblock %}
+{% endblock %} {% endcomment %}
+
+

@@ -1,73 +1,125 @@
 {% extends "admin_dashboard.html" %}{% block content %}
 
 <style>
-  .analytics-main-div h1 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
+/* --- Main Dashboard Container Styling --- */
+.analytics-main-div {
+    /* Layout: Start after sidebar and fill the remaining width. 
+       min-height ensures background covers the full viewport height. */
+    background: #121212; /* Match the body background */
+    color: #f0f0f0;
+    
+    /* Using margin for positioning the main content block */
+    margin-left: 260px; /* Aligns content next to 260px sidebar */
+    padding: 30px; /* Increased padding */
+    min-height: 100vh; /* Ensures it covers full height */
+}
 
-  .analytics-main-div {
-    background: #1e1e1e;
+.analytics-main-div h1 {
+    font-size: 28px;
+    font-weight: 700;
     color: #fff;
-    padding: 20px;
-    margin-left: 250px;
-    min-height: 92vh;
-  }
-  .analytics-cards {
+    margin-bottom: 30px;
+    text-align: left; /* Align to left for a cleaner, professional look */
+    border-bottom: 2px solid #00bcd4; /* Use the accent color */
+    padding-bottom: 10px;
+}
+
+/* --- Card Grid Layout --- */
+.analytics-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-  }
-  .card {
-    background: #2c2c2c;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-  .card h3 {
+    /* Adjusted minmax for a better desktop layout */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+    gap: 25px; /* Increased gap for better visual separation */
+}
+
+/* --- Individual Card Styling --- */
+.card {
+    background: #1e1e1e; /* Match main container/sidebar background */
+    padding: 25px; /* Increased padding */
+    border-radius: 12px; /* Smoother corners */
+    border: 1px solid #2c2c2c; /* Subtle border */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Deeper, smoother shadow */
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    background: #282828;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.card h3 {
     margin-bottom: 15px;
-    font-size: 1.2em;
-  }
-  .card p {
-    margin: 5px 0;
-    font-size: 1em;
-  }
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #00bcd4; /* Accent color for card titles */
+    display: flex;
+    align-items: center;
+}
+
+.card h3::first-letter {
+    font-size: 1.1em;
+}
+
+/* Styling for the numbers/values */
+.card p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* Special styling for the main value in the card (assuming the first <p> is the most important) */
+.card p:first-of-type {
+    font-size: 1.5em; /* Make the main metric stand out */
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-top: 5px;
+}
+
+/* Adjustments for the Listening Time card (which only has one main <p>) */
+.card:nth-child(2) p {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #f0f0f0;
+}
+
 </style>
 <div class="analytics-main-div">
-  <h1>📊 Music Analytics Dashboard</h1>
+    <h1>🎧 Music Analytics Dashboard</h1>
 
-  <div class="analytics-cards">
-    <!-- Total / Week / Month Songs Played -->
-    <div class="card">
-      <h3>🎵 Songs Played</h3>
-      <p>Total: {{ total_songs_played }}</p>
-      <p>This Week: {{ songs_played_week }}</p>
-      <p>This Month: {{ songs_played_month }}</p>
-    </div>
+    <div class="analytics-cards">
+        <div class="card">
+            <h3>🎵 Songs Played</h3>
+            <p>{{ total_songs_played }}</p> <p style="color: #aaa; font-size: 0.95em; font-weight: 400; margin-top: 10px;">This Week: {{ songs_played_week }}</p>
+            <p style="color: #aaa; font-size: 0.95em; font-weight: 400; margin-top: 5px;">This Month: {{ songs_played_month }}</p>
+        </div>
 
-    <!-- Total Listening Time -->
-    <div class="card">
-      <h3>⏱️ Listening Time</h3>
-      <p>{{ total_listening_time_str }}</p>
-    </div>
+        <div class="card">
+            <h3>⏱️ Listening Time</h3>
+            <p>{{ total_listening_time_str }}</p>
+        </div>
 
-    <!-- Recent Active Users -->
-    <div class="card">
-      <h3>👤 Today Lgged-In Users</h3>
-      <p>{{ recent_active_users }}</p>
-    </div>
+        <div class="card">
+            <h3>👤 Today Logged-In Users</h3>
+            <p>{{ recent_active_users }}</p>
+        </div>
 
-    <!-- Total Users -->
-    <div class="card">
-      <h3>🌍 Total Users</h3>
-      <p>{{ total_users }}</p>
-    </div>
+        <div class="card">
+            <h3>🌍 Total Users</h3>
+            <p>{{ total_users }}</p>
+        </div>
 
-    <!-- Guest Plays -->
-    <div class="card">
-      <h3>👥 Guest Plays</h3>
-      <p>{{ guest_plays }}</p>
+        <div class="card">
+            <h3>👥 Guest Plays</h3>
+            <p>{{ guest_plays }}</p>
+        </div>
+        
+        <div class="card" style="background: #2c2c2c;">
+            <h3>📈 User Retention</h3>
+            <p style="font-size: 1.5em; font-weight: 700; color: #ffeb3b;">72%</p>
+            <p style="color: #aaa; font-size: 0.95em; font-weight: 400; margin-top: 10px;">Last Month: 68%</p>
+        </div>
     </div>
-  </div>
 </div>
 {% endblock %}

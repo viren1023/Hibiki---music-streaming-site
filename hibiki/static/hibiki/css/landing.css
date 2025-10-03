@@ -1,63 +1,125 @@
+/* --- Global Styles (Assumed from base admin theme, applied here for consistency) --- */
+body {
+    margin: 0;
+    padding: 0;
+    /* Using a modern, clean font, or a fallback */
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif; 
+    overflow: hidden; /* Hide scrollbar on the main body */
+}
+
+/* --- Hero Section Styling --- */
 .hero {
     height: 100vh;
     width: 100%;
+    /* Ensure the image fills the screen and is high quality */
     background: url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4") no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
+    overflow: hidden; /* Important for containing background effects */
 }
 
-/* .overlay {
+/* --- Smooth Overlay for Readability --- */
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-} */
+    /* Gradient overlay for a more polished and focused look */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)); 
+    backdrop-filter: blur(2px); /* Subtle blur behind content */
+}
 
+/* --- Content Styling --- */
 .content {
     position: relative;
     z-index: 2;
     color: white;
+    /* Add a slight backdrop for the text to improve contrast */
+    padding: 20px 40px; 
+    border-radius: 15px;
 }
 
 .content h1 {
-    font-size: 42px;
-    font-weight: bold;
-    margin-bottom: 15px;
+    font-size: 5.5vw; /* Responsive font size */
+    font-weight: 900; /* Extra bold */
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Deep shadow */
 }
 
 .content p {
-    font-size: 18px;
-    color: #ddd;
-    margin-bottom: 30px;
+    font-size: 1.5em; /* Larger, more inviting subtitle */
+    color: #c0c0c0;
+    margin-bottom: 40px;
+    font-weight: 300; /* Lighter weight for modern look */
 }
 
+/* --- Button Styling --- */
 .btn {
     display: inline-block;
-    padding: 14px 30px;
-    margin: 10px;
-    border-radius: 12px;
-    font-weight: bold;
+    padding: 16px 36px; /* Larger hit area */
+    margin: 10px 15px;
+    border-radius: 50px; /* Pill-shaped buttons */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
     text-decoration: none;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary {
-    background: #6c47ff;
+    background: #6c47ff; /* Primary accent color */
     color: white;
+    border: none;
 }
 
 .btn-primary:hover {
     background: #5938d6;
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
 }
 
 .btn-secondary {
+    /* Changed the secondary button to look like a clean ghost button */
+    padding: 14px 34px; /* Slightly smaller padding to align with primary */
+    background: transparent;
     color: white;
-    font-size: 14px;
-    text-decoration: underline;
+    font-size: 1em;
+    font-weight: 600;
+    border: 2px solid white; /* White border */
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: none; /* Removed shadow for cleaner look */
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1); /* Subtle fill on hover */
+    transform: translateY(-1px);
+    border-color: #6c47ff; /* Highlight border with accent color */
+    color: #6c47ff;
+}
+
+/* --- Entrance Animation --- */
+/* The HTML is set up to use 'fade-out' on the body, so we define the animation here. */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    /* Apply the animation to the content block */
+    animation: fadeIn 1s ease-out 0.5s forwards;
+    opacity: 0; /* Start invisible */
 }

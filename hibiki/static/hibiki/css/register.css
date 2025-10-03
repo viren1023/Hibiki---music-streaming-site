@@ -1,70 +1,98 @@
+/* --- Register Box Container --- */
 .register-box {
     text-align: center;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.6);
+    width: 380px; /* Slightly narrower for focus */
     padding: 40px;
-    border-radius: 12px;
-
-    width: 400px;
-}
-
-.register-box h2 {
-    font-size: 28px;
-    font-weight: bold;
+    border-radius: 20px; /* Smoother corners */
+    
+    /* Improved background for depth and smoothness (matching the login box) */
+    background: rgba(18, 18, 18, 0.5); 
+    border: 1px solid rgba(44, 44, 44, 0.7); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Deeper, smoother shadow */
+    
     color: white;
 }
 
-.register-box p {
-    color: #bbb;
-    font-size: 14px;
+.register-box h2 {
+    font-size: 32px; /* Slightly larger title */
+    font-weight: 800; /* Bolder */
+    color: white;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
 }
 
+.register-box p {
+    color: #999; /* Softer hint color */
+    font-size: 15px;
+    margin-bottom: 25px; /* More space below the subtitle */
+}
+
+/* --- Input Fields --- */
 .field-cluster {
-    margin: 10px 0;
+    margin: 20px 0; /* Increased vertical margin for breathing room */
 }
 
 .register-box input {
     box-sizing: border-box;
-    background: #303030;
-    font-size: medium;
+    background: #282828; /* Darker input background */
     color: white;
+    padding: 14px 18px; /* More generous padding */
     width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
+    border-radius: 10px; /* Smoother corners */
+    border: 1px solid transparent;
     outline: none;
+    font-size: 16px;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.register-box input:focus {
+    background: #333333;
+    border-color: #6c47ff; /* Highlight border with accent color on focus */
+    box-shadow: 0 0 0 2px rgba(108, 71, 255, 0.3); /* Smooth inner glow effect */
+}
+
+/* --- Submit Button --- */
 .register-btn {
     background: #6c47ff;
     color: white;
-    padding: 14px;
+    padding: 16px; /* Larger hit area */
     width: 100%;
-    border-radius: 8px;
+    margin-top: 25px; /* More space above the button */
+    border-radius: 10px;
     border: none;
-    font-weight: bold;
+    font-weight: 700; /* Bolder */
     cursor: pointer;
-    font-size: medium;
+    font-size: 18px; /* Larger font */
+    letter-spacing: 0.5px;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .register-btn:hover {
     background: #5938d6;
+    transform: translateY(-1px); /* Subtle lift on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
+/* --- Footer Link (Login) --- */
 .login {
-    margin-top: 15px;
+    margin-top: 25px;
+    font-size: 15px;
 }
 
 .login a {
-    color: #8F7AE1;
-    font-weight: bold;
+    color: #8F7AE1; /* Primary link color */
+    font-weight: 700;
     text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .login a:hover {
+    color: #a491f0; /* Slightly lighter on hover */
     text-decoration: underline;
 }
 
+/* --- Messages and Errors --- */
 .messages {
     margin-bottom: 1rem;
 }
@@ -73,25 +101,27 @@
     padding: 0.75rem 1rem;
     border-radius: 8px;
     margin-bottom: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
 .alert.error {
     text-align: center;
-    background: rgba(255, 77, 77, 0.2);
+    background: rgba(255, 71, 71, 0.15); /* Softer error background */
     color: #ff4d4d;
     border: 1px solid #ff4d4d;
 }
 
 .error {
     color: #ff6b6b;
-    font-size: medium;
-    margin-top: 3px;
+    font-size: 14px;
+    margin-top: 5px;
     text-align: left;
-    letter-spacing: .25px;
-
+    letter-spacing: 0;
 }
 
 .input-error {
     border: 1px solid #ff6b6b !important;
+    /* Add a subtle error shadow */
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2) !important; 
 }
