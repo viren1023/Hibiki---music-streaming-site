@@ -1,131 +1,160 @@
-/* Header */
+/* --- Header --- */
 .page-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding: 18px 22px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    background: linear-gradient(180deg, #151515, #101010);
-    color: #fff;
+    padding: 24px 30px; /* Increased padding */
+    border-bottom: 1px solid var(--border-color);
+    /* Subtle gradient matching the main app feel */
+    background: transparent; 
+    /* background: linear-gradient(180deg, var(--element-bg), #101010);  */
+    color: var(--text-color);
+    position: sticky; /* Sticky header for better UX */
+    top: 0;
+    z-index: 100;
 }
 
 .page-title {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0.2px;
+    /* Use a clear, large font for the title */
+    font-size: 2rem; 
+    font-weight: 800;
+    font-family: "Inter", sans-serif; /* Consistent with UI font */
     display: flex;
     align-items: center;
     gap: 12px;
 }
-
-.page-subtitle {
-    font-size: 13px;
-    color: #bdbdbd;
-    font-weight: 500;
+.page-title > div > div:first-child {
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
-/* Create button */
+.page-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+/* --- Buttons --- */
 .btn {
     appearance: none;
     border: none;
     cursor: pointer;
-    padding: 10px 14px;
-    border-radius: 8px;
+    padding: 10px 18px; /* Slightly wider button */
+    border-radius: 9999px; /* Pill shape for primary actions */
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
+    transition: transform .15s ease, opacity .15s ease, box-shadow .15s ease;
+    white-space: nowrap;
 }
 
 .btn--primary {
-    background: linear-gradient(90deg, #a855f7, #7c3aed);
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
     color: white;
-    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.12);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.25);
 }
 
+.btn--primary:hover {
+    opacity: 0.95;
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+}
 .btn--primary:active {
-    transform: translateY(1px);
+    transform: translateY(1px) scale(0.98);
 }
 
-/* Page container */
+/* --- Page Content Container --- */
 .page-container {
-    padding: 20px;
-    color: #eaeaea;
-    background: #0f0f10;
-    min-height: calc(100vh - 180px);
+    padding: 30px; 
+    color: var(--text-color);
+    /* CRITICAL: Set the background to transparent to let the body glow show through */
+    background: transparent; 
+    min-height: calc(100vh - 180px); 
 }
 
-/* Simple playlist list */
+/* --- Playlist Grid --- */
 .playlist-list {
     display: grid;
-    gap: 12px;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    margin-top: 14px;
+    gap: 20px; /* Increased gap */
+    /* Improved responsive grid */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    margin-top: 20px;
 }
 
 .playlist-card {
     position: relative;
-    background: #141417;
-    border-radius: 10px;
-    padding: 12px;
+    background: var(--element-bg);
+    border-radius: 12px; /* Smoother corners */
+    padding: 15px; /* Increased internal padding */
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px; /* Reduced space between title/tracks */
     cursor: pointer;
-    transition: transform .12s ease, box-shadow .12s ease;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    min-height: 80px; /* Ensure a minimum height for consistency */
 }
 
 .playlist-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px); /* Clearer lift effect */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    background: var(--hover-bg); /* Darker hover background */
 }
 
 .playlist-card h4 {
     margin: 0;
-    font-size: 16px
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
 }
 
 .playlist-card p {
     margin: 0;
-    font-size: 13px;
-    color: #b9b9b9
+    font-size: 0.85rem;
+    color: var(--text-muted);
 }
 
-/* Position the 3-dot menu button in the top-right corner */
-.playlist-card {}
-
+/* --- 3-Dot Menu Button --- */
 .menu-btn {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 10px;
+    right: 10px;
     background: none;
     border: none;
-    color: #ccc;
+    color: #fff; /* Keep dots visible */
     font-size: 18px;
     cursor: pointer;
-    padding: 2px 6px;
-    border-radius: 4px;
+    padding: 4px 8px;
+    border-radius: 6px;
     line-height: 1;
+    opacity: 0; /* Hidden by default for smooth hover reveal */
+    transition: background .15s ease, opacity .15s ease;
+}
+/* Show button on card hover */
+.playlist-card:hover .menu-btn {
+    opacity: 1;
+}
+.menu-btn:hover, .menu-btn.active {
+    background: rgba(255, 255, 255, 0.15); /* More visible hover */
+    opacity: 1;
 }
 
-.menu-btn:hover {
-    background: rgba(255, 255, 255, 0.06);
-}
 
-/* Dropdown menu */
+/* --- Dropdown Menu --- */
 .menu {
     display: none;
     position: absolute;
-    top: 32px;
-    right: 8px;
-    background: #1b1b1d;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 6px;
-    min-width: 120px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-    z-index: 20;
+    top: 35px; /* Positioned below the button */
+    right: 10px;
+    background: #242426; /* Slightly lighter than card for visibility */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    min-width: 150px; /* Wider menu */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    z-index: 200;
+    overflow: hidden; /* Ensures smooth borders */
 }
 
 .menu.open {
@@ -137,74 +166,103 @@
     text-align: left;
     background: none;
     border: none;
-    color: #fff;
-    padding: 10px 14px;
+    color: var(--text-color);
+    padding: 10px 15px;
     font-size: 14px;
     cursor: pointer;
+    transition: background .15s ease;
 }
 
 .menu button:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--hover-bg);
 }
 
+/* Specific style for Delete button */
+.menu .delete-btn {
+    color: #ff6b6b; /* Soft red for destructive action */
+}
 
-/* Modal */
+/* --- Modal --- */
 .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.8); /* Darker backdrop */
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 11000;
+    /* Smooth fade-in transition */
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .modal-backdrop.open {
     display: flex;
+    opacity: 1;
 }
 
 .modal {
-    width: 420px;
-    max-width: calc(100% - 48px);
-    background: #0b0b0c;
-    border-radius: 10px;
-    padding: 18px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    width: 400px; /* Slightly narrower */
+    max-width: calc(100% - 40px);
+    background: #141416; /* Deep, rich modal background */
+    border-radius: 12px;
+    padding: 24px; /* More internal space */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
     color: #fff;
+    /* Initial state for slide-in effect */
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-backdrop.open .modal {
+    transform: translateY(0);
 }
 
 .modal h3 {
-    margin: 0 0 8px 0;
-    font-size: 18px
+    margin: 0 0 15px 0; /* More space below title */
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 .modal .form-row {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .modal input[type="text"] {
-    background: #151516;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    color: #fff;
-    padding: 10px;
-    border-radius: 6px;
-    font-size: 14px;
+    background: #1f1f21;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 12px 15px; /* Increased padding in input */
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+.modal input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: var(--focus-glow);
+    background: #141416;
+}
+
 
 .modal .actions {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     justify-content: flex-end;
+    padding-top: 10px;
 }
 
 .btn--ghost {
     background: transparent;
-    color: #d0d0d0;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    padding: 9px 12px;
-    border-radius: 8px;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    padding: 10px 16px;
+    border-radius: 9999px; /* Pill shape for modal buttons */
     font-weight: 600;
+    transition: background .15s ease, color .15s ease;
+}
+
+.btn--ghost:hover {
+    background: var(--hover-bg);
+    color: var(--text-color);
 }

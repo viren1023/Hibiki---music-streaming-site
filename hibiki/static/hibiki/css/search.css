@@ -1,53 +1,80 @@
+/* --- Search Box --- */
 .search-box {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
     position: relative;
     width: 60%;
-    margin: auto;
+    max-width: 700px; /* Cap the max width for better structure */
+    margin: 40px auto 30px auto;
 }
 
 .search-box input {
     width: 100%;
-    padding: 14px 20px;
-    border-radius: 25px;
-    border: none;
+    padding: 15px 25px; /* Slightly more padding */
+    border-radius: 30px; /* Smoother radius */
+    border: 1px solid #333; /* Subtle border */
     outline: none;
-    font-size: 16px;
-    background: #111;
-    color: #fff;
+    font-size: 17px;
+    background: #181818; /* Consistent with element-bg */
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: var(--primary-color);
+    box-shadow: var(--focus-glow); /* Apply the purple glow on focus */
 }
 
 .search-box button {
-    display: none;
+    display: none; /* Keep button hidden */
 }
 
+/* --- Suggestions Dropdown --- */
 #suggestions {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: #111;
-    border-radius: 25px;
+    background: #181818; /* Match input background */
+    border-radius: 15px; /* Rounded box, slightly less than input ends */
     max-height: 250px;
     overflow-y: auto;
-    margin-top: 4px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    margin-top: 6px; /* More space from input */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); /* Deeper shadow */
+    list-style: none; /* Remove list bullets */
+    padding: 0;
     z-index: 1000;
 }
 
 #suggestions li {
-    padding: 12px 20px;
+    padding: 14px 25px;
     cursor: pointer;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #282828; /* Lighter separator */
+    color: var(--text-color);
+    transition: background-color 0.2s ease;
+}
+/* Remove border from the last item */
+#suggestions li:last-child {
+    border-bottom: none;
 }
 
 #suggestions li:hover,
 #suggestions li.active {
-    background-color: #333;
+    background-color: var(--hover-bg);
 }
 
-/* Results */
+/* --- Results List --- */
+h5 {
+    font-family: "Baloo 2", cursive;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
 .results {
     margin-top: 30px;
 }
@@ -56,66 +83,89 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* pushes info left, button right */
-    gap: 10px;
-    align-items: center;
-    background: #111;
-    margin-bottom: 15px;
-    padding: 10px;
+    gap: 20px;
+    background: var(--element-bg); /* Use theme variable */
+    margin-bottom: 10px; /* Less space between items */
+    padding: 12px 15px;
     border-radius: 10px;
+    transition: background 0.2s ease;
 }
 
 .result-item:hover {
-    background: #1e1e1e;
+    background: var(--hover-bg);
     cursor: pointer;
 }
 
 .result-item img {
-    width: 60px;
-    height: 60px;
-    border-radius: 8px;
-    margin-right: 15px;
+    width: 50px; /* Slightly smaller thumbnail for a refined look */
+    height: 50px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0; /* Prevents image from shrinking */
 }
 
 .result-info {
     flex: 1;
+    min-width: 0; /* Allows text to ellipsis properly */
 }
 
 .result-title {
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    /* Ensure text doesn't wrap awkwardly in tight spaces */
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .result-sub {
-    font-size: 13px;
-    color: #aaa;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Mix grid for moods */
+/* --- Explore Section (Moods) --- */
+.explore-section {
+    margin-top: 50px;
+}
+
 .mix-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
+    /* Adjusted repeat to allow slightly wider cards */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
     margin-top: 20px;
 }
 
 .mix-card {
-    background: #1e1e1e;
-    border-radius: 8px;
-    padding: 15px 20px;
-    font-weight: 600;
-    font-size: 1rem;
+    background: var(--element-bg);
+    border-radius: 12px; /* Smoother corners */
+    padding: 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
     color: #fff;
     display: flex;
     align-items: center;
-    height: 60px;
+    height: 70px; /* Slightly taller for more presence */
     cursor: pointer;
-    transition: transform 0.2s ease, background 0.2s ease;
-    border-left: 6px solid #555;
-    /* default, will be overridden */
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    /* Use the variable for the color border */
+    border-left: 8px solid var(--mood-color, #A855F7); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .mix-card:hover {
-    transform: scale(1.05);
-    background: #2a2a2a;
+    transform: translateY(-3px); /* Subtle lift instead of scale */
+    background: var(--hover-bg);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Dot Menu Container (3-dot menu) --- */
+.dotmenu-container {
+    position: relative;
+    flex-shrink: 0;
+    margin-left: auto; /* Pushes the menu to the far right */
 }

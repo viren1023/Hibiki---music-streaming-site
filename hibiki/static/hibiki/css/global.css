@@ -43,7 +43,7 @@
     --hover-bg: #2a2a2a;
     --border-color: #333333;
     --focus-glow: 0 0 0 3px rgba(168, 85, 247, 0.3);
-    /* Glow for interactive elements */
+    --primary-dark: #7c3aed;
 }
 
 body,
