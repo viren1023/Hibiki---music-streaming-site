@@ -1,33 +1,33 @@
 {% extends "Sidebar.html" %} {% block content %}
 
-<h2>Ready to play some song, {{ username }} 👋</h2>
+<header class="page-header">
+    <h2>Ready to play some song, <span class="username-highlight">{{ username }}</span> 👋</h2>
+</header>
 
 <h3>{{ title.1 }}</h3>
 <div class="grid grid-4">
   {% for item in section1 %}
   <div class="card" onclick="fetch_data('{{ item.type }}','{{ item.id }}')">
-    <img src="{{ item.img }}" alt="{{ item.title }}" />
-    <div class="overlay">
+    <img src="{{ item.img }}" alt="{{ item.title }}" loading="lazy" />
+    <div class="card-title-overlay">
       <h4>{{ item.title }}</h4>
     </div>
   </div>
   {% endfor %}
 </div>
 
-<!-- Recommendations -->
 <h3>{{ title.2 }}</h3>
 <div class="grid grid-3">
   {% for item in section2 %}
   <div class="card" onclick="fetch_data('{{ item.type }}','{{ item.id }}')">
-    <img src="{{ item.img }}" alt="{{ item.title }}" />
-    <div class="overlay">
+    <img src="{{ item.img }}" alt="{{ item.title }}" loading="lazy" />
+    <div class="card-title-overlay">
       <h4>{{ item.title }}</h4>
     </div>
   </div>
   {% endfor %}
 </div>
 
-<!-- Popular Songs -->
 <h3>{{ title.0 }}</h3>
 <div class="quick-picks">
   {% for item in section3 %}
@@ -35,7 +35,7 @@
     class="song-card"
     onclick="fetch_data('{{ item.type }}','{{ item.id }}')"
   >
-    <img src="{{ item.img }}" alt="{{ item.artist }}" />
+    <img src="{{ item.img }}" alt="{{ item.artist }}" loading="lazy" />
     <div class="song-info">
       <p class="song-title">{{ item.title }}</p>
       <p class="song-artist">{{ item.artist }}</p>

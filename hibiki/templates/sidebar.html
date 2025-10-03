@@ -1,52 +1,113 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Hibiki</title>
-    <link rel="stylesheet" href="{% static 'hibiki/css/global.css' %}">
-    <link rel="stylesheet" href="{% static 'hibiki/css/home.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hibiki Music</title>
+    <link rel="stylesheet" href="{% static 'hibiki/css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'hibiki/css/home.css' %}" />
     <script src="{% static 'hibiki/js/isUser.js' %}"></script>
     <script src="{% static 'hibiki/js/showToast.js' %}"></script>
-    <link rel="icon" type="image/ico" href="{% static 'hibiki/favicon.ico' %}">
-</head>
+    <link
+      rel="icon"
+      type="image/ico"
+      href="{% static 'hibiki/favicon.ico' %}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body class="home-page">
-    <!-- Sidebar (always visible) -->
-    <aside style="z-index: 999;">
-        <div>
-            <h1>Hibiki</h1>
-            <nav class="side-navbar">
-                <a href="{% url 'home' %}"><img src="https://img.icons8.com/ios-filled/50/ffffff/home--v1.png"
-                        alt="Home" loading="lazy" /> Home</a>
-                <a href="{% url 'search' %}"><img src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png" alt="Search"
-                        loading="lazy" /> Search</a>
-                {% comment %} <a href="{% url 'player' %}"><img src="https://img.icons8.com/?size=100&id=JYi8olc3mrka&format=png&color=ffffff" alt="Liked Songs"
-                        loading="lazy" /> player</a> {% endcomment %}
-                <a href="{% url 'myPlaylist' %}"><img src="https://img.icons8.com/ios-filled/50/ffffff/plus-math--v1.png" alt="New Playlist"
-                        loading="lazy" /> My Playlist</a>
-                {% comment %} <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/like--v1.png" alt="Liked Songs"
-                        loading="lazy" /> Liked Songs</a> {% endcomment %}
-            </nav>
-        </div>
-        <div class="bottom">
-            <a href="{% url 'setting' %}"><img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png" alt="Settings"
-                    loading="lazy" /> Settings</a>
-            <a href="{% url 'logout' %}" onclick="sessionStorage.clear();" ><img
-                    src="https://img.icons8.com/?size=200&id=vGj0AluRnTSa&format=png&color=ffffff" alt="Logout"
-                    loading="lazy" /> Log out</a>
-        </div>
+  <body class="home-page">
+    <aside>
+      <div>
+        <h1 class="logo">🎧 Hibiki</h1>
+        <nav class="side-navbar">
+          {% url 'home' as home_url %}
+          <a
+            href="{{ home_url }}"
+            class="nav-link {% if request.path == home_url %}active{% endif %}"
+          >
+            <img
+              src="https://img.icons8.com/ios-filled/50/ffffff/home--v1.png"
+              alt="Home"
+              loading="lazy"
+            />
+            Home
+          </a>
+          {% url 'search' as search_url %}
+          <a
+            href="{{ search_url }}"
+            class="nav-link {% if request.path == search_url %}active{% endif %}"
+          >
+            <img
+              src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png"
+              alt="Search"
+              loading="lazy"
+            />
+            Search
+          </a>
+        </nav>
+
+        <nav class="library-navbar">
+          <h2 class="library-header">Your Library</h2>
+          {% url 'myPlaylist' as playlist_url %}
+          <a
+            href="{{ playlist_url }}"
+            class="nav-link {% if request.path == playlist_url %}active{% endif %}"
+          >
+            <img
+              src="https://img.icons8.com/ios-filled/50/ffffff/plus-math--v1.png"
+              alt="New Playlist"
+              loading="lazy"
+            />
+            Create Playlist
+          </a>
+          {% comment %} <a
+            href="{{ playlist_url }}"
+            class="nav-link"
+          >
+            <img
+              src="https://img.icons8.com/ios-filled/50/ffffff/like--v1.png"
+              alt="Liked Songs"
+              loading="lazy"
+            />
+            Liked Songs
+          </a> {% endcomment %}
+        </nav>
+      </div>
+      <div class="bottom">
+        {% url 'setting' as setting_url %}
+        <a
+          href="{{ setting_url }}"
+          class="nav-link {% if request.path == setting_url %}active{% endif %}"
+        >
+          <img
+            src="https://img.icons8.com/ios-filled/50/ffffff/settings.png"
+            alt="Settings"
+            loading="lazy"
+          />
+          Settings
+        </a>
+        {% url 'logout' as logout_url %}
+        <a
+          href="{{ logout_url }}"
+          onclick="sessionStorage.clear();"
+          class="nav-link logout-link {% if request.path == logout_url %}active{% endif %}"
+        >
+          <img
+            src="https://img.icons8.com/?size=200&id=vGj0AluRnTSa&format=png&color=ffffff"
+            alt="Logout"
+            loading="lazy"
+          />
+          Log out
+        </a>
+      </div>
     </aside>
 
-    <!-- Main content -->
-    <main class="main-section">
-        {% block content %}{% endblock %}
-    </main>
+    <main class="main-section">{% block content %}{% endblock %}</main>
 
-    {% comment %} <div id="music-player"></div> {% endcomment %}
-    {% include 'player1.html' %}
-    {% include "partials/loginPrompt.html" %}
-</body>
-
+    {% include 'player1.html' %} {% include "partials/loginPrompt.html" %}
+  </body>
 </html>

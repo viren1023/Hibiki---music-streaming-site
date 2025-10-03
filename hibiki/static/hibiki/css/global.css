@@ -1,41 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap");
 
 /* For Chrome, Edge, Safari */
 ::-webkit-scrollbar {
-    width: 6px;              /* Thin scrollbar */
+    width: 8px;
+    /* Slightly wider */
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent; /* Transparent background */
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #1e1e1e; /* Dark scrollbar bar */
-    border-radius: 3px;        /* Rounded edges for a clean look */
+    background-color: #333;
+    /* Darker bar */
+    border-radius: 4px;
 }
 
 /* Hover effect (optional) */
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #2a2a2a;
+    background-color: #555;
 }
 
 /* For Firefox */
 * {
-    scrollbar-width: thin;          /* Thin scrollbar */
-    scrollbar-color: #1e1e1e transparent; /* bar color + track color */
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
 }
 
-/* --- Global Theme Setup (Assuming a Dark App Theme) --- */
+/* --- Global Theme Setup (Using Inter for UI and Baloo 2 for feature/titles) --- */
 :root {
-    --primary-color: #00bcd4; /* Vibrant Cyan/Aqua for highlights (Music/Synth feel) */
-    --text-color: #e0e0e0; /* Light text on dark background */
-    --text-muted: #a0a0a0; /* Secondary text/labels */
-    --background-dark: #0a0a0a; /* Very dark background */
-    --element-bg: #1c1c1c; /* Slightly lighter background for containers/lists */
-    --hover-bg: #2a2a2a; /* Hover state background */
-    --border-color: #333333; /* Subtle dividing lines */
-    --focus-glow: 0 0 10px rgba(0, 188, 212, 0.6); /* Glow for interactive elements */
-}   
+    --primary-color: #A855F7;
+    /* Using Purple for a modern, distinct music app feel */
+    --primary-hover: #9333ea;
+    --text-color: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --background-dark: #000;
+    --element-bg: #181818;
+    /* Main UI element background */
+    --sidebar-bg: #0a0a0a;
+    /* Deepest black for the sidebar */
+    --hover-bg: #2a2a2a;
+    --border-color: #333333;
+    --focus-glow: 0 0 0 3px rgba(168, 85, 247, 0.3);
+    /* Glow for interactive elements */
+}
 
 body,
 html {
@@ -43,23 +52,35 @@ html {
     padding: 0;
     height: 100%;
     box-sizing: border-box;
-    color: #fff;
-    font-family: "Baloo 2", cursive, sans-serif;
+    color: var(--text-color);
+    /* Default font set to Inter for general UI readability */
+    font-family: "Inter", sans-serif;
 }
 
 .home-page {
-    background-color: #000;
+    background-color: var(--background-dark);
+}
+
+/* --- Utility Classes --- */
+
+/* Utility for section titles */
+.page-header h2 {
+    font-family: "Baloo 2", cursive;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.username-highlight {
+    color: var(--primary-color);
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    /* Removed the global overlay to rely on card-specific overlays */
+    display: none;
 }
 
+/* Login/Register Page Background */
 .register-page,
 .login-page {
     margin: 0;
@@ -73,8 +94,6 @@ html {
     position: relative;
     /* background: rgba(0, 0, 0, 0.6); */
 }
-
-
 
 .register-page::before,
 .login-page::before {
@@ -91,23 +110,23 @@ html {
 }
 
 /* TOAST STYLE */
-
 .toast {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #333;
-  color: #fff;
-  padding: 12px 18px;
-  border-radius: 6px;
-  font-size: larger;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 1000;
-  width: 400px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #333;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: larger;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    width: 400px;
 }
+
 .toast.show {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
