@@ -1,60 +1,95 @@
-.feedbackForm{
+.feedbackForm {
   width: 100%;
 }
+
 .feedback-page {
-  width: 500px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #111; /* dark background */
-  border-radius: 10px;
-  color: #fff;
+  width: 100%;
+  max-width: 550px;
+  /* Slightly wider max-width */
+  margin: 50px auto;
+  /* More vertical margin */
+  padding: 30px;
+  /* More internal padding */
+  background: var(--element-bg);
+  border-radius: 12px;
+  /* Smoother corners */
+  color: var(--text-color);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  /* Deep shadow for focus */
 }
 
 .feedback-page h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: 600;
-  color: #a259ff; /* purple accent */
-  border-bottom: 1px solid #2a2a2a;
-  padding-bottom: 10px;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  /* Larger, more dominant heading */
+  font-weight: 700;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  /* Stronger accent line */
+  padding-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.required {
+  color: var(--primary-color);
+  margin-left: 2px;
+  font-weight: 700;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  /* Increased space between groups */
   display: flex;
   flex-direction: column;
 }
 
 .form-group label {
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  /* More space between label and input */
+  font-size: 0.95rem;
+  color: var(--text-color);
 }
 
 .form-group input,
 .form-group textarea {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  background: #222;
-  color: #fff;
-  font-size: 14px;
+  padding: 12px 15px;
+  /* Increased padding */
+  border-radius: 8px;
+  /* Smoother radius */
+  border: 1px solid var(--border-color);
+  /* Subtle default border */
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all 0.2s ease;
 }
 
 input:focus,
 textarea:focus {
-  outline: 2px solid #a259ff;
+  outline: none;
+  /* Remove default outline */
+  border-color: var(--primary-color);
+  box-shadow: var(--focus-glow);
+  /* Smooth purple glow */
+  background: #111111;
+  /* Slightly darker on focus */
 }
 
 textarea {
-  resize: none;
-  height: 80px;
+  resize: vertical;
+  /* Allow vertical resizing, but not horizontal */
+  height: 120px;
+  /* Taller message box */
 }
 
-/* Star Rating */
+/* --- Star Rating --- */
 .stars {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: flex-start;
+  /* Align stars to the left */
+  gap: 5px;
 }
 
 .stars input {
@@ -62,38 +97,59 @@ textarea {
 }
 
 .stars label {
-  font-size: 24px;
-  color: #444;
+  font-size: 32px;
+  /* Larger stars */
+  color: var(--border-color);
+  /* Darker initial color */
   cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.1s;
+  margin-right: 2px;
+  /* Small gap between stars */
 }
 
-.stars input:checked ~ label {
-  color: #a259ff;
+.stars label:active {
+  transform: scale(0.95);
+}
+
+.stars input:checked~label {
+  color: var(--primary-color);
 }
 
 .stars label:hover,
-.stars label:hover ~ label {
-  color: #a259ff;
+.stars label:hover~label {
+  color: var(--primary-color);
 }
 
-/* Submit Button */
+
+/* --- Submit Button --- */
 .submit-btn {
   width: 100%;
-  padding: 12px 15px;
-  background: #a259ff;
+  padding: 14px 15px;
+  /* Taller padding */
+  background: var(--primary-color);
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 9999px;
+  /* Pill shape */
+  font-size: 1.1rem;
+  /* Larger text */
+  font-weight: 700;
+  color: #fff;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(162, 89, 255, 0.25);
 }
 
 .submit-btn:hover {
-  background: #8e44ad;
+  background: var(--primary-hover);
+  box-shadow: 0 6px 20px rgba(162, 89, 255, 0.4);
 }
 
-/* Modal */
+.submit-btn:active {
+  transform: translateY(1px);
+}
+
+/* --- Modal --- */
 .modal {
   display: none;
   position: fixed;
@@ -102,44 +158,67 @@ textarea {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.8);
+  /* Darker backdrop */
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Class to make modal visible with smooth fade-in */
+.modal.open {
+  display: flex;
+  opacity: 1;
 }
 
 .modal-content {
-  background: #1a1a1a;
-  padding: 25px 30px;
-  border-radius: 10px;
+  background: var(--element-bg);
+  padding: 30px 40px;
+  /* Increased padding */
+  border-radius: 12px;
   text-align: center;
   width: 90%;
-  max-width: 350px;
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  max-width: 400px;
+  /* Slightly wider content */
+  color: var(--text-color);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  /* Initial state for smooth transition */
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
 }
 
+.modal.open .modal-content {
+  transform: translateY(0);
+}
+
+
 .modal-content h3 {
-  color: #a259ff;
-  margin-bottom: 10px;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
 .modal-content p {
-  font-size: 14px;
-  color: #bbb;
-  margin-bottom: 20px;
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 25px;
 }
 
 .close-btn {
-  background: #a259ff;
+  background: var(--primary-color);
   border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-size: 14px;
+  padding: 12px 25px;
+  border-radius: 9999px;
+  /* Pill shape */
+  font-size: 1rem;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 .close-btn:hover {
-  background: #8e44ad;
+  background: var(--primary-hover);
 }

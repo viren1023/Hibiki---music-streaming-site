@@ -1,70 +1,215 @@
+
+/* --- Playlist Header (Top Section) --- */
 .playlist-header {
     display: flex;
-    align-items: center;
-    padding: 20px;
+    align-items: flex-end; /* Align image and info to the bottom */
+    gap: 30px;
+    padding: 30px;
+    padding-top: 80px; /* Extra padding for visual weight */
+    color: #fff;
+    /* Use a dominant color variable if available, otherwise use a default dark fade */
+    background: linear-gradient(180deg, rgba(30, 0, 50, 0.8), var(--background-dark) 80%); 
+    /* width: 100%; */
+    top: 0;
+    z-index: 50;
+    margin-bottom: 20px;
 }
 
 .playlist-header img {
-    width: 200px;
-    height: 200px;
-    border-radius: 8px;
-    margin-right: 20px;
+    width: 230px; /* Slightly larger, prominent image */
+    height: 230px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7); /* Deep shadow */
+    flex-shrink: 0;
+}
+
+.playlist-info p:first-child {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin-bottom: 5px;
 }
 
 .playlist-info h1 {
-    font-size: 48px;
-    margin: 0;
+    font-size: 3.5rem; /* Large, impressive title */
+    margin: 0 0 10px 0;
+    line-height: 1.1;
+    font-weight: 900;
 }
 
 .playlist-info p {
-    color: #b3b3b3;
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin: 5px 0;
 }
 
-.tracks {
-    margin: 20px;
+.playlist-info p:last-child {
+    /* Author, count, duration line */
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* --- Action Button --- */
+.play-btn {
+    background: var(--success-color);
+    color: var(--background-dark); /* Dark text on bright background */
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    line-height: 1;
     cursor: pointer;
+    margin: 0 0 20px 30px; /* Positioned below the header, left-aligned */
+    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
+    transition: transform 0.15s ease, background 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.play-btn:hover {
+    background: #1ed760; /* Slightly brighter green */
+    transform: scale(1.05);
+}
+.play-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* --- Tracks Table --- */
+.tracks {
+    margin: 0 30px;
+    padding-bottom: 120px; /* Room for the player bar */
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    color: #b3b3b3;
-}
-
-th,
-td {
-    padding: 12px;
-    border-bottom: 1px solid #282828;
-    text-align: left;
-}
-
-.track-img-title-info{
-    display: flex;
-    align-items: center;
-    gap: 10px
+    color: var(--text-muted);
 }
 
 th {
-    color: #fff;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+    color: var(--text-color);
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #1a1a1a; /* Very faint line between tracks */
+    text-align: left;
+    transition: background 0.15s ease;
+}
+
+/* Table Column Widths */
+table colgroup {
+    display: table-column-group;
+}
+table col:nth-child(1) { width: 5%; } /* # */
+table col:nth-child(2) { width: 45%; } /* Title */
+table col:nth-child(3) { width: 35%; } /* Artist */
+table col:nth-child(4) { width: 10%; } /* Duration */
+table col:nth-child(5) { width: 5%; } /* Menu */
+
+tr {
+    cursor: pointer;
 }
 
 tr:hover {
-    background: #1e1e1e;
+    background: #18181892; /* Darker hover background */
+    color: var(--text-color);
+}
+
+/* Highlight the title and image column */
+.track-img-title-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #fff; /* Title is brighter */
 }
 
 .track-img {
-    width: 50px;
-    height: 50px;
+    width: 40px; /* Smaller, neater thumbnail */
+    height: 40px;
     border-radius: 4px;
+    object-fit: cover;
 }
 
-.play-btn {
-    background: #1db954;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 50%;
-    font-size: 24px;
+.track-title {
+    font-weight: 600;
+    /* Optional: Hide long titles with ellipsis */
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Duration Column */
+td:nth-child(4) {
+    color: var(--text-muted);
+}
+/* Artist Column */
+td:nth-child(3) {
+    color: var(--text-muted);
+}
+
+
+/* --- Dot Menu Integration --- */
+.dotmenu-container {
+    position: relative;
+    /* You need to ensure the dotmenu-container is aligned correctly in the table cell */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Hide the menu button by default, only show on row hover */
+tr .dotmenu-btn {
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+tr:hover .dotmenu-btn {
+    opacity: 1;
+}
+
+/* Adjust the menu dropdown to appear correctly over the table */
+.dotmenu {
+    position: absolute;
+    top: 50%; /* Position near the click location */
+    right: 10px;
+    transform: translateY(-50%);
+    background: #282828; /* Solid dark background */
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+    z-index: 500;
+    min-width: 150px;
+    display: none;
+    padding: 5px 0;
+}
+.dotmenu.open {
+    display: block;
+}
+
+.dotmenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dotmenu li {
+    padding: 10px 15px;
     cursor: pointer;
-    margin: 20px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.dotmenu li:hover {
+    background: var(--hover-bg);
 }

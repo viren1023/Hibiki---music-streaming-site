@@ -1,94 +1,126 @@
-/* Page Centering */
-.report-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0d0d0d, #1a001f);
-  font-family: 'Inter', sans-serif;
+/* Theme Variables (Assuming these are available or set here) */
+:root {
+    --primary-color: #A259FF; /* Purple Accent */
+    --primary-hover: #8E44AD; /* Darker Purple */
+    --text-color: #E0E0E0;
+    --text-muted: #A0A0A0;
+    --background-dark: #0A0A0A; /* Deeper background */
+    --element-bg: #1A1A1A; /* Card background */
+    --input-bg: #222222;
+    --border-color: #333333;
+    --focus-glow: 0 0 0 3px rgba(162, 89, 255, 0.4);
 }
 
-/* Card */
+/* --- Page Centering & Container --- */
+/* Note: Since this view extends 'Sidebar.html', min-height: 100vh on .report-wrapper 
+   might push content below the fold if the sidebar context is too tall. 
+   We'll use margin: auto instead of min-height to ensure it centers within the content area. */
+.report-wrapper {
+    display: flex;
+    justify-content: center;
+    /* Removed align-items: center; and min-height: 100vh; */
+    padding: 40px 20px; /* Add internal padding */
+    background: transparent; /* Assuming the global glow effect will show through */
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Card --- */
 .report-card {
-  width: 100%;
-  max-width: 450px;
-  background: #1a1a1a;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-  color: #fff;
+    width: 100%;
+    max-width: 500px; /* Slightly wider card */
+    background: var(--element-bg);
+    padding: 35px; /* Increased internal padding */
+    border-radius: 16px; /* Smoother corners */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7); /* Deep, clear shadow */
+    color: var(--text-color);
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border */
 }
 
 .report-card h2 {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #a259ff; /* Purple heading */
+    font-size: 2rem; /* Larger, more dominant heading */
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: var(--primary-color); 
+    line-height: 1.2;
 }
 
 .report-card .subtitle {
-  font-size: 14px;
-  color: #bbb;
-  margin-bottom: 25px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color); /* Add separation line */
+}
+.required {
+    color: #f94144; /* Use a soft red for required marker */
+    font-weight: 700;
 }
 
-/* Form */
+/* --- Form --- */
 .form-group {
-  margin-bottom: 18px;
-  display: flex;
-  flex-direction: column;
+    margin-bottom: 25px; /* Increased space between groups */
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group label {
-  font-weight: 500;
-  font-size: 14px;
-  margin-bottom: 6px;
-  color: #ddd;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
 }
 
 .form-group input,
 .form-group textarea {
-  padding: 10px 12px;
-  border-radius: 6px;
-  border: 1px solid #333;
-  background: #2a2a2a;
-  color: #fff;
-  font-size: 14px;
-  transition: border 0.2s, box-shadow 0.2s;
+    padding: 12px 15px; /* Increased padding */
+    border-radius: 8px; /* Smoother radius */
+    border: 1px solid var(--border-color);
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.2s ease;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #888;
+    color: #888;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #a259ff;
-  box-shadow: 0 0 0 3px rgba(162,89,255,0.25);
-  outline: none;
+    border-color: var(--primary-color);
+    box-shadow: var(--focus-glow);
+    background: #1e1e1e; /* Subtle change on focus */
+    outline: none;
 }
 
 .help-text {
-  font-size: 12px;
-  color: #888;
-  margin-top: 5px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+    padding-left: 2px;
 }
 
-/* Button */
+/* --- Button --- */
 .submit-btn {
-  width: 100%;
-  background: #a259ff;
-  border: none;
-  padding: 12px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.25s ease;
+    width: 100%;
+    background: var(--primary-color);
+    border: none;
+    padding: 14px;
+    border-radius: 9999px; /* Pill shape */
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.1s;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(162, 89, 255, 0.25);
 }
 
 .submit-btn:hover {
-  background: #8e44ad;
+    background: var(--primary-hover);
+    box-shadow: 0 6px 20px rgba(162, 89, 255, 0.4);
+}
+.submit-btn:active {
+    transform: translateY(1px);
 }
