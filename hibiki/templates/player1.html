@@ -257,10 +257,11 @@
   function updateTimerUI(seconds) {
     currentTimeEl.textContent = formatTime(seconds)
   }
-  function updateProgressBar(percentOrSeconds) {
-    progress.value = percentOrSeconds // depending on your slider logic
-  }
-
+ function updateProgressBar(percentOrSeconds) {
+    progress.value = percentOrSeconds 
+    const progressPercent = percentOrSeconds 
+    progress.style.setProperty('--progress', `${progressPercent}%`);
+}
   function loadTrackByData(track, autoplay = false) {
     if (!track) return
 
@@ -639,10 +640,20 @@
   /* Audio Events */
   audio.addEventListener("timeupdate", () => {
     if (!isNaN(audio.duration)) {
-      progress.value = (audio.currentTime / audio.duration) * 100
-      currentTimeEl.textContent = formatTime(audio.currentTime)
+        // 1. Calculate the percentage (0 to 100)
+        const progressPercent = (audio.currentTime / audio.duration) * 100;
+        
+        // 2. Update the actual slider value
+        progress.value = progressPercent;
+        
+        // 3. CRITICAL FIX: Update the CSS Custom Property for the fill color
+        // This is what makes the CSS linear-gradient appear colored.
+        progress.style.setProperty('--progress', `${progressPercent}%`);
+        
+        // 4. Update the current time display
+        currentTimeEl.textContent = formatTime(audio.currentTime);
     }
-  })
+})
   audio.addEventListener("loadedmetadata", () => {
     durationEl.textContent = formatTime(audio.duration)
   })

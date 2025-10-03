@@ -5,6 +5,7 @@ from django.conf import settings
 from django.urls import path
 
 urlpatterns = [
+    path('logo.png', RedirectView.as_view(url=settings.STATIC_URL + 'hibiki/logo.png')),
     path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'hibiki/favicon.ico')),
     path("", views.landing_view, name="landing"),
     path("login/", views.login_view, name="login"),

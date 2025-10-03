@@ -1,8 +1,10 @@
 /* --- Sidebar --- */
 aside {
-    width: 220px; /* Wider sidebar for a more modern look */
+    width: 210px;
+    /* Wider sidebar for a more modern look */
     background-color: var(--sidebar-bg);
-    padding: 20px 0 20px 20px; /* Only left padding */
+    padding: 20px 0 20px 20px;
+    /* Only left padding */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -11,20 +13,34 @@ aside {
     left: 0;
     bottom: 0;
     z-index: 999;
-    border-right: 1px solid #1e1e1e; /* Subtle separator */
+    border-right: 1px solid #1e1e1e;
+    /* Subtle separator */
 }
 
 .logo {
     font-family: "Baloo 2", cursive;
-    font-size: 2rem;
+    font-size: 2.6rem;
     font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 30px;
     padding-right: 20px;
-    color: var(--primary-color); /* Highlight the logo */
+    color: var(--primary-color);
+    /* Highlight the logo */
 }
 
-.side-navbar, .library-navbar, aside .bottom {
-    padding-right: 20px; /* Right padding to align text with main content */
+.logo-img {
+    height: 60px;
+    /* adjust size */
+    width: auto;
+}
+
+.side-navbar,
+.library-navbar,
+aside .bottom {
+    padding-right: 20px;
+    /* Right padding to align text with main content */
 }
 
 .library-header {
@@ -40,24 +56,28 @@ aside {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 10px; /* Padding for hover area */
+    padding: 10px 10px;
+    /* Padding for hover area */
     margin-bottom: 5px;
     text-decoration: none;
     color: var(--text-color);
     transition: background 0.2s ease, color 0.2s ease;
     font-size: 1rem;
     font-weight: 600;
-    border-radius: 8px; /* Smoother corners on hover state */
+    border-radius: 8px;
+    /* Smoother corners on hover state */
 }
 
 /* --- NEW STYLES FOR IMAGE ICONS --- */
 .nav-link img {
-    width: 24px; /* Set the desired icon size */
+    width: 24px;
+    /* Set the desired icon size */
     height: 24px;
     object-fit: contain;
     flex-shrink: 0;
     /* You might need to adjust the margin if the image has inherent padding */
 }
+
 /* ----------------------------------- */
 
 
@@ -72,37 +92,41 @@ aside {
 }
 
 .logout-link {
-    color: #ff6b6b; /* Red accent for destructive action */
+    color: #ff6b6b;
+    /* Red accent for destructive action */
 }
 
 /* Main content */
 .main-section {
     flex: 1;
-    padding: 30px; 
-    margin-left: 220px; 
-    padding-bottom: 120px; 
+    padding: 30px;
+    margin-left: 220px;
+    padding-bottom: 120px;
     background-color: transparent;
-    position: relative; 
-    z-index: 1; 
+    position: relative;
+    z-index: 1;
 }
 
 .main-section::before {
     content: '';
     position: fixed;
-    top: -250px; /* Shifted slightly higher */
-    right: -250px; /* Shifted slightly right */
-    background: radial-gradient(
-        circle at center,
-        /* Significantly increased opacity for the primary accent color */
-        rgba(168, 85, 247, 0.6) 0%, /* Purple glow now 60% opacity */
-        rgba(0, 0, 0, 0) 70% /* Increased fade distance */
-    );
+    top: -250px;
+    /* Shifted slightly higher */
+    right: -250px;
+    /* Shifted slightly right */
+    background: radial-gradient(circle at center,
+            /* Significantly increased opacity for the primary accent color */
+            rgba(168, 85, 247, 0.6) 0%,
+            /* Purple glow now 60% opacity */
+            rgba(0, 0, 0, 0) 70%
+            /* Increased fade distance */
+        );
     /* Larger dimensions to cover more screen area */
-    width: 1000px; 
+    width: 1000px;
     height: 1000px;
-    z-index: -1; 
+    z-index: -1;
     /* Heavy blur to keep it soft and atmospheric */
-    filter: blur(200px); 
+    filter: blur(200px);
     pointer-events: none;
     animation: pulseGlow 15s infinite alternate ease-in-out;
 }
@@ -111,19 +135,20 @@ aside {
 .main-section::after {
     content: '';
     position: fixed;
-    bottom: -150px; /* Shifted lower */
-    left: 180px; /* Closer to the sidebar */
-    background: radial-gradient(
-        circle at center,
-        /* Significantly increased opacity for the secondary color */
-        rgba(0, 188, 212, 0.4) 0%, /* Cyan glow now 40% opacity */
-        rgba(0, 0, 0, 0) 60%
-    );
+    bottom: -150px;
+    /* Shifted lower */
+    left: 180px;
+    /* Closer to the sidebar */
+    background: radial-gradient(circle at center,
+            /* Significantly increased opacity for the secondary color */
+            rgba(0, 188, 212, 0.4) 0%,
+            /* Cyan glow now 40% opacity */
+            rgba(0, 0, 0, 0) 60%);
     /* Larger dimensions */
-    width: 800px; 
+    width: 800px;
     height: 800px;
     z-index: -1;
-    filter: blur(160px); 
+    filter: blur(160px);
     pointer-events: none;
     animation: pulseGlowReverse 12s infinite alternate ease-in-out;
 }
@@ -134,16 +159,19 @@ aside {
         transform: scale(1);
         opacity: 0.8;
     }
+
     to {
         transform: scale(1.05);
         opacity: 1;
     }
 }
+
 @keyframes pulseGlowReverse {
     from {
         transform: scale(1.05);
         opacity: 1;
     }
+
     to {
         transform: scale(1);
         opacity: 0.8;
@@ -161,11 +189,13 @@ aside {
 /* --- Grids and Cards --- */
 .grid {
     display: grid;
-    grid-gap: 20px; /* Increased gap */
+    grid-gap: 20px;
+    /* Increased gap */
 }
 
 .grid-4 {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* Responsive grid */
 }
 
 .grid-3 {
@@ -176,21 +206,25 @@ aside {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* Subtle shadow for depth */
     cursor: pointer;
-    background: var(--element-bg); /* Give card a solid BG */
+    background: var(--element-bg);
+    /* Give card a solid BG */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Lift effect */
+    transform: translateY(-5px);
+    /* Lift effect */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
 }
 
 
 .card img {
     width: 100%;
-    height: 150px; /* Slightly taller images */
+    height: 150px;
+    /* Slightly taller images */
     object-fit: cover;
     transition: opacity 0.3s ease;
 }
@@ -199,7 +233,8 @@ aside {
 .card-title-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 50%); /* Gradient from bottom */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 50%);
+    /* Gradient from bottom */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -216,8 +251,10 @@ aside {
 /* --- Quick Picks (Song Cards) --- */
 .quick-picks {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Use auto-fit for responsive rows */
-    gap: 15px; /* Consistent gap */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Use auto-fit for responsive rows */
+    gap: 15px;
+    /* Consistent gap */
 }
 
 .song-card {
@@ -225,7 +262,8 @@ aside {
     align-items: center;
     gap: 15px;
     background: var(--element-bg);
-    border-radius: 10px; /* Slightly smoother corners */
+    border-radius: 10px;
+    /* Slightly smoother corners */
     padding: 10px 15px;
     transition: background 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -238,7 +276,8 @@ aside {
 }
 
 .song-card img {
-    width: 60px; /* Slightly larger thumbnail */
+    width: 60px;
+    /* Slightly larger thumbnail */
     height: 60px;
     border-radius: 8px;
 }
@@ -248,12 +287,14 @@ aside {
 }
 
 .song-title {
-    font-weight: 700; /* Bolder title */
+    font-weight: 700;
+    /* Bolder title */
     font-size: 16px;
     color: var(--text-color);
 }
 
 .song-artist {
     font-size: 14px;
-    color: var(--text-muted); /* Consistent muted color */
+    color: var(--text-muted);
+    /* Consistent muted color */
 }

@@ -8,7 +8,7 @@
     padding-top: 80px; /* Extra padding for visual weight */
     color: #fff;
     /* Use a dominant color variable if available, otherwise use a default dark fade */
-    background: linear-gradient(180deg, rgba(30, 0, 50, 0.8), var(--background-dark) 80%); 
+    /* background: linear-gradient(180deg, rgba(30, 0, 50, 0.8), var(--background-dark) 80%);  */
     /* width: 100%; */
     top: 0;
     z-index: 50;
