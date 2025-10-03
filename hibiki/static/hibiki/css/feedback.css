@@ -86,8 +86,8 @@ textarea {
 /* --- Star Rating --- */
 .stars {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   /* Align stars to the left */
   gap: 5px;
 }
