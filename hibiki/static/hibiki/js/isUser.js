@@ -1,4 +1,6 @@
 function isUserLoggedIn() {
+  console.log("isUser function used")
+  console.log(document.cookie)
   return document.cookie.split("; ").some(row => row.startsWith("HIBIKI_USERNAME="))
 }
 

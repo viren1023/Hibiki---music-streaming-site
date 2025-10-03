@@ -3,8 +3,9 @@ body {
     margin: 0;
     padding: 0;
     /* Using a modern, clean font, or a fallback */
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif; 
-    overflow: hidden; /* Hide scrollbar on the main body */
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+    /* Hide scrollbar on the main body */
 }
 
 /* --- Hero Section Styling --- */
@@ -18,7 +19,8 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    overflow: hidden; /* Important for containing background effects */
+    overflow: hidden;
+    /* Important for containing background effects */
 }
 
 /* --- Smooth Overlay for Readability --- */
@@ -30,31 +32,38 @@ body {
     z-index: 2;
     color: white;
     /* Add a slight backdrop for the text to improve contrast */
-    padding: 20px 40px; 
+    padding: 20px 40px;
     border-radius: 15px;
 }
 
 .content h1 {
-    font-size: 5.5vw; /* Responsive font size */
-    font-weight: 900; /* Extra bold */
+    font-size: 5.5vw;
+    /* Responsive font size */
+    font-weight: 900;
+    /* Extra bold */
     margin-bottom: 5px;
     letter-spacing: 2px;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Deep shadow */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Deep shadow */
 }
 
 .content p {
-    font-size: 1.5em; /* Larger, more inviting subtitle */
+    font-size: 1.5em;
+    /* Larger, more inviting subtitle */
     color: #c0c0c0;
     margin-bottom: 40px;
-    font-weight: 300; /* Lighter weight for modern look */
+    font-weight: 300;
+    /* Lighter weight for modern look */
 }
 
 /* --- Button Styling --- */
 .btn {
     display: inline-block;
-    padding: 16px 36px; /* Larger hit area */
+    padding: 16px 36px;
+    /* Larger hit area */
     margin: 10px 15px;
-    border-radius: 50px; /* Pill-shaped buttons */
+    border-radius: 50px;
+    /* Pill-shaped buttons */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -65,35 +74,69 @@ body {
 }
 
 .btn-primary {
-    background: #6c47ff; /* Primary accent color */
+    background: #6c47ff;
+    /* Primary accent color */
     color: white;
     border: none;
 }
 
 .btn-primary:hover {
     background: #5938d6;
-    transform: translateY(-2px); /* Lift effect */
+    transform: translateY(-2px);
+    /* Lift effect */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
 }
 
 .btn-secondary {
     /* Changed the secondary button to look like a clean ghost button */
-    padding: 14px 34px; /* Slightly smaller padding to align with primary */
+    padding: 14px 34px;
+    /* Slightly smaller padding to align with primary */
     background: transparent;
     color: white;
     font-size: 1em;
     font-weight: 600;
-    border: 2px solid white; /* White border */
+    border: 2px solid white;
+    /* White border */
     text-decoration: none;
     border-radius: 50px;
-    box-shadow: none; /* Removed shadow for cleaner look */
+    box-shadow: none;
+    /* Removed shadow for cleaner look */
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1); /* Subtle fill on hover */
+    background: rgba(255, 255, 255, 0.1);
+    /* Subtle fill on hover */
     transform: translateY(-1px);
-    border-color: #6c47ff; /* Highlight border with accent color */
+    border-color: #6c47ff;
+    /* Highlight border with accent color */
     color: #6c47ff;
+}
+
+.btn-tertiary {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    /* Spacing from the button above it */
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    /* White text */
+    background-color: transparent;
+    /* No background color */
+    border: 2px solid #ffffff;
+    /* White border */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-tertiary:hover {
+    color: #333333;
+    /* Dark text on hover */
+    background-color: #ffffff;
+    /* White background on hover */
+    border-color: #ffffff;
+    /* Keep border color white */
 }
 
 /* --- Entrance Animation --- */
@@ -103,6 +146,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -112,5 +156,6 @@ body {
 .content {
     /* Apply the animation to the content block */
     animation: fadeIn 1s ease-out 0.5s forwards;
-    opacity: 0; /* Start invisible */
+    opacity: 0;
+    /* Start invisible */
 }

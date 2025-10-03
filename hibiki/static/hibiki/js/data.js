@@ -75,7 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
     e.stopPropagation()
     console.log("playlist addToPlaylistfromplaylist")
 
-    if (!isUserLoggedIn()) {
+    isUser = isUserLoggedIn()
+    console.log("isUser: ", isUser)
+
+    if (!isUser) {
       showLoginPrompt()
       return
     }

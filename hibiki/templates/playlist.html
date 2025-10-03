@@ -71,8 +71,7 @@
         </td>
         <td>
           {% for artist in track.artists %} {{ artist.name }} 
-          {% if not forloop.last %}, {% endif %} 
-          {% endfor %}
+          {% if not forloop.last %}, {% endif %} {% endfor %}
         </td>
         <td>{{ track.duration }}</td>
         <td>
@@ -95,7 +94,11 @@
                 >
                   Add to Playlist
                 </li>
-                <li onclick="event.stopPropagation(); copyShareableLink('{{ track.videoId }}')">Share</li>
+                <li
+                  onclick="event.stopPropagation(); copyShareableLink('{{ track.videoId }}')"
+                >
+                  Share
+                </li>
               </ul>
             </div>
           </div>

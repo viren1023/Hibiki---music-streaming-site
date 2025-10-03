@@ -1,15 +1,9 @@
-/* --- Global & Typography Reset --- */
-
-/* Use the modern 'Inter' font from the link added in HTML */
 body {
     background: #121212;
-    color: #f0f0f0; /* Set a default light color for text */
-    font-family: 'Inter', "Segoe UI", Arial, sans-serif;
-    margin: 0; /* Remove default body margin */
+    color: #f0f0f0;
+    font-family: "Baloo 2", cursive;
     -webkit-font-smoothing: antialiased; /* Better font rendering */
 }
-
-/* --- Sidebar Styling --- */
 
 .sidebar {
     width: 260px; /* Slightly wider sidebar for better look */
@@ -30,12 +24,38 @@ body {
     padding: 0 15px;
 }
 
+.admin-logo {
+    font-family: "Baloo 2", cursive;
+    font-size: 2.6rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    padding-right: 20px;
+    color: var(--primary-color);
+    /* Highlight the logo */
+    text-align: left; /* Aligned logo/title to the left */
+    margin: 0 0 30px 0;
+    /* font-size: 24px;
+    font-weight: 700; */
+    color:  var(--primary-color); /* A vibrant accent color for the logo */
+    display: flex;
+    align-items: center;
+}
+
+.admin-logo-img {
+    height: 60px;
+    /* adjust size */
+    width: auto;
+}
+
 .sidebar h2 {
     text-align: left; /* Aligned logo/title to the left */
     margin: 0 0 30px 0;
     font-size: 24px;
     font-weight: 700;
-    color: #00bcd4; /* A vibrant accent color for the logo */
+    color:  var(--primary-color); /* A vibrant accent color for the logo */
     display: flex;
     align-items: center;
 }
@@ -69,7 +89,7 @@ body {
 }
 
 .sidebar a.nav-link.active {
-    background: #00bcd4; /* Use the accent color for active link */
+    background:  var(--primary-color); /* Use the accent color for active link */
     color: #121212; /* Darker text on vibrant background */
     font-weight: 600;
     box-shadow: 0 2px 5px rgba(0, 188, 212, 0.3);
@@ -148,7 +168,7 @@ header h1 {
 .card h2 {
     margin-top: 0;
     font-size: 20px;
-    color: #00bcd4; /* Accent color for card titles */
+    color:  var(--primary-color); /* Accent color for card titles */
     border-bottom: 1px solid #2c2c2c;
     padding-bottom: 10px;
     margin-bottom: 15px;
@@ -165,7 +185,7 @@ header h1 {
     display: inline-block;
     margin-top: 15px;
     padding: 10px 18px;
-    background: #00bcd4; /* Accent color for primary button */
+    background:  var(--primary-color); /* Accent color for primary button */
     color: #121212;
     text-decoration: none;
     border-radius: 8px;

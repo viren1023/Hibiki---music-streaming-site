@@ -449,7 +449,10 @@
   function addToPlaylistfromPlayer(e, inx) {
     e.stopPropagation()
 
-    if (!isUserLoggedIn()) {
+    let isUser = isUserLoggedIn()
+    console.log("isUser: ", isUser)
+
+    if (!isUser) {
       showLoginPrompt()
       return
     }
@@ -476,10 +479,10 @@
         }
 
         noPlaylists_forPlayer.style.display = "none"
-
         data.playlists.forEach((p) => {
+          console.log("playlist metadata: ", p)
           const li = document.createElement("li")
-          li.textContent = `${p.name} (${p.total_songs} songs)`
+          li.textContent = `${p.name} (${p.tracksLength} songs)`
 
           li.addEventListener("click", () => {
             playlistClickedfromPlayer(p.id, p.name)

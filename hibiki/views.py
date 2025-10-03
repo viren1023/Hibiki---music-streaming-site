@@ -61,7 +61,6 @@ def login_view(request):
                 response.set_cookie(
                     key="HIBIKI_USERNAME",
                     value=user.username,
-                    httponly=True,
                     secure=False,  # set True if HTTPS
                     max_age=86400
                 )
@@ -84,7 +83,6 @@ def register_view(request):
             response.set_cookie(
                 key="HIBIKI_USERNAME",
                 value=user.username,
-                httponly=True,
                 secure=False,   # set True if using HTTPS
                 max_age=86400
             )
@@ -100,7 +98,7 @@ def home(request):
     # fetch data from YTMusic
     result = home_metadata()
     result_key=list(result.keys())
-    username = request.COOKIES.get('HIBIKI_USERNAME', 'default username')
+    username = request.COOKIES.get('HIBIKI_USERNAME', 'Guest User')
     
     get_item_type = lambda item: (
         "song" if item.get("videoId") 
@@ -459,7 +457,7 @@ def show_playlist(request):
         try:
             user = User.objects.get(username=username)
             playlists = Playlist.objects.filter(user=user).order_by('-created_at')
-            playlists_data = [{"id": p.id, "name": p.title} for p in playlists]
+            playlists_data = [{"id": p.id, "name": p.title, "tracksLength": len(p.tracks)} for p in playlists]
         except User.DoesNotExist:
             pass
     return JsonResponse({"playlists": playlists_data})

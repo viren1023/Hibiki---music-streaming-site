@@ -1,10 +1,7 @@
-{% extends "Sidebar.html" %}
-{% load static %}
-
-{% block title %}My Playlist{% endblock %}
-
-{% block content %}
+{% extends "Sidebar.html" %} {% load static %} 
+{% block title %}My Playlist{% endblock %} {% block content %}
 <link rel="stylesheet" href="{% static 'hibiki/css/library.css' %}" />
+
 
 <header class="page-header" role="banner">
   <div class="page-title">
@@ -15,11 +12,20 @@
   </div>
 
   <div>
-    <button id="createPlaylistBtn" class="btn btn--primary"
-            aria-haspopup="dialog" aria-controls="createPlaylistModal">
+    <button
+      id="createPlaylistBtn"
+      class="btn btn--primary"
+      aria-haspopup="dialog"
+      aria-controls="createPlaylistModal"
+    >
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-        <path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="1.8"
-              stroke-linecap="round" stroke-linejoin="round"/>
+        <path
+          d="M12 5v14M5 12h14"
+          stroke="#fff"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
       Create new playlist
     </button>
@@ -28,81 +34,113 @@
 
 <div class="page-container" role="main">
   <div id="playlists" class="playlist-list">
-    {% if playlists %}
-      {% for p in playlists %}
-        <div class="playlist-card" data-id="{{ p.id }}">
-          <h4>{{ p.title|escape }}</h4>
-          <p><p>{{ p.tracks|length }} tracks</p>
+    {% if playlists %} {% for p in playlists %}
+    <div class="playlist-card" data-id="{{ p.id }}">
+      <h4>{{ p.title|escape }}</h4>
+      <p></p>
+      <p>{{ p.tracks|length }} tracks</p>
 
-          <!-- Three-dot menu -->
-          <button class="menu-btn" title="Options">⋮</button>
-          <div class="menu">
-            <form method="post" action="{% url 'delete_playlist' p.id %}">
-              {% csrf_token %}
-              <button type="submit" class="delete-btn"
-                      onclick="return confirm('Delete playlist &quot;{{ p.title }}&quot;?')">
-                Delete
-              </button>
-            </form>
-          </div>
-        </div>
-      {% endfor %}
-    {% else %}
-      <div style="color:#bdbdbd">No playlists yet — create one!</div>
+      <!-- Three-dot menu -->
+      <button class="menu-btn" title="Options">⋮</button>
+      <div class="menu">
+        <form method="post" action="{% url 'delete_playlist' p.id %}">
+          {% csrf_token %}
+          <button
+            type="submit"
+            class="delete-btn"
+            onclick="return confirm('Delete playlist &quot;{{ p.title }}&quot;?')"
+          >
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <div style="color: #bdbdbd">No playlists yet — create one!</div>
     {% endif %}
   </div>
 </div>
 
 <!-- Modal (Create Playlist) -->
-<div id="createPlaylistModal" class="modal-backdrop" role="dialog"
-     aria-modal="true" aria-hidden="true">
+<div
+  id="createPlaylistModal"
+  class="modal-backdrop"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+>
   <div class="modal" role="document">
     <h3>Create playlist</h3>
     <form method="post" action="{% url 'create_playlist' %}">
       {% csrf_token %}
       <div class="form-row">
         <label for="playlistName" class="sr-only">Playlist name</label>
-        <input name="name" id="playlistName" type="text"
-               placeholder="Playlist name (e.g. Chill vibes)" required />
+        <input
+          name="name"
+          id="playlistName"
+          type="text"
+          placeholder="Playlist name (e.g. Chill vibes)"
+          required
+        />
       </div>
       <div class="actions">
-        <button type="button" id="cancelCreate" class="btn btn--ghost">Cancel</button>
-        <button type="submit" id="confirmCreate" class="btn btn--primary">Create</button>
+        <button type="button" id="cancelCreate" class="btn btn--ghost">
+          Cancel
+        </button>
+        <button type="submit" id="confirmCreate" class="btn btn--primary">
+          Create
+        </button>
       </div>
     </form>
   </div>
 </div>
 
 <script>
-/* Toggle the 3-dot menu dropdowns */
-document.addEventListener('click', e => {
-  const btn = e.target.closest('.menu-btn');
-  if (btn) {
-    const menu = btn.nextElementSibling;
-    document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open'));
-    menu.classList.toggle('open');
-    return;
+  /* Toggle the 3-dot menu dropdowns */
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".menu-btn")
+    if (btn) {
+      const menu = btn.nextElementSibling
+      document
+        .querySelectorAll(".menu.open")
+        .forEach((m) => m.classList.remove("open"))
+      menu.classList.toggle("open")
+      return
+    }
+    if (!e.target.closest(".playlist-card")) {
+      document
+        .querySelectorAll(".menu.open")
+        .forEach((m) => m.classList.remove("open"))
+    }
+  })
+
+  document.querySelectorAll(".playlist-card").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      // Ignore clicks on menu button or menu itself
+      if (e.target.closest(".menu-btn") || e.target.closest(".menu")) return
+
+      const upid = card.dataset.id
+      console.log(upid)
+      // Redirect or call function
+      window.location.href = `/playlist?upid=${upid}`
+    })
+  })
+
+  /* Show/Hide the Create Playlist modal */
+  const modal = document.getElementById("createPlaylistModal")
+  document.getElementById("createPlaylistBtn").onclick = () => {
+
+    let isUser = isUserLoggedIn()
+    console.log("isUser: ", isUser)
+
+    if (!isUser) {
+      showLoginPrompt()
+      return
+    }
+
+    modal.classList.add("open")
   }
-  if (!e.target.closest('.playlist-card')) {
-    document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open'));
-  }
-});
-
-document.querySelectorAll('.playlist-card').forEach(card => {
-  card.addEventListener('click', (e) => {
-    // Ignore clicks on menu button or menu itself
-    if (e.target.closest('.menu-btn') || e.target.closest('.menu')) return;
-
-    const upid = card.dataset.id;
-    console.log(upid)
-    // Redirect or call function
-    window.location.href = `/playlist?upid=${upid}`;
-  });
-});
-
-/* Show/Hide the Create Playlist modal */
-const modal = document.getElementById('createPlaylistModal');
-document.getElementById('createPlaylistBtn').onclick = () => modal.classList.add('open');
-document.getElementById('cancelCreate').onclick = () => modal.classList.remove('open');
+  document.getElementById("cancelCreate").onclick = () =>
+    modal.classList.remove("open")
 </script>
 {% endblock %}

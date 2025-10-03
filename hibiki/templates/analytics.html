@@ -20,7 +20,7 @@
     color: #fff;
     margin-bottom: 30px;
     text-align: left; /* Align to left for a cleaner, professional look */
-    border-bottom: 2px solid #00bcd4; /* Use the accent color */
+    border-bottom: 2px solid  var(--primary-color); /* Use the accent color */
     padding-bottom: 10px;
 }
 
@@ -52,7 +52,7 @@
     margin-bottom: 15px;
     font-size: 1.3em;
     font-weight: 600;
-    color: #00bcd4; /* Accent color for card titles */
+    color:  var(--primary-color); /* Accent color for card titles */
     display: flex;
     align-items: center;
 }
@@ -115,11 +115,11 @@
             <p>{{ guest_plays }}</p>
         </div>
         
-        <div class="card" style="background: #2c2c2c;">
+        {% comment %} <div class="card" style="background: #2c2c2c;">
             <h3>📈 User Retention</h3>
             <p style="font-size: 1.5em; font-weight: 700; color: #ffeb3b;">72%</p>
             <p style="color: #aaa; font-size: 0.95em; font-weight: 400; margin-top: 10px;">Last Month: 68%</p>
-        </div>
+        </div> {% endcomment %}
     </div>
 </div>
 {% endblock %}
