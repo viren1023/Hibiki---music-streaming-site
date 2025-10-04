@@ -214,7 +214,7 @@ def search_page(request):
     else:
         # No query yet → show moods + charts
         mood_categories = ytmusic.get_mood_categories()
-        charts = ytmusic.get_charts(country="ZZ")
+        charts = ytmusic.get_charts()
         if(not charts):
             charts = ytmusic.get_charts()
             pass  # You can change country
@@ -552,14 +552,54 @@ def report_view(request):
     return render(request, "report.html")
 def admin_dashboard(request):
     return render(request, "admin_dashboard.html")
-
+from django.db.models import Q
+from django.utils.dateparse import parse_date
 def feedback_dashboard(request):
-    feedbacks = Feedback.objects.all().order_by("-created_at")
-    return render(request, "feedback_dashboard.html", {"feedbacks": feedbacks})
+    feedbacks = Feedback.objects.all().order_by('-created_at')
+
+    # --- Filtering Logic ---
+    rating = request.GET.get('rating')
+    search = request.GET.get('search')
+
+    if rating:
+        feedbacks = feedbacks.filter(rating=rating)
+
+    if search:
+        feedbacks = feedbacks.filter(
+            Q(name__icontains=search) |
+            Q(email__icontains=search) |
+            Q(message__icontains=search)
+        )
+
+    return render(request, "feedback_dashboard.html", {
+        "feedbacks": feedbacks
+    })
 
 def reports_dashboard(request):
-    reports = Report.objects.all().order_by("-created_at")
-    return render(request, "reports_dashboard.html", {"reports": reports})
+    reports = Report.objects.all().order_by('-created_at')
+
+    # --- Filters ---
+    search = request.GET.get('search')
+    from_date = request.GET.get('from_date')
+    to_date = request.GET.get('to_date')
+
+    if search:
+        reports = reports.filter(
+            Q(name__icontains=search) |
+            Q(email__icontains=search) |
+            Q(message__icontains=search) |
+            Q(url__icontains=search)
+        )
+
+    if from_date:
+        reports = reports.filter(created_at__date__gte=parse_date(from_date))
+
+    if to_date:
+        reports = reports.filter(created_at__date__lte=parse_date(to_date))
+
+    return render(request, "reports_dashboard.html", {
+        "reports": reports
+    })
 
 
 def logout_view(request):

@@ -1,124 +1,168 @@
 {% extends "admin_dashboard.html" %}
 {% block content %}
 <style>
-/* --- Feedback Container General Styling --- */
+/* --- General Body/Container Styling (Assuming dark base from admin_dashboard) --- */
 .feedback-container {
-    /* Layout: Center the container in the content area (main) */
-    {% comment %} max-: 1200px; {% endcomment %}
+    padding: 20px;
+    background-color: #111; /* Very dark background for the specific container */
+    border-radius: 8px;
+    color: #eee;
+    margin-left: 263px;
+    min-height: 80vh; /* Ensure container takes up some space */
 
-    /* Margin Breakdown: top | right | bottom | left */
-    /* 30px (top) | auto (center) | 30px (bottom) | 280px (260px sidebar + 20px padding) */
-    margin: 30px 30px 30px 290px;
-    
-    /* Appearance: Matching the admin theme */
-    background: #1e1e1e;
-    padding: 30px;
-    border-radius: 16px;
-    color: #f0f0f0; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    border: 1px solid #2c2c2c;
+  }
+
+h2 {
+    color: #9370DB; /* Medium Purple for the main header */
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
 }
 
-.feedback-container h2 {
-    margin-bottom: 25px;
-    font-size: 26px; 
-    font-weight: 700;
+/* --- Filter Form Styling --- */
+.filter-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+    padding: 10px;
+    background-color: #1a1a1a;
+    border-radius: 6px;
+    border: 1px solid #333;
+}
+
+.filter-form label {
+    font-size: 14px;
+    color: #ccc;
+    font-weight: bold;
+}
+
+.filter-form select, .filter-form input[type="text"] {
+    background: #2a2a2a; /* Slightly lighter dark for inputs */
+    border: 1px solid #444;
+    padding: 8px 10px;
+    border-radius: 6px;
     color: #fff;
-    /* Use accent color for visual separation */
-    border-bottom: 2px solid  var(--primary-color); 
-    padding-bottom: 10px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.filter-form select:focus, .filter-form input[type="text"]:focus {
+    border-color: #9370DB; /* Purple focus */
+    outline: none;
+}
+
+.filter-form button {
+    background: #9370DB; /* Medium Purple for primary action button */
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.filter-form button:hover {
+    background: #7B68EE; /* Darker/Royal Purple on hover */
+}
+
+.filter-form a {
+    color: #aaa;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 5px; /* Added padding for better hit area */
+    transition: color 0.3s;
+}
+
+.filter-form a:hover {
+    color: #9370DB; /* Purple on hover */
 }
 
 /* --- Table Styling --- */
 table {
     width: 100%;
-    /* Use separate/spacing for smooth corners on the table itself */
-    border-collapse: separate; 
-    border-spacing: 0; 
-    font-size: 15px; 
-    overflow: hidden; 
-    border-radius: 12px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures border-radius applies to corners */
 }
 
-thead {
-    background: #282828;
-}
-
-th, td {
-    padding: 15px 18px; /* Increased padding */
+thead th {
+    background-color: #222; /* Darker header background */
+    color: #9370DB; /* Purple text for headers */
     text-align: left;
-    vertical-align: middle;
-}
-
-/* Cleaner border lines */
-th {
-    border-bottom: 1px solid #3a3a3a;
-    font-weight: 600;
-    color: #aaa; 
+    padding: 12px 15px;
     font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-}
-td {
-    border-bottom: 1px solid #2c2c2c;
+    border-bottom: 2px solid #444;
 }
 
-/* Remove bottom border from the last row */
-tr:last-child td {
-    border-bottom: none;
+tbody tr {
+    border-bottom: 1px solid #333; /* Subtle separator */
+    transition: background-color 0.3s;
 }
 
-/* Hover effect on rows */
-tr:hover {
-    background: #262626;
-    transition: background 0.2s ease;
+tbody tr:nth-child(even) {
+    background-color: #1e1e1e; /* Slight striping for readability */
 }
 
-/* --- Rating (Stars) Styling --- */
-.rating-stars {
-    /* Style for the td containing the stars */
-    font-size: 18px; /* Make stars slightly larger */
-    letter-spacing: 3px; /* Space out the stars */
-    line-height: 1; /* Ensure stars align nicely */
+tbody tr:hover {
+    background-color: #2a2a2a; /* Highlight row on hover */
 }
 
-/* Target the filled star (⭐) */
-.rating-stars .filled-star {
-    color: #ffd700; /* Gold color for filled stars */
+tbody td {
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #ccc;
+    vertical-align: top;
 }
 
-/* Target the empty star (☆) */
-.rating-stars .empty-star {
-    color: #555; /* Darker gray for empty stars */
-}
-
-/* Table layout adjustments for message viewing */
-table tbody tr td:nth-child(4) { /* Target the 'Message' column (4th td) */
-    max-width: 400px;
-    word-wrap: break-word; 
-}
-
-/* Empty Row Styling */
 .empty-row {
     text-align: center;
-    padding: 30px !important;
-    color: #777;
+    padding: 20px !important;
+    color: #888;
     font-style: italic;
-    background: #202020;
-    font-size: 16px;
-    border-bottom: none !important;
 }
 
-/* If you need to override the outer .main margin for this specific container
-   (Though setting 'margin: 30px auto' within the .main should handle centering),
-   you can use: 
-   .feedback-container { margin: 30px auto 30px 280px; } 
-   if the .main container does not have padding. I'll stick to the simpler 'auto' for centering. 
-*/
+/* --- Rating Stars Styling --- */
+.rating-stars {
+    white-space: nowrap; /* Keep stars on a single line */
+}
+
+.filled-star {
+    color: #FFD700; /* Gold/Yellow for filled stars */
+    font-size: 18px;
+}
+
+.empty-star {
+    color: #444; /* Dark gray for empty stars */
+    font-size: 18px;
+}
 </style>
 
 <div class="feedback-container">
     <h2>💬 Feedback Dashboard</h2>
+
+    <form method="get" class="filter-form">
+        <label for="rating">Rating:</label>
+        <select name="rating" id="rating">
+            <option value="">All</option>
+            {% for i in "12345"|make_list %}
+                <option value="{{ i }}" {% if request.GET.rating == i %}selected{% endif %}>
+                    {{ i }} Stars
+                </option>
+            {% endfor %}
+        </select>
+
+        <label for="search">Search:</label>
+        <input type="text" name="search" id="search" placeholder="Name / Email"
+               value="{{ request.GET.search }}">
+
+        <button type="submit">Filter</button>
+        <a href="{% url 'feedback_dashboard' %}">Reset</a>
+    </form>
+
     <table>
         <thead>
             <tr>
@@ -155,82 +199,3 @@ table tbody tr td:nth-child(4) { /* Target the 'Message' column (4th td) */
     </table>
 </div>
 {% endblock %}
-
-
-
-{% comment %} {% extends "admin_dashboard.html" %}
-{% block content %}
-<div class="feedback-container">
-  <h2>💬 Feedback Dashboard</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Rating</th>
-        <th>Message</th>
-        <th>Submitted</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for fb in feedbacks %}
-      <tr>
-        <td>{{ fb.name }}</td>
-        <td>{{ fb.email }}</td>
-        <td>
-          {% for i in "12345"|make_list %}
-            {% if forloop.counter <= fb.rating %}
-              ⭐
-            {% else %}
-              ☆
-            {% endif %}
-          {% endfor %}
-        </td>
-        <td>{{ fb.message }}</td>
-        <td>{{ fb.created_at|date:"M d, Y H:i" }}</td>
-      </tr>
-      {% empty %}
-      <tr>
-        <td colspan="5" class="empty-row">No feedback yet</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
-
-<style>
-  .feedback-container {
-    background: #181818;
-    padding: 20px;
-    border-radius: 12px;
-    color: #fff;
-    margin-left: 240px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.6);
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  th, td {
-    padding: 12px;
-    border-bottom: 1px solid #333;
-    text-align: left;
-    vertical-align: top;
-  }
-  th {
-    color: #aaa;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  tr:hover {
-    background: #262626;
-  }
-  .empty-row {
-    text-align: center;
-    padding: 20px;
-    color: #777;
-  }
-</style>
-{% endblock %} {% endcomment %}

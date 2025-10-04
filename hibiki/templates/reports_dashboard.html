@@ -1,119 +1,178 @@
-
 {% extends "admin_dashboard.html" %}
 {% block content %}
 <style>
-/* --- Reports Container General Styling --- */
+/* --- Global & Container Styling --- */
+/* Assuming the admin_dashboard provides a dark background. We refine the container. */
 .reports-container {
-    /* Centering and maximum width for readability */
-    {% comment %} max-width: 1200px; /* Slightly wider for better table viewing */ {% endcomment %}
-    /* Updated margin for centering in the main content area */
-    margin: 30px 30px 30px 290px;
-    background: #1e1e1e; /* Match sidebar/card background */
-    padding: 30px; /* Increased padding */
-    border-radius: 16px; /* Smoother corners */
-    color: #f0f0f0; /* Light text color */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Deeper, smoother shadow */
-    border: 1px solid #2c2c2c; /* Subtle border */
+    padding: 30px;
+    background-color: #1a1a1a; /* Dark background for the main panel */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Subtle lift */
+    color: #e0e0e0;
+    margin-left: 286px;
 }
 
-.reports-container h2 {
+header h1 {
+    color: #9370DB; /* A clean, tech-y green for the header */
     margin-bottom: 25px;
-    font-size: 26px; /* Slightly larger title */
-    font-weight: 700;
-    color: #fff;
-    border-bottom: 2px solid  var(--primary-color); /* Accent color under title */
     padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+    font-size: 1.8em;
+}
+
+/* --- Filter Form Styling --- */
+.filter-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #222; /* Darker bar for the filter section */
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.filter-form label {
+    font-size: 14px;
+    color: #a0a0a0;
+    font-weight: 500;
+}
+
+.filter-form input[type="text"], 
+.filter-form input[type="date"] {
+    background: #333; /* Slightly lighter input background for contrast */
+    border: 1px solid #444;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    min-width: 150px;
+}
+
+.filter-form input:focus {
+    border-color: #9370DB;; /* Green highlight on focus */
+    outline: none;
+}
+
+.filter-form button {
+    background:#9370DB;; /* Primary action button in green */
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+.filter-form button:hover {
+    background: #9370DB;; /* Darker green on hover */
+}
+.filter-form button:active {
+    transform: scale(0.98);
+}
+
+.filter-form a {
+    color: #a0a0a0; 
+    font-size: 13px; 
+    text-decoration: none;
+    margin-left: 5px;
+    padding: 5px;
+    transition: color 0.3s;
+}
+.filter-form a:hover {
+    color: #9370DB; /* Green underline on hover */
+    text-decoration: underline;
 }
 
 /* --- Table Styling --- */
 table {
     width: 100%;
-    border-collapse: separate; /* Use separate for border-radius on cells (in real CSS) */
-    border-spacing: 0; /* Important for separate model */
-    color: #f0f0f0;
-    font-size: 15px; /* Slightly larger text */
-    overflow: hidden; /* Helps contain the border-radius on the table */
-    border-radius: 12px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #1a1a1a;
 }
 
-thead {
-    background: #282828;
-}
-
-th, td {
-    padding: 15px 18px; /* Increased internal padding */
+thead th {
+    background-color: #2a2a2a; /* Header background for table */
+    color: #e0e0e0;
     text-align: left;
-    vertical-align: middle;
-    /* Remove individual cell borders for a cleaner look, relying on hover/zebra */
-}
-
-/* Add a clean divider line only below the header and between rows */
-th {
-    border-bottom: 1px solid #3a3a3a;
-}
-td {
-    border-bottom: 1px solid #2c2c2c;
-}
-
-/* Last row cells: remove bottom border */
-tr:last-child td {
-    border-bottom: none;
-}
-
-
-th {
+    padding: 12px 15px;
+    font-size: 15px;
+    border-bottom: 2px solid #9370DB; /* Highlight header with purple */
     font-weight: 600;
-    color: #aaa; /* Lighter text for headers */
+}
+
+tbody tr {
+    border-bottom: 1px solid #333; /* Subtle row separator */
+    transition: background-color 0.3s;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1e1e1e; /* Slight striping for readability */
+}
+
+tbody tr:hover {
+    background-color: #2a2a2a; /* Highlight row on hover */
+}
+
+tbody td {
+    padding: 12px 15px;
     font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
+    color: #ccc;
+    vertical-align: top;
+    line-height: 1.4;
 }
 
-/* Hover effect on rows */
-tr:hover {
-    background: #262626;
-    transition: background 0.2s ease;
-}
-
-/* URL Link Styling */
-.url {
-    color:  var(--primary-color); /* Use the main accent color */
+/* URL link style */
+td a.url {
+    color: #00BFFF; /* A bright blue for URLs */
     text-decoration: none;
-    transition: color 0.2s ease;
-}
-.url:hover {
-    color: #4da6ff; /* A different highlight on hover */
-    text-decoration: underline;
+    word-break: break-all; /* Ensures long URLs don't break the layout */
 }
 
-/* N/A styling for empty cells */
-.reports-container span[style*="#555"] {
-    color: #777 !important;
+td a.url:hover {
+    text-decoration: underline;
+    color: #00FFFF; /* Lighter blue on hover */
+}
+
+/* N/A style */
+td span {
+    color: #555;
     font-style: italic;
 }
 
-/* Empty Row Styling */
 .empty-row {
     text-align: center;
     padding: 30px !important;
-    color: #777;
+    color: #888;
     font-style: italic;
-    background: #202020;
-    font-size: 16px;
-    border-bottom: none !important; /* Ensure no line under empty row */
+    background-color: #222;
 }
 
-/* Table layout adjustments for better message viewing */
-table tbody tr td:nth-child(3) { /* Target the 'Message' column */
-    max-width: 350px;
-    word-wrap: break-word; /* Ensure long messages wrap */
-}
 </style>
 
 <div class="reports-container">
     <header>
         <h1>📋 Bug Reports Dashboard</h1>
     </header>
+
+    <form method="get" class="filter-form">
+        <label for="search">Search:</label>
+        <input type="text" name="search" id="search" placeholder="Name / Email / Message / URL"
+               value="{{ request.GET.search }}">
+
+        <label for="from_date">From:</label>
+        <input type="date" name="from_date" id="from_date" value="{{ request.GET.from_date }}">
+
+        <label for="to_date">To:</label>
+        <input type="date" name="to_date" id="to_date" value="{{ request.GET.to_date }}">
+
+        <button type="submit">Filter</button>
+        <a href="{% url 'reports_dashboard' %}">Reset</a>
+    </form>
+
     <table>
         <thead>
             <tr>
@@ -134,7 +193,7 @@ table tbody tr td:nth-child(3) { /* Target the 'Message' column */
                     {% if report.url %}
                         <a href="{{ report.url }}" target="_blank" class="url">{{ report.url }}</a>
                     {% else %}
-                        <span style="color: #555;">N/A</span>
+                        <span>N/A</span>
                     {% endif %}
                 </td>
                 <td>{{ report.created_at|date:"M d, Y" }}</td>
@@ -148,111 +207,3 @@ table tbody tr td:nth-child(3) { /* Target the 'Message' column */
     </table>
 </div>
 {% endblock %}
-
-
-{% comment %} {% extends "admin_dashboard.html" %}
-{% block content %}
-<style>
-  .reports-container {
-    max-width: 1000px;
-    margin: 30px auto;
-    background: #181818;
-    padding: 20px;
-    border-radius: 12px;
-    color: #fff;
-    box-shadow: 0 0 12px rgba(0,0,0,0.6);
-  }
-
-  .reports-container h2 {
-    margin-bottom: 20px;
-    font-size: 22px;
-    font-weight: 600;
-    color: #fff;
-    border-bottom: 1px solid #333;
-    padding-bottom: 10px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    color: #fff;
-    font-size: 14px;
-  }
-
-  thead {
-    background: #202020;
-  }
-
-  th, td {
-    padding: 12px;
-    border-bottom: 1px solid #333;
-    text-align: left;
-    vertical-align: top;
-  }
-
-  th {
-    font-weight: 600;
-    color: #aaa;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  tr:hover {
-    background: #262626;
-  }
-
-  .url {
-    color: #4da6ff;
-    text-decoration: none;
-  }
-  .url:hover {
-    text-decoration: underline;
-  }
-
-  .empty-row {
-    text-align: center;
-    padding: 20px;
-    color: #777;
-    font-style: italic;
-  }
-</style>
-
-<div class="reports-container">
-  <h2>📋 Bug Reports Dashboard</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Message</th>
-        <th>Page/URL</th>
-        <th>Submitted</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for report in reports %}
-      <tr>
-        <td>{{ report.name }}</td>
-        <td>{{ report.email }}</td>
-        <td>{{ report.message }}</td>
-        <td>
-          {% if report.url %}
-            <a href="{{ report.url }}" target="_blank" class="url">{{ report.url }}</a>
-          {% else %}
-            <span style="color: #555;">N/A</span>
-          {% endif %}
-        </td>
-        <td>{{ report.created_at|date:"M d, Y H:i" }}</td>
-      </tr>
-      {% empty %}
-      <tr>
-        <td colspan="5" class="empty-row">No reports yet</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
-{% endblock %} {% endcomment %}
-
-
